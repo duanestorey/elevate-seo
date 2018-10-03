@@ -1,1 +1,0 @@
-<?php if ( $this->setting_tooltip ) { ?><span class="tooltip" data-ot="<?php echo $this->setting_tooltip; ?>" data-ot-tip-joint="bottom left"><i>?</i></span><?php } ?>

@@ -1,1 +1,0 @@
-function elevateAdminAjax(e,a,t){var n={action:"elevate_ajax",elevate_action:e,elevate_nonce:ElevateData.elevate_nonce};for(var o in a)a.hasOwnProperty(o)&&(n[o]=escape(a[o]));jQuery.post(ElevateData.admin_ajax,n,function(e){t(e)})}
