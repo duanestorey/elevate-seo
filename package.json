@@ -6,13 +6,18 @@
   "directories": {
     "lib": "lib"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/duanestorey/elevate-seo.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "gulp": "github:gulpjs/gulp#4.0",
+    "ajv": "^6.5.4",
+    "gulp": "^4.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-concat-css": "^3.1.0",
     "gulp-debug": "^4.0.0",
@@ -25,6 +30,8 @@
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.1",
+    "lodash": "^4.17.11",
+    "tunnel-agent": "^0.6.0",
     "unix-timestamp": "^0.2.0"
   },
   "dependencies": {
