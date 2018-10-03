@@ -1,10 +1,14 @@
 # Elevate SEO for WordPress
 Welcome to the official GIT repository for the Elevate SEO and performance monitoring plugin for WordPress.
 
+There are two branches:
+master - represents unstable code, typically the current prep work for the next version
+release - represents stable code, internally deployed to many test servers
+
 ## Official website
 You can read more about Elevate, and also find detailed usage and installation instructions, over at https://elevatewp.io
 
 ## WordPress repository
-Elevate SEO is hosted in the official WordPress.org repository at https://wordpress.org/plugins/elevate-seo/
+Elevate SEO is also hosted in the official WordPress.org repository at https://wordpress.org/plugins/elevate-seo/. For stable releases, that repository will always trump this one.  But for state-of-the-art, this repository wins. 
 
 
