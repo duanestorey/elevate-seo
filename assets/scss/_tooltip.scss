@@ -1,0 +1,31 @@
+.elevate-setting,
+.google-services-config,
+.side-box,
+.elevate-title-meta {
+	.tooltip {
+		display: inline-block;
+		margin-left: 3px;
+		margin-top: 1px;
+		font-size: 8pt;
+		width: 8px;
+		height: 8px;
+		color: #aaa;
+		background: #ddd;
+		padding: 5px;
+		line-height: 8px;
+		text-align: center;
+		border-radius: 8px;
+		font-weight: bold;
+		vertical-align: middle;
+		cursor: pointer;
+		font-family: sans-serif;
+	}
+
+	.tooltip i::hover {
+		cursor: pointer;
+	}
+
+	.tooltip i {
+		font-style: normal;
+	}		
+}

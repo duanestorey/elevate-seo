@@ -1,0 +1,1973 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2018-09-29 13:09+0200\n"
+"PO-Revision-Date: 2018-09-29 13:15+0200\n"
+"Last-Translator: Duane Storey <duanestorey@gmail.com>\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.1.1\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: admin/meta/side.php:3 src/elevate-class.php:1541
+#, fuzzy
+msgid "Not enough content to analyze - continue writing."
+msgstr "Pas assez de contenu à analyser-continuer à écrire."
+
+#: admin/meta/side.php:4 src/elevate-class.php:1542
+#, fuzzy
+msgid "Your content looks good from a search and social media perspective."
+msgstr ""
+"Votre contenu semble bon dans une perspective de recherche et de médias "
+"sociaux."
+
+#: admin/meta/side.php:5 src/elevate-class.php:1543
+#, fuzzy
+msgid ""
+"You may want to make a few search adjustments before publishing or saving."
+msgstr ""
+"Vous souhaiterez peut-être effectuer quelques ajustements de recherche avant "
+"de publier ou d'enregistrer."
+
+#: admin/meta/side.php:6 src/elevate-class.php:1544
+#, fuzzy
+msgid "You have a few serious search issues that need addressing."
+msgstr ""
+"Vous avez quelques problèmes de recherche sérieuse qui ont besoin "
+"d'adressage."
+
+#: admin/meta/side.php:10 admin/meta/titles.php:61 src/elevate-class.php:1545
+#, fuzzy
+msgid "Web Preview"
+msgstr "Aperçu Web"
+
+#: admin/meta/side.php:11 admin/meta/side.php:15 src/elevate-class.php:1546
+msgid "Learn More"
+msgstr "En savoir plus"
+
+#: admin/meta/side.php:17
+msgid "Content Analysis"
+msgstr "Analyse de Contenu"
+
+#: admin/meta/side.php:24
+#, fuzzy
+msgid "Congratulations, everything looks great."
+msgstr "Félicitations, tout a l'air Super."
+
+#: admin/meta/side.php:26
+#, fuzzy, php-format
+msgid ""
+"Your Search Title is a bit long - consider shortening it to %d characters or "
+"less so it displays properly in search engines."
+msgstr ""
+"Votre titre de recherche est un peu long-envisager de le raccourcir à% d "
+"caractères ou moins si elle s'affiche correctement dans les moteurs de "
+"recherche."
+
+#: admin/meta/side.php:28
+#, fuzzy, php-format
+msgid ""
+"Your Search Title is a bit short - consider lengthening it to %d characters "
+"or more so it displays properly in search engines."
+msgstr ""
+"Votre titre de recherche est un peu court-envisagez de l'allonger à% d "
+"caractères ou plus afin qu'il s'affiche correctement dans les moteurs de "
+"recherche."
+
+#: admin/meta/side.php:30
+#, fuzzy, php-format
+msgid ""
+"Your Search Description is a bit long - consider shortening it to %d "
+"characters or less so it displays properly in search engines."
+msgstr ""
+"Votre description de recherche est un peu long-considérez le raccourcir à% d "
+"caractères ou moins de sorte qu'il s'affiche correctement dans les moteurs "
+"de recherche."
+
+#: admin/meta/side.php:32
+#, fuzzy, php-format
+msgid ""
+"Your Search Description is too short - consider lengthening it to between %d "
+"and %d characters so it displays properly in search engines."
+msgstr ""
+"Votre description de recherche est trop courte-envisagez de l'allonger à "
+"entre% d et% d caractères afin qu'il s'affiche correctement dans les moteurs "
+"de recherche."
+
+#: admin/meta/side.php:34
+#, fuzzy
+msgid ""
+"You have not set a title for your content; consider adding a keyword-rich, "
+"descriptive title to help rank higher in search engines."
+msgstr ""
+"Vous n'avez pas défini de titre pour votre contenu; envisager d'ajouter un "
+"mot-clé-riche, titre descriptif pour aider à classer plus haut dans les "
+"moteurs de recherche."
+
+#: admin/meta/side.php:39 admin/meta/titles.php:135 admin/pages/wizard.php:198
+msgid "Close"
+msgstr "Fermer"
+
+#: admin/meta/titles.php:3
+#, fuzzy
+msgid "Elevate Search Information"
+msgstr "Élever les informations de recherche"
+
+#: admin/meta/titles.php:6
+#, fuzzy, php-format
+msgid ""
+"You can configure the title and description for this page via the %sElevate "
+"SEO settings page%s."
+msgstr ""
+"Vous pouvez configurer le titre et la description de cette page via la page "
+"%s SEO Settings %sElevate."
+
+#: admin/meta/titles.php:8
+msgid "Search Title"
+msgstr "Rechercher dans le Titre"
+
+#: admin/meta/titles.php:14
+msgid "Search Description"
+msgstr "Description de recherche"
+
+#: admin/meta/titles.php:16
+#, fuzzy
+msgid "Enter a one or two sentence summary of this content for search engines."
+msgstr ""
+"Entrez un résumé d'une ou deux phrases de ce contenu pour les moteurs de "
+"recherche."
+
+#: admin/meta/titles.php:29
+msgid "Canonical URL"
+msgstr "URL Canonique"
+
+#: admin/meta/titles.php:29
+#, fuzzy
+msgid "If this post came from another site, put the original URL here."
+msgstr "Si ce message est venu d'un autre site, mettez l'URL d'origine ici."
+
+#: admin/meta/titles.php:35 admin/pages/general.php:6 admin/pages/wizard.php:22
+msgid "Language"
+msgstr "Langue"
+
+#: admin/meta/titles.php:42
+#, fuzzy
+msgid "Select the language for this content."
+msgstr "Sélectionnez la langue de ce contenu."
+
+#: admin/meta/titles.php:48
+#, fuzzy
+msgid "Index status"
+msgstr "État de l'index"
+
+#: admin/meta/titles.php:55
+#, fuzzy
+msgid "Select the indexing behaviour for this content."
+msgstr "Sélectionnez le comportement d'indexation de ce contenu."
+
+#: admin/meta/titles.php:72 admin/meta/titles.php:82 admin/meta/titles.php:101
+#: admin/meta/titles.php:117
+#, fuzzy, php-format
+msgid "This is how your content will look on %s."
+msgstr "C'est ainsi que votre contenu se penchera sur %s."
+
+#: admin/pages/advanced.php:3 src/elevate-class.php:2610
+msgid "Advanced"
+msgstr "Avancé"
+
+#: admin/pages/advanced.php:5
+msgid "Templates"
+msgstr "Modèles"
+
+#: admin/pages/advanced.php:5
+#, fuzzy
+msgid "Configure how title tags are generated in each section of your site."
+msgstr ""
+"Configurez comment les balises de titre sont générées dans chaque section de "
+"votre site."
+
+#: admin/pages/advanced.php:8
+msgid "Post"
+msgstr "Article"
+
+#: admin/pages/advanced.php:9
+msgid "Page"
+msgstr "Page"
+
+#: admin/pages/advanced.php:10
+msgid "Archive"
+msgstr "Archive"
+
+#: admin/pages/advanced.php:11
+msgid "Media"
+msgstr "Média"
+
+#: admin/pages/advanced.php:12
+msgid "Authors"
+msgstr "Auteurs"
+
+#: admin/pages/advanced.php:13
+msgid "Taxonomies"
+msgstr "Taxonomies"
+
+#: admin/pages/advanced.php:14
+#, fuzzy
+msgid "404 (Page not found)"
+msgstr "404 (page introuvable)"
+
+#: admin/pages/advanced.php:15 admin/pages/advanced.php:33
+msgid "Search results"
+msgstr "Résultats de recherche"
+
+#: admin/pages/advanced.php:16
+msgid "Title separator"
+msgstr "Séparateur de titre"
+
+#: admin/pages/advanced.php:20
+msgid "Index Settings"
+msgstr "Paramètres d'index"
+
+#: admin/pages/advanced.php:20
+#, fuzzy
+msgid ""
+"Configure how search engines will behave when visiting sections of this site."
+msgstr ""
+"Configurez comment les moteurs de recherche se comporteront lors de la "
+"visite des sections de ce site."
+
+#: admin/pages/advanced.php:21
+msgid "Default Status"
+msgstr "Statut par défaut"
+
+#: admin/pages/advanced.php:24 src/elevate-class.php:1825
+msgid "Home"
+msgstr "Accueil"
+
+#: admin/pages/advanced.php:25
+msgid "Posts"
+msgstr "Articles"
+
+#: admin/pages/advanced.php:26
+msgid "Pages"
+msgstr "Pages"
+
+#: admin/pages/advanced.php:27
+msgid "Author Pages"
+msgstr "Pages de l'auteur"
+
+#: admin/pages/advanced.php:28
+#, fuzzy
+msgid "Media Attachments"
+msgstr "Pièces jointes de média"
+
+#: admin/pages/advanced.php:29
+msgid "Category Pages"
+msgstr "Catégorie"
+
+#: admin/pages/advanced.php:30
+msgid "Tag Pages"
+msgstr "Pages Tag"
+
+#: admin/pages/advanced.php:31
+#, fuzzy
+msgid "Taxonomy pages"
+msgstr "Pages de taxonomie"
+
+#: admin/pages/advanced.php:32
+msgid "Archive pages"
+msgstr "Page d’archives"
+
+#: admin/pages/advanced.php:34
+#, fuzzy
+msgid "Not found (404) pages"
+msgstr "Introuvable (404) pages"
+
+#: admin/pages/advanced.php:38
+msgid "Extras"
+msgstr "Extras"
+
+#: admin/pages/advanced.php:38
+#, fuzzy
+msgid ""
+"You can restart the initial configuration wizard or reset all settings here"
+msgstr ""
+"Vous pouvez redémarrer l'Assistant Configuration initiale ou réinitialiser "
+"tous les paramètres ici"
+
+#: admin/pages/advanced.php:39
+#, fuzzy
+msgid "Configuration helper"
+msgstr "Assistant de configuration"
+
+#: admin/pages/advanced.php:39
+msgid "Launch"
+msgstr "Lancer"
+
+#: admin/pages/advanced.php:40
+msgid "Reset settings"
+msgstr "Réinitialiser les paramètres"
+
+#: admin/pages/advanced.php:40
+#, fuzzy
+msgid ""
+"This will reset Elevate to its initial default settings and remove the "
+"sitemap"
+msgstr ""
+"Cette option sera réinitialisée à ses paramètres par défaut initiaux et "
+"supprimera le plan Sitemap"
+
+#: admin/pages/advanced.php:40
+msgid "Reset"
+msgstr "Réinitialiser"
+
+#: admin/pages/advanced.php:43
+msgid "Debugging"
+msgstr "Débogage"
+
+#: admin/pages/advanced.php:43
+#, fuzzy
+msgid "For when your website is feeling blue"
+msgstr "Pour quand votre site Web se sent bleu"
+
+#: admin/pages/advanced.php:45
+#, fuzzy
+msgid "Enabled debug log"
+msgstr "Journal de débogage activé"
+
+#: admin/pages/advanced.php:45
+#, fuzzy
+msgid ""
+"Turning this option on will cause a debug log to be written to the server to "
+"help diagnose a problem."
+msgstr ""
+"L'activation de cette option entraîne l'écriture d'un journal de débogage "
+"sur le serveur afin d'aider à diagnostiquer un problème."
+
+#: admin/pages/dashboard.php:3
+#, fuzzy
+msgid "Elevate SEO - Dashboard"
+msgstr "Élévation SEO-tableau de bord"
+
+#: admin/pages/dashboard.php:4 src/settings-page.php:17
+#, fuzzy, php-format
+msgid "lovingly maintained by %sDuane Storey%s &amp; %sElevateWP.io%s"
+msgstr ""
+"affectueusement maintenu par %sDuane Storey %s &amp; %sElevateWP. IO %s"
+
+#: admin/pages/dashboard.php:91 admin/pages/dashboard.php:98
+#: admin/pages/dashboard.php:137 admin/pages/dashboard.php:150
+#, fuzzy
+msgid "Crawl Errors"
+msgstr "Erreurs d'analyse"
+
+#: admin/pages/dashboard.php:96 admin/pages/dashboard.php:124
+#: admin/pages/dashboard.php:147 admin/pages/dashboard.php:186
+#, fuzzy
+msgid "Current disabled: requires Google OAuth authentication"
+msgstr "Désactivé actuel: nécessite l'authentification Google OAuth"
+
+#: admin/pages/dashboard.php:106
+#, fuzzy
+msgid "Desktop Speed"
+msgstr "Vitesse de bureau"
+
+#: admin/pages/dashboard.php:112
+#, fuzzy
+msgid "Mobile Speed"
+msgstr "Vitesse mobile"
+
+#: admin/pages/dashboard.php:119 admin/pages/dashboard.php:126
+msgid "Search Clicks"
+msgstr "Rechercher des clics"
+
+#: admin/pages/dashboard.php:140
+#, fuzzy
+msgid "Not Found:"
+msgstr "Introuvable:"
+
+#: admin/pages/dashboard.php:141
+#, fuzzy
+msgid "Not Authorized:"
+msgstr "Non autorisé:"
+
+#: admin/pages/dashboard.php:142
+#, fuzzy
+msgid "Server Error:"
+msgstr "Erreur du serveur:"
+
+#: admin/pages/dashboard.php:154 admin/pages/dashboard.php:193
+#, fuzzy
+msgid "Requires Google OAuth Authentication"
+msgstr "Nécessite l'authentification Google OAuth"
+
+#: admin/pages/dashboard.php:163
+msgid "Site Speed"
+msgstr "Vitesse du site"
+
+#: admin/pages/dashboard.php:166
+#, fuzzy
+msgid "Average Speed:"
+msgstr "Vitesse moyenne:"
+
+#: admin/pages/dashboard.php:167
+#, fuzzy
+msgid "Desktop Size:"
+msgstr "Taille du Bureau:"
+
+#: admin/pages/dashboard.php:168
+#, fuzzy
+msgid "Mobile Size:"
+msgstr "Taille mobile:"
+
+#: admin/pages/dashboard.php:176 admin/pages/dashboard.php:189
+#, fuzzy
+msgid "Search Statistics"
+msgstr "Statistiques de recherche"
+
+#: admin/pages/dashboard.php:179
+msgid "Impressions:"
+msgstr "Affichages:"
+
+#: admin/pages/dashboard.php:180
+#, fuzzy
+msgid "Click Rate:"
+msgstr "Cliquez sur taux:"
+
+#: admin/pages/dashboard.php:181
+#, fuzzy
+msgid "Average Position:"
+msgstr "Position moyenne:"
+
+#: admin/pages/dashboard.php:201
+#, fuzzy
+msgid "Google Status"
+msgstr "Statut Google"
+
+#: admin/pages/dashboard.php:204
+#, fuzzy
+msgid "OAuth Status:"
+msgstr "OAuth statut:"
+
+#: admin/pages/dashboard.php:207
+msgid "Authenticated"
+msgstr "Authentifié"
+
+#: admin/pages/dashboard.php:209
+#, fuzzy
+msgid "Not Authenticated"
+msgstr "Non authentifié"
+
+#: admin/pages/dashboard.php:213
+#, fuzzy
+msgid "Analytics:"
+msgstr "Analytics:"
+
+#: admin/pages/dashboard.php:214
+msgid "Tracking"
+msgstr "Suivi"
+
+#: admin/pages/dashboard.php:214
+#, fuzzy
+msgid "Not Tracking"
+msgstr "Ne pas suivre"
+
+#: admin/pages/dashboard.php:217
+#, fuzzy
+msgid "Site Verification:"
+msgstr "Vérification du site:"
+
+#: admin/pages/dashboard.php:217
+msgid "Verified"
+msgstr "Vérifié"
+
+#: admin/pages/dashboard.php:217
+msgid "Not Verified"
+msgstr "Non vérifié"
+
+#: admin/pages/dashboard.php:222
+msgid "Plugin Info"
+msgstr "Informations de l'extension"
+
+#: admin/pages/dashboard.php:225
+msgid "Version:"
+msgstr "Version:"
+
+#: admin/pages/dashboard.php:226 admin/pages/dashboard.php:236
+msgid "Last Modified:"
+msgstr "Dernière modification :"
+
+#: admin/pages/dashboard.php:227
+msgid "Release Notes:"
+msgstr "Notes de version:"
+
+#: admin/pages/dashboard.php:227
+msgid "View"
+msgstr "Voir"
+
+#: admin/pages/dashboard.php:232
+#, fuzzy
+msgid "Sitemap Info"
+msgstr "Info sitemap"
+
+#: admin/pages/dashboard.php:235
+msgid "Status:"
+msgstr "Statut :"
+
+#: admin/pages/dashboard.php:235
+msgid "Pending"
+msgstr "En attente"
+
+#: admin/pages/dashboard.php:235
+msgid "Generating"
+msgstr "Génération"
+
+#: admin/pages/dashboard.php:235
+msgid "Generated"
+msgstr "Généré"
+
+#: admin/pages/dashboard.php:235
+#, fuzzy
+msgid "Not Generated"
+msgstr "Non généré"
+
+#: admin/pages/dashboard.php:236
+msgid "N/A"
+msgstr "N/A"
+
+#: admin/pages/dashboard.php:237
+#, fuzzy
+msgid "Total Entries:"
+msgstr "Total des inscriptions:"
+
+#: admin/pages/general.php:3 admin/pages/redirects.php:5
+#: admin/pages/sitemap.php:12 src/elevate-class.php:2597
+msgid "General"
+msgstr "Général"
+
+#: admin/pages/general.php:5
+msgid "Basic Configuration"
+msgstr "Configuration de base"
+
+#: admin/pages/general.php:5
+#, fuzzy
+msgid "Configure the language and default settings."
+msgstr "Configurez la langue et les paramètres par défaut."
+
+#: admin/pages/general.php:6
+#, fuzzy
+msgid "Choose the language for the Elevate admin panel."
+msgstr "Choisissez la langue du panneau d'administration d'élévation."
+
+#: admin/pages/general.php:9
+#, fuzzy
+msgid "Enabled advanced settings"
+msgstr "Paramètres avancés activés"
+
+#: admin/pages/general.php:9
+#, fuzzy
+msgid "Enabling this option will show all the advanced settings."
+msgstr "L'activation de cette option affiche tous les paramètres avancés."
+
+#: admin/pages/general.php:13
+msgid "Site Information"
+msgstr "Informations du Site"
+
+#: admin/pages/general.php:13
+#, fuzzy
+msgid "Information about this site and its owner"
+msgstr "Informations sur ce site et son propriétaire"
+
+#: admin/pages/general.php:26
+msgid "Site name"
+msgstr "Nom du site"
+
+#: admin/pages/general.php:26
+#, fuzzy
+msgid "The primary name of your website or company"
+msgstr "Le nom principal de votre site Web ou de votre entreprise"
+
+#: admin/pages/general.php:28
+#, fuzzy
+msgid "Home search title"
+msgstr "Accueil Recherche titre"
+
+#: admin/pages/general.php:29
+#, fuzzy
+msgid "Home search description"
+msgstr "Accueil recherche Description"
+
+#: admin/pages/general.php:29
+#, fuzzy
+msgid ""
+"The description of your primary website page for search engines. This is "
+"normally one or two sentences long and describes the products or services "
+"you primarily offer."
+msgstr ""
+"La description de votre page principale de site Web pour les moteurs de "
+"recherche. Il s'agit normalement d'une ou deux phrases de long et décrit les "
+"produits ou services que vous offrez principalement."
+
+#: admin/pages/general.php:32
+#, fuzzy
+msgid "Blog search title"
+msgstr "Titre de recherche de blog"
+
+#: admin/pages/general.php:33
+#, fuzzy
+msgid "Blog search description"
+msgstr "Description Blog Search"
+
+#: admin/pages/general.php:36
+#, fuzzy
+msgid "Site owner"
+msgstr "Propriétaire du site"
+
+#: admin/pages/general.php:36
+#, fuzzy
+msgid "The name of the owner of this site, for example, Duane Storey"
+msgstr "Le nom du propriétaire de ce site, par exemple, Duane Storey"
+
+#: admin/pages/google.php:3 src/elevate-class.php:2599
+msgid "Search"
+msgstr "Rechercher"
+
+#: admin/pages/google.php:5
+msgid "Options"
+msgstr "Options"
+
+#: admin/pages/google.php:5
+#, fuzzy
+msgid "Various options for search-related services"
+msgstr "Diverses options pour les services liés à la recherche"
+
+#: admin/pages/google.php:6
+#, fuzzy
+msgid "Insert visitor tracking code"
+msgstr "Insérer le code de suivi des visiteurs"
+
+#: admin/pages/google.php:6
+#, fuzzy
+msgid "Insert code for Google Analytics or other website visitor tracking"
+msgstr ""
+"Insérez le code pour Google Analytics ou d'autres sites Web de suivi des "
+"visiteurs"
+
+#: admin/pages/google.php:7
+#, fuzzy
+msgid "Visitor tracking code to insert"
+msgstr "Code de suivi des visiteurs à insérer"
+
+#: admin/pages/google.php:7
+#, fuzzy
+msgid ""
+"This can be found within your Google analytics or other website visitor "
+"tracking configuration"
+msgstr ""
+"Cela peut être trouvé dans votre Google Analytics ou autre site de suivi des "
+"visiteurs de configuration"
+
+#: admin/pages/google.php:8
+#, fuzzy
+msgid "Bing site verification code"
+msgstr "Code de vérification de site Bing"
+
+#: admin/pages/google.php:8
+#, fuzzy
+msgid ""
+"When you add a new site to your Bing webmaster tools, Bing will give you an "
+"authorization code to insert into the webpage"
+msgstr ""
+"Lorsque vous ajoutez un nouveau site à vos outils de webmaster Bing, Bing "
+"vous donne un code d'autorisation à insérer dans la page Web"
+
+#: admin/pages/google.php:12 admin/pages/google.php:14
+#, fuzzy
+msgid "Google OAuth Authentication"
+msgstr "Authentification Google OAuth"
+
+#: admin/pages/google.php:12
+#, fuzzy
+msgid "Remove Authentication"
+msgstr "Supprimer l'authentification"
+
+#: admin/pages/google.php:14 admin/pages/wizard.php:107
+msgid "Authenticate"
+msgstr "Authentifier"
+
+#: admin/pages/google.php:19
+msgid "Crawling"
+msgstr "Indexation"
+
+#: admin/pages/google.php:19
+#, fuzzy
+msgid "Options for controlling granular search"
+msgstr "Options de contrôle de la recherche granulaire"
+
+#: admin/pages/google.php:20
+#, fuzzy
+msgid "Robots.txt Generation"
+msgstr "Génération robots. txt"
+
+#: admin/pages/google.php:21
+#, fuzzy
+msgid "Default WordPress"
+msgstr "Par défaut WordPress"
+
+#: admin/pages/google.php:22
+msgid "Enhanced"
+msgstr "Améliorée"
+
+#: admin/pages/google.php:27
+#, fuzzy
+msgid "Search Information"
+msgstr "Recherche d'informations"
+
+#: admin/pages/google.php:27
+#, fuzzy
+msgid "Configure meta fields"
+msgstr "Configurer les champs Meta"
+
+#: admin/pages/google.php:28
+#, fuzzy
+msgid "Allow editing the canonical field"
+msgstr "Autoriser la modification du champ canonique"
+
+#: admin/pages/google.php:28
+#, fuzzy
+msgid ""
+"This option will insert canonical meta information on each post or page for "
+"you to edit."
+msgstr ""
+"Cette option insère des méta-informations canoniques sur chaque message ou "
+"page à modifier."
+
+#: admin/pages/google.php:29
+#, fuzzy
+msgid "Allow editing the language field"
+msgstr "Autoriser la modification du champ de langue"
+
+#: admin/pages/google.php:29
+#, fuzzy
+msgid ""
+"This option will insert the language field for each post or page to select."
+msgstr ""
+"Cette option insère le champ de langue pour chaque poste ou page à "
+"sélectionner."
+
+#: admin/pages/google.php:30
+#, fuzzy
+msgid "Allow editing the index status"
+msgstr "Autoriser la modification de l'état de l'index"
+
+#: admin/pages/google.php:30
+#, fuzzy
+msgid ""
+"This option will allow you to edit the robots information for each post or "
+"page."
+msgstr ""
+"Cette option vous permettra de modifier les informations des robots pour "
+"chaque poste ou page."
+
+#: admin/pages/google.php:33
+#, fuzzy
+msgid "Intelligently fill empty meta description"
+msgstr "Remplir intelligemment la description vide Meta"
+
+#: admin/pages/google.php:33
+#, fuzzy
+msgid ""
+"If no search description is given for a post, Elevate will automatically "
+"attempt to fill it with post content."
+msgstr ""
+"Si aucune description de recherche n'est donnée pour un poteau, l'élévation "
+"essaiera automatiquement de la remplir avec le contenu de poteau."
+
+#: admin/pages/google.php:35
+#, fuzzy
+msgid "Default search title and description"
+msgstr "Titre et description de la recherche par défaut"
+
+#: admin/pages/google.php:35
+#, fuzzy
+msgid ""
+"If you have used other SEO plugins previously, you can dynamically import "
+"their data here."
+msgstr ""
+"Si vous avez utilisé d'autres plugins SEO précédemment, vous pouvez importer "
+"dynamiquement leurs données ici."
+
+#: admin/pages/google.php:36
+#, fuzzy
+msgid "Do not import data"
+msgstr "N'importez pas de données"
+
+#: admin/pages/google.php:37
+#, fuzzy
+msgid "Import from Yoast"
+msgstr "Import de Yoast"
+
+#: admin/pages/performance.php:3 src/elevate-class.php:2605
+msgid "Performance"
+msgstr "Performance"
+
+#: admin/pages/performance.php:5
+msgid "Basic Settings"
+msgstr "Paramètres de base"
+
+#: admin/pages/performance.php:5
+#, fuzzy
+msgid "Settings related to the speed of your website"
+msgstr "Paramètres liés à la vitesse de votre site Web"
+
+#: admin/pages/performance.php:6
+#, fuzzy
+msgid "Use Content Delivery Network"
+msgstr "Utiliser le réseau de distribution de contenu"
+
+#: admin/pages/performance.php:6
+#, fuzzy
+msgid ""
+"Controls whether or not to substitute the CDN URL for images in your content."
+msgstr ""
+"Contrôle s'il faut ou non substituer l'URL CDN pour les images dans votre "
+"contenu."
+
+#: admin/pages/performance.php:7
+#, fuzzy
+msgid "Content Delivery Network URL"
+msgstr "URL du réseau de distribution de contenu"
+
+#: admin/pages/performance.php:7
+#, fuzzy
+msgid ""
+"If you use a CDN, you can insert the URL here and have your post images "
+"served from the CDN"
+msgstr ""
+"Si vous utilisez un CDN, vous pouvez insérer l'URL ici et avoir vos images "
+"post servi à partir du CDN"
+
+#: admin/pages/redirects.php:3 src/elevate-class.php:2604
+msgid "Redirects"
+msgstr "Redirections"
+
+#: admin/pages/redirects.php:5
+#, fuzzy
+msgid "Choose how redirects are handled"
+msgstr "Choisissez comment les redirections sont gérées"
+
+#: admin/pages/redirects.php:6
+#, fuzzy
+msgid "Redirect to SSL"
+msgstr "Rediriger vers SSL"
+
+#: admin/pages/redirects.php:6
+#, fuzzy
+msgid ""
+"Can be used to force all non-SSL traffic to be 301 (permanently) redirected "
+"to SSL. This is best handled via the server, but this can be used for "
+"smaller sites."
+msgstr ""
+"Peut être utilisé pour forcer le trafic non-SSL à être 301 (définitivement) "
+"redirigé vers SSL. C'est mieux géré via le serveur, mais cela peut être "
+"utilisé pour les sites plus petits."
+
+#: admin/pages/redirects.php:7
+#, fuzzy
+msgid "Redirect Media to Parent"
+msgstr "Rediriger les médias vers les parents"
+
+#: admin/pages/redirects.php:7
+#, fuzzy
+msgid ""
+"Will force direct links to image attachments to redirect back to the post or "
+"page where they were included."
+msgstr ""
+"Forcera les liens directs vers les pièces jointes de l'image pour rediriger "
+"vers le poste ou la page où ils ont été inclus."
+
+#: admin/pages/sitemap.php:10 src/elevate-class.php:2601
+msgid "Sitemap"
+msgstr "Plan du site"
+
+#: admin/pages/sitemap.php:12
+#, fuzzy
+msgid ""
+"When submitted to search engines, sitemaps can improve your site ranking."
+msgstr ""
+"Une fois soumis aux moteurs de recherche, sitemaps peut améliorer votre "
+"classement de site."
+
+#: admin/pages/sitemap.php:13
+#, fuzzy
+msgid "Enable sitemap generation"
+msgstr "Activer la génération sitemap"
+
+#: admin/pages/sitemap.php:14
+#, fuzzy
+msgid "Sitemap name"
+msgstr "Nom du sitemap"
+
+#: admin/pages/sitemap.php:18
+#, fuzzy
+msgid "Sitemap Contents"
+msgstr "Contenu du sitemap"
+
+#: admin/pages/sitemap.php:18
+#, fuzzy
+msgid "Specify the content you would like the sitemap to contain."
+msgstr "Indiquez le contenu que vous souhaitez que le sitemap contienne."
+
+#: admin/pages/sitemap.php:19
+#, fuzzy
+msgid "Include posts"
+msgstr "Inclure les messages"
+
+#: admin/pages/sitemap.php:20
+#, fuzzy
+msgid "Include custom posts"
+msgstr "Inclure les messages personnalisés"
+
+#: admin/pages/sitemap.php:21
+msgid "Include pages"
+msgstr "Inclure les pages"
+
+#: admin/pages/sitemap.php:22
+#, fuzzy
+msgid "Include media &amp; attachments"
+msgstr "Inclure les médias et les pièces jointes"
+
+#: admin/pages/sitemap.php:23
+#, fuzzy
+msgid "Include author archives"
+msgstr "Inclure les Archives d'auteur"
+
+#: admin/pages/sitemap.php:24
+msgid "Include categories"
+msgstr "Inclure les catégories"
+
+#: admin/pages/sitemap.php:25
+#, fuzzy
+msgid "Include tags"
+msgstr "Inclure les balises"
+
+#: admin/pages/sitemap.php:26
+#, fuzzy
+msgid "Include custom taxonomies"
+msgstr "Inclure les taxonomies personnalisées"
+
+#: admin/pages/sitemap.php:27
+msgid "Include images"
+msgstr "Inclure les images"
+
+#: admin/pages/social.php:3 src/elevate-class.php:2607
+msgid "Social Media"
+msgstr "Médias sociaux"
+
+#: admin/pages/social.php:16
+msgid "Social Media Services"
+msgstr "Services de Médias Sociaux"
+
+#: admin/pages/social.php:16
+#, fuzzy
+msgid "Configure which services generate additional page information"
+msgstr ""
+"Configurer les services qui génèrent des informations de page supplémentaires"
+
+#: admin/pages/social.php:17
+#, fuzzy
+msgid "Enable Facebook OpenGraph"
+msgstr "Activer Facebook OpenGraph"
+
+#: admin/pages/social.php:18
+#, fuzzy
+msgid ""
+"If you create an application, you can use Facebook Insights to track "
+"analytics to and from Facebook"
+msgstr ""
+"Si vous créez une application, vous pouvez utiliser Facebook Insights pour "
+"suivre Google Analytics vers et depuis Facebook"
+
+#: admin/pages/social.php:18
+msgid "Optional"
+msgstr "Optionnel"
+
+#: admin/pages/social.php:20
+#, fuzzy
+msgid "Enable Twitter cards"
+msgstr "Activer les cartes Twitter"
+
+#: admin/pages/social.php:21
+#, fuzzy
+msgid "Twitter card image size"
+msgstr "Taille d'image de carte de Twitter"
+
+#: admin/pages/social.php:22
+msgid "Default"
+msgstr "Par défaut"
+
+#: admin/pages/social.php:23
+msgid "Large"
+msgstr "Grand"
+
+#: admin/pages/social.php:25
+#, fuzzy
+msgid "Your Twitter username"
+msgstr "Votre nom d'utilisateur Twitter"
+
+#: admin/pages/social.php:27
+#, fuzzy
+msgid "Social media image priority"
+msgstr "Priorité de l'image des médias sociaux"
+
+#: admin/pages/social.php:27
+#, fuzzy
+msgid ""
+"You can select which image is used as the focus image when your content is "
+"shared. The site-wide image can be configured on this page as well."
+msgstr ""
+"Vous pouvez sélectionner l'image utilisée comme image de focus lorsque votre "
+"contenu est partagé. L'image à l'échelle du site peut également être "
+"configurée sur cette page."
+
+#: admin/pages/social.php:28
+#, fuzzy
+msgid "Featured, Site-wide"
+msgstr "En vedette, à l'échelle du site"
+
+#: admin/pages/social.php:29
+#, fuzzy
+msgid "Featured, First in Content, Site-wide"
+msgstr "En vedette, d'abord dans le contenu, à l'échelle du site"
+
+#: admin/pages/social.php:30
+#, fuzzy
+msgid "Site-wide always"
+msgstr "Toujours à l'échelle du site"
+
+#: admin/pages/social.php:33
+#, fuzzy
+msgid "Site-wide social media image"
+msgstr "Image des médias sociaux à l'échelle du site"
+
+#: admin/pages/social.php:38
+#, fuzzy
+msgid "Structured Data"
+msgstr "Données structurées"
+
+#: admin/pages/social.php:38
+#, fuzzy
+msgid "Configure which cards are automatically inserted"
+msgstr "Configurer les cartes qui sont automatiquement insérées"
+
+#: admin/pages/social.php:39
+#, fuzzy
+msgid "Insert article information for posts"
+msgstr "Insérer des informations d'article pour les messages"
+
+#: admin/pages/social.php:41
+#, fuzzy
+msgid "Insert breadcrumb information"
+msgstr "Insérer des informations de Breadcrumb"
+
+#: admin/pages/social.php:42
+#, fuzzy
+msgid "Breadcrumb name for home page"
+msgstr "Breadcrumb nom de la page d'accueil"
+
+#: admin/pages/wizard.php:4 src/elevate-class.php:466
+#: src/elevate-class.php:2594
+msgid "Get Started"
+msgstr "Commencer"
+
+#: admin/pages/wizard.php:11
+#, fuzzy
+msgid "Welcome to Elevate SEO"
+msgstr "Bienvenue à élever SEO"
+
+#: admin/pages/wizard.php:12
+#, fuzzy
+msgid "We just need a little bit of information to get you up and running"
+msgstr ""
+"Nous avons juste besoin d'un peu d'informations pour vous mettre en marche"
+
+#: admin/pages/wizard.php:14
+#, fuzzy
+msgid ""
+"This wizard will guide you through the basic configuration steps needed to "
+"enhance your site and starting using the full features of the Elevate  "
+"plugin for WordPress."
+msgstr ""
+"Cet Assistant vous guidera à travers les étapes de configuration de base "
+"nécessaires pour améliorer votre site et de commencer à utiliser les "
+"fonctionnalités complètes de l'élévation plugin pour WordPress."
+
+#: admin/pages/wizard.php:16
+msgid "Basics"
+msgstr "Notions fondamentales"
+
+#: admin/pages/wizard.php:18
+#, fuzzy
+msgid "Configure Your Site"
+msgstr "Configurer votre site"
+
+#: admin/pages/wizard.php:19
+#, fuzzy
+msgid "The following settings will help us set your site up properly"
+msgstr ""
+"Les paramètres suivants nous aideront à configurer votre site correctement"
+
+#: admin/pages/wizard.php:31
+msgid "Name"
+msgstr "Nom"
+
+#: admin/pages/wizard.php:33
+#, fuzzy
+msgid "Configure Your Site's Name"
+msgstr "Configurer le nom de votre site"
+
+#: admin/pages/wizard.php:34
+#, fuzzy
+msgid "It's time to start branding your search results"
+msgstr "Il est temps de commencer à marquer vos résultats de recherche"
+
+#: admin/pages/wizard.php:35
+#, fuzzy
+msgid ""
+"Your Site Name reflects the primary branding of your website or business.  "
+"For example, if you had an autobody repair facility called \"Joe's Autobody"
+"\", you would set your Site Name as that."
+msgstr ""
+"Votre nom de site reflète l'image de marque principale de votre site Web ou "
+"de votre entreprise.  Par exemple, si vous aviez une installation de "
+"réparation de carrosserie appelée \"joe's Autobody\", vous définiriez votre "
+"nom de site comme cela."
+
+#: admin/pages/wizard.php:37
+msgid "Site Name"
+msgstr "Nom du site"
+
+#: admin/pages/wizard.php:41 admin/pages/wizard.php:83
+msgid "Title"
+msgstr "Titre"
+
+#: admin/pages/wizard.php:43
+#, fuzzy
+msgid "Configure Your Search Title"
+msgstr "Configurez votre titre de recherche"
+
+#: admin/pages/wizard.php:44
+#, fuzzy
+msgid "Set the title that search engines see for your main home page"
+msgstr ""
+"Définir le titre que les moteurs de recherche voir pour votre page d'accueil "
+"principale"
+
+#: admin/pages/wizard.php:45
+#, fuzzy
+msgid ""
+"Your Search Title is typically set to be your Site Name followed by a "
+"keyword-rich description of the information or services you or your website "
+"provide."
+msgstr ""
+"Votre titre de recherche est généralement défini comme étant votre nom de "
+"site suivi d'une description riche en mots clés des informations ou des "
+"services que vous ou votre site Web fournissez."
+
+#: admin/pages/wizard.php:47
+#, fuzzy
+msgid "Home Search Title"
+msgstr "Accueil Recherche titre"
+
+#: admin/pages/wizard.php:51 admin/pages/wizard.php:85
+msgid "Description"
+msgstr "Description"
+
+#: admin/pages/wizard.php:53
+#, fuzzy
+msgid "Configure Your Search Description"
+msgstr "Configurer la description de votre recherche"
+
+#: admin/pages/wizard.php:54
+#, fuzzy
+msgid "Set the description that search engines see for your main home page"
+msgstr ""
+"Définissez la description que les moteurs de recherche voient pour votre "
+"page d'accueil principale"
+
+#: admin/pages/wizard.php:55
+#, fuzzy
+msgid ""
+"Your Search Description should include a few sentences about the primary "
+"purpose of your website."
+msgstr ""
+"Votre description de recherche devrait inclure quelques phrases sur le but "
+"principal de votre site Web."
+
+#: admin/pages/wizard.php:57
+#, fuzzy
+msgid "Home Search Description"
+msgstr "Accueil recherche Description"
+
+#: admin/pages/wizard.php:61
+msgid "Branding"
+msgstr "Image de marque"
+
+#: admin/pages/wizard.php:63
+#, fuzzy
+msgid "Sharing Image"
+msgstr "Partage de l'image"
+
+#: admin/pages/wizard.php:64
+#, fuzzy
+msgid "Choose how others see your website"
+msgstr "Choisissez comment les autres voient votre site Web"
+
+#: admin/pages/wizard.php:65
+#, fuzzy, php-format
+msgid ""
+"Select the default image that appears when a person shares your content on "
+"social media. If you do not have one, take a look at %sUnsplash.com%s for "
+"images you can use for free."
+msgstr ""
+"Sélectionnez l'image par défaut qui apparaît lorsqu'une personne partage "
+"votre contenu sur les médias sociaux. Si vous n'en avez pas, jetez un coup "
+"d'oeil à %splash. com %s pour les images que vous pouvez utiliser "
+"gratuitement."
+
+#: admin/pages/wizard.php:68
+msgid "Upload Image"
+msgstr "Télécharger une image"
+
+#: admin/pages/wizard.php:74 admin/settings/upload.php:11
+msgid "Remove"
+msgstr "Supprimer"
+
+#: admin/pages/wizard.php:76
+msgid "Preview"
+msgstr "Aperçu"
+
+#: admin/pages/wizard.php:78
+#, fuzzy
+msgid "Take a Look"
+msgstr "Regardez"
+
+#: admin/pages/wizard.php:79
+#, fuzzy
+msgid "See how your site will look in search results"
+msgstr "Voir comment votre site se penchera dans les résultats de recherche"
+
+#: admin/pages/wizard.php:80
+#, fuzzy
+msgid ""
+"The following is an example of how your site will be displayed in various "
+"search engines. If you are not satisfied with it, you can modify this "
+"information on the previous screens."
+msgstr ""
+"Voici un exemple de la façon dont votre site sera affiché dans différents "
+"moteurs de recherche. Si vous n'êtes pas satisfait, vous pouvez modifier ces "
+"informations sur les écrans précédents."
+
+#: admin/pages/wizard.php:88
+msgid "Twitter"
+msgstr "Twitter"
+
+#: admin/pages/wizard.php:90
+#, fuzzy
+msgid "Configure Twitter"
+msgstr "Configurer Twitter"
+
+#: admin/pages/wizard.php:91
+#, fuzzy
+msgid "Help other people find you online"
+msgstr "Aidez d'autres personnes à vous trouver en ligne"
+
+#: admin/pages/wizard.php:92
+#, fuzzy
+msgid ""
+"Any content that visitors share on Twitter can automatically be tagged with "
+"your Twitter username once configured below. This will help drive traffic to "
+"your Twitter account and your website."
+msgstr ""
+"Tout contenu que les visiteurs partagent sur Twitter peut automatiquement "
+"être étiqueté avec votre nom d'utilisateur Twitter une fois configuré ci-"
+"dessous. Cela aidera à conduire le trafic vers votre compte Twitter et votre "
+"site Web."
+
+#: admin/pages/wizard.php:94
+msgid "Twitter Username"
+msgstr "Nom d’utilisateur Twitter"
+
+#: admin/pages/wizard.php:99 admin/pages/wizard.php:175
+msgid "Google"
+msgstr "Google"
+
+#: admin/pages/wizard.php:101
+#, fuzzy
+msgid "Google Search Console"
+msgstr "Console de recherche Google"
+
+#: admin/pages/wizard.php:102
+#, fuzzy
+msgid "Authenticate with Google for enhanced functionality"
+msgstr "Authentifier avec Google pour des fonctionnalités améliorées"
+
+#: admin/pages/wizard.php:103
+#, fuzzy
+msgid ""
+"Elevate can access your Search Console data, automatically configure "
+"Sitemaps, and also perform Google site verification if needed - these items "
+"are all recommended for the best Search Engine Optimization results for this "
+"site."
+msgstr ""
+"Élévation peut accéder à vos données de la console de recherche, configurer "
+"automatiquement sitemaps, et également effectuer la vérification de site "
+"Google si nécessaire-ces éléments sont tous recommandés pour les meilleurs "
+"résultats d'optimisation des moteurs de recherche pour ce site."
+
+#: admin/pages/wizard.php:105
+#, fuzzy, php-format
+msgid ""
+"Click the button below to authenticate with Google, or click Next to skip. "
+"You can revoke authorization at any time in the future by %svisiting Google"
+"%s."
+msgstr ""
+"Cliquez sur le bouton ci-dessous pour vous authentifier auprès de Google, ou "
+"cliquez sur suivant pour ignorer. Vous pouvez révoquer l'autorisation à tout "
+"moment à l'avenir par %svisiting Google %s."
+
+#: admin/pages/wizard.php:115
+#, fuzzy
+msgid "Inspect"
+msgstr "Inspecter"
+
+#: admin/pages/wizard.php:117 admin/pages/wizard.php:137
+#, fuzzy
+msgid "Google Services"
+msgstr "Services Google"
+
+#: admin/pages/wizard.php:118
+#, fuzzy
+msgid "Determining which services to automatically configure"
+msgstr "Détermination des services à configurer automatiquement"
+
+#: admin/pages/wizard.php:123
+#, fuzzy
+msgid ""
+"Please wait while we examine the current configuration of your site and "
+"Google services. This will only take a few moments."
+msgstr ""
+"Veuillez patienter pendant que nous examinons la configuration actuelle de "
+"votre site et des services Google. Cela ne prendra que quelques instants."
+
+#: admin/pages/wizard.php:127
+#, fuzzy, php-format
+msgid ""
+"It seems you haven't signed up for a Google Analytics account yet - we "
+"recommend %ssigning up for an account%s so that Elevate can configure it for "
+"you. To proceed without setting up Analytics, click Next, otherwise refresh "
+"the page after creating your Google Analytics account."
+msgstr ""
+"Il semble que vous n'avez pas encore signé pour un compte Google Analytics-"
+"nous recommandons %ssigning pour un compte %s afin que l'élévation peut le "
+"configurer pour vous. Pour procéder sans configurer d'analyse, cliquez sur "
+"suivant, sinon actualisez la page après avoir créé votre compte Google "
+"Analytics."
+
+#: admin/pages/wizard.php:131
+#, fuzzy
+msgid ""
+"Great news - Elevate has access to your Google accounts and can now "
+"automatically configure them."
+msgstr ""
+"Grandes nouvelles-élever a accès à vos comptes Google et peut maintenant les "
+"configurer automatiquement."
+
+#: admin/pages/wizard.php:131
+#, fuzzy
+msgid ""
+"Please choose which services to automatically configure on the next page."
+msgstr ""
+"Veuillez choisir les services à configurer automatiquement sur la page "
+"suivante."
+
+#: admin/pages/wizard.php:135
+msgid "Configure"
+msgstr "Configurer"
+
+#: admin/pages/wizard.php:138
+#, fuzzy
+msgid "Choose which services to automatically configure"
+msgstr "Choisissez les services à configurer automatiquement"
+
+#: admin/pages/wizard.php:146
+#, fuzzy
+msgid "Configure Search Console"
+msgstr "Configurer la console de recherche"
+
+#: admin/pages/wizard.php:148
+#, fuzzy
+msgid ""
+"Search console helps Google properly index your website traffic and can "
+"provide useful information about your page rankings."
+msgstr ""
+"La console de recherche aide Google à indexer correctement le trafic de "
+"votre site Web et peut vous fournir des informations utiles sur votre "
+"classement de page."
+
+#: admin/pages/wizard.php:154
+#, fuzzy
+msgid "Create Analytics Property"
+msgstr "Create Analytics, propriété"
+
+#: admin/pages/wizard.php:156
+#, fuzzy
+msgid ""
+"Google Analytics can provide valuable information about what visitors read "
+"and interact with on your website."
+msgstr ""
+"Google Analytics peut fournir des informations précieuses sur ce que les "
+"visiteurs lisent et interagissent avec sur votre site Web."
+
+#: admin/pages/wizard.php:158 admin/pages/wizard.php:168
+#, fuzzy
+msgid "Requires a Google Analytics account"
+msgstr "Nécessite un compte Google Analytics"
+
+#: admin/pages/wizard.php:164
+#, fuzzy
+msgid "Install Analytics Code"
+msgstr "Installer le code Analytics"
+
+#: admin/pages/wizard.php:166
+#, fuzzy
+msgid ""
+"Automatically insert the Google Analytics tracking code on to each page of "
+"your website."
+msgstr ""
+"Insérez automatiquement le code de suivi Google Analytics sur chaque page de "
+"votre site Web."
+
+#: admin/pages/wizard.php:177
+#, fuzzy
+msgid "Configuring Your Site"
+msgstr "Configuration de votre site"
+
+#: admin/pages/wizard.php:178
+#, fuzzy
+msgid "Give us a few moments while we configure your site with Google"
+msgstr ""
+"Donnez-nous quelques instants pendant que nous configurons votre site avec "
+"Google"
+
+#: admin/pages/wizard.php:181
+#, fuzzy, php-format
+msgid "Generating a new sitemap on this site %s"
+msgstr "Génération d'un nouveau sitemap sur ce site %s"
+
+#: admin/pages/wizard.php:182
+#, fuzzy, php-format
+msgid "Checking that we can talk to Google %s"
+msgstr "Vérifier que nous pouvons parler à Google %s"
+
+#: admin/pages/wizard.php:183
+#, fuzzy, php-format
+msgid "Looking for your site on Google Search Console %s"
+msgstr "Vous cherchez votre site sur la console de recherche Google %s"
+
+#: admin/pages/wizard.php:184
+#, fuzzy, php-format
+msgid "Adding your site to Google Search Console %s"
+msgstr "Ajout de votre site à la console de recherche Google %s"
+
+#: admin/pages/wizard.php:185
+#, fuzzy, php-format
+msgid "Checking if your site is verified on Google %s"
+msgstr "Vérifier si votre site est vérifié sur Google %s"
+
+#: admin/pages/wizard.php:186
+#, fuzzy, php-format
+msgid "Verifying your site on Google %s"
+msgstr "Vérification de votre site sur Google %s"
+
+#: admin/pages/wizard.php:187
+#, fuzzy, php-format
+msgid "Checking to see if you have a sitemap configured on Google %s"
+msgstr "Vérification pour voir si vous avez un sitemap configuré sur Google %s"
+
+#: admin/pages/wizard.php:188
+#, fuzzy, php-format
+msgid "Adding a new sitemap for your site on Google %s"
+msgstr "Ajout d'un nouveau sitemap pour votre site sur Google %s"
+
+#: admin/pages/wizard.php:189
+#, fuzzy, php-format
+msgid "Create a new Google Analytics property for your site %s"
+msgstr "Créer une nouvelle propriété Google Analytics pour votre site %s"
+
+#: admin/pages/wizard.php:190
+#, fuzzy, php-format
+msgid "Adding Google Analytics code for this site %s"
+msgstr "Ajout du code Google Analytics pour ce site %s"
+
+#: admin/pages/wizard.php:191
+#, fuzzy
+msgid "Automatic configuration of your site is complete"
+msgstr "La configuration automatique de votre site est terminée"
+
+#: admin/pages/wizard.php:195
+#, fuzzy
+msgid "Configuration Problem"
+msgstr "Problème de configuration"
+
+#: admin/pages/wizard.php:196
+#, fuzzy
+msgid ""
+"We were unable to automatically verify your site on Google Search Console; "
+"you will likely have to complete this step manually."
+msgstr ""
+"Nous n'avons pas pu vérifier automatiquement votre site sur la console de "
+"recherche Google; vous devrez probablement effectuer cette étape "
+"manuellement."
+
+#: admin/pages/wizard.php:204
+#, fuzzy
+msgid "Configure Bing"
+msgstr "Configurer Bing"
+
+#: admin/pages/wizard.php:205
+#, fuzzy
+msgid "There's more than just Google out there"
+msgstr "Il ya plus que juste Google là-bas"
+
+#: admin/pages/wizard.php:206
+#, fuzzy
+msgid ""
+"Submitting your site to Microsoft's Bing search engine helps more visitors "
+"find your website.<br />The steps to add your site on Bing are listed below."
+msgstr ""
+"La soumission de votre site au moteur de recherche Bing de Microsoft aide "
+"plus de visiteurs à trouver votre site Web. < br/> les étapes pour ajouter "
+"votre site sur Bing sont répertoriés ci-dessous."
+
+#: admin/pages/wizard.php:209
+#, fuzzy, php-format
+msgid ""
+"%sClick here%s to go to Bing's configuration page.  If you don't have an "
+"account on Bing, you should create one now"
+msgstr ""
+"%sClick ici %s pour accéder à la page de configuration de Bing.  Si vous "
+"n'avez pas de compte sur Bing, vous devez en créer un maintenant"
+
+#: admin/pages/wizard.php:211
+#, fuzzy, php-format
+msgid ""
+"Your sitemap is located at %s%s%s. Copy the URL from here and paste it into "
+"the 'Add a sitemap' field at Bing."
+msgstr ""
+"Votre sitemap est situé à %s %s %s. Copiez l'URL à partir d'ici et collez-la "
+"dans le champ'ajouter un sitemap'à Bing."
+
+#: admin/pages/wizard.php:212
+#, fuzzy
+msgid "Click \"Add\" on Bing to add your site and sitemap"
+msgstr "Cliquez sur \"ajouter\" sur Bing pour ajouter votre site et sitemap"
+
+#: admin/pages/wizard.php:213
+#, fuzzy
+msgid "Copy the authentication code from Bing and paste it in the box below."
+msgstr ""
+"Copiez le code d'authentification de Bing et collez-le dans la case ci-"
+"dessous."
+
+#: admin/pages/wizard.php:214
+#, fuzzy
+msgid "If you are using a cache plugin, please empty your cache after pasting."
+msgstr ""
+"Si vous utilisez un cache plugin, s'il vous plaît vider votre cache après le "
+"collage."
+
+#: admin/pages/wizard.php:223 admin/pages/wizard.php:225
+msgid "Hosting"
+msgstr "Hébergement"
+
+#: admin/pages/wizard.php:226
+#, fuzzy
+msgid "Let's check the configuration of your website"
+msgstr "Vérifions la configuration de votre site Web"
+
+#: admin/pages/wizard.php:227
+#, fuzzy
+msgid "Server Capabilities"
+msgstr "Fonctionnalités du serveur"
+
+#: admin/pages/wizard.php:231
+#, fuzzy
+msgid "Your website supports browser caching of resources"
+msgstr "Votre site Web prend en charge la mise en cache des ressources"
+
+#: admin/pages/wizard.php:233
+#, fuzzy
+msgid "Your website does not support browser caching of resources"
+msgstr ""
+"Votre site Web ne supporte pas la mise en cache des ressources du navigateur"
+
+#: admin/pages/wizard.php:237
+#, fuzzy
+msgid "Your website supports compressing resources in real-time"
+msgstr ""
+"Votre site Web prend en charge la compression des ressources en temps réel"
+
+#: admin/pages/wizard.php:239
+#, fuzzy
+msgid "Your website does not support compressing resources in real-time"
+msgstr ""
+"Votre site Web ne supporte pas la compression des ressources en temps réel"
+
+#: admin/pages/wizard.php:242
+#, fuzzy
+msgid "Unable to determine server abilities since PHP is running using FastCGI"
+msgstr ""
+"Impossible de déterminer les capacités du serveur depuis PHP est en cours "
+"d'exécution en utilisant FastCGI"
+
+#: admin/pages/wizard.php:245
+#, fuzzy
+msgid "Website Configuration"
+msgstr "Configuration du site Web"
+
+#: admin/pages/wizard.php:249 admin/pages/wizard.php:251
+#, fuzzy
+msgid "Your website is configured for browser caching of resources"
+msgstr ""
+"Votre site Web est configuré pour la mise en cache des ressources du "
+"navigateur"
+
+#: admin/pages/wizard.php:252
+#, fuzzy
+msgid "Your website is not configured for browser caching of resources"
+msgstr ""
+"Votre site Web n'est pas configuré pour la mise en cache des ressources du "
+"navigateur"
+
+#: admin/pages/wizard.php:255
+#, fuzzy
+msgid "Your website cannot be configured for browser caching of resources"
+msgstr ""
+"Votre site Web ne peut pas être configuré pour la mise en cache des "
+"ressources navigateur"
+
+#: admin/pages/wizard.php:259 admin/pages/wizard.php:261
+#, fuzzy
+msgid "Your website is configured to compress resources in real-time"
+msgstr ""
+"Votre site Web est configuré pour compresser les ressources en temps réel"
+
+#: admin/pages/wizard.php:262
+#, fuzzy
+msgid "Your website is not configured to compress resources in real-time"
+msgstr ""
+"Votre site Web n'est pas configuré pour compresser les ressources en temps "
+"réel"
+
+#: admin/pages/wizard.php:265
+#, fuzzy
+msgid "Your website cannot be configured to compress resources in real-time"
+msgstr ""
+"Votre site Web ne peut pas être configuré pour compresser les ressources en "
+"temps réel"
+
+#: admin/pages/wizard.php:269 src/elevate-class.php:1547
+#, fuzzy
+msgid "Fix Issues"
+msgstr "Résoudre les problèmes"
+
+#: admin/pages/wizard.php:270
+#, fuzzy
+msgid ""
+"Changes have been made to your website's .htaccess file. If this causes "
+"issues, manually copy .htaccess-elevate.bak to .htaccess in your website's "
+"main directory to restore the old configuration"
+msgstr ""
+"Des modifications ont été apportées au fichier. htaccess de votre site Web. "
+"Si cela provoque des problèmes, copiez manuellement. htaccess-Elevate. bak "
+"à. htaccess dans le répertoire principal de votre site Web pour restaurer "
+"l'ancienne configuration"
+
+#: admin/pages/wizard.php:272
+#, fuzzy
+msgid "Your website is optimally configured based on its abilities"
+msgstr ""
+"Votre site Web est configuré de manière optimale en fonction de ses capacités"
+
+#: admin/pages/wizard.php:276
+msgid "News"
+msgstr "Actualités"
+
+#: admin/pages/wizard.php:278
+#, fuzzy
+msgid "Get Timely Updates"
+msgstr "Obtenir des mises à jour opportunes"
+
+#: admin/pages/wizard.php:279
+#, fuzzy
+msgid "We'll email you when there's a new update"
+msgstr "Nous vous email quand il ya une nouvelle mise à jour"
+
+#: admin/pages/wizard.php:280
+#, fuzzy
+msgid ""
+"We aim to release new versions of Elevate every week or two.  Enter your "
+"email address below to be notified by email when a new release is available."
+msgstr ""
+"Nous visons à libérer de nouvelles versions de l'élévation chaque semaine ou "
+"deux.  Entrez votre adresse e-mail ci-dessous pour être notifié par e-mail "
+"quand une nouvelle version est disponible."
+
+#: admin/pages/wizard.php:282
+msgid "Your Email Address"
+msgstr "Votre adresse email"
+
+#: admin/pages/wizard.php:285
+#, fuzzy
+msgid "You can unsubscribe at any time via a link at the bottom of each email."
+msgstr ""
+"Vous pouvez vous désabonner à tout moment via un lien au bas de chaque email."
+
+#: admin/pages/wizard.php:286
+#, fuzzy
+msgid "If you would like to bypass this, simply click Next."
+msgstr "Si vous souhaitez le contourner, cliquez simplement sur suivant."
+
+#: admin/pages/wizard.php:288
+msgid "Done"
+msgstr "Terminé"
+
+#: admin/pages/wizard.php:290
+msgid "Setup Complete"
+msgstr "Configuration terminée"
+
+#: admin/pages/wizard.php:291
+#, fuzzy
+msgid "Elevate SEO has been configured for use on your website."
+msgstr "Élévation SEO a été configuré pour une utilisation sur votre site Web."
+
+#: admin/pages/wizard.php:293
+#, fuzzy
+msgid ""
+"Your website is ready to go.<br />Please visit the individual settings pages "
+"to further configure Elevate SEO."
+msgstr ""
+"Votre site Web est prêt à partir. < br/> s'il vous plaît visitez les pages "
+"de paramètres individuels pour mieux configurer l'élévation SEO."
+
+#: admin/settings/upload.php:10
+msgid "Upload"
+msgstr "Télécharger"
+
+#: src/elevate-class.php:27
+msgid "Automatic"
+msgstr "Automatique"
+
+#: src/elevate-class.php:92
+#, fuzzy
+msgid "Index and follow links"
+msgstr "Indexer et suivre les liens"
+
+#: src/elevate-class.php:93
+#, fuzzy
+msgid "Index but disallow link following"
+msgstr "Index, mais interdire le lien suivant"
+
+#: src/elevate-class.php:94
+#, fuzzy
+msgid "Don't index but allow link following"
+msgstr "Ne pas indexer mais autoriser le lien suivant"
+
+#: src/elevate-class.php:95
+#, fuzzy
+msgid "Don't index and also disallow link following"
+msgstr "Ne pas indexer et également interdire le lien suivant"
+
+#: src/elevate-class.php:99
+#, fuzzy
+msgid "Inherit default status"
+msgstr "Hériter de l'État par défaut"
+
+#: src/elevate-class.php:217
+#, fuzzy
+msgid "Elevate SEO / Search Titles &amp; Descriptions"
+msgstr "Élévation SEO/recherche titres et descriptions"
+
+#: src/elevate-class.php:463 src/elevate-class.php:2589
+msgid "Dashboard"
+msgstr "Tableau de bord"
+
+#: src/elevate-class.php:470
+#, fuzzy
+msgid "Clear Image Cache"
+msgstr "Effacer le cache d'image"
+
+#: src/elevate-class.php:474
+msgid "Refresh Statistics"
+msgstr "Raffraîchir Statistiques"
+
+#: src/elevate-class.php:477
+msgid "Update Sitemap"
+msgstr "Mise à Jour du Sitemap"
+
+#: src/elevate-class.php:883
+#, fuzzy
+msgid "Invalid MIME type"
+msgstr "Type MIME non valide"
+
+#: src/elevate-class.php:901
+msgid "No file was uploaded"
+msgstr "Aucun fichier n’a été téléchargé"
+
+#: src/elevate-class.php:920 src/elevate-class.php:923
+#, fuzzy
+msgid "Unable to acquire Google token"
+msgstr "Impossible d'acquérir Google Token"
+
+#: src/elevate-class.php:970 src/elevate-class.php:1004
+#: src/elevate-class.php:1021 src/elevate-class.php:1042
+#: src/elevate-class.php:1078 src/elevate-class.php:1104
+#: src/elevate-class.php:1120 src/elevate-class.php:1162
+#, fuzzy
+msgid "No authentication for Google Search Console"
+msgstr "Aucune authentification pour la console de recherche Google"
+
+#: src/elevate-class.php:993
+#, fuzzy
+msgid "Site isn't configured on Search Console"
+msgstr "Le site n'est pas configuré sur la console de recherche"
+
+#: src/elevate-class.php:996
+#, fuzzy
+msgid "Unable to locate sites"
+msgstr "Impossible de localiser les sites"
+
+#: src/elevate-class.php:1030
+#, fuzzy
+msgid "This site hasn't been verified yet"
+msgstr "Ce site n'a pas encore été vérifié"
+
+#: src/elevate-class.php:1035
+#, fuzzy
+msgid "Unexpected response verifying site"
+msgstr "Réponse inattendue vérification du site"
+
+#: src/elevate-class.php:1064 src/elevate-class.php:1072
+#, fuzzy
+msgid "Site verification failed"
+msgstr "Échec de la vérification du site"
+
+#: src/elevate-class.php:1098
+#, fuzzy
+msgid "Sitemap has not been configured"
+msgstr "Sitemap n'a pas été configuré"
+
+#: src/elevate-class.php:1114
+#, fuzzy
+msgid "Unable to add the sitemap"
+msgstr "Impossible d'ajouter le sitemap"
+
+#: src/elevate-class.php:1307
+#, fuzzy
+msgid "Unknown AJAX method"
+msgstr "Méthode Ajax inconnue"
+
+#: src/elevate-class.php:1311
+#, fuzzy
+msgid "invalid_nonce"
+msgstr "invalid_nonce"
+
+#: src/elevate-class.php:1317
+#, php-format
+msgid "%0.1fM"
+msgstr "%0.1fM"
+
+#: src/elevate-class.php:1319
+#, php-format
+msgid "%0.1fk"
+msgstr "%0.1fk"
+
+#: src/elevate-class.php:1526
+#, fuzzy
+msgid "Please only submit JPEG or PNG image files."
+msgstr "N'envoyez que des fichiers image JPEG ou png."
+
+#: src/elevate-class.php:1527
+#, fuzzy
+msgid ""
+"We were unable to automatically add a sitemap on Google Search Console; you "
+"will likely have to complete this step manually."
+msgstr ""
+"Nous n'avons pas pu ajouter automatiquement un sitemap sur la console de "
+"recherche Google; vous devrez probablement effectuer cette étape "
+"manuellement."
+
+#: src/elevate-class.php:1548
+#, fuzzy
+msgid "Attemping to Fix"
+msgstr "Attemping pour fixer"
+
+#: src/elevate-class.php:1762
+#, fuzzy, php-format
+msgid "Latest articles %s %s"
+msgstr "Derniers articles %s %s"
+
+#: src/elevate-class.php:1763
+#, fuzzy
+msgid "Read some of the latest articles from our site."
+msgstr "Lisez quelques-uns des derniers Articles de notre site."
+
+#: src/elevate-class.php:1773
+#, fuzzy
+msgid "Page not found #separator# #site_name#"
+msgstr "Page introuvable #separator # #site_name #"
+
+#: src/elevate-class.php:1774
+#, fuzzy
+msgid "Search results for '#search_query#' #separator# #site_name#"
+msgstr ""
+"Re'sultats de recherche pour' #search_query # ' #separator # #site_name #"
+
+#. Plugin Name of the plugin/theme
+#: src/elevate-class.php:2588 src/elevate-class.php:2593
+#, fuzzy
+msgid "Elevate SEO"
+msgstr "Élévation SEO"
+
+#: src/locales.php:443
+#, fuzzy
+msgid "Default (Inherit)"
+msgstr "Default (hériter)"
+
+#: src/settings-page.php:34
+msgid "Save Settings"
+msgstr "Enregistrer les paramètres"
+
+#. Plugin URI of the plugin/theme
+msgid "http://elevatewp.io"
+msgstr "http://elevatewp.io"
+
+#. Description of the plugin/theme
+#, fuzzy
+msgid "Search Engine Optimization and Performance Monitoring Suite"
+msgstr ""
+"Optimisation des moteurs de recherche et suite de surveillance des "
+"performances"
+
+#. Author of the plugin/theme
+#, fuzzy
+msgid "Duane Storey"
+msgstr "(le)"
+
+#. Author URI of the plugin/theme
+msgid "https://elevatewp.io/"
+msgstr "https://elevatewp.io/"

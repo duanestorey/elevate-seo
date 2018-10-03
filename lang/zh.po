@@ -1,0 +1,1859 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2018-09-29 13:09+0200\n"
+"PO-Revision-Date: 2018-09-29 13:12+0200\n"
+"Last-Translator: Duane Storey <duanestorey@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.1.1\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: admin/meta/side.php:3 src/elevate-class.php:1541
+#, fuzzy
+msgid "Not enough content to analyze - continue writing."
+msgstr "没有足够的内容来分析-继续写作。"
+
+#: admin/meta/side.php:4 src/elevate-class.php:1542
+#, fuzzy
+msgid "Your content looks good from a search and social media perspective."
+msgstr "从搜索和社交媒体的角度来看, 您的内容看起来不错。"
+
+#: admin/meta/side.php:5 src/elevate-class.php:1543
+#, fuzzy
+msgid ""
+"You may want to make a few search adjustments before publishing or saving."
+msgstr "在发布或保存之前, 您可能需要进行一些搜索调整。"
+
+#: admin/meta/side.php:6 src/elevate-class.php:1544
+#, fuzzy
+msgid "You have a few serious search issues that need addressing."
+msgstr "您有一些严重的搜索问题需要解决。"
+
+#: admin/meta/side.php:10 admin/meta/titles.php:61 src/elevate-class.php:1545
+#, fuzzy
+msgid "Web Preview"
+msgstr "网站预览"
+
+#: admin/meta/side.php:11 admin/meta/side.php:15 src/elevate-class.php:1546
+msgid "Learn More"
+msgstr "了解更多"
+
+#: admin/meta/side.php:17
+msgid "Content Analysis"
+msgstr "内容分析"
+
+#: admin/meta/side.php:24
+#, fuzzy
+msgid "Congratulations, everything looks great."
+msgstr "恭喜, 一切看起来都很棒。"
+
+#: admin/meta/side.php:26
+#, fuzzy, php-format
+msgid ""
+"Your Search Title is a bit long - consider shortening it to %d characters or "
+"less so it displays properly in search engines."
+msgstr ""
+"您的搜索标题有点长--考虑将其缩短为%d 个字符或更少, 以便在搜索引擎中正确显示。"
+
+#: admin/meta/side.php:28
+#, fuzzy, php-format
+msgid ""
+"Your Search Title is a bit short - consider lengthening it to %d characters "
+"or more so it displays properly in search engines."
+msgstr ""
+"您的搜索标题有点短-考虑将其延长到%d 个字符或更多, 以便在搜索引擎中正确显示。"
+
+#: admin/meta/side.php:30
+#, fuzzy, php-format
+msgid ""
+"Your Search Description is a bit long - consider shortening it to %d "
+"characters or less so it displays properly in search engines."
+msgstr ""
+"您的搜索描述有点长--考虑将其缩短为%d 个字符或更少, 以便在搜索引擎中正确显示。"
+
+#: admin/meta/side.php:32
+#, fuzzy, php-format
+msgid ""
+"Your Search Description is too short - consider lengthening it to between %d "
+"and %d characters so it displays properly in search engines."
+msgstr ""
+"您的搜索描述太短, 请考虑将其延长到%d 和%d 个字符之间, 以便在搜索引擎中正确显"
+"示。"
+
+#: admin/meta/side.php:34
+#, fuzzy
+msgid ""
+"You have not set a title for your content; consider adding a keyword-rich, "
+"descriptive title to help rank higher in search engines."
+msgstr ""
+"您没有为您的内容设置标题;考虑添加一个关键字丰富的, 描述性的标题, 以帮助排名较"
+"高的搜索引擎。"
+
+#: admin/meta/side.php:39 admin/meta/titles.php:135 admin/pages/wizard.php:198
+msgid "Close"
+msgstr "关闭"
+
+#: admin/meta/titles.php:3
+#, fuzzy
+msgid "Elevate Search Information"
+msgstr "提升搜索信息"
+
+#: admin/meta/titles.php:6
+#, fuzzy, php-format
+msgid ""
+"You can configure the title and description for this page via the %sElevate "
+"SEO settings page%s."
+msgstr "您可以通过%sElevate SEO 设置 page%s 配置此页的标题和说明。"
+
+#: admin/meta/titles.php:8
+msgid "Search Title"
+msgstr "搜索标题"
+
+#: admin/meta/titles.php:14
+#, fuzzy
+msgid "Search Description"
+msgstr "搜索说明"
+
+#: admin/meta/titles.php:16
+#, fuzzy
+msgid "Enter a one or two sentence summary of this content for search engines."
+msgstr "为搜索引擎输入此内容的一个或两个句子摘要。"
+
+#: admin/meta/titles.php:29
+msgid "Canonical URL"
+msgstr "标准链接"
+
+#: admin/meta/titles.php:29
+#, fuzzy
+msgid "If this post came from another site, put the original URL here."
+msgstr "如果此帖子来自其他站点, 请将原始 URL 放在此处。"
+
+#: admin/meta/titles.php:35 admin/pages/general.php:6 admin/pages/wizard.php:22
+msgid "Language"
+msgstr "语言"
+
+#: admin/meta/titles.php:42
+#, fuzzy
+msgid "Select the language for this content."
+msgstr "选择此内容的语言。"
+
+#: admin/meta/titles.php:48
+#, fuzzy
+msgid "Index status"
+msgstr "索引状态"
+
+#: admin/meta/titles.php:55
+#, fuzzy
+msgid "Select the indexing behaviour for this content."
+msgstr "选择此内容的索引行为。"
+
+#: admin/meta/titles.php:72 admin/meta/titles.php:82 admin/meta/titles.php:101
+#: admin/meta/titles.php:117
+#, fuzzy, php-format
+msgid "This is how your content will look on %s."
+msgstr "这是您的内容将在%s 上的外观。"
+
+#: admin/pages/advanced.php:3 src/elevate-class.php:2610
+msgid "Advanced"
+msgstr "高级"
+
+#: admin/pages/advanced.php:5
+msgid "Templates"
+msgstr "模板"
+
+#: admin/pages/advanced.php:5
+#, fuzzy
+msgid "Configure how title tags are generated in each section of your site."
+msgstr "配置在网站的每个部分中如何生成标题标记。"
+
+#: admin/pages/advanced.php:8
+msgid "Post"
+msgstr "文章"
+
+#: admin/pages/advanced.php:9
+msgid "Page"
+msgstr "页面"
+
+#: admin/pages/advanced.php:10
+msgid "Archive"
+msgstr "存档"
+
+#: admin/pages/advanced.php:11
+msgid "Media"
+msgstr "媒体"
+
+#: admin/pages/advanced.php:12
+msgid "Authors"
+msgstr "作者"
+
+#: admin/pages/advanced.php:13
+msgid "Taxonomies"
+msgstr "分类"
+
+#: admin/pages/advanced.php:14
+#, fuzzy
+msgid "404 (Page not found)"
+msgstr "404 (找不到页面)"
+
+#: admin/pages/advanced.php:15 admin/pages/advanced.php:33
+msgid "Search results"
+msgstr "搜索结果"
+
+#: admin/pages/advanced.php:16
+#, fuzzy
+msgid "Title separator"
+msgstr "标题分隔符"
+
+#: admin/pages/advanced.php:20
+#, fuzzy
+msgid "Index Settings"
+msgstr "索引设置"
+
+#: admin/pages/advanced.php:20
+#, fuzzy
+msgid ""
+"Configure how search engines will behave when visiting sections of this site."
+msgstr "配置在访问本网站的各个部分时搜索引擎的行为方式。"
+
+#: admin/pages/advanced.php:21
+msgid "Default Status"
+msgstr "默认状态"
+
+#: admin/pages/advanced.php:24 src/elevate-class.php:1825
+msgid "Home"
+msgstr "首页"
+
+#: admin/pages/advanced.php:25
+msgid "Posts"
+msgstr "文章"
+
+#: admin/pages/advanced.php:26
+msgid "Pages"
+msgstr "页面"
+
+#: admin/pages/advanced.php:27
+#, fuzzy
+msgid "Author Pages"
+msgstr "作者页面"
+
+#: admin/pages/advanced.php:28
+#, fuzzy
+msgid "Media Attachments"
+msgstr "媒体附件"
+
+#: admin/pages/advanced.php:29
+msgid "Category Pages"
+msgstr "分类页面"
+
+#: admin/pages/advanced.php:30
+msgid "Tag Pages"
+msgstr "标签页面"
+
+#: admin/pages/advanced.php:31
+#, fuzzy
+msgid "Taxonomy pages"
+msgstr "分类页"
+
+#: admin/pages/advanced.php:32
+msgid "Archive pages"
+msgstr "存档页面"
+
+#: admin/pages/advanced.php:34
+#, fuzzy
+msgid "Not found (404) pages"
+msgstr "未找到 (404) 页"
+
+#: admin/pages/advanced.php:38
+msgid "Extras"
+msgstr "附加功能"
+
+#: admin/pages/advanced.php:38
+#, fuzzy
+msgid ""
+"You can restart the initial configuration wizard or reset all settings here"
+msgstr "您可以重新启动初始配置向导或重置此处的所有设置"
+
+#: admin/pages/advanced.php:39
+#, fuzzy
+msgid "Configuration helper"
+msgstr "配置帮助器"
+
+#: admin/pages/advanced.php:39
+msgid "Launch"
+msgstr "加载"
+
+#: admin/pages/advanced.php:40
+msgid "Reset settings"
+msgstr "重新设置"
+
+#: admin/pages/advanced.php:40
+#, fuzzy
+msgid ""
+"This will reset Elevate to its initial default settings and remove the "
+"sitemap"
+msgstr "这将将提升重置为其初始默认设置, 并删除站点地图"
+
+#: admin/pages/advanced.php:40
+msgid "Reset"
+msgstr "重置"
+
+#: admin/pages/advanced.php:43
+msgid "Debugging"
+msgstr "调试"
+
+#: admin/pages/advanced.php:43
+#, fuzzy
+msgid "For when your website is feeling blue"
+msgstr "因为当你的网站感到忧郁的时候"
+
+#: admin/pages/advanced.php:45
+#, fuzzy
+msgid "Enabled debug log"
+msgstr "启用的调试日志"
+
+#: admin/pages/advanced.php:45
+#, fuzzy
+msgid ""
+"Turning this option on will cause a debug log to be written to the server to "
+"help diagnose a problem."
+msgstr "打开此选项将导致将调试日志写入服务器以帮助诊断问题。"
+
+#: admin/pages/dashboard.php:3
+#, fuzzy
+msgid "Elevate SEO - Dashboard"
+msgstr "提升 SEO-仪表板"
+
+#: admin/pages/dashboard.php:4 src/settings-page.php:17
+#, fuzzy, php-format
+msgid "lovingly maintained by %sDuane Storey%s &amp; %sElevateWP.io%s"
+msgstr "亲切地维护由%sDuane Storey%s &amp;%sElevateWP. io%s"
+
+#: admin/pages/dashboard.php:91 admin/pages/dashboard.php:98
+#: admin/pages/dashboard.php:137 admin/pages/dashboard.php:150
+#, fuzzy
+msgid "Crawl Errors"
+msgstr "爬网错误"
+
+#: admin/pages/dashboard.php:96 admin/pages/dashboard.php:124
+#: admin/pages/dashboard.php:147 admin/pages/dashboard.php:186
+#, fuzzy
+msgid "Current disabled: requires Google OAuth authentication"
+msgstr "当前禁用: 要求谷歌 OAuth 认证"
+
+#: admin/pages/dashboard.php:106
+#, fuzzy
+msgid "Desktop Speed"
+msgstr "桌面速度"
+
+#: admin/pages/dashboard.php:112
+#, fuzzy
+msgid "Mobile Speed"
+msgstr "移动速度"
+
+#: admin/pages/dashboard.php:119 admin/pages/dashboard.php:126
+#, fuzzy
+msgid "Search Clicks"
+msgstr "搜索点击"
+
+#: admin/pages/dashboard.php:140
+#, fuzzy
+msgid "Not Found:"
+msgstr "找不到:"
+
+#: admin/pages/dashboard.php:141
+#, fuzzy
+msgid "Not Authorized:"
+msgstr "未授权:"
+
+#: admin/pages/dashboard.php:142
+#, fuzzy
+msgid "Server Error:"
+msgstr "服务器错误:"
+
+#: admin/pages/dashboard.php:154 admin/pages/dashboard.php:193
+#, fuzzy
+msgid "Requires Google OAuth Authentication"
+msgstr "要求谷歌 OAuth 认证"
+
+#: admin/pages/dashboard.php:163
+msgid "Site Speed"
+msgstr "网站的速度"
+
+#: admin/pages/dashboard.php:166
+#, fuzzy
+msgid "Average Speed:"
+msgstr "平均速度:"
+
+#: admin/pages/dashboard.php:167
+#, fuzzy
+msgid "Desktop Size:"
+msgstr "桌面尺寸:"
+
+#: admin/pages/dashboard.php:168
+#, fuzzy
+msgid "Mobile Size:"
+msgstr "手机尺寸:"
+
+#: admin/pages/dashboard.php:176 admin/pages/dashboard.php:189
+msgid "Search Statistics"
+msgstr "搜索统计"
+
+#: admin/pages/dashboard.php:179
+#, fuzzy
+msgid "Impressions:"
+msgstr "印象："
+
+#: admin/pages/dashboard.php:180
+#, fuzzy
+msgid "Click Rate:"
+msgstr "点击率:"
+
+#: admin/pages/dashboard.php:181
+#, fuzzy
+msgid "Average Position:"
+msgstr "平均位置:"
+
+#: admin/pages/dashboard.php:201
+#, fuzzy
+msgid "Google Status"
+msgstr "谷歌状态"
+
+#: admin/pages/dashboard.php:204
+#, fuzzy
+msgid "OAuth Status:"
+msgstr "OAuth 状态:"
+
+#: admin/pages/dashboard.php:207
+#, fuzzy
+msgid "Authenticated"
+msgstr "认证"
+
+#: admin/pages/dashboard.php:209
+#, fuzzy
+msgid "Not Authenticated"
+msgstr "未经过身份验证"
+
+#: admin/pages/dashboard.php:213
+msgid "Analytics:"
+msgstr "分析："
+
+#: admin/pages/dashboard.php:214
+msgid "Tracking"
+msgstr "跟踪"
+
+#: admin/pages/dashboard.php:214
+msgid "Not Tracking"
+msgstr ""
+"not tracking\n"
+"\n"
+"不跟踪"
+
+#: admin/pages/dashboard.php:217
+#, fuzzy
+msgid "Site Verification:"
+msgstr "站点验证:"
+
+#: admin/pages/dashboard.php:217
+msgid "Verified"
+msgstr "已验证"
+
+#: admin/pages/dashboard.php:217
+msgid "Not Verified"
+msgstr "不验证"
+
+#: admin/pages/dashboard.php:222
+msgid "Plugin Info"
+msgstr "插件信息"
+
+#: admin/pages/dashboard.php:225
+msgid "Version:"
+msgstr "版本："
+
+#: admin/pages/dashboard.php:226 admin/pages/dashboard.php:236
+msgid "Last Modified:"
+msgstr "上一次更改:"
+
+#: admin/pages/dashboard.php:227
+msgid "Release Notes:"
+msgstr "版本说明:"
+
+#: admin/pages/dashboard.php:227
+msgid "View"
+msgstr "查看"
+
+#: admin/pages/dashboard.php:232
+#, fuzzy
+msgid "Sitemap Info"
+msgstr "网站地图信息"
+
+#: admin/pages/dashboard.php:235
+msgid "Status:"
+msgstr "状态："
+
+#: admin/pages/dashboard.php:235
+msgid "Pending"
+msgstr "待定"
+
+#: admin/pages/dashboard.php:235
+#, fuzzy
+msgid "Generating"
+msgstr "生成"
+
+#: admin/pages/dashboard.php:235
+msgid "Generated"
+msgstr "已经生成"
+
+#: admin/pages/dashboard.php:235
+#, fuzzy
+msgid "Not Generated"
+msgstr "未生成"
+
+#: admin/pages/dashboard.php:236
+msgid "N/A"
+msgstr "N/A"
+
+#: admin/pages/dashboard.php:237
+#, fuzzy
+msgid "Total Entries:"
+msgstr "条目总数:"
+
+#: admin/pages/general.php:3 admin/pages/redirects.php:5
+#: admin/pages/sitemap.php:12 src/elevate-class.php:2597
+msgid "General"
+msgstr "常规"
+
+#: admin/pages/general.php:5
+msgid "Basic Configuration"
+msgstr "基本配置"
+
+#: admin/pages/general.php:5
+#, fuzzy
+msgid "Configure the language and default settings."
+msgstr "配置语言和默认设置。"
+
+#: admin/pages/general.php:6
+#, fuzzy
+msgid "Choose the language for the Elevate admin panel."
+msgstr "选择 \"提升管理\" 面板的语言。"
+
+#: admin/pages/general.php:9
+#, fuzzy
+msgid "Enabled advanced settings"
+msgstr "启用的高级设置"
+
+#: admin/pages/general.php:9
+#, fuzzy
+msgid "Enabling this option will show all the advanced settings."
+msgstr "启用此选项将显示所有高级设置。"
+
+#: admin/pages/general.php:13
+msgid "Site Information"
+msgstr "站点信息"
+
+#: admin/pages/general.php:13
+#, fuzzy
+msgid "Information about this site and its owner"
+msgstr "有关此网站及其所有者的信息"
+
+#: admin/pages/general.php:26
+msgid "Site name"
+msgstr "站点名称"
+
+#: admin/pages/general.php:26
+#, fuzzy
+msgid "The primary name of your website or company"
+msgstr "您的网站或公司的主要名称"
+
+#: admin/pages/general.php:28
+#, fuzzy
+msgid "Home search title"
+msgstr "主页搜索标题"
+
+#: admin/pages/general.php:29
+#, fuzzy
+msgid "Home search description"
+msgstr "首页搜索说明"
+
+#: admin/pages/general.php:29
+#, fuzzy
+msgid ""
+"The description of your primary website page for search engines. This is "
+"normally one or two sentences long and describes the products or services "
+"you primarily offer."
+msgstr ""
+"搜索引擎的主要网站页面的描述。这通常是一个或两个句子长, 并描述你的产品或服"
+"务, 你主要提供。"
+
+#: admin/pages/general.php:32
+#, fuzzy
+msgid "Blog search title"
+msgstr "博客搜索标题"
+
+#: admin/pages/general.php:33
+#, fuzzy
+msgid "Blog search description"
+msgstr "博客搜索说明"
+
+#: admin/pages/general.php:36
+#, fuzzy
+msgid "Site owner"
+msgstr "网站所有者"
+
+#: admin/pages/general.php:36
+#, fuzzy
+msgid "The name of the owner of this site, for example, Duane Storey"
+msgstr "这个网站的所有者的名字, 例如, 杜安楼层"
+
+#: admin/pages/google.php:3 src/elevate-class.php:2599
+msgid "Search"
+msgstr "搜索"
+
+#: admin/pages/google.php:5
+msgid "Options"
+msgstr "选项"
+
+#: admin/pages/google.php:5
+#, fuzzy
+msgid "Various options for search-related services"
+msgstr "与搜索相关的服务的各种选项"
+
+#: admin/pages/google.php:6
+#, fuzzy
+msgid "Insert visitor tracking code"
+msgstr "插入访问者跟踪代码"
+
+#: admin/pages/google.php:6
+#, fuzzy
+msgid "Insert code for Google Analytics or other website visitor tracking"
+msgstr "插入代码为谷歌分析或其他网站访问者跟踪"
+
+#: admin/pages/google.php:7
+#, fuzzy
+msgid "Visitor tracking code to insert"
+msgstr "要插入的访问者跟踪代码"
+
+#: admin/pages/google.php:7
+#, fuzzy
+msgid ""
+"This can be found within your Google analytics or other website visitor "
+"tracking configuration"
+msgstr "这可以在您的 Google 分析或其他网站访问者跟踪配置中找到"
+
+#: admin/pages/google.php:8
+#, fuzzy
+msgid "Bing site verification code"
+msgstr "Bing 站点验证码"
+
+#: admin/pages/google.php:8
+#, fuzzy
+msgid ""
+"When you add a new site to your Bing webmaster tools, Bing will give you an "
+"authorization code to insert into the webpage"
+msgstr ""
+"当您向 bing 网站管理员工具添加新站点时, bing 将为您提供一个授权代码, 以便插入"
+"到网页中。"
+
+#: admin/pages/google.php:12 admin/pages/google.php:14
+#, fuzzy
+msgid "Google OAuth Authentication"
+msgstr "谷歌 OAuth 认证"
+
+#: admin/pages/google.php:12
+#, fuzzy
+msgid "Remove Authentication"
+msgstr "删除身份验证"
+
+#: admin/pages/google.php:14 admin/pages/wizard.php:107
+msgid "Authenticate"
+msgstr "认证"
+
+#: admin/pages/google.php:19
+#, fuzzy
+msgid "Crawling"
+msgstr "爬行"
+
+#: admin/pages/google.php:19
+#, fuzzy
+msgid "Options for controlling granular search"
+msgstr "控制颗粒搜索的选项"
+
+#: admin/pages/google.php:20
+#, fuzzy
+msgid "Robots.txt Generation"
+msgstr "Robots.txt 世代"
+
+#: admin/pages/google.php:21
+#, fuzzy
+msgid "Default WordPress"
+msgstr "默认的 WordPress"
+
+#: admin/pages/google.php:22
+#, fuzzy
+msgid "Enhanced"
+msgstr "增强"
+
+#: admin/pages/google.php:27
+#, fuzzy
+msgid "Search Information"
+msgstr "搜索信息"
+
+#: admin/pages/google.php:27
+#, fuzzy
+msgid "Configure meta fields"
+msgstr "配置元字段"
+
+#: admin/pages/google.php:28
+#, fuzzy
+msgid "Allow editing the canonical field"
+msgstr "允许编辑规范字段"
+
+#: admin/pages/google.php:28
+#, fuzzy
+msgid ""
+"This option will insert canonical meta information on each post or page for "
+"you to edit."
+msgstr "此选项将在每个文章或页面上插入规范元信息, 供您编辑。"
+
+#: admin/pages/google.php:29
+#, fuzzy
+msgid "Allow editing the language field"
+msgstr "允许编辑语言字段"
+
+#: admin/pages/google.php:29
+#, fuzzy
+msgid ""
+"This option will insert the language field for each post or page to select."
+msgstr "此选项将为每个要选择的文章或页面插入 \"语言\" 字段。"
+
+#: admin/pages/google.php:30
+#, fuzzy
+msgid "Allow editing the index status"
+msgstr "允许编辑索引状态"
+
+#: admin/pages/google.php:30
+#, fuzzy
+msgid ""
+"This option will allow you to edit the robots information for each post or "
+"page."
+msgstr "此选项将允许您编辑每个帖子或页面的机器人信息。"
+
+#: admin/pages/google.php:33
+#, fuzzy
+msgid "Intelligently fill empty meta description"
+msgstr "智能填充空元描述"
+
+#: admin/pages/google.php:33
+#, fuzzy
+msgid ""
+"If no search description is given for a post, Elevate will automatically "
+"attempt to fill it with post content."
+msgstr "如果没有为 post 提供搜索说明, 则提升将自动尝试用 post 内容填充它。"
+
+#: admin/pages/google.php:35
+#, fuzzy
+msgid "Default search title and description"
+msgstr "默认搜索标题和说明"
+
+#: admin/pages/google.php:35
+#, fuzzy
+msgid ""
+"If you have used other SEO plugins previously, you can dynamically import "
+"their data here."
+msgstr "如果您以前使用过其他 SEO 插件, 则可以在此处动态导入它们的数据。"
+
+#: admin/pages/google.php:36
+#, fuzzy
+msgid "Do not import data"
+msgstr "不导入数据"
+
+#: admin/pages/google.php:37
+#, fuzzy
+msgid "Import from Yoast"
+msgstr "从尤导入"
+
+#: admin/pages/performance.php:3 src/elevate-class.php:2605
+msgid "Performance"
+msgstr "性能"
+
+#: admin/pages/performance.php:5
+msgid "Basic Settings"
+msgstr "基本设置"
+
+#: admin/pages/performance.php:5
+#, fuzzy
+msgid "Settings related to the speed of your website"
+msgstr "与网站速度相关的设置"
+
+#: admin/pages/performance.php:6
+#, fuzzy
+msgid "Use Content Delivery Network"
+msgstr "使用内容传递网络"
+
+#: admin/pages/performance.php:6
+#, fuzzy
+msgid ""
+"Controls whether or not to substitute the CDN URL for images in your content."
+msgstr "控制是否将 CDN URL 替换为内容中的图像。"
+
+#: admin/pages/performance.php:7
+#, fuzzy
+msgid "Content Delivery Network URL"
+msgstr "内容传递网络 URL"
+
+#: admin/pages/performance.php:7
+#, fuzzy
+msgid ""
+"If you use a CDN, you can insert the URL here and have your post images "
+"served from the CDN"
+msgstr "如果您使用 cdn, 您可以在这里插入 URL, 并让您的 post 图像从 CDN 服务"
+
+#: admin/pages/redirects.php:3 src/elevate-class.php:2604
+msgid "Redirects"
+msgstr "重定向"
+
+#: admin/pages/redirects.php:5
+#, fuzzy
+msgid "Choose how redirects are handled"
+msgstr "选择如何处理重定向"
+
+#: admin/pages/redirects.php:6
+#, fuzzy
+msgid "Redirect to SSL"
+msgstr "重定向至 SSL"
+
+#: admin/pages/redirects.php:6
+#, fuzzy
+msgid ""
+"Can be used to force all non-SSL traffic to be 301 (permanently) redirected "
+"to SSL. This is best handled via the server, but this can be used for "
+"smaller sites."
+msgstr ""
+"可用于强制将所有非 SSL 通信量 301 (永久) 重定向到 SSL。这是最好的通过服务器处"
+"理, 但这可以用于较小的网站。"
+
+#: admin/pages/redirects.php:7
+#, fuzzy
+msgid "Redirect Media to Parent"
+msgstr "将媒体重定向到父级"
+
+#: admin/pages/redirects.php:7
+#, fuzzy
+msgid ""
+"Will force direct links to image attachments to redirect back to the post or "
+"page where they were included."
+msgstr "将强制指向图像附件的直接链接重定向回其包含的文章或页面。"
+
+#: admin/pages/sitemap.php:10 src/elevate-class.php:2601
+msgid "Sitemap"
+msgstr "网站地图"
+
+#: admin/pages/sitemap.php:12
+#, fuzzy
+msgid ""
+"When submitted to search engines, sitemaps can improve your site ranking."
+msgstr "当提交到搜索引擎时, 站点地图可以提高您的网站排名。"
+
+#: admin/pages/sitemap.php:13
+#, fuzzy
+msgid "Enable sitemap generation"
+msgstr "启用站点地图生成"
+
+#: admin/pages/sitemap.php:14
+#, fuzzy
+msgid "Sitemap name"
+msgstr "网站地图名称"
+
+#: admin/pages/sitemap.php:18
+#, fuzzy
+msgid "Sitemap Contents"
+msgstr "网站地图内容"
+
+#: admin/pages/sitemap.php:18
+#, fuzzy
+msgid "Specify the content you would like the sitemap to contain."
+msgstr "指定希望站点地图包含的内容。"
+
+#: admin/pages/sitemap.php:19
+msgid "Include posts"
+msgstr "包含帖子"
+
+#: admin/pages/sitemap.php:20
+#, fuzzy
+msgid "Include custom posts"
+msgstr "包括自定义帖子"
+
+#: admin/pages/sitemap.php:21
+msgid "Include pages"
+msgstr "包括页面"
+
+#: admin/pages/sitemap.php:22
+#, fuzzy
+msgid "Include media &amp; attachments"
+msgstr "包括媒体 &amp; 附件"
+
+#: admin/pages/sitemap.php:23
+#, fuzzy
+msgid "Include author archives"
+msgstr "包括作者档案"
+
+#: admin/pages/sitemap.php:24
+#, fuzzy
+msgid "Include categories"
+msgstr "包括类别"
+
+#: admin/pages/sitemap.php:25
+#, fuzzy
+msgid "Include tags"
+msgstr "包括标签"
+
+#: admin/pages/sitemap.php:26
+#, fuzzy
+msgid "Include custom taxonomies"
+msgstr "包括自定义分类法"
+
+#: admin/pages/sitemap.php:27
+msgid "Include images"
+msgstr "插入图片"
+
+#: admin/pages/social.php:3 src/elevate-class.php:2607
+msgid "Social Media"
+msgstr "社交媒体"
+
+#: admin/pages/social.php:16
+#, fuzzy
+msgid "Social Media Services"
+msgstr "社会媒体服务"
+
+#: admin/pages/social.php:16
+#, fuzzy
+msgid "Configure which services generate additional page information"
+msgstr "配置哪些服务生成附加页信息"
+
+#: admin/pages/social.php:17
+#, fuzzy
+msgid "Enable Facebook OpenGraph"
+msgstr "启用 Facebook OpenGraph"
+
+#: admin/pages/social.php:18
+#, fuzzy
+msgid ""
+"If you create an application, you can use Facebook Insights to track "
+"analytics to and from Facebook"
+msgstr ""
+"如果你创建一个应用程序, 你可以使用 facebook 的洞察力来跟踪和从 facebook 的分"
+"析"
+
+#: admin/pages/social.php:18
+msgid "Optional"
+msgstr "可选"
+
+#: admin/pages/social.php:20
+#, fuzzy
+msgid "Enable Twitter cards"
+msgstr "启用 Twitter 卡"
+
+#: admin/pages/social.php:21
+#, fuzzy
+msgid "Twitter card image size"
+msgstr "推特卡图像大小"
+
+#: admin/pages/social.php:22
+msgid "Default"
+msgstr "默认"
+
+#: admin/pages/social.php:23
+msgid "Large"
+msgstr "大"
+
+#: admin/pages/social.php:25
+#, fuzzy
+msgid "Your Twitter username"
+msgstr "您的 Twitter 用户名"
+
+#: admin/pages/social.php:27
+#, fuzzy
+msgid "Social media image priority"
+msgstr "社会媒体形象优先"
+
+#: admin/pages/social.php:27
+#, fuzzy
+msgid ""
+"You can select which image is used as the focus image when your content is "
+"shared. The site-wide image can be configured on this page as well."
+msgstr ""
+"您可以选择在共享内容时用作焦点图像的图像。网站范围的图像也可以在此页面上配"
+"置。"
+
+#: admin/pages/social.php:28
+#, fuzzy
+msgid "Featured, Site-wide"
+msgstr "特色, 全站式"
+
+#: admin/pages/social.php:29
+#, fuzzy
+msgid "Featured, First in Content, Site-wide"
+msgstr "特色, 首先在内容, 网站范围内"
+
+#: admin/pages/social.php:30
+#, fuzzy
+msgid "Site-wide always"
+msgstr "站点范围始终"
+
+#: admin/pages/social.php:33
+#, fuzzy
+msgid "Site-wide social media image"
+msgstr "全站式社会媒体形象"
+
+#: admin/pages/social.php:38
+msgid "Structured Data"
+msgstr "预设数据"
+
+#: admin/pages/social.php:38
+#, fuzzy
+msgid "Configure which cards are automatically inserted"
+msgstr "配置自动插入哪些卡"
+
+#: admin/pages/social.php:39
+#, fuzzy
+msgid "Insert article information for posts"
+msgstr "为帖子插入文章信息"
+
+#: admin/pages/social.php:41
+#, fuzzy
+msgid "Insert breadcrumb information"
+msgstr "插入痕迹导航信息"
+
+#: admin/pages/social.php:42
+#, fuzzy
+msgid "Breadcrumb name for home page"
+msgstr "主页的痕迹导航名称"
+
+#: admin/pages/wizard.php:4 src/elevate-class.php:466
+#: src/elevate-class.php:2594
+msgid "Get Started"
+msgstr "开始使用"
+
+#: admin/pages/wizard.php:11
+#, fuzzy
+msgid "Welcome to Elevate SEO"
+msgstr "欢迎提升 SEO"
+
+#: admin/pages/wizard.php:12
+#, fuzzy
+msgid "We just need a little bit of information to get you up and running"
+msgstr "我们只是需要一点点的信息, 让你和运行"
+
+#: admin/pages/wizard.php:14
+#, fuzzy
+msgid ""
+"This wizard will guide you through the basic configuration steps needed to "
+"enhance your site and starting using the full features of the Elevate  "
+"plugin for WordPress."
+msgstr ""
+"此向导将指导您完成增强站点所需的基本配置步骤, 并开始使用 WordPress 的提升插件"
+"的全部功能。"
+
+#: admin/pages/wizard.php:16
+msgid "Basics"
+msgstr "基本"
+
+#: admin/pages/wizard.php:18
+#, fuzzy
+msgid "Configure Your Site"
+msgstr "配置网站"
+
+#: admin/pages/wizard.php:19
+#, fuzzy
+msgid "The following settings will help us set your site up properly"
+msgstr "以下设置将帮助我们正确设置您的网站"
+
+#: admin/pages/wizard.php:31
+msgid "Name"
+msgstr "名称"
+
+#: admin/pages/wizard.php:33
+#, fuzzy
+msgid "Configure Your Site's Name"
+msgstr "配置网站名称"
+
+#: admin/pages/wizard.php:34
+#, fuzzy
+msgid "It's time to start branding your search results"
+msgstr "是时候开始品牌搜索结果了"
+
+#: admin/pages/wizard.php:35
+#, fuzzy
+msgid ""
+"Your Site Name reflects the primary branding of your website or business.  "
+"For example, if you had an autobody repair facility called \"Joe's Autobody"
+"\", you would set your Site Name as that."
+msgstr ""
+"您的网站名称反映了您的网站或业务的主要品牌。 例如, 如果你有一个车身维修设施称"
+"为 \"乔的车身\", 你会设置你的网站名称。"
+
+#: admin/pages/wizard.php:37
+msgid "Site Name"
+msgstr "站点名称"
+
+#: admin/pages/wizard.php:41 admin/pages/wizard.php:83
+msgid "Title"
+msgstr "标题"
+
+#: admin/pages/wizard.php:43
+#, fuzzy
+msgid "Configure Your Search Title"
+msgstr "配置搜索标题"
+
+#: admin/pages/wizard.php:44
+#, fuzzy
+msgid "Set the title that search engines see for your main home page"
+msgstr "设置搜索引擎在主主页上看到的标题"
+
+#: admin/pages/wizard.php:45
+#, fuzzy
+msgid ""
+"Your Search Title is typically set to be your Site Name followed by a "
+"keyword-rich description of the information or services you or your website "
+"provide."
+msgstr ""
+"您的搜索标题通常设置为您的网站名称, 后面是您或您的网站提供的信息或服务的关键"
+"字丰富的说明。"
+
+#: admin/pages/wizard.php:47
+#, fuzzy
+msgid "Home Search Title"
+msgstr "主页搜索标题"
+
+#: admin/pages/wizard.php:51 admin/pages/wizard.php:85
+msgid "Description"
+msgstr "描述"
+
+#: admin/pages/wizard.php:53
+#, fuzzy
+msgid "Configure Your Search Description"
+msgstr "配置搜索说明"
+
+#: admin/pages/wizard.php:54
+#, fuzzy
+msgid "Set the description that search engines see for your main home page"
+msgstr "设置搜索引擎查看主主页的说明"
+
+#: admin/pages/wizard.php:55
+#, fuzzy
+msgid ""
+"Your Search Description should include a few sentences about the primary "
+"purpose of your website."
+msgstr "您的搜索说明应包括几个关于您的网站的主要目的的句子。"
+
+#: admin/pages/wizard.php:57
+#, fuzzy
+msgid "Home Search Description"
+msgstr "首页搜索说明"
+
+#: admin/pages/wizard.php:61
+msgid "Branding"
+msgstr "品牌"
+
+#: admin/pages/wizard.php:63
+#, fuzzy
+msgid "Sharing Image"
+msgstr "共享图像"
+
+#: admin/pages/wizard.php:64
+#, fuzzy
+msgid "Choose how others see your website"
+msgstr "选择其他人如何查看您的网站"
+
+#: admin/pages/wizard.php:65
+#, fuzzy, php-format
+msgid ""
+"Select the default image that appears when a person shares your content on "
+"social media. If you do not have one, take a look at %sUnsplash.com%s for "
+"images you can use for free."
+msgstr ""
+"选择当用户在社交媒体上共享您的内容时出现的默认图像。如果你没有一个, 看"
+"看%sUnsplash. com%s 为您可以免费使用的图像。"
+
+#: admin/pages/wizard.php:68
+msgid "Upload Image"
+msgstr "上传图片"
+
+#: admin/pages/wizard.php:74 admin/settings/upload.php:11
+msgid "Remove"
+msgstr "移除"
+
+#: admin/pages/wizard.php:76
+msgid "Preview"
+msgstr "预览"
+
+#: admin/pages/wizard.php:78
+#, fuzzy
+msgid "Take a Look"
+msgstr "去看看"
+
+#: admin/pages/wizard.php:79
+#, fuzzy
+msgid "See how your site will look in search results"
+msgstr "查看搜索结果中您的网站将如何查找"
+
+#: admin/pages/wizard.php:80
+#, fuzzy
+msgid ""
+"The following is an example of how your site will be displayed in various "
+"search engines. If you are not satisfied with it, you can modify this "
+"information on the previous screens."
+msgstr ""
+"下面是一个示例, 说明您的网站将如何在各种搜索引擎中显示。如果您对此不满意, 可"
+"以在以前的屏幕上修改此信息。"
+
+#: admin/pages/wizard.php:88
+msgid "Twitter"
+msgstr "Twitter"
+
+#: admin/pages/wizard.php:90
+#, fuzzy
+msgid "Configure Twitter"
+msgstr "配置 Twitter"
+
+#: admin/pages/wizard.php:91
+#, fuzzy
+msgid "Help other people find you online"
+msgstr "帮助他人在网上找到您"
+
+#: admin/pages/wizard.php:92
+#, fuzzy
+msgid ""
+"Any content that visitors share on Twitter can automatically be tagged with "
+"your Twitter username once configured below. This will help drive traffic to "
+"your Twitter account and your website."
+msgstr ""
+"访问者在 twitter 上共享的任何内容都可以自动用您的 twitter 用户名进行标记, 一"
+"旦配置如下。这将有助于推动您的 Twitter 帐户和您的网站的流量。"
+
+#: admin/pages/wizard.php:94
+msgid "Twitter Username"
+msgstr "Twitter用户名"
+
+#: admin/pages/wizard.php:99 admin/pages/wizard.php:175
+msgid "Google"
+msgstr "谷歌"
+
+#: admin/pages/wizard.php:101
+msgid "Google Search Console"
+msgstr "谷歌搜索控制台"
+
+#: admin/pages/wizard.php:102
+#, fuzzy
+msgid "Authenticate with Google for enhanced functionality"
+msgstr "使用 Google 进行身份验证以增强功能"
+
+#: admin/pages/wizard.php:103
+#, fuzzy
+msgid ""
+"Elevate can access your Search Console data, automatically configure "
+"Sitemaps, and also perform Google site verification if needed - these items "
+"are all recommended for the best Search Engine Optimization results for this "
+"site."
+msgstr ""
+"提升可以访问您的搜索控制台数据, 自动配置站点地图, 并在需要时执行 Google 站点"
+"验证-这些项目都推荐用于此网站的最佳搜索引擎优化结果。"
+
+#: admin/pages/wizard.php:105
+#, fuzzy, php-format
+msgid ""
+"Click the button below to authenticate with Google, or click Next to skip. "
+"You can revoke authorization at any time in the future by %svisiting Google"
+"%s."
+msgstr ""
+"单击下面的按钮以使用 Google 进行身份验证, 或单击 \"下一步\" 跳过。您可以在将"
+"来任何时候通过%svisiting Google%s 撤消授权。"
+
+#: admin/pages/wizard.php:115
+msgid "Inspect"
+msgstr "检查"
+
+#: admin/pages/wizard.php:117 admin/pages/wizard.php:137
+msgid "Google Services"
+msgstr "Google服务"
+
+#: admin/pages/wizard.php:118
+#, fuzzy
+msgid "Determining which services to automatically configure"
+msgstr "确定要自动配置的服务"
+
+#: admin/pages/wizard.php:123
+#, fuzzy
+msgid ""
+"Please wait while we examine the current configuration of your site and "
+"Google services. This will only take a few moments."
+msgstr "请稍候, 我们检查您的网站和 Google 服务的当前配置。这只需要几分钟。"
+
+#: admin/pages/wizard.php:127
+#, fuzzy, php-format
+msgid ""
+"It seems you haven't signed up for a Google Analytics account yet - we "
+"recommend %ssigning up for an account%s so that Elevate can configure it for "
+"you. To proceed without setting up Analytics, click Next, otherwise refresh "
+"the page after creating your Google Analytics account."
+msgstr ""
+"看来你还没有注册谷歌分析帐户-我们建议%ssigning account%s, 以便提升可以为您配"
+"置它。若要在不设置分析的情况下继续, 请单击 \"下一步\", 否则在创建您的 Google "
+"分析帐户后刷新该页。"
+
+#: admin/pages/wizard.php:131
+#, fuzzy
+msgid ""
+"Great news - Elevate has access to your Google accounts and can now "
+"automatically configure them."
+msgstr "伟大的新闻-提升可以访问您的 Google 帐户, 现在能够自动配置它们。"
+
+#: admin/pages/wizard.php:131
+#, fuzzy
+msgid ""
+"Please choose which services to automatically configure on the next page."
+msgstr "请选择要在下一页上自动配置的服务。"
+
+#: admin/pages/wizard.php:135
+msgid "Configure"
+msgstr "配置"
+
+#: admin/pages/wizard.php:138
+#, fuzzy
+msgid "Choose which services to automatically configure"
+msgstr "选择要自动配置的服务"
+
+#: admin/pages/wizard.php:146
+#, fuzzy
+msgid "Configure Search Console"
+msgstr "配置搜索控制台"
+
+#: admin/pages/wizard.php:148
+#, fuzzy
+msgid ""
+"Search console helps Google properly index your website traffic and can "
+"provide useful information about your page rankings."
+msgstr ""
+"搜索控制台帮助 Google 正确地索引您的网站流量, 并可以提供有关您的页面排名的有"
+"用信息。"
+
+#: admin/pages/wizard.php:154
+#, fuzzy
+msgid "Create Analytics Property"
+msgstr "创建分析属性"
+
+#: admin/pages/wizard.php:156
+#, fuzzy
+msgid ""
+"Google Analytics can provide valuable information about what visitors read "
+"and interact with on your website."
+msgstr "Google 分析可以提供有关访问者在您的网站上阅读和交互的重要信息。"
+
+#: admin/pages/wizard.php:158 admin/pages/wizard.php:168
+#, fuzzy
+msgid "Requires a Google Analytics account"
+msgstr "需要一个谷歌分析帐户"
+
+#: admin/pages/wizard.php:164
+#, fuzzy
+msgid "Install Analytics Code"
+msgstr "安装分析代码"
+
+#: admin/pages/wizard.php:166
+#, fuzzy
+msgid ""
+"Automatically insert the Google Analytics tracking code on to each page of "
+"your website."
+msgstr "自动将 Google 分析跟踪代码插入到您的网站的每一页上。"
+
+#: admin/pages/wizard.php:177
+#, fuzzy
+msgid "Configuring Your Site"
+msgstr "配置网站"
+
+#: admin/pages/wizard.php:178
+#, fuzzy
+msgid "Give us a few moments while we configure your site with Google"
+msgstr "给我们几分钟, 而我们配置您的网站与谷歌"
+
+#: admin/pages/wizard.php:181
+#, fuzzy, php-format
+msgid "Generating a new sitemap on this site %s"
+msgstr "在此站点上生成新的站点地图%s"
+
+#: admin/pages/wizard.php:182
+#, fuzzy, php-format
+msgid "Checking that we can talk to Google %s"
+msgstr "检查, 我们可以谈谈谷歌%s"
+
+#: admin/pages/wizard.php:183
+#, fuzzy, php-format
+msgid "Looking for your site on Google Search Console %s"
+msgstr "在 Google 搜索控制台%s 上查找您的网站"
+
+#: admin/pages/wizard.php:184
+#, fuzzy, php-format
+msgid "Adding your site to Google Search Console %s"
+msgstr "将您的网站添加到 Google 搜索控制台%s"
+
+#: admin/pages/wizard.php:185
+#, fuzzy, php-format
+msgid "Checking if your site is verified on Google %s"
+msgstr "检查您的网站是否已在 Google%s 上验证"
+
+#: admin/pages/wizard.php:186
+#, fuzzy, php-format
+msgid "Verifying your site on Google %s"
+msgstr "在 Google%s 上验证您的网站"
+
+#: admin/pages/wizard.php:187
+#, fuzzy, php-format
+msgid "Checking to see if you have a sitemap configured on Google %s"
+msgstr "检查是否在 Google%s 上配置了站点地图"
+
+#: admin/pages/wizard.php:188
+#, fuzzy, php-format
+msgid "Adding a new sitemap for your site on Google %s"
+msgstr "在 Google%s 上为您的网站添加新的站点地图"
+
+#: admin/pages/wizard.php:189
+#, fuzzy, php-format
+msgid "Create a new Google Analytics property for your site %s"
+msgstr "为您的站点%s 创建新的 Google 分析属性"
+
+#: admin/pages/wizard.php:190
+#, fuzzy, php-format
+msgid "Adding Google Analytics code for this site %s"
+msgstr "为此站点%s 添加 Google 分析代码"
+
+#: admin/pages/wizard.php:191
+#, fuzzy
+msgid "Automatic configuration of your site is complete"
+msgstr "网站的自动配置已完成"
+
+#: admin/pages/wizard.php:195
+#, fuzzy
+msgid "Configuration Problem"
+msgstr "配置问题"
+
+#: admin/pages/wizard.php:196
+#, fuzzy
+msgid ""
+"We were unable to automatically verify your site on Google Search Console; "
+"you will likely have to complete this step manually."
+msgstr ""
+"我们无法在 Google 搜索控制台上自动验证您的网站;您可能需要手动完成此步骤。"
+
+#: admin/pages/wizard.php:204
+#, fuzzy
+msgid "Configure Bing"
+msgstr "配置 Bing"
+
+#: admin/pages/wizard.php:205
+#, fuzzy
+msgid "There's more than just Google out there"
+msgstr "不只是谷歌在那里"
+
+#: admin/pages/wizard.php:206
+#, fuzzy
+msgid ""
+"Submitting your site to Microsoft's Bing search engine helps more visitors "
+"find your website.<br />The steps to add your site on Bing are listed below."
+msgstr ""
+"将您的网站提交给微软的 Bing 搜索引擎可以帮助更多的访客找到您的网站. <br/> 在 "
+"Bing 上添加网站的步骤如下所示。"
+
+#: admin/pages/wizard.php:209
+#, fuzzy, php-format
+msgid ""
+"%sClick here%s to go to Bing's configuration page.  If you don't have an "
+"account on Bing, you should create one now"
+msgstr ""
+"%sClick here%s 去 Bing 的配置页面。 如果您没有在 Bing 的帐户, 你应该创建一个"
+"现在"
+
+#: admin/pages/wizard.php:211
+#, fuzzy, php-format
+msgid ""
+"Your sitemap is located at %s%s%s. Copy the URL from here and paste it into "
+"the 'Add a sitemap' field at Bing."
+msgstr ""
+"您的站点地图位于%s%s%s. 从此处复制 URL 并将其粘贴到 Bing 的 \"添加站点地图\" "
+"字段中。"
+
+#: admin/pages/wizard.php:212
+#, fuzzy
+msgid "Click \"Add\" on Bing to add your site and sitemap"
+msgstr "点击 \"添加\" Bing 添加您的网站和网站地图"
+
+#: admin/pages/wizard.php:213
+#, fuzzy
+msgid "Copy the authentication code from Bing and paste it in the box below."
+msgstr "从 Bing 复制身份验证代码并将其粘贴到下面的框中。"
+
+#: admin/pages/wizard.php:214
+#, fuzzy
+msgid "If you are using a cache plugin, please empty your cache after pasting."
+msgstr "如果您使用的是缓存插件, 请在粘贴后清空缓存。"
+
+#: admin/pages/wizard.php:223 admin/pages/wizard.php:225
+msgid "Hosting"
+msgstr "主机"
+
+#: admin/pages/wizard.php:226
+#, fuzzy
+msgid "Let's check the configuration of your website"
+msgstr "让我们检查您的网站的配置"
+
+#: admin/pages/wizard.php:227
+#, fuzzy
+msgid "Server Capabilities"
+msgstr "服务器功能"
+
+#: admin/pages/wizard.php:231
+#, fuzzy
+msgid "Your website supports browser caching of resources"
+msgstr "您的网站支持浏览器缓存资源"
+
+#: admin/pages/wizard.php:233
+#, fuzzy
+msgid "Your website does not support browser caching of resources"
+msgstr "您的网站不支持浏览器缓存资源"
+
+#: admin/pages/wizard.php:237
+#, fuzzy
+msgid "Your website supports compressing resources in real-time"
+msgstr "您的网站支持实时压缩资源"
+
+#: admin/pages/wizard.php:239
+#, fuzzy
+msgid "Your website does not support compressing resources in real-time"
+msgstr "您的网站不支持实时压缩资源"
+
+#: admin/pages/wizard.php:242
+#, fuzzy
+msgid "Unable to determine server abilities since PHP is running using FastCGI"
+msgstr "无法确定服务器能力, 因为 PHP 正在使用 FastCGI 运行"
+
+#: admin/pages/wizard.php:245
+#, fuzzy
+msgid "Website Configuration"
+msgstr "网站配置"
+
+#: admin/pages/wizard.php:249 admin/pages/wizard.php:251
+#, fuzzy
+msgid "Your website is configured for browser caching of resources"
+msgstr "您的网站被配置为浏览器缓存资源"
+
+#: admin/pages/wizard.php:252
+#, fuzzy
+msgid "Your website is not configured for browser caching of resources"
+msgstr "您的网站未配置为浏览器缓存资源"
+
+#: admin/pages/wizard.php:255
+#, fuzzy
+msgid "Your website cannot be configured for browser caching of resources"
+msgstr "您的网站无法配置为浏览器缓存资源"
+
+#: admin/pages/wizard.php:259 admin/pages/wizard.php:261
+#, fuzzy
+msgid "Your website is configured to compress resources in real-time"
+msgstr "您的网站配置为实时压缩资源"
+
+#: admin/pages/wizard.php:262
+#, fuzzy
+msgid "Your website is not configured to compress resources in real-time"
+msgstr "您的网站未配置为实时压缩资源"
+
+#: admin/pages/wizard.php:265
+#, fuzzy
+msgid "Your website cannot be configured to compress resources in real-time"
+msgstr "您的网站无法配置为实时压缩资源"
+
+#: admin/pages/wizard.php:269 src/elevate-class.php:1547
+#, fuzzy
+msgid "Fix Issues"
+msgstr "修复问题"
+
+#: admin/pages/wizard.php:270
+#, fuzzy
+msgid ""
+"Changes have been made to your website's .htaccess file. If this causes "
+"issues, manually copy .htaccess-elevate.bak to .htaccess in your website's "
+"main directory to restore the old configuration"
+msgstr ""
+"已对您的网站的. htaccess 文件进行了更改。如果这会导致问题, 请手动复制. "
+"htaccess 提升. htaccess 在网站的主目录中还原旧配置"
+
+#: admin/pages/wizard.php:272
+#, fuzzy
+msgid "Your website is optimally configured based on its abilities"
+msgstr "您的网站是根据其能力优化配置的"
+
+#: admin/pages/wizard.php:276
+msgid "News"
+msgstr "新闻"
+
+#: admin/pages/wizard.php:278
+#, fuzzy
+msgid "Get Timely Updates"
+msgstr "获得及时更新"
+
+#: admin/pages/wizard.php:279
+#, fuzzy
+msgid "We'll email you when there's a new update"
+msgstr "我们会给你发电子邮件, 当有一个新的更新"
+
+#: admin/pages/wizard.php:280
+#, fuzzy
+msgid ""
+"We aim to release new versions of Elevate every week or two.  Enter your "
+"email address below to be notified by email when a new release is available."
+msgstr ""
+"我们的目标是发布新版本的提升每星期或两个。 请输入您的电子邮件地址, 以便在新版"
+"本可用时通过电子邮件通知您。"
+
+#: admin/pages/wizard.php:282
+msgid "Your Email Address"
+msgstr "您的电子邮件地址"
+
+#: admin/pages/wizard.php:285
+#, fuzzy
+msgid "You can unsubscribe at any time via a link at the bottom of each email."
+msgstr "您可以在任何时候通过每封电子邮件底部的链接取消订阅。"
+
+#: admin/pages/wizard.php:286
+#, fuzzy
+msgid "If you would like to bypass this, simply click Next."
+msgstr "如果您想绕过此, 只需单击 \"下一步\"。"
+
+#: admin/pages/wizard.php:288
+msgid "Done"
+msgstr "完成"
+
+#: admin/pages/wizard.php:290
+#, fuzzy
+msgid "Setup Complete"
+msgstr "安装完成"
+
+#: admin/pages/wizard.php:291
+#, fuzzy
+msgid "Elevate SEO has been configured for use on your website."
+msgstr "提升 SEO 已配置为使用您的网站。"
+
+#: admin/pages/wizard.php:293
+#, fuzzy
+msgid ""
+"Your website is ready to go.<br />Please visit the individual settings pages "
+"to further configure Elevate SEO."
+msgstr "您的网站已准备就绪. <br/> 请访问各个设置页面, 进一步配置提升 SEO。"
+
+#: admin/settings/upload.php:10
+msgid "Upload"
+msgstr "上传"
+
+#: src/elevate-class.php:27
+msgid "Automatic"
+msgstr "自动"
+
+#: src/elevate-class.php:92
+#, fuzzy
+msgid "Index and follow links"
+msgstr "索引和跟踪链接"
+
+#: src/elevate-class.php:93
+#, fuzzy
+msgid "Index but disallow link following"
+msgstr "索引, 但不允许链接跟随"
+
+#: src/elevate-class.php:94
+#, fuzzy
+msgid "Don't index but allow link following"
+msgstr "不索引, 但允许链接跟随"
+
+#: src/elevate-class.php:95
+#, fuzzy
+msgid "Don't index and also disallow link following"
+msgstr "不索引, 也不允许以下链接"
+
+#: src/elevate-class.php:99
+#, fuzzy
+msgid "Inherit default status"
+msgstr "继承默认状态"
+
+#: src/elevate-class.php:217
+#, fuzzy
+msgid "Elevate SEO / Search Titles &amp; Descriptions"
+msgstr "提升 SEO/搜索标题 &amp; 说明"
+
+#: src/elevate-class.php:463 src/elevate-class.php:2589
+msgid "Dashboard"
+msgstr "仪表盘"
+
+#: src/elevate-class.php:470
+#, fuzzy
+msgid "Clear Image Cache"
+msgstr "清除图像缓存"
+
+#: src/elevate-class.php:474
+#, fuzzy
+msgid "Refresh Statistics"
+msgstr "刷新统计信息"
+
+#: src/elevate-class.php:477
+msgid "Update Sitemap"
+msgstr "更新网站地图"
+
+#: src/elevate-class.php:883
+#, fuzzy
+msgid "Invalid MIME type"
+msgstr "MIME 类型无效"
+
+#: src/elevate-class.php:901
+msgid "No file was uploaded"
+msgstr "没有文件被上传"
+
+#: src/elevate-class.php:920 src/elevate-class.php:923
+#, fuzzy
+msgid "Unable to acquire Google token"
+msgstr "无法获取谷歌令牌"
+
+#: src/elevate-class.php:970 src/elevate-class.php:1004
+#: src/elevate-class.php:1021 src/elevate-class.php:1042
+#: src/elevate-class.php:1078 src/elevate-class.php:1104
+#: src/elevate-class.php:1120 src/elevate-class.php:1162
+#, fuzzy
+msgid "No authentication for Google Search Console"
+msgstr "谷歌搜索控制台没有认证"
+
+#: src/elevate-class.php:993
+#, fuzzy
+msgid "Site isn't configured on Search Console"
+msgstr "网站未在搜索控制台上配置"
+
+#: src/elevate-class.php:996
+#, fuzzy
+msgid "Unable to locate sites"
+msgstr "无法定位网站"
+
+#: src/elevate-class.php:1030
+#, fuzzy
+msgid "This site hasn't been verified yet"
+msgstr "这个网站还没有被证实"
+
+#: src/elevate-class.php:1035
+#, fuzzy
+msgid "Unexpected response verifying site"
+msgstr "意外响应验证站点"
+
+#: src/elevate-class.php:1064 src/elevate-class.php:1072
+#, fuzzy
+msgid "Site verification failed"
+msgstr "站点验证失败"
+
+#: src/elevate-class.php:1098
+#, fuzzy
+msgid "Sitemap has not been configured"
+msgstr "站点地图尚未配置"
+
+#: src/elevate-class.php:1114
+#, fuzzy
+msgid "Unable to add the sitemap"
+msgstr "无法添加站点地图"
+
+#: src/elevate-class.php:1307
+#, fuzzy
+msgid "Unknown AJAX method"
+msgstr "未知 AJAX 方法"
+
+#: src/elevate-class.php:1311
+#, fuzzy
+msgid "invalid_nonce"
+msgstr "invalid_nonce"
+
+#: src/elevate-class.php:1317
+#, fuzzy, php-format
+msgid "%0.1fM"
+msgstr "% 0.1fM"
+
+#: src/elevate-class.php:1319
+#, fuzzy, php-format
+msgid "%0.1fk"
+msgstr "% 0.1fk"
+
+#: src/elevate-class.php:1526
+#, fuzzy
+msgid "Please only submit JPEG or PNG image files."
+msgstr "请只提交 JPEG 或 PNG 图像文件。"
+
+#: src/elevate-class.php:1527
+#, fuzzy
+msgid ""
+"We were unable to automatically add a sitemap on Google Search Console; you "
+"will likely have to complete this step manually."
+msgstr ""
+"我们无法在 Google 搜索控制台上自动添加网站地图;您可能需要手动完成此步骤。"
+
+#: src/elevate-class.php:1548
+#, fuzzy
+msgid "Attemping to Fix"
+msgstr "Attemping 修复"
+
+#: src/elevate-class.php:1762
+#, fuzzy, php-format
+msgid "Latest articles %s %s"
+msgstr "最新文章%s%s"
+
+#: src/elevate-class.php:1763
+#, fuzzy
+msgid "Read some of the latest articles from our site."
+msgstr "阅读我们网站上的一些最新文章。"
+
+#: src/elevate-class.php:1773
+#, fuzzy
+msgid "Page not found #separator# #site_name#"
+msgstr "找不到页面 #separator # #site_name #"
+
+#: src/elevate-class.php:1774
+#, fuzzy
+msgid "Search results for '#search_query#' #separator# #site_name#"
+msgstr "搜索结果为 \"#search_query #\" #separator # #site_name #"
+
+#. Plugin Name of the plugin/theme
+#: src/elevate-class.php:2588 src/elevate-class.php:2593
+#, fuzzy
+msgid "Elevate SEO"
+msgstr "提升 SEO"
+
+#: src/locales.php:443
+#, fuzzy
+msgid "Default (Inherit)"
+msgstr "默认值 (继承)"
+
+#: src/settings-page.php:34
+msgid "Save Settings"
+msgstr "保存设置"
+
+#. Plugin URI of the plugin/theme
+#, fuzzy
+msgid "http://elevatewp.io"
+msgstr "http://elevatewp.io"
+
+#. Description of the plugin/theme
+#, fuzzy
+msgid "Search Engine Optimization and Performance Monitoring Suite"
+msgstr "搜索引擎优化和性能监控套件"
+
+#. Author of the plugin/theme
+#, fuzzy
+msgid "Duane Storey"
+msgstr "杜恩楼层"
+
+#. Author URI of the plugin/theme
+#, fuzzy
+msgid "https://elevatewp.io/"
+msgstr "https://elevatewp.io/"
