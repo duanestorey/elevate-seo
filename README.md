@@ -10,6 +10,5 @@ There are two branches:
 You can read more about Elevate, and also find detailed usage and installation instructions, over at https://elevatewp.io
 
 ## WordPress repository
-Elevate SEO is also hosted in the official WordPress.org repository at https://wordpress.org/plugins/elevate-seo/. For stable releases, that repository will always trump this one.  But for state-of-the-art, this repository wins. 
-
+Elevate SEO is also hosted in the official WordPress.org repository at https://wordpress.org/plugins/elevate-seo/. 
 
