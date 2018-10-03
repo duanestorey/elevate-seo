@@ -254,7 +254,9 @@ class ElevatePlugin {
 
 		// update our data
 		$url_to_inspect = $this->_get_clean_site_url();
-		$search = $this->_update_search_and_analytics_data( $url_to_inspect );
+		
+		$this->_update_search_and_analytics_data( $url_to_inspect );
+		$this->get_page_speed( $url_to_inspect );
 
 		ELEVATE_DEBUG( ELEVATE_DEBUG_INFO, 'CRON END' );
 	}
@@ -602,20 +604,23 @@ class ElevatePlugin {
 	}
 
 	private function _update_search_and_analytics_data( $url ) {
-		if ( false === ( $search = get_transient( 'elevate_site_search_' . md5( $url ) ) ) ) {	
+		if ( defined( 'ELEVATE_NO_CACHE' ) || false === ( $search = get_transient( 'elevate_site_search_' . md5( $url ) ) ) ) {	
 			$search = new stdClass;
 
 			$search->crawl_errors = $this->get_crawl_errors( $url );
 			$search->analytics = $this->get_search_analytics( $url );
 
 			$this->elevate_db->add_search( 
-				$search->analytics->impressions, 
+				$search->analytics->impressions_raw, 
+				$search->analytics->clicks,
 				$search->analytics->ctr, 
 				$search->analytics->position,
 				$search->crawl_errors->not_found,
 				$search->crawl_errors->permissions,
 				$search->crawl_errors->server_error 
 			);	
+
+			ELEVATE_DEBUG( ELEVATE_DEBUG_VERBOSE, 'Looking at analytics data ' . print_r( $search, true ) );
 
 			set_transient( 'elevate_site_search_' . md5( $url ), $search, ELEVATE_TRANSIENT_SITE_INFO );
 		}		
@@ -1299,6 +1304,21 @@ class ElevatePlugin {
 
 					$this->_ajax_success( $result );
 					break;	
+				case 'get_dashboard_pagespeed_data':
+					$result = $this->elevate_db->get_pagespeed_data( 0, 7 );
+
+					$this->_ajax_success( $result );
+					break;
+				case 'get_dashboard_search_data':
+					$result = $this->elevate_db->get_search_data( 0, 7 );
+
+					$this->_ajax_success( $result );
+					break;
+				case 'get_dashboard_404_data':
+					$result = $this->elevate_db->get_search_404_data( 0, 7 );
+
+					$this->_ajax_success( $result );
+					break;		
 				case 'fix_htaccess':
 					require_once( dirname( __FILE__ ) . '/apache.php' );
 					$content = ElevateApache::instance()->fix();
@@ -1367,10 +1387,12 @@ class ElevatePlugin {
 				$decoded_result = json_decode( $result );
 
 				if ( !isset( $decoded_result->error ) ) {
-					//ELEVATE_DEBUG( ELEVATE_DEBUG_INFO, 'Search analytics results [' . print_r( $decoded_result, true ) . ']' );	
+					ELEVATE_DEBUG( ELEVATE_DEBUG_INFO, 'Search analytics results [' . print_r( $decoded_result, true ) . ']' );	
 
 					$analytics_result = $decoded_result->rows[0];
 
+					$analytics_result->clicks_raw = $analytics_result->clicks;
+					$analytics_result->impressions_raw = $analytics_result->impressions;
 					$analytics_result->clicks = $this->_fix_big_number( $analytics_result->clicks );
 					$analytics_result->impressions = $this->_fix_big_number( $analytics_result->impressions );
 					$analytics_result->ctr = sprintf( '%0.1f%%', $analytics_result->ctr*100 ); 
@@ -1379,7 +1401,7 @@ class ElevatePlugin {
 				}
 			}
 
-			//ELEVATE_DEBUG( ELEVATE_DEBUG_INFO, 'Search results [' . print_r( $analytics_result, true ) . ']' );
+			ELEVATE_DEBUG( ELEVATE_DEBUG_INFO, 'Search results [' . print_r( $analytics_result, true ) . ']' );
 		}
 
 		return $analytics_result;
@@ -1404,8 +1426,10 @@ class ElevatePlugin {
 
 		$total_errors->count = 0;
 		$total_errors->not_found = 0;
+		$total_errors->not_followed = 0;
 		$total_errors->permissions = 0;
 		$total_errors->server_error = 0;	
+		$total_errors->roboted = 0;
 		$total_errors->valid = false;	
 
 		ELEVATE_DEBUG( ELEVATE_DEBUG_INFO, 'Looking for crawl errors' );	
@@ -1419,7 +1443,7 @@ class ElevatePlugin {
 			if ( $search_errors ) {
 				$decoded_errors = json_decode( $search_errors );
 
-				//ELEVATE_DEBUG( ELEVATE_DEBUG_INFO, 'Crawl errors result [' . print_r( $decoded_errors, true ) . ']' );	
+				ELEVATE_DEBUG( ELEVATE_DEBUG_INFO, 'Crawl errors result [' . print_r( $decoded_errors, true ) . ']' );	
 
 				foreach( $decoded_errors->countPerTypes as $key => $value ) {
 					if ( isset( $value->entries ) ) {
@@ -1435,15 +1459,21 @@ class ElevatePlugin {
 							case 'serverError':
 								$total_errors->server_error += $value->entries[0]->count;
 								break;
+							case 'notFollowed':
+								$total_errors->not_followed += $value->entries[0]->count;
+								break;
+							case 'roboted':
+								$total_errors->roboted += $value->entries[0]->count;;
+								break;
 						}
 					}
 				}
 			}	
 
 			$total_errors->valid = true;
-			$total_errors->not_found = $this->_fix_big_number( $total_errors->not_found );
-			$total_errors->permissions = $this->_fix_big_number( $total_errors->permissions );
-			$total_errors->server_error = $this->_fix_big_number( $total_errors->server_error );
+			$total_errors->not_found = $total_errors->not_found ;
+			$total_errors->permissions = $total_errors->permissions ;
+			$total_errors->server_error = $total_errors->server_error;
 	}	
 
 		return $total_errors;
@@ -1455,12 +1485,14 @@ class ElevatePlugin {
 		$key = 'elevate_page_speed_' . md5( $url );		
 		$cached_result = get_transient( $key );
 
-		if ( false === $cached_result ) {	
+		if ( defined( 'ELEVATE_NO_CACHE' ) || false === $cached_result ) {	
 			$page_speed = new ElevatePageSpeed;
 
 			ELEVATE_DEBUG( ELEVATE_DEBUG_INFO, 'Performing page speed' );
 
 			$cached_result = $page_speed->check_page( $url );
+
+			ELEVATE_DEBUG( ELEVATE_DEBUG_INFO, 'Result ' . print_r( $cached_result, true ) );
 
 			set_transient( $key, $cached_result, ELEVATE_TRANSIENT_SITE_INFO );
 
@@ -1474,6 +1506,10 @@ class ElevatePlugin {
 		// Fix large numbers
 		$cached_result->desktop->response_bytes = $this->_fix_big_number( $cached_result->desktop->response_bytes );
 		$cached_result->mobile->response_bytes = $this->_fix_big_number( $cached_result->mobile->response_bytes );
+		$cached_result->desktop->js_bytes = $this->_fix_big_number( $cached_result->desktop->js_bytes );
+		$cached_result->mobile->js_bytes = $this->_fix_big_number( $cached_result->mobile->js_bytes );
+		$cached_result->desktop->css_bytes = $this->_fix_big_number( $cached_result->desktop->css_bytes );
+		$cached_result->mobile->css_bytes = $this->_fix_big_number( $cached_result->mobile->css_bytes );
 
 		return $cached_result;
 	}
@@ -1493,7 +1529,12 @@ class ElevatePlugin {
 	}
 
 	public function is_elevate_page() {
-		return ( strpos( $_SERVER[ 'REQUEST_URI' ], 'page=elevate_' ) !== false );
+		return ( strpos( $_SERVER[ 'REQUEST_URI' ], '?page=elevate_' ) !== false );
+	}
+
+	public function is_elevate_dashboard() {
+		return ( strpos( $_SERVER[ 'REQUEST_URI' ], '?page=elevate_dashboard' ) !== false );
+		
 	}
 
 	private function _is_gutenberg_installed() {
@@ -1604,7 +1645,7 @@ class ElevatePlugin {
 		if ( $this->is_elevate_page() ) {
 			// Styles
 			wp_enqueue_style( 'elevate-admin-css', ELEVATE_PLUGIN_URL . '/dist/css/admin.css', array(), ELEVATE_CACHE_VERSION );
-			wp_enqueue_script( 'elevate-custom', ELEVATE_PLUGIN_URL . '/dist/js/custom.min.js', array( 'jquery' ), ELEVATE_CACHE_VERSION, true );	
+			wp_enqueue_script( 'elevate-custom', ELEVATE_PLUGIN_URL . '/dist/js/bundle.min.js', array( 'jquery' ), ELEVATE_CACHE_VERSION, true );	
 
 			$language_params = $this->_get_elevate_data();
 
@@ -1626,20 +1667,34 @@ class ElevatePlugin {
 			$depends = array( 'jquery' );
 
 			if ( $this->_is_gutenberg_installed() ) {
-				$depends = array( 'wp-blocks', 'wp-element', 'jquery', 'wp-edit-post' );
+				$depends = array_merge( $depends, array( 'wp-blocks', 'wp-element', 'jquery', 'wp-edit-post' ) );
 			}
 
 			wp_enqueue_style( 'elevate-meta-css', ELEVATE_PLUGIN_URL . '/dist/css/meta.css', false, ELEVATE_CACHE_VERSION );
-			wp_enqueue_script( 'elevate-custom', ELEVATE_PLUGIN_URL . '/dist/js/custom.min.js', $depends, ELEVATE_CACHE_VERSION, true );
+			wp_enqueue_script( 'elevate-custom', ELEVATE_PLUGIN_URL . '/dist/js/bundle.min.js', $depends, ELEVATE_CACHE_VERSION, true );
 
 			wp_localize_script( 'elevate-custom', 'ElevateData', $this->_get_elevate_data() );
-		}		
+		}	
+	}
+
+	private function _is_woo_commerce_shop_page() {
+		return function_exists( 'is_shop' ) && is_shop();
 	}
 
 	private function _get_internal_title() {
 		require_once( 'title-modifier.php' );
 
-		if ( is_front_page() ) {
+		if ( $this->_is_woo_commerce_shop_page() ) {
+			$shop_page_id = get_option( 'woocommerce_shop_page_id' );;
+
+			$meta_info = $this->get_saved_meta_box_info( $shop_page_id );
+
+			if ( $meta_info->title ) {
+				return $meta_info->title;
+			} else {
+				return ElevateTitleModifier::apply_title_template( false, $this->settings->store_template );
+			}
+		} else if ( is_front_page() ) {
 			return $this->settings->home_title;
 		} else if ( is_home() ) {
 			if ( $this->_has_separate_blog_page() ) { 
@@ -1773,6 +1828,7 @@ class ElevatePlugin {
 		$settings->author_template = '#author_name# #separator# #site_name#';
 		$settings->taxonomy_template = '#taxonomy_name# #separator# #site_name#';
 		$settings->fof_template = __( 'Page not found #separator# #site_name#', 'elevate-seo' );
+		$settings->store_template = __( 'Store #separator# #site_name#', 'elevate-seo' );
 		$settings->search_template = __( 'Search results for \'#search_query#\' #separator# #site_name#', 'elevate-seo' );
 
 		// Social Media
@@ -2280,7 +2336,11 @@ class ElevatePlugin {
 
 		$modified_title = $this->_get_internal_title();
 
-		if ( is_tax() || is_category() || is_tag() ) {
+		if ( $this->_is_woo_commerce_shop_page() ) {
+			$shop_page_id = get_option( 'woocommerce_shop_page_id' );
+
+			$meta_info = $this->get_saved_meta_box_info( $shop_page_id, true );
+		} else if ( is_tax() || is_category() || is_tag() ) {
 			$category = get_queried_object();
 			$meta_info = $this->get_saved_meta_box_info( $category->term_id, true );
 		} else {
@@ -2288,7 +2348,22 @@ class ElevatePlugin {
 			$modified_title = $this->_get_internal_title();
 		}	
 		
-		if ( is_front_page() ) {
+		if ( $this->_is_woo_commerce_shop_page() ) {
+			$shop_page_id = get_option( 'woocommerce_shop_page_id' );
+			$image = $this->_get_post_image( $shop_page_id );
+
+			$description = $meta_info->desc ? $meta_info->desc : false;
+
+			if ( !$description && $this->settings->fill_empty_description ) {
+				// Attempt to fill the meta from the content
+				$description = $this->get_intelligent_meta_desc( $shop_page_id );
+			}
+
+			$this->_output_one_meta_field( 'description', $description );
+			$this->_maybe_output_social_tags( get_permalink( $shop_page_id ), $modified_title, $description, $this->settings->facebook_app_id, $image );
+
+			$this->_maybe_insert_canonical( get_permalink( $shop_page_id ) );	
+		} else if ( is_front_page() ) {
 			if ( $this->_has_separate_blog_page() ) {
 				// Show the home description
 				$image = $this->_get_post_image( get_option( 'page_on_front' ) );

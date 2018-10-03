@@ -1,20 +1,6 @@
 var elevateGoogleAuthWindow;
 var elevateProgressBar = 0;
 
-function elevateOverlay( html ) {
-	jQuery( 'body' ).append( '<div class="elevate-overlay"><div class="overlay-inside"><i class="close fa fa-times"> </i> ' + html + '</div></div>' );
-
-	jQuery( '.overlay-inside' ).click( function( e ) {
-		e.stopPropagation();
-	});
-
-	jQuery( '.elevate-overlay' ).click( function( e ) {
-		e.preventDefault();
-
-		jQuery( this ).remove();
-	});	
-}
-
 function elevateHandleUploads() {
 	jQuery( 'button.upload' ).each( function() {
 		var button = jQuery( this );
@@ -407,7 +393,6 @@ function elevateInitialize() {
 	}
 
 	var wizard = jQuery( "#elevate-wizard" );
-
 	if ( wizard ) {
 		// enumerate the sections
 
@@ -571,7 +556,9 @@ function elevateInitialize() {
 		});
 	}
 
+	// Reinit Opentip
 	Opentip.defaultStyle = "dark";
+	Opentip.findElements();
 
 	elevateHandleUploads();
 
@@ -649,8 +636,11 @@ function elevateInitialize() {
 	});
 
 	var dashboard = jQuery( '.elevate #dashboard' );
-	if ( dashboard.length ) {
+	if ( dashboard.length ) {		
+		jQuery( '.item-2 img, .item-3 img' ).fadeIn();
 		elevateAdminAjax( 'get_dashboard_data', {}, function( response ) {
+
+			jQuery( '.item-2 img, .item-3 img' ).fadeOut();
 			var decode = jQuery.parseJSON( response );
 
 			var clicks = decode.body.search_analytics.clicks;
@@ -665,12 +655,13 @@ function elevateInitialize() {
 
 			jQuery( '.impressions' ).html( decode.body.search_analytics.impressions );
 
-			jQuery( '.crawl-info .not-found' ).html( decode.body.crawl_errors.not_found );
-			jQuery( '.crawl-info .not-auth' ).html( decode.body.crawl_errors.permissions );
-			jQuery( '.crawl-info .server-error' ).html( decode.body.crawl_errors.server_error );
+			jQuery( '.not-found' ).html( decode.body.crawl_errors.not_found );
+			jQuery( '.not-auth' ).html( decode.body.crawl_errors.permissions );
+			jQuery( '.server-error' ).html( decode.body.crawl_errors.server_error );
+			jQuery( '.total-errors' ).html( decode.body.crawl_errors.not_found + decode.body.crawl_errors.permissions + decode.body.crawl_errors.server_error );
 
-			jQuery( '.search-info .click-rate' ).html( decode.body.search_analytics.ctr );
-			jQuery( '.search-info .position' ).html( decode.body.search_analytics.position );
+			jQuery( '.click-rate' ).html( decode.body.search_analytics.ctr );
+			jQuery( '.position' ).html( decode.body.search_analytics.position );
 
 			if ( decode.body.has_analytics_installed ) {
 				jQuery( '.analytics-installed' ).html( jQuery( '.analytics-installed' ).attr( 'data-tracking' ) );
@@ -701,27 +692,216 @@ function elevateInitialize() {
 			}
 		});
 
+		jQuery( '.item-1 img' ).fadeIn();
 		elevateAdminAjax( 'get_dashboard_data_speed', {}, function( response ) {
+			jQuery( '.item-1 img' ).fadeOut();
 			var decode = jQuery.parseJSON( response );
 
 			if ( decode.body.desktop.response_bytes == null && decode.body.mobile.response_bytes == null ) {
 				// Likely offline
 				jQuery( '.desktop-speed' ).html( 0 );
 				jQuery( '.mobile-speed' ).html( 0 );
-				jQuery( '.speed-info .desktop-size' ).html( 0 );
-				jQuery( '.speed-info .mobile-size' ).html( 0 );
-				jQuery( '.speed-info .average-speed' ).html( 0 );	
+				//jQuery( '.speed-info .desktop-size' ).html( 0 );
+				//jQuery( '.speed-info .mobile-size' ).html( 0 );
+				//jQuery( '.speed-info .average-speed' ).html( 0 );	
 			} else {
 				jQuery( '.desktop-speed' ).html( decode.body.desktop.speed );
 				jQuery( '.mobile-speed' ).html( decode.body.mobile.speed );
 
-				jQuery( '.speed-info .desktop-size' ).html( decode.body.desktop.response_bytes );
-				jQuery( '.speed-info .mobile-size' ).html( decode.body.mobile.response_bytes );
+				//jQuery( '.speed-info .desktop-size' ).html( decode.body.desktop.response_bytes );
+				//jQuery( '.speed-info .mobile-size' ).html( decode.body.mobile.response_bytes );
 
-				var num = ( decode.body.desktop.speed + decode.body.mobile.speed ) / 2;
-				jQuery( '.speed-info .average-speed' ).html( num.toFixed( 1 ) );	
+				//var num = ( decode.body.desktop.speed + decode.body.mobile.speed ) / 2;
+				//jQuery( '.speed-info .average-speed' ).html( num.toFixed( 1 ) );	
+
+				jQuery( '.css-files' ).html( decode.body.desktop.css_resources );
+				jQuery( '.css-size' ).html( decode.body.desktop.css_bytes );
+
+				jQuery( '.js-files' ).html( decode.body.desktop.js_resources );
+				jQuery( '.js-size' ).html( decode.body.desktop.js_bytes );
+
+				jQuery( '.resource-files' ).html( decode.body.desktop.response_resources );
+				jQuery( '.resource-size' ).html( decode.body.desktop.response_bytes );
+
 			}
 		});		
+	}
+
+	if ( dashboard.length ) {
+		elevateAdminAjax( 'get_dashboard_pagespeed_data', {}, function( response ) {
+			var decode = jQuery.parseJSON( response );
+			var ctx = document.getElementById("speed-chart").getContext('2d');
+			var myChart = new Chart(ctx, {
+			    type: 'line',
+			    data: {
+			        labels: decode.body.labels,
+			        datasets: [
+				        {
+				            label: 'Mobile Speed',
+				            data: decode.body.mobile_data,
+				            borderWidth: 2,
+				            backgroundColor: 'transparent',
+				            borderColor: '#faa',
+				            showLine: true
+				        },
+				       	{
+				            label: 'Desktop Speed',
+				            data: decode.body.desktop_data,
+				            borderWidth: 2,
+				            backgroundColor: 'transparent',
+				            borderColor: '#aaf',
+				            showLine: true
+				        }
+			        ]
+			    },
+			    options: {
+			    	legend: {
+			    		labels: {
+			    			fontColor: 'white'
+			    		}
+			    	},
+			        scales: {
+			            yAxes: [{
+			                ticks: {
+			                    beginAtZero: true
+			                },
+			                 gridLines: {
+		   						color: 'rgba( 255, 255, 255, 0.1 )' // makes grid lines from y axis red
+		  					}
+			            }]
+			        }
+			    }
+			});	
+			jQuery( '#speed-chart' ).parent().show();
+		});
+
+		elevateAdminAjax( 'get_dashboard_search_data', {}, function( response ) {
+			var decode = jQuery.parseJSON( response );
+			var ctx2 = document.getElementById("search-chart").getContext('2d');
+			var myChart = new Chart(ctx2, {
+			    type: 'line',
+			    data: {
+			        labels: decode.body.labels,
+			        datasets: [
+				        {
+				            label: 'Impressions',
+				            data: decode.body.impressions,
+				            borderWidth: 3,
+				            backgroundColor: 'transparent',
+				            borderColor: '#faa',
+				            showLine: true
+				        },
+				       	{
+				            label: 'Clicks',
+				            data: decode.body.clicks,
+				            borderWidth: 3,
+				            backgroundColor: 'transparent',
+				            borderColor: '#aaf',
+				            showLine: true
+				        }
+			        ]
+			    },
+			    options: {
+			    	legend: {
+			    		labels: {
+			    			fontColor: 'white'
+			    		}
+			    	},
+			        scales: {
+			            yAxes: [{
+			                ticks: {
+			                    beginAtZero: true
+			                },
+			                 gridLines: {
+		   						color: 'rgba( 255, 255, 255, 0.1 )' // makes grid lines from y axis red
+		  					}
+			            }]
+			        }
+			    }
+			});	
+			jQuery( '#search-chart' ).parent().show();
+		});
+
+		elevateAdminAjax( 'get_dashboard_404_data', {}, function( response ) {
+			var decode = jQuery.parseJSON( response );
+			var ctx3 = document.getElementById("crawl-chart").getContext('2d');
+			var myChart = new Chart(ctx3, {
+			    type: 'line',
+			    data: {
+			        labels: decode.body.labels,
+			        datasets: [
+				        {
+				            label: '404 Errors',
+				            data: decode.body.errors_not_found,
+				            borderWidth: 1,
+				            backgroundColor: 'transparent',
+				            borderColor: '#faa',
+				            showLine: true
+				        }
+			        ]
+			    },
+			    options: {
+			    	legend: {
+			    		labels: {
+			    			fontColor: 'white'
+			    		}
+			    	},
+			        scales: {
+			            yAxes: [{
+			                ticks: {
+			                    beginAtZero: true
+			                },
+			                 gridLines: {
+		   						color: 'rgba( 255, 255, 255, 0.1 )' // makes grid lines from y axis red
+		  					}
+			            }]
+			        }
+			    }
+			});	
+			jQuery( '#crawl-chart' ).parent().show();		
+		});
+
+		var ctx4 = document.getElementById("visits-chart").getContext('2d');
+		var myChart = new Chart(ctx4, {
+		    type: 'bar',
+		    data: {
+		        labels: [ "Red", "Blue", "Yellow", "Green", "Purple", "Orange", "1", "2", "3", "4" ],
+		        datasets: [
+			        {
+			            label: 'Page Views',
+			            data: [ 12, 19, 3, 5, 2, 3, 5, 10, 4, 4 ],
+			            borderWidth: 1,
+			            backgroundColor: '#faa',
+			            showLine: true
+			        },
+			       	{
+			            label: '404 Not Found',
+			            data: [ 15, 19, 5, 5, 2, 3, 8, 2, 5, 4 ],
+			            borderWidth: 1,
+			            backgroundColor: '#aaf',
+			            showLine: true
+			        }
+		        ]
+		    },
+		    options: {
+		    	legend: {
+		    		labels: {
+		    			fontColor: 'white'
+		    		}
+		    	},
+		        scales: {
+		            yAxes: [{
+		                ticks: {
+		                    beginAtZero: true
+		                },
+		                 gridLines: {
+	   						color: 'rgba( 255, 255, 255, 0.1 )' // makes grid lines from y axis red
+	  					}
+		            }]
+		        }
+		    }
+		});	
+		jQuery( '#crawl-chart' ).parent().show();			
 	}
 }
 
@@ -730,4 +910,8 @@ jQuery( document ).ready( function() {
 	if ( !items.length ) {
 		elevateInitialize();
 	}
+});
+
+jQuery( document ).unload( function() {
+	jQuery( '#myChart' ).parent().remove();
 });

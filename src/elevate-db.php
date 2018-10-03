@@ -3,7 +3,7 @@
 global $wp_prefix;
 
 define( 'ELEVATE_DB_OPTION', 'elevate_db_version' );
-define( 'ELEVATE_DB_VERSION', '1.0.7' );
+define( 'ELEVATE_DB_VERSION', '1.0.8' );
 
 class ElevateDB {
 	var $db_version;
@@ -56,6 +56,88 @@ class ElevateDB {
 		}
 	}
 
+	public function get_pagespeed_data( $offset, $days ) {
+		global $wpdb;
+
+		$start_time = time() - ($offset + $days)*24*HOUR_IN_SECONDS;
+		$end_time = time() - ( $offset - 1 )*24*HOUR_IN_SECONDS;
+
+		$query = $wpdb->prepare( "SELECT date(test_time) as test_time,desktop_speed,mobile_speed FROM " . $wpdb->prefix . "elevate_speed WHERE test_time >= '%s' AND test_time <= '%s' GROUP BY date(test_time) ORDER BY test_time ASC LIMIT 7", date( 'Y-m-d', $start_time ), date ( 'Y-m-d', $end_time ) );
+
+		$results = $wpdb->get_results( $query );
+
+		$prepped_results = new stdClass;
+		if ( $results ) {
+			$prepped_results->labels = array();
+			$prepped_results->mobile_data = array();
+			$prepped_results->desktop_data = array();
+
+			foreach( $results as $result ) {
+				$label = date( 'M d', strtotime( $result->test_time ) );
+				$prepped_results->	labels[] = $label;
+				$prepped_results->mobile_data[] = $result->mobile_speed;
+				$prepped_results->desktop_data[] = $result->desktop_speed;
+			}
+		}
+
+		return $prepped_results;
+	}
+
+	public function get_search_data( $offset, $days ) {
+		global $wpdb;
+
+		$start_time = time() - ($offset + $days)*24*HOUR_IN_SECONDS;
+		$end_time = time() - ( $offset - 1 )*24*HOUR_IN_SECONDS;
+
+		$query = $wpdb->prepare( "SELECT date(test_time) as test_time,impressions,ctr FROM " . $wpdb->prefix . "elevate_search WHERE test_time >= '%s' AND test_time <= '%s' GROUP BY date(test_time) ORDER BY test_time ASC LIMIT 7", date( 'Y-m-d', $start_time ), date ( 'Y-m-d', $end_time ) );
+
+		$results = $wpdb->get_results( $query );
+
+		$prepped_results = new stdClass;
+		if ( $results ) {
+			$scale_factor = 1.0;
+
+			$prepped_results->labels = array();
+			$prepped_results->clicks = array();
+			$prepped_results->impressions = array();
+
+			foreach( $results as $result ) {
+				$label = date( 'M d', strtotime( $result->test_time ) );
+				$prepped_results->	labels[] = $label;
+				$prepped_results->impressions[] = round( $result->impressions );
+				$prepped_results->clicks[] = round( ( $result->impressions * $result->ctr ) / 100.0 );
+			}
+		}
+
+		return $prepped_results;
+	}	
+
+	public function get_search_404_data( $offset, $days ) {
+		global $wpdb;
+
+		$start_time = time() - ($offset + $days)*24*HOUR_IN_SECONDS;
+		$end_time = time() - ( $offset - 1 )*24*HOUR_IN_SECONDS;
+
+		$query = $wpdb->prepare( "SELECT date(test_time) as test_time,errors_not_found FROM " . $wpdb->prefix . "elevate_search WHERE test_time >= '%s' AND test_time <= '%s' GROUP BY date(test_time) ORDER BY test_time ASC LIMIT 7", date( 'Y-m-d', $start_time ), date ( 'Y-m-d', $end_time ) );
+
+		$results = $wpdb->get_results( $query );
+
+		$prepped_results = new stdClass;
+		if ( $results ) {
+
+			$prepped_results->labels = array();
+			$prepped_results->errors_not_found = array();
+
+			foreach( $results as $result ) {
+				$label = date( 'M d', strtotime( $result->test_time ) );
+				$prepped_results->labels[] = $label;
+				$prepped_results->errors_not_found[] = $result->errors_not_found;
+			}
+		}
+
+		return $prepped_results;
+	}		
+
 	public function add_404( $url ) {
 		global $wpdb;
 
@@ -72,11 +154,11 @@ class ElevateDB {
 		}
 	}
 
-	public function add_search( $impressions, $ctr, $avg_pos, $error_not_found, $error_not_auth, $error_server ) {
+	public function add_search( $impressions, $clicks, $ctr, $avg_pos, $error_not_found, $error_not_auth, $error_server ) {
 		global $wpdb;
 
 		$this->check();
 
-		$wpdb->query( $wpdb->prepare( 'INSERT INTO ' . $wpdb->prefix . 'elevate_search ( impressions,ctr,avg_pos,errors_not_found,errors_not_auth,errors_server ) VALUES( %d, %f, %f, %d, %d, %d)', $impressions, $ctr, $avg_pos, $error_not_found, $error_not_auth, $error_server ) );
+		$wpdb->query( $wpdb->prepare( 'INSERT INTO ' . $wpdb->prefix . 'elevate_search ( impressions,clicks,ctr,avg_pos,errors_not_found,errors_not_auth,errors_server ) VALUES( %d, %d, %f, %f, %d, %d, %d)', $impressions, $clicks, $ctr, $avg_pos, $error_not_found, $error_not_auth, $error_server ) );
 	}	
 }

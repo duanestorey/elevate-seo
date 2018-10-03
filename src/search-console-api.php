@@ -201,10 +201,35 @@ class ElevateSearchConsole {
 		$url = 'https://www.googleapis.com/webmasters/v3/sites/' . urlencode( $site_url ) . '/searchAnalytics/query';
 
 		$end_date = time();
-		$start_date = $end_date - 7*HOUR_IN_SECONDS;
+		$start_date = ( $end_date + 24*HOUR_IN_SECONDS) - 7*HOUR_IN_SECONDS*24;
 
 		$search_params = '{ "startDate": "' . date( "Y-m-d", $start_date ) . '", "endDate": "' . date( "Y-m-d", $end_date ) . '"}';
 
 		return $this->_make_authenticated_post_json_call( $url, $access_token, $search_params );	
 	}		
+
+	public function get_analytics_report( $access_token, $view_id ) {
+		$url = 'https://analyticsreporting.googleapis.com/v4/reports:batchGet';
+
+		$report_params = '{' .
+		 '"reportRequests":'.
+		  '['.
+		    '{'.
+		      '"viewId": "XXXX",'.
+		      '"metrics": ['.
+		        '{"expression": "ga:pageviews"},'.
+		        '{"expression": "ga:sessions"}'.
+		      '],'.
+		     '"metricFilterClauses": [{'.
+		          '"filters": [{'.
+		              '"metricName": "ga:pageviews",'.
+		              '"operator": "GREATER_THAN",'.
+		              '"comparisonValue": "2"'.
+		          '}]'.
+		      '}]' .
+		  '}]'.
+		'}';
+
+		return $this->_make_authenticated_post_json_call( $url, $access_token, $report_params );	
+	}
 }

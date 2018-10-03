@@ -13,9 +13,20 @@ class ElevatePageSpeed {
 
 		$decoded_data = json_decode( $google_data );
 
+		ELEVATE_DEBUG( ELEVATE_DEBUG_INFO, 'Parsing page speed data ' . print_r( $decoded_data, true ) );
+
 		$internal_data->speed = $decoded_data->ruleGroups->SPEED->score;
-		$internal_data->response_bytes = $decoded_data->pageStats->overTheWireResponseBytes;
+
 		$internal_data->resources = $decoded_data->pageStats->numberResources;
+
+		$internal_data->js_resources = $decoded_data->pageStats->numberJsResources;
+		$internal_data->js_bytes = $decoded_data->pageStats->javascriptResponseBytes;
+
+		$internal_data->css_resources = $decoded_data->pageStats->numberCssResources;
+		$internal_data->css_bytes = $decoded_data->pageStats->cssResponseBytes;
+
+		$internal_data->response_bytes = $decoded_data->pageStats->overTheWireResponseBytes;
+		$internal_data->response_resources = $decoded_data->pageStats->numberStaticResources;
 
 		return $internal_data;
 	}

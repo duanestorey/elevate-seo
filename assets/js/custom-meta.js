@@ -488,7 +488,7 @@ function doElevateMetaReady() {
 
 jQuery( document ).ready( function() { 
 	var items = jQuery( '#post-title-0, #title' );
-	if ( items.length || jQuery( 'body' ).hasClass( 'gutenberg-editor-page' ) || ElevateData.is_editing_term ) {
+	if ( items.length || jQuery( 'body' ).hasClass( 'gutenberg-editor-page' ) || ElevateData.is_editing_term != '0' ) {
 		doElevateMetaReady(); 	
 	}
 } );

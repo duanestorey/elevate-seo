@@ -1,6 +1,7 @@
 CREATE TABLE {prefix}elevate_search (
   id int(11) NOT NULL AUTO_INCREMENT,
   impressions int(11) NOT NULL,
+  clicks int(11) NOT NULL,
   ctr float NOT NULL,
   avg_pos float NOT NULL,
   errors_not_found int(11) NOT NULL,
