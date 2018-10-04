@@ -1,10 +1,14 @@
 <?php
-/*
-	Elevate SEO Plugin for WordPress
-	Copyright (C) 2017-2018 by Duane Storey and Lindell Media Inc.
 
-	Released under the GNU General Public License, version 3.0
-*/ 
+/**
+ *  Copyright 2018 by Duane Storey <duanestorey@gmail.com>
+ *
+ *  Licensed under GNU General Public License 3.0 or later. 
+ *  Some rights reserved. See COPYING, AUTHORS.
+ *
+ *  @license GPL-3.0+ <http://spdx.org/licenses/GPL-3.0+>
+ */
+
 
 require_once( 'debug.php' );
 

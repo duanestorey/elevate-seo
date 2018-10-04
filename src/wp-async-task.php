@@ -1,10 +1,16 @@
 <?php
+
 /**
- * WP Asynchronous Tasks
- * Version: 1.0
- * Description: Creates an abstract class to execute asynchronous tasks
- * Author: 10up, Eric Mann, Luke Gedeon, John P. Bloch
- * License: MIT
+ *  WP Asynchronous Tasks
+ *  Version: 1.0
+ *  Description: Creates an abstract class to execute asynchronous tasks
+ *  Author: 10up, Eric Mann, Luke Gedeon, John P. Bloch
+ *  License: MIT
+ */
+
+/**
+ *  Any modifications Copyright 2018 by Duane Storey <duanestorey@gmail.com>
+ *  Licensed under MIT license
  */
 
 if ( ! class_exists( 'WP_Async_Task' ) ) {

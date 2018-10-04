@@ -1,5 +1,15 @@
 <?php
 
+/**
+ *  Copyright 2018 by Duane Storey <duanestorey@gmail.com>
+ *
+ *  Licensed under GNU General Public License 3.0 or later. 
+ *  Some rights reserved. See COPYING, AUTHORS.
+ *
+ *  @license GPL-3.0+ <http://spdx.org/licenses/GPL-3.0+>
+ */
+
+
 define( 'ELEVATE_API_VERSION', '1.1' );
 define( 'ELEVATE_API_PATH' , 'https://api.elevatewp.io/v/' . ELEVATE_API_VERSION . '/' );
 
