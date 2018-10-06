@@ -1,5 +1,8 @@
 <?php
 
+define( 'ELEVATE_CACHE_DEFAULT_DURATION', 24*HOUR_IN_SECONDS );
+define( 'ELEVATE_CACHE_PREFIX', 'elevate_' );
+
 class ElevateLocalCache {
 	var $key;
 	var $cache_data;
@@ -9,11 +12,11 @@ class ElevateLocalCache {
 	}
 
 	public function __construct( $key ) {
-		$this->key = $key;
+		$this->key = ELEVATE_CACHE_PREFIX . $key;
 	}
 
 	public function is_cached() {
-		$temp_data = get_transient( $key );
+		$temp_data = get_transient( $this->key );
 
 		if ( $temp_data !== false ) {
 			// In the cache
@@ -29,7 +32,15 @@ class ElevateLocalCache {
 		return $this->cache_data;
 	}
 
-	public function add_or_update_cache( $data, $duration ) {
-		set_transient( $key, $data, $duration );>
+	public function add_to_cache( $data, $duration = ELEVATE_CACHE_DEFAULT_DURATION ) {
+		set_transient( $this->key, $data, $duration );
+	}
+
+	static function delete_entry( $key ) {
+		delete_transient( ELEVATE_CACHE_PREFIX . $key );
+	}
+
+	public function delete() {
+		ElevateLocalCache::delete_entry( $this->key );
 	}
 };

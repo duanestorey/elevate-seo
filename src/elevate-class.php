@@ -315,9 +315,6 @@ class ElevatePlugin {
 		// Load our class for manipulating the DB tables
 		require_once( dirname( __FILE__ ) . '/elevate-db.php' );
 		$this->elevate_db = new ElevateDB;
-
-		$this->_get_analytics_page_data();
-
 	}
 
 	public function handle_tax_save_edit_form( $tag ) {
@@ -744,61 +741,78 @@ class ElevatePlugin {
 	}
 
 	private function _get_analytics_page_data() {
-		$accounts = $this->_get_analytics_accounts();
+		$analytics_cache = ElevateLocalCache::create( 'analytics_cache' );
+		if ( !$analytics_cache->is_cached() ) {
+			$accounts = $this->_get_analytics_accounts();
 
-		if ( $accounts ) {
-			//echo $account_id; die;
-			require_once( 'search-console-api.php' );
-			$search_console = new ElevateSearchConsole();
+			if ( $accounts ) {
+				//echo $account_id; die;
+				require_once( 'search-console-api.php' );
+				$search_console = new ElevateSearchConsole();
 
-			$google_tokens = $this->_get_google_tokens();
+				$google_tokens = $this->_get_google_tokens();
 
-			foreach( $accounts as $account_id => $account ) {
-				$views = $search_console->get_analytics_views( $google_tokens->access_token, $account_id, '~all' );
-				if ( $views ) {
-					$decoded_views = json_decode( $views );
+				foreach( $accounts as $account_id => $account ) {
+					$views = $search_console->get_analytics_views( $google_tokens->access_token, $account_id, '~all' );
+					if ( $views ) {
+						$decoded_views = json_decode( $views );
 
-					if ( $decoded_views ) {
-						foreach( $decoded_views->items as $key => $view ) {
-							if ( $this->_get_clean_url( $view->websiteUrl ) == $this->_get_clean_site_url() ) {
+						if ( $decoded_views ) {
+							foreach( $decoded_views->items as $key => $view ) {
+								if ( $this->_get_clean_url( $view->websiteUrl ) == $this->_get_clean_site_url() ) {
 
-								$data = $search_console->get_analytics_report( $google_tokens->access_token, $view->id );
-								if ( $data ) {
-									$decoded_data = json_decode( $data );
-									if ( isset( $decoded_data->reports ) && isset( $decoded_data->reports[0] ) ) {
-										$page_data = new stdClass;
-										$page_data->data = array();
+									$data = $search_console->get_analytics_report( $google_tokens->access_token, $view->id );
+									if ( $data ) {
+										$decoded_data = json_decode( $data );
+										if ( isset( $decoded_data->reports ) && isset( $decoded_data->reports[0] ) ) {
+											$page_data = new stdClass;
+											$page_data->totals = new stdClass;
+											$page_data->totals->views = 0;
+											$page_data->totals->visitors = 0;
+											$page_data->totals->sessions = 0;
 
-										$report = $decoded_data->reports[0];
-										foreach( $report->data->rows as $key => $row_data ) {
-											//print_r( $row_data );
+											$page_data->data = array();
+
+											$report = $decoded_data->reports[0];
+											foreach( $report->data->rows as $key => $row_data ) {
+												$one_entry = new stdClass;
 
 
+												$one_entry->raw_date = $row_data->dimensions[0];
+												$one_entry->unix_date = gmmktime( 0, 0, 0, substr( $one_entry->raw_date, 4, 2 ), substr( $one_entry->raw_date, 6, 2 ), substr( $one_entry->raw_date, 0, 4 ) );
+												$one_entry->views = $row_data->metrics[0]->values[0];
+												$page_data->totals->views += $one_entry->views;
 
-											$one_entry = new stdClass;
+												$one_entry->visitors = $row_data->metrics[0]->values[1];
+												$page_data->totals->visitors += $one_entry->visitors;
 
+												$one_entry->sessions = $row_data->metrics[0]->values[2];
+												$page_data->totals->sessions += $one_entry->sessions;
 
-											$one_entry->raw_date = $row_data->dimensions[0];
-											$one_entry->unix_date = gmmktime( 0, 0, 0, substr( $one_entry->raw_date, 4, 2 ), substr( $one_entry->raw_date, 6, 2 ), substr( $one_entry->raw_date, 0, 4 ) );
-											$one_entry->views = $row_data->metrics[0]->values[0];
-											$one_entry->visitors = $row_data->metrics[0]->values[1];
-											$one_entry->sessions = $row_data->metrics[0]->values[2];
-											$one_entry->duration = $row_data->metrics[0]->values[3];
+												$one_entry->duration = $row_data->metrics[0]->values[3];
 
-											$page_data->data[] = $one_entry;
+												$page_data->data[ $one_entry->unix_date ] = $one_entry;
+											}
 										}
+
+										ksort( $page_data->data );
+
+										$analytics_cache->add_to_cache( $page_data );
+									
+										return $page_data;
 									}
-								
-									return $page_data;
 								}
 							}
 						}
 					}
 				}
 			}
+
+			return false;
+		} else {
+			return $analytics_cache->get_data();
 		}
 
-		return false;
 	}
 
 	private function _get_analytics_accounts() {
@@ -1384,8 +1398,10 @@ class ElevatePlugin {
 
 					$this->_ajax_success( $result );
 					break;		
-				case 'get_dashboard_visit_data':
+				case 'get_dashboard_data_analytics':
 					$result = $this->_get_analytics_page_data();
+
+					$this->_ajax_success( $result );
 					break;
 				case 'fix_htaccess':
 					require_once( dirname( __FILE__ ) . '/apache.php' );

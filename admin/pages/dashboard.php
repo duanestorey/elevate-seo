@@ -16,7 +16,6 @@
 						<h2>Speed</h2>
 
 						<div class="col-1">
-							
 							<span class="mobile-speed">-</span>
 							<i class="fa fa-chevron-up"> </i>
 							<h4>Mobile</h4>
@@ -35,27 +34,31 @@
 						<h2>Search</h2>
 
 						<div class="col-1">
-							<span class="visits">-</span>
+							<span class="analytics-views">-</span>
 							<i class="fa fa-chevron-up"> </i>
-							<h4>Visits</h4>
+							<h4>Views</h4>
 						</div>	
 
 						<div class="col-2">
+							<span class="analytics-visits">-</span>
+							<i class="fa fa-chevron-up"> </i>
+							<h4>Visitors</h4>
+						</div>							
+
+						<div class="col-3">
 							<span class="impressions">-</span>
 							<i class="fa fa-chevron-up"> </i>
 							<h4>Impressions</h4>
-
 						</div>
 
-						<div class="col-3">
+						<div class="col-4">
 							
 							<span class="clicks">-</span>
 							<i class="fa fa-chevron-down"> </i>
 							<h4>Clicks</h4>
 						</div>							
 	
-						<div class="col-4">
-							
+						<div class="col-5">
 							<span class="click-rate">-</span>
 							<i class="fa fa-chevron-down"> </i>
 							<h4>CTR</h4>
@@ -118,7 +121,6 @@
 						</section>														
 					</div>	
 					<div class="item visits">
-						
 						<section class="graph">
 							<canvas id="visits-chart" width="600" height="400"></canvas>
 						</section>														

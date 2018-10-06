@@ -194,8 +194,12 @@ section.elevate {
       .elevate #dashboard .big-data .top-grid .item-2 div.col-4,
       .elevate #dashboard .big-data .top-grid .item-3 div.col-4 {
         grid-column: 4 / 5; }
+      .elevate #dashboard .big-data .top-grid .item-1 div.col-5,
+      .elevate #dashboard .big-data .top-grid .item-2 div.col-5,
+      .elevate #dashboard .big-data .top-grid .item-3 div.col-5 {
+        grid-column: 5 / 6; }
     .elevate #dashboard .big-data .top-grid .item-2 {
-      grid-template-columns: 1fr 1fr 1fr 1fr; }
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr; }
   .elevate #dashboard .hero {
     text-align: center;
     margin-bottom: 40px;

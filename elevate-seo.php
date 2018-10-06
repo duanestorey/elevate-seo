@@ -23,6 +23,7 @@ require_once( ELEVATE_PLUGIN_DIR . '/src/setting.php' );
 require_once( ELEVATE_PLUGIN_DIR . '/src/cron.php' );
 require_once( ELEVATE_PLUGIN_DIR . '/src/api.php' );
 require_once( ELEVATE_PLUGIN_DIR . '/src/debug.php' );
+require_once( ELEVATE_PLUGIN_DIR . '/src/local-cache.php' );
 require_once( ELEVATE_PLUGIN_DIR . '/dist/php/cache-bust.php' );
 
 function elevate_load_plugin() {
