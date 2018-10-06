@@ -115,7 +115,6 @@
 						</section>															
 					</div>
 					<div class="item crawl">
-						
 						<section class="graph">
 							<canvas id="crawl-chart" width="600" height="400"></canvas>
 						</section>														

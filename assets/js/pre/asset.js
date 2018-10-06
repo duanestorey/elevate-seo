@@ -1246,12 +1246,12 @@ function elevateInitialize() {
 			var decode = jQuery.parseJSON( response );
 
 			if ( typeof( decode.body ) !== undefined && typeof ( decode.body.totals ) !== undefined ) {
-				jQuery( '.analytics-visits' ).html( decode.body.totals.visitors );
-				jQuery( '.analytics-views' ).html( decode.body.totals.views );	
+			//	jQuery( '.analytics-visits' ).html( decode.body.totals.visitors );
+			//	jQuery( '.analytics-views' ).html( decode.body.totals.views );	
 			}
 		});
 	}
-	
+
 
 	if ( dashboard.length ) {
 		elevateAdminAjax( 'get_dashboard_pagespeed_data', {}, function( response ) {
