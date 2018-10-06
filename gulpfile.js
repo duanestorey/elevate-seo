@@ -64,7 +64,7 @@ gulp.task( 'jsasset', function() {
 		.pipe( concat( 'asset.js' ) )
 		.pipe( gulp.dest( './assets/js/pre' ) )
 		.pipe( rename( 'asset.min.js' ) )
-		.pipe( uglify() )			
+		//.pipe( uglify() )			
 		.pipe( gulp.dest( './assets/js/pre' ) )
 });
 
@@ -74,7 +74,7 @@ gulp.task( 'jslib', function() {
 		.pipe( concat( 'lib.js' ) )
 		.pipe( gulp.dest( './assets/js/pre' ) )
 		.pipe( rename( 'lib.min.js' ) )
-		.pipe( uglify() )		
+		//.pipe( uglify() )		
 		.pipe( gulp.dest( './assets/js/pre' ) )
 });
 
