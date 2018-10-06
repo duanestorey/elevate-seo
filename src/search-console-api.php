@@ -1,5 +1,14 @@
 <?php
 
+/**
+ *  Copyright 2018 by Duane Storey <duanestorey@gmail.com>
+ *
+ *  Licensed under GNU General Public License 3.0 or later. 
+ *  Some rights reserved. See COPYING, AUTHORS.
+ *
+ *  @license GPL-3.0+ <http://spdx.org/licenses/GPL-3.0+>
+ */
+
 class ElevateSearchConsole {
 	public function __construct() {}
 
@@ -139,6 +148,13 @@ class ElevateSearchConsole {
 		return $body;		
 	}
 
+	public function get_analytics_views( $access_token, $account_id, $web_property_id ) {
+		$url = 'https://www.googleapis.com/analytics/v3/management/accounts/' . $account_id . '/webproperties/' . $web_property_id . '/profiles';
+		
+		$body = $this->_make_authenticated_call( $url, $access_token, 'GET' );
+		return $body;
+	}
+
 	public function add_analytics_web_property( $access_token, $account_id, $analytics_url, $name ) {
 		$url = 'https://www.googleapis.com/analytics/v3/management/accounts/' . $account_id . '/webproperties';
 
@@ -215,19 +231,18 @@ class ElevateSearchConsole {
 		 '"reportRequests":'.
 		  '['.
 		    '{'.
-		      '"viewId": "XXXX",'.
+		      '"viewId": "' . $view_id .'",'.
 		      '"metrics": ['.
 		        '{"expression": "ga:pageviews"},'.
-		        '{"expression": "ga:sessions"}'.
+		        '{"expression": "ga:visitors"},'.
+		        '{"expression": "ga:sessions"},'.
+		        '{"expression": "ga:sessionDuration"}' .
 		      '],'.
-		     '"metricFilterClauses": [{'.
-		          '"filters": [{'.
-		              '"metricName": "ga:pageviews",'.
-		              '"operator": "GREATER_THAN",'.
-		              '"comparisonValue": "2"'.
-		          '}]'.
-		      '}]' .
-		  '}]'.
+		      '"dimensions": ['.
+		        '{"name": "ga:date" }' .
+		      ']'.
+		  	'}' . 
+		  ']'.
 		'}';
 
 		return $this->_make_authenticated_post_json_call( $url, $access_token, $report_params );	

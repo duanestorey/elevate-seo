@@ -1,5 +1,14 @@
 <?php
 
+/**
+ *  Copyright 2018 by Duane Storey <duanestorey@gmail.com>
+ *
+ *  Licensed under GNU General Public License 3.0 or later. 
+ *  Some rights reserved. See COPYING, AUTHORS.
+ *
+ *  @license GPL-3.0+ <http://spdx.org/licenses/GPL-3.0+>
+ */
+
 class ElevateHTTP {
 	static function make_request( $url, $request_type = 'GET', $body = false ) {
 		$params = array(
