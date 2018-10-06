@@ -948,6 +948,8 @@ class ElevatePlugin {
 		delete_transient( 'elevate_site_is_verified_' . md5( $url_to_inspect ) );	
 		delete_transient( 'elevate_page_speed_' . md5( $url_to_inspect ) );	
 		delete_transient( 'elevate_site_search_' . md5( $url_to_inspect ) );
+
+		ElevateLocalCache::delete_entry( 'analytics_cache' );
 	}
 
 	public function handle_admin_ajax() {
