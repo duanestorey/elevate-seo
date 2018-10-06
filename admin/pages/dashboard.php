@@ -9,8 +9,7 @@
 	<div id="dashboard">  
 		<div class="has-data" style="display: block;"> 
 			<div class="big-data">
-				<div class="top-grid">
-					
+				<div class="top-grid">	
 					<div class="item item-1">
 						<img class="spin" src="<?php echo ELEVATE_PLUGIN_URL; ?>/dist/images/dash-spinner.svg" alt="" style="display: none;" />
 						<h2>Speed</h2>
