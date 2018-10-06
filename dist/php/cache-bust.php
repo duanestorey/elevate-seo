@@ -1,3 +1,3 @@
 <?php
 
-define( 'ELEVATE_CACHE_VERSION', 'f5cf40bcb5fe' );
+define( 'ELEVATE_CACHE_VERSION', '4d75b534bf9a' );
