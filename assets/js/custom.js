@@ -726,6 +726,7 @@ function elevateInitialize() {
 			}
 		});	
 
+		/*
 		elevateAdminAjax( 'get_dashboard_data_analytics', {}, function( response ) {
 			var decode = jQuery.parseJSON( response );
 
@@ -735,7 +736,8 @@ function elevateInitialize() {
 			}
 			
 		});
-	
+		*/
+
 	}
 
 	if ( dashboard.length ) {
