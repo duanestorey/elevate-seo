@@ -733,9 +733,7 @@ function elevateInitialize() {
 				jQuery( '.analytics-visits' ).html( decode.body.totals.visitors );
 				jQuery( '.analytics-views' ).html( decode.body.totals.views );	
 			}
-			
 		});
-
 	}
 
 	if ( dashboard.length ) {
@@ -872,7 +870,7 @@ function elevateInitialize() {
 			jQuery( '#crawl-chart' ).parent().show();		
 		});
 
-		var ctx4 = document.getElementById("visits-chart").getContext('2d');
+		var ctx4 = document.getElementById( "visits-chart" ).getContext( '2d' );
 		var myChart = new Chart(ctx4, {
 		    type: 'bar',
 		    data: {
@@ -921,8 +919,4 @@ jQuery( document ).ready( function() {
 	if ( !items.length ) {
 		elevateInitialize();
 	}
-});
-
-jQuery( document ).unload( function() {
-	jQuery( '#myChart' ).parent().remove();
 });
