@@ -735,6 +735,7 @@ function elevateInitialize() {
 			}
 		});
 	}
+	
 
 	if ( dashboard.length ) {
 		elevateAdminAjax( 'get_dashboard_pagespeed_data', {}, function( response ) {
