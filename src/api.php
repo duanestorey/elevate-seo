@@ -10,7 +10,7 @@
  */
 
 
-define( 'ELEVATE_API_VERSION', '1.1' );
+define( 'ELEVATE_API_VERSION', '1.2' );
 define( 'ELEVATE_API_PATH' , 'https://api.elevatewp.io/v/' . ELEVATE_API_VERSION . '/' );
 
 require_once( 'debug.php' );
@@ -22,45 +22,12 @@ class ElevateAPI {
 		$this->license_key = '';
 	}
 
-	static function get_google_oauth_url( $read_only = false ) {
-		$scopes = array( 
-			'https://www.googleapis.com/auth/webmasters', 
-			'https://www.googleapis.com/auth/siteverification',
-			'https://www.googleapis.com/auth/analytics.provision',
-			'https://www.googleapis.com/auth/analytics.readonly'
-		);
-
-		$new_scopes = array();
-		foreach( $scopes as $scope ) {
-			$new_scopes[] = urlencode( $scope );
-		}
-
-	    $params = array(
-	      'client_id' => urlencode( '901262581332-gsqlvi4mqdnjl3k3nam8a44mmlng6id7.apps.googleusercontent.com' ),
-	      'redirect_uri' => urlencode( 'urn:ietf:wg:oauth:2.0:oob' ),
-	      'scope' => implode( '%20', $new_scopes ),
-	      'response_type' => 'code'
-	    );
-
-	    $data = array();
-	    foreach( $params as $key => $value ) {
-	      $data[] = $key . '=' . $value;
-	    }
-	 
-	    $post_data = implode( '&', $data );
-
-	    return 'https://accounts.google.com/o/oauth2/auth?' . $post_data;	        
-	}
-
 	static function get_oauth_auth_url( $read_only = false, $redirect_url = false ) {
 		if ( !$redirect_url ) {
 			$redirect_url = admin_url( 'admin.php?page=elevate_plugin' );
 		}
 
 		$url = ELEVATE_API_PATH . 'oauth/?elevate_redirect=' . urlencode( $redirect_url ) . '&elevate_state=' . wp_create_nonce( 'api_generate' );
-		if ( $read_only ) {
-			$url = $url . '&elevate_access_type=readonly';
-		}
 
 		return $url;
 	}
