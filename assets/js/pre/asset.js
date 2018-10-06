@@ -1244,8 +1244,12 @@ function elevateInitialize() {
 
 		elevateAdminAjax( 'get_dashboard_data_analytics', {}, function( response ) {
 			var decode = jQuery.parseJSON( response );
-			jQuery( '.analytics-visits' ).html( decode.body.totals.visitors );
-			jQuery( '.analytics-views' ).html( decode.body.totals.views );
+
+			if ( typeof( decode.body ) !== undefined && typeof ( decode.body.totals ) !== undefined ) {
+				jQuery( '.analytics-visits' ).html( decode.body.totals.visitors );
+				jQuery( '.analytics-views' ).html( decode.body.totals.views );	
+			}
+			
 		});
 	
 	}
