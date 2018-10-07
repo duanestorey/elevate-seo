@@ -325,6 +325,16 @@ $color_back_opacity: 0.8;
 					}
 				}
 
+				div.reverse {
+					i.fa-chevron-up {
+						color: #f77;
+					}
+
+					i.fa-chevron-down {
+						color: #7f7;
+					}	
+				}
+
 				div.col-1 {
 					grid-column: 1 / 2;
 				}	

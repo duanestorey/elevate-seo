@@ -66,13 +66,13 @@
 						<img class="spin" src="<?php echo ELEVATE_PLUGIN_URL; ?>/dist/images/dash-spinner.svg" alt="" style="display: none;" />
 						<h2><?php _e( 'Crawl', 'elevate-seo' ); ?> <a href="https://search.google.com/search-console/index?resource_id=<?php echo urlencode( home_url() ); ?>" target="_blank"><i class="fa fa-external-link-square"> </i></a></h2>
 
-						<div class="col-1">
+						<div class="col-1 reverse">
 							<span class="total-errors">-</span>
 							<i class="fa fa-chevron-up"> </i><i class="fa fa-chevron-down"> </i>
 							<h4><?php _e( 'Errors', 'elevate-seo' ); ?></h4>
 						</div>
 
-						<div class="col-2">
+						<div class="col-2 reverse">
 							<span class="not-found">-</span>
 							<i class="fa fa-chevron-up"> </i><i class="fa fa-chevron-down"> </i>
 							<h4><?php _e( 'Not Found', 'elevate-seo' ); ?></h4>

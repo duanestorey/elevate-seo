@@ -217,6 +217,14 @@ section.elevate {
         .elevate #dashboard .big-data .top-grid .item-2 div i.fa-chevron-up,
         .elevate #dashboard .big-data .top-grid .item-3 div i.fa-chevron-up {
           color: #7f7; }
+      .elevate #dashboard .big-data .top-grid .item-1 div.reverse i.fa-chevron-up,
+      .elevate #dashboard .big-data .top-grid .item-2 div.reverse i.fa-chevron-up,
+      .elevate #dashboard .big-data .top-grid .item-3 div.reverse i.fa-chevron-up {
+        color: #f77; }
+      .elevate #dashboard .big-data .top-grid .item-1 div.reverse i.fa-chevron-down,
+      .elevate #dashboard .big-data .top-grid .item-2 div.reverse i.fa-chevron-down,
+      .elevate #dashboard .big-data .top-grid .item-3 div.reverse i.fa-chevron-down {
+        color: #7f7; }
       .elevate #dashboard .big-data .top-grid .item-1 div.col-1,
       .elevate #dashboard .big-data .top-grid .item-2 div.col-1,
       .elevate #dashboard .big-data .top-grid .item-3 div.col-1 {
