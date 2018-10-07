@@ -1244,6 +1244,9 @@ function elevateInitialize() {
 
 		elevateAdminAjax( 'get_dashboard_data_analytics', {}, function( response ) {
 			var decode = jQuery.parseJSON( response );
+
+			alert( response );
+
 			if ( typeof( decode.body ) !== undefined && typeof ( decode.body.totals ) !== undefined && typeof ( decode.body.visitors ) !== undefined ) {
 				jQuery( '.analytics-visits' ).html( decode.body.totals.visitors );
 				jQuery( '.analytics-views' ).html( decode.body.totals.views );	

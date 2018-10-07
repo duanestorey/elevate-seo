@@ -803,8 +803,8 @@ class ElevatePlugin {
 
 										foreach( $page_data->data as $datetime => $this_data ) {
 											$prepped_data->labels[] = date( 'M d', $datetime );
-											$prepped_data->views[] = $one_entry->views;
-											$prepped_data->visitors[] = $one_entry->visitors;
+											$prepped_data->views[] = $this_data->views;
+											$prepped_data->visitors[] = $this_data->visitors;
 										}
 
 										$page_data->prepped_data = $prepped_data;
