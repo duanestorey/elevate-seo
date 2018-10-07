@@ -240,15 +240,14 @@ $color_back_opacity: 0.8;
 					position: relative;
 
 					p.waiting {
-						display: none;
 						font-family: sans-serif;
 						text-transform: uppercase;
 						color: #eee;
 						font-size: 14px;
 					 	position: absolute;
-					    top: 49%;
+					    top: 40%;
 					    left: 50%;
-					    transform: translateX(-50%) translateY(-100%);
+					    transform: translateX(-50%) translateY(-50%);
 					}
 
 					height: 300px!important;

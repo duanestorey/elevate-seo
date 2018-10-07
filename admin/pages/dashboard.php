@@ -93,7 +93,7 @@
 						</section>															
 					</div>										
 					<div class="item speed">
-						<h2><?php _e( 'PageSpeed', 'elevate-seo' ); ?></h2>
+						<h2><?php _e( 'Speed Results', 'elevate-seo' ); ?></h2>
 						<section class="graph">
 							<p class="waiting"><?php _e( 'Loading data...', 'elevate-seo' ); ?></p>
 							<canvas id="speed-chart"></canvas>
