@@ -66,7 +66,7 @@ class ElevateDB {
 		}
 	}
 
-	private function _sign( $num ) {
+	public function _sign( $num ) {
 		return ( $num > 0 ) - ( $num < 0 ); 
 	}
 

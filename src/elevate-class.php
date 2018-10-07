@@ -260,6 +260,7 @@ class ElevatePlugin {
 		
 		$this->_update_search_and_analytics_data( $url_to_inspect );
 		$this->get_page_speed( $url_to_inspect );
+		$this->_get_analytics_page_data();
 
 		ELEVATE_DEBUG( ELEVATE_DEBUG_INFO, 'CRON END' );
 	}
@@ -795,6 +796,10 @@ class ElevatePlugin {
 											$page_data->data = array();
 
 											$report = $decoded_data->reports[0];
+											
+											$first_row = false;
+											$last_row = false;
+
 											foreach( $report->data->rows as $key => $row_data ) {
 												$one_entry = new stdClass;
 
@@ -812,6 +817,12 @@ class ElevatePlugin {
 												$one_entry->duration = $row_data->metrics[0]->values[3];
 
 												$page_data->data[ $one_entry->unix_date ] = $one_entry;
+
+												if ( !$first_row ) {
+													$first_row = $one_entry;
+												}
+
+												$last_row = $one_entry;
 											}
 										}
 
@@ -831,6 +842,9 @@ class ElevatePlugin {
 										}
 
 										$page_data->prepped_data = $prepped_data;
+
+										$page_data->prepped_data->views_dir = $this->elevate_db->_sign( $last_row->views - $first_row->views );
+										$page_data->prepped_data->visitors_dir = $this->elevate_db->_sign( $last_row->visitors - $first_row->visitors );
 
 										$analytics_cache->add_to_cache( $page_data );
 

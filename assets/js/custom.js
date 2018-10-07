@@ -826,7 +826,18 @@ function elevateInitialize() {
 					        }
 					    }
 					});	
-					jQuery( '#crawl-chart' ).parent().show();					
+
+					if ( decode.body.prepped_data.visitors_dir > 0 ) {
+						jQuery( '.analytics-visits' ).parent().find( '.fa-chevron-up' ).show();
+					} else if ( decode.body.prepped_data.visitors_dir < 0 ) {
+						jQuery( '.analytics-visits' ).parent().find( '.fa-chevron-down' ).show();
+					}		
+
+					if ( decode.body.prepped_data.views_dir > 0 ) {
+						jQuery( '.analytics-views' ).parent().find( '.fa-chevron-up' ).show();
+					} else if ( decode.body.prepped_data.views_dir < 0 ) {
+						jQuery( '.analytics-views' ).parent().find( '.fa-chevron-down' ).show();
+					}									
 				}
 			});
 
