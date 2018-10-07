@@ -68,13 +68,13 @@
 
 						<div class="col-1">
 							<span class="total-errors">-</span>
-							<i class="fa fa-chevron-down"> </i>
+							<i class="fa fa-chevron-up"> </i><i class="fa fa-chevron-down"> </i>
 							<h4><?php _e( 'Errors', 'elevate-seo' ); ?></h4>
 						</div>
 
 						<div class="col-2">
 							<span class="not-found">-</span>
-							<i class="fa fa-chevron-down"> </i>
+							<i class="fa fa-chevron-up"> </i><i class="fa fa-chevron-down"> </i>
 							<h4><?php _e( 'Not Found', 'elevate-seo' ); ?></h4>
 						</div>							
 					</div>

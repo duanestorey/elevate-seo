@@ -157,9 +157,14 @@ class ElevateDB {
 
 			foreach( $results as $result ) {
 				$label = date( 'M d', strtotime( $result->test_time ) );
+
 				$prepped_results->labels[] = $label;
 				$prepped_results->errors_not_found[] = $result->errors_not_found;
 			}
+
+			$entries = count( $prepped_results->labels ) - 1;
+
+			$prepped_results->errors_not_found_dir = $this->_sign( $prepped_results->errors_not_found[ $entries ] - $prepped_results->errors_not_found[ 0 ] );			
 		}
 
 		return $prepped_results;

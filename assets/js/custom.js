@@ -688,6 +688,91 @@ function elevateInitialize() {
 					jQuery( '.last-modified' ).html( jQuery( '.last-modified' ).attr( 'data-none' ) );
 					jQuery( '.sitemap-entries' ).html( jQuery( '.last-modified' ).attr( 'data-none' ) );
 				}
+
+				elevateAdminAjax( 'get_dashboard_search_data', {}, function( response ) {
+					var decode = jQuery.parseJSON( response );
+
+					jQuery( '#search-chart' ).parent().find( '.waiting' ).hide();
+					var ctx2 = document.getElementById( "search-chart" ).getContext('2d');
+					var myChart = new Chart(ctx2, {
+					    type: 'line',
+					    data: {
+					        labels: decode.body.labels,
+					        datasets: [
+						        {
+						            label: ElevateData.text_impressions,
+						            data: decode.body.impressions,
+						            borderWidth: 3,
+						            backgroundColor: 'transparent',
+						            borderColor: '#faa',
+						            yAxisID: 'A',
+						            showLine: true
+						        },
+						       	{
+						            label: ElevateData.text_clicks,
+						            data: decode.body.clicks,
+						            borderWidth: 3,
+						            yAxisID: 'B',
+						            backgroundColor: 'transparent',
+						            borderColor: '#aaf',
+						            showLine: true
+						        }
+					        ]
+					    },
+					    options: {
+					    	maintainAspectRatio: false,
+				    		responsive: true,	
+					    	legend: {
+					    		labels: {
+					    			fontColor: 'white'
+					    		},
+						    	position: 'bottom'
+					    	},
+					        scales: {
+					            yAxes: [
+					            {
+					            	id: 'A',
+					            	position: 'left',
+					                ticks: {
+					                    beginAtZero: true
+					                },
+					                 gridLines: {
+				   						color: 'rgba( 255, 255, 255, 0.1 )' // makes grid lines from y axis red
+				  					}
+					            },
+					            {
+					            	id: 'B',
+					            	position: 'right',
+					                ticks: {
+					                    beginAtZero: true
+					                },
+					                 gridLines: {
+				   						color: 'rgba( 255, 255, 255, 0.1 )' // makes grid lines from y axis red
+				  					}
+					            }			            
+					            ]
+					        }
+					    }
+					});	
+					
+					if ( decode.body.impressions_dir > 0 ) {
+						jQuery( '.impressions' ).parent().find( '.fa-chevron-up' ).show();
+					} else if ( decode.body.impressions_dir < 0 ) {
+						jQuery( '.impressions' ).parent().find( '.fa-chevron-down' ).show();
+					}		
+
+					if ( decode.body.clicks_dir > 0 ) {
+						jQuery( '.clicks' ).parent().find( '.fa-chevron-up' ).show();
+					} else if ( decode.body.clicks_dir < 0 ) {
+						jQuery( '.clicks' ).parent().find( '.fa-chevron-down' ).show();
+					}	
+
+					if ( decode.body.ctr_dir > 0 ) {
+						jQuery( '.click-rate' ).parent().find( '.fa-chevron-up' ).show();
+					} else if ( decode.body.ctr_dir < 0 ) {
+						jQuery( '.click-rate' ).parent().find( '.fa-chevron-down' ).show();
+					}					
+				});				
 			});
 
 			elevateAdminAjax( 'get_dashboard_data_analytics', {}, function( response ) {
@@ -745,91 +830,6 @@ function elevateInitialize() {
 				}
 			});
 
-			elevateAdminAjax( 'get_dashboard_search_data', {}, function( response ) {
-				var decode = jQuery.parseJSON( response );
-
-				jQuery( '#search-chart' ).parent().find( '.waiting' ).hide();
-				var ctx2 = document.getElementById( "search-chart" ).getContext('2d');
-				var myChart = new Chart(ctx2, {
-				    type: 'line',
-				    data: {
-				        labels: decode.body.labels,
-				        datasets: [
-					        {
-					            label: ElevateData.text_impressions,
-					            data: decode.body.impressions,
-					            borderWidth: 3,
-					            backgroundColor: 'transparent',
-					            borderColor: '#faa',
-					            yAxisID: 'A',
-					            showLine: true
-					        },
-					       	{
-					            label: ElevateData.text_clicks,
-					            data: decode.body.clicks,
-					            borderWidth: 3,
-					            yAxisID: 'B',
-					            backgroundColor: 'transparent',
-					            borderColor: '#aaf',
-					            showLine: true
-					        }
-				        ]
-				    },
-				    options: {
-				    	maintainAspectRatio: false,
-			    		responsive: true,	
-				    	legend: {
-				    		labels: {
-				    			fontColor: 'white'
-				    		},
-					    	position: 'bottom'
-				    	},
-				        scales: {
-				            yAxes: [
-				            {
-				            	id: 'A',
-				            	position: 'left',
-				                ticks: {
-				                    beginAtZero: true
-				                },
-				                 gridLines: {
-			   						color: 'rgba( 255, 255, 255, 0.1 )' // makes grid lines from y axis red
-			  					}
-				            },
-				            {
-				            	id: 'B',
-				            	position: 'right',
-				                ticks: {
-				                    beginAtZero: true
-				                },
-				                 gridLines: {
-			   						color: 'rgba( 255, 255, 255, 0.1 )' // makes grid lines from y axis red
-			  					}
-				            }			            
-				            ]
-				        }
-				    }
-				});	
-				
-				if ( decode.body.impressions_dir > 0 ) {
-					jQuery( '.impressions' ).parent().find( '.fa-chevron-up' ).show();
-				} else if ( decode.body.impressions_dir < 0 ) {
-					jQuery( '.impressions' ).parent().find( '.fa-chevron-down' ).show();
-				}		
-
-				if ( decode.body.clicks_dir > 0 ) {
-					jQuery( '.clicks' ).parent().find( '.fa-chevron-up' ).show();
-				} else if ( decode.body.clicks_dir < 0 ) {
-					jQuery( '.clicks' ).parent().find( '.fa-chevron-down' ).show();
-				}	
-
-				if ( decode.body.ctr_dir > 0 ) {
-					jQuery( '.click-rate' ).parent().find( '.fa-chevron-up' ).show();
-				} else if ( decode.body.ctr_dir < 0 ) {
-					jQuery( '.click-rate' ).parent().find( '.fa-chevron-down' ).show();
-				}					
-			});
-
 			elevateAdminAjax( 'get_dashboard_404_data', {}, function( response ) {
 				var decode = jQuery.parseJSON( response );
 
@@ -871,7 +871,12 @@ function elevateInitialize() {
 				        }
 				    }
 				});	
-				jQuery( '#crawl-chart' ).parent().show();		
+				
+				if ( decode.body.errors_not_found_dir > 0 ) {
+					jQuery( '.not-found' ).parent().find( '.fa-chevron-up' ).show();
+				} else if ( decode.body.errors_not_found_dir < 0 ) {
+					jQuery( '.not-found' ).parent().find( '.fa-chevron-down' ).show();
+				}				
 			});		
 		}
 
