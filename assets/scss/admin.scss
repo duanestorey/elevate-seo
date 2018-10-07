@@ -683,6 +683,12 @@ $color_back_opacity: 0.8;
 	}
 }
 
+.toplevel_page_elevate_plugin {
+	#wpcontent {
+		background: linear-gradient( rgba( 0, 0, 0, 0.5 ), rgba( 0, 0, 0, 0.2 ) ), url( ../images/mountains.jpg );
+	}
+}
+
 @import '_wizard';
 @import '_settings';
 @import '_tooltip';

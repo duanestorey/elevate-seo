@@ -481,6 +481,9 @@ section.elevate {
 .toplevel_page_elevate_plugin #wpbody {
   padding-right: 0px; }
 
+.toplevel_page_elevate_plugin #wpcontent {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url(../images/mountains.jpg); }
+
 .clearfix {
   clear: both; }
 
@@ -538,7 +541,7 @@ section.elevate {
   padding-right: 4%;
   margin-top: 0px; }
   #wpbody .elevate .wizard .content {
-    background: rgba(255, 255, 255, 0.8);
+    background: white;
     display: block;
     min-height: 420px;
     overflow: hidden;
@@ -839,9 +842,8 @@ section.elevate {
     #wpbody .elevate .wizard .steps .current a:hover,
     #wpbody .elevate .wizard .steps .current a:active {
       /* background: #D7B377; */
-      color: black;
-      cursor: default;
-      text-shadow: 0px 0px 1px #fff; }
+      color: white;
+      cursor: default; }
     #wpbody .elevate .wizard .steps .done a,
     #wpbody .elevate .wizard .steps .done a:hover,
     #wpbody .elevate .wizard .steps .done a:active {

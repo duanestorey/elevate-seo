@@ -86,7 +86,7 @@ $wizard_input_font_size: 12pt;
 	margin-top: 0px;
 
 	.content {
-		background: rgba( 255, 255, 255, 0.8 );
+		background: rgba( 255, 255, 255, 1 );
 	    display: block;
 	    min-height: 420px;
 	    overflow: hidden;
@@ -546,9 +546,8 @@ $wizard_input_font_size: 12pt;
 		.current a:hover,
 		.current a:active {
 		    /* background: #D7B377; */
-		    color: black;
+		    color: white;
 		    cursor: default;
-		    text-shadow: 0px 0px 1px #fff;
 
 		    .number {
 		    }
