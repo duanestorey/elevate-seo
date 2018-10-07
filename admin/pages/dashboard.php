@@ -12,103 +12,79 @@
 				<div class="top-grid">	
 					<div class="item item-1">
 						<img class="spin" src="<?php echo ELEVATE_PLUGIN_URL; ?>/dist/images/dash-spinner.svg" alt="" style="display: none;" />
-						<h2>Speed</h2>
+						<h2><?php _e( 'Speed', 'elevate-seo' ); ?> <a href="https://developers.google.com/speed/pagespeed/insights/?url=<?php echo urlencode( home_url() ); ?>"><i class="fa fa-external-link-square"> </i></a></h2>
 
 						<div class="col-1">
 							<span class="mobile-speed">-</span>
 							<i class="fa fa-chevron-up"> </i>
-							<h4>Mobile</h4>
+							<h4><?php _e( 'Mobile', 'elevate-seo' ); ?></h4>
 						</div>
 
-						<div class="col-2">
-							
+						<div class="col-2">	
 							<span class="desktop-speed">-</span>
 							<i class="fa fa-chevron-down"> </i>
-							<h4>Desktop</h4>
+							<h4><?php _e( 'Desktop', 'elevate-seo' ); ?></h4>
 						</div>						
 					</div>
 					
 					<div class="item item-2">
 						<img class="spin" src="<?php echo ELEVATE_PLUGIN_URL; ?>/dist/images/dash-spinner.svg" alt="" style="display: none;" />
-						<h2>Search</h2>
+						<h2><?php _e( 'Search', 'elevate-seo' ); ?> <a href="https://search.google.com/search-console/performance/search-analytics?resource_id=<?php echo urlencode( home_url() ); ?>" target="_blank"><i class="fa fa-external-link-square"> </i></a></h2>
 
 						<div class="col-1">
 							<span class="analytics-views">-</span>
 							<i class="fa fa-chevron-up"> </i>
-							<h4>Views</h4>
+							<h4><?php _e( 'Views', 'elevate-seo' ); ?></h4>
 						</div>	
 
 						<div class="col-2">
 							<span class="analytics-visits">-</span>
 							<i class="fa fa-chevron-up"> </i>
-							<h4>Visitors</h4>
+							<h4><?php _e( 'Visitors', 'elevate-seo' ); ?></h4>
 						</div>							
 
 						<div class="col-3">
 							<span class="impressions">-</span>
 							<i class="fa fa-chevron-up"> </i>
-							<h4>Impressions</h4>
+							<h4><?php _e( 'Impressions', 'elevate-seo' ); ?></h4>
 						</div>
 
 						<div class="col-4">
 							
 							<span class="clicks">-</span>
 							<i class="fa fa-chevron-down"> </i>
-							<h4>Clicks</h4>
+							<h4><?php _e( 'Clicks', 'elevate-seo' ); ?></h4>
 						</div>							
 	
 						<div class="col-5">
 							<span class="click-rate">-</span>
 							<i class="fa fa-chevron-down"> </i>
-							<h4>CTR</h4>
+							<h4><?php _e( 'CTR', 'elevate-seo' ); ?></h4>
 						</div>						
 					</div>
 					<div class="item item-3">
 						<img class="spin" src="<?php echo ELEVATE_PLUGIN_URL; ?>/dist/images/dash-spinner.svg" alt="" style="display: none;" />
-						<h2>Crawl</h2>
+						<h2><?php _e( 'Crawl', 'elevate-seo' ); ?> <a href="https://search.google.com/search-console/index?resource_id=<?php echo urlencode( home_url() ); ?>"><i class="fa fa-external-link-square"> </i></a></h2>
 
 						<div class="col-1">
-							
 							<span class="total-errors">-</span>
 							<i class="fa fa-chevron-down"> </i>
-							<h4>Errors</h4>
+							<h4><?php _e( 'Errors', 'elevate-seo' ); ?></h4>
 						</div>
 
 						<div class="col-2">
-							
 							<span class="not-found">-</span>
 							<i class="fa fa-chevron-down"> </i>
-							<h4>Not Found</h4>
+							<h4><?php _e( 'Not Found', 'elevate-seo' ); ?></h4>
 						</div>							
 					</div>
 					<div class="item speed">
-						
-						<!--
-						<div>
-							<span class="mobile-speed">-</span> / <span class="desktop-speed">-</span>
-							<h4>Mobile / Desktop</h4>
-						</div>
-						<div>
-							<span class="css-size">0</span> / <span class="css-files">0</span>
-							<h4>CSS</h4>
-						</div>	
-						<div>
-							<span class="js-size">-</span> / <span class="js-files">-</span> 
-							<h4>JS</h4>
-						</div>	
-						<div>
-							 <span class="resource-size">-</span> / <span class="resource-files">-</span>
-							<h4>Other</h4>
-						</div>	
-						-->
-
 						<section class="graph">
 							<canvas id="speed-chart" width="600" height="400"></canvas>
 						</section>													
 					</div>
 					<?php if ( $has_tokens ) { ?>
 					<div class="item search-stats">
-						
 						<section class="graph">
 							<canvas id="search-chart" width="600" height="400"></canvas>
 						</section>															

@@ -173,6 +173,26 @@ $color_back_opacity: 0.8;
 				font-size: 24px;
 				position: relative;
 
+				h2 {
+					a {
+						color: #777;
+					}
+
+					a:hover {
+						color: #ccc;
+					}
+
+					i {
+						display: inline-block;
+						font-size: 20px;
+						line-height: 20px;
+						margin-left: 5px;
+						vertical-align: middle;
+						position: relative;
+						top: -2px;
+					}
+				}
+
 				canvas {
 					margin-top: 20px;
 					width: 1200px;

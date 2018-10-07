@@ -104,6 +104,18 @@ section.elevate {
       color: #ccc;
       font-size: 24px;
       position: relative; }
+      .elevate #dashboard .big-data .top-grid .item h2 a {
+        color: #777; }
+      .elevate #dashboard .big-data .top-grid .item h2 a:hover {
+        color: #ccc; }
+      .elevate #dashboard .big-data .top-grid .item h2 i {
+        display: inline-block;
+        font-size: 20px;
+        line-height: 20px;
+        margin-left: 5px;
+        vertical-align: middle;
+        position: relative;
+        top: -2px; }
       .elevate #dashboard .big-data .top-grid .item canvas {
         margin-top: 20px;
         width: 1200px;
