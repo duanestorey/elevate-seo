@@ -149,8 +149,18 @@ section.elevate {
           font-size: 24px;
           margin-bottom: 2px; }
       .elevate #dashboard .big-data .top-grid .item .graph {
-        min-height: 300px;
-        overflow: hidden; }
+        height: 450px;
+        overflow: hidden;
+        position: relative; }
+        .elevate #dashboard .big-data .top-grid .item .graph p.waiting {
+          font-family: sans-serif;
+          text-transform: uppercase;
+          color: #eee;
+          font-size: 14px;
+          position: absolute;
+          top: 49%;
+          left: 50%;
+          transform: translateX(-50%) translateY(-100%); }
     .elevate #dashboard .big-data .top-grid .item-1 {
       grid-column: 1 / 3; }
     .elevate #dashboard .big-data .top-grid .item-2 {

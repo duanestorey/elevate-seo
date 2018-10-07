@@ -80,22 +80,26 @@
 					</div>
 					<div class="item visits">
 						<section class="graph">
+							<p class="waiting"><?php _e( 'Loading data...', 'elevate-seo' ); ?></p>
 							<canvas id="visits-chart" width="600" height="400"></canvas>
 						</section>														
 					</div>	
 					<div class="item search-stats">
 						<section class="graph">
+							<p class="waiting"><?php _e( 'Loading data...', 'elevate-seo' ); ?></p>
 							<canvas id="search-chart" width="600" height="400"></canvas>
 						</section>															
 					</div>										
 					<div class="item speed">
 						<section class="graph">
+							<p class="waiting"><?php _e( 'Loading data...', 'elevate-seo' ); ?></p>
 							<canvas id="speed-chart" width="600" height="400"></canvas>
 						</section>													
 					</div>
 
 					<div class="item crawl">
 						<section class="graph">
+							<p class="waiting"><?php _e( 'Loading data...', 'elevate-seo' ); ?></p>
 							<canvas id="crawl-chart" width="600" height="400"></canvas>
 						</section>														
 					</div>	

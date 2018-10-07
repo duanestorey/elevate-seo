@@ -473,13 +473,13 @@ class ElevatePlugin {
 	   	 	$admin_bar->add_node( $this->_create_toolbar_args( 'elevate_dashboard', __( 'Get Started', 'elevate-seo' ), admin_url( 'admin.php?page=elevate_plugin' ), 'elevate_top' ) );
 		}
 
+	    if ( strpos( $_SERVER['REQUEST_URI'], 'page=elevate_dashboard' ) !== false ) {
+	    	$admin_bar->add_node( $this->_create_toolbar_args( 'elevate_refresh', __( 'Refresh Statistics', 'elevate-seo' ), admin_url( 'admin.php?page=elevate_dashboard&elevate_action=refresh_stats&toolbar_nonce=' . $toolbar_nonce ), 'elevate_top' ) );
+	    }		
+
 		if ( $this->settings->cdn_url && $this->settings->use_cdn ) {
 			$admin_bar->add_node( $this->_create_toolbar_args( 'elevate_update_cache', __( 'Clear Image Cache', 'elevate-seo' ), add_query_arg( array( 'elevate_action' => 'clear_cache', 'toolbar_nonce' => $toolbar_nonce ), $_SERVER['REQUEST_URI'] ), 'elevate_top' ) );	
 		}
-		
-	    if ( strpos( $_SERVER['REQUEST_URI'], 'page=elevate_dashboard' ) !== false ) {
-	    	$admin_bar->add_node( $this->_create_toolbar_args( 'elevate_refresh', __( 'Refresh Statistics', 'elevate-seo' ), admin_url( 'admin.php?page=elevate_dashboard&elevate_action=refresh_stats&toolbar_nonce=' . $toolbar_nonce ), 'elevate_top' ) );
-	    }
 
 	    $admin_bar->add_node( $this->_create_toolbar_args( 'elevate_update_sitemap', __( 'Update Sitemap', 'elevate-seo' ), admin_url( 'admin.php?page=elevate_dashboard&elevate_action=update_sitemap&toolbar_nonce=' . $toolbar_nonce ), 'elevate_top' ) );	    	 
 	}
@@ -1686,7 +1686,14 @@ class ElevatePlugin {
 			'guten_web_preview' => __( 'Web Preview', 'elevate-seo' ),
 			'guten_learn_more' => __( 'Learn More', 'elevate-seo' ),
 			'wizard_fix' => __( 'Fix Issues', 'elevate-seo' ),
-			'wizard_try_fix' => __( 'Attemping to Fix', 'elevate-seo' )
+			'wizard_try_fix' => __( 'Attemping to Fix', 'elevate-seo' ),
+			'text_mobile_speed' => __( 'Mobile Speed', 'elevate-seo' ),
+			'text_desktop_speed' => __( 'Mobile Speed', 'elevate-seo' ),
+			'text_impressions' => __( 'Impressions', 'elevate-seo' ),
+			'text_clicks' => __( 'Clicks', 'elevate-seo' ),
+			'text_fof' => __( '404 Errors', 'elevate-seo' ),
+			'text_page_views' => __( 'Page Views', 'elevate-seo' ),
+			'text_visitors' => __( 'Visitors' , 'elevate-seo' )
 		);
 
 		if ( isset( $_GET[ 'elevate_continue_wizard' ] ) && $this->has_google_tokens( false ) ) {

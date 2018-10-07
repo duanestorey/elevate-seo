@@ -236,8 +236,21 @@ $color_back_opacity: 0.8;
 				}	
 
 				.graph {
-					min-height: 300px;
+					height: 450px;
 					overflow: hidden;
+
+					position: relative;
+
+					p.waiting {
+						font-family: sans-serif;
+						text-transform: uppercase;
+						color: #eee;
+						font-size: 14px;
+					 	position: absolute;
+					    top: 49%;
+					    left: 50%;
+					    transform: translateX(-50%) translateY(-100%);
+					}
 				}			
 			}
 
