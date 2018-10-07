@@ -1,1 +1,3 @@
 dist/js/* linguist-vendored
+assets/js/* linguist-vendored
+build/js/* linguist-vendored
