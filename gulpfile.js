@@ -11,8 +11,8 @@ var jsAssetFiles = [
 ];
 
 var jsFiles = [
-	'./assets/js/pre/lib.min.js',
-	'./assets/js/pre/asset.min.js' 
+	'./build/js/lib.min.js',
+	'./build/js/asset.min.js' 
 ];
 
 var sassFiles = [ 
@@ -62,20 +62,20 @@ gulp.task( 'jsasset', function() {
 	return gulp.src( jsAssetFiles )
 		.pipe( debug() )
 		.pipe( concat( 'asset.js' ) )
-		.pipe( gulp.dest( './assets/js/pre' ) )
+		.pipe( gulp.dest( './build/js' ) )
 		.pipe( rename( 'asset.min.js' ) )
-		//.pipe( uglify() )			
-		.pipe( gulp.dest( './assets/js/pre' ) )
+		.pipe( uglify() )			
+		.pipe( gulp.dest( './build/js' ) )
 });
 
 gulp.task( 'jslib', function() {
 	return gulp.src( jsLibFiles )
 		.pipe( debug() )
 		.pipe( concat( 'lib.js' ) )
-		.pipe( gulp.dest( './assets/js/pre' ) )
+		.pipe( gulp.dest( './build/js' ) )
 		.pipe( rename( 'lib.min.js' ) )
-		//.pipe( uglify() )		
-		.pipe( gulp.dest( './assets/js/pre' ) )
+		.pipe( uglify() )		
+		.pipe( gulp.dest( './build/js' ) )
 });
 
 gulp.task( 'jsconcat', function() {

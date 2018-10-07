@@ -317,6 +317,17 @@ class ElevatePlugin {
 		// Load our class for manipulating the DB tables
 		require_once( dirname( __FILE__ ) . '/elevate-db.php' );
 		$this->elevate_db = new ElevateDB;
+
+		$this->check_for_version_update();
+	}
+
+	public function check_for_version_update() {
+		$result = get_option( 'elevate_last_version_check', 0 );
+		if ( !$result ) {
+			$this->_clear_dashboard_transients();
+
+			update_option( 'elevate_last_version_check', ELEVATE_PLUGIN_VERSION );
+		}
 	}
 
 	public function handle_admin_body_class( $body_class ) {

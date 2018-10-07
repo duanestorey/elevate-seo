@@ -4,7 +4,7 @@ Plugin Name: Elevate SEO
 Plugin URI: http://elevatewp.io
 Description: Search Engine Optimization and Performance Monitoring Suite
 Author: Duane Storey
-Tags: SEO, Sitemap, Google, Page Speed, 
+Tags: SEO, Sitemap, Google, Page Speed
 Version: 1.1.0
 Author URI: https://elevatewp.io/
 Text Domain: elevate-seo
