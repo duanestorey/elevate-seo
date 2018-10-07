@@ -12,7 +12,7 @@
 global $wp_prefix;
 
 define( 'ELEVATE_DB_OPTION', 'elevate_db_version' );
-define( 'ELEVATE_DB_VERSION', '1.0.8' );
+define( 'ELEVATE_DB_VERSION', '1.0.9' );
 
 class ElevateDB {
 	var $db_version;
@@ -48,6 +48,7 @@ class ElevateDB {
 			$this->_modify_or_add_db( 'redirects' );
 			$this->_modify_or_add_db( '404' );
 			$this->_modify_or_add_db( 'search' );
+			$this->_modify_or_add_db( 'visits' );
 
 			update_option( ELEVATE_DB_OPTION, ELEVATE_DB_VERSION );
 		}
