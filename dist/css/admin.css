@@ -138,8 +138,8 @@ section.elevate {
           padding: 0px;
           font-family: sans-serif;
           font-weight: 600;
-          color: #bacae3;
-          font-size: 14px;
+          color: #96afd5;
+          font-size: 12.5px;
           text-transform: uppercase;
           letter-spacing: -0.5px; }
         .elevate #dashboard .big-data .top-grid .item div span {
@@ -149,10 +149,12 @@ section.elevate {
           font-size: 24px;
           margin-bottom: 2px; }
       .elevate #dashboard .big-data .top-grid .item .graph {
-        height: 450px;
         overflow: hidden;
-        position: relative; }
+        position: relative;
+        height: 300px !important;
+        padding-bottom: 30px; }
         .elevate #dashboard .big-data .top-grid .item .graph p.waiting {
+          display: none;
           font-family: sans-serif;
           text-transform: uppercase;
           color: #eee;
@@ -432,6 +434,18 @@ section.elevate {
       font-size: 20pt;
       font-weight: bold;
       opacity: 0.7; }
+
+.elevate_no_tokens .elevate #dashboard .big-data .top-grid .item.visits {
+  display: none; }
+
+.elevate_no_tokens .elevate #dashboard .big-data .top-grid .item.search-stats {
+  display: none; }
+
+.elevate_no_tokens .elevate #dashboard .big-data .top-grid .item.speed {
+  grid-column: 1 / 11; }
+
+.elevate_no_tokens .elevate #dashboard .big-data .top-grid .item.crawl {
+  display: none; }
 
 .grow {
   transition: all .1s ease-in-out; }

@@ -294,6 +294,8 @@ class ElevatePlugin {
 		add_action( 'after_setup_theme', array( &$this, 'setup_languages' ) );
 		add_filter( 'locale', array( &$this, 'handle_locale' ) );
 
+		add_filter( 'admin_body_class', array( &$this, 'handle_admin_body_class' ) );
+
 		elevate_check_cron_job();
 
 		$this->debug_log = ElevateDebug::instance();
@@ -315,6 +317,14 @@ class ElevatePlugin {
 		// Load our class for manipulating the DB tables
 		require_once( dirname( __FILE__ ) . '/elevate-db.php' );
 		$this->elevate_db = new ElevateDB;
+	}
+
+	public function handle_admin_body_class( $body_class ) {
+		if ( !$this->has_google_tokens() ) {
+			$body_class .= ' elevate_no_tokens';
+		}
+
+		return $body_class;
 	}
 
 	public function handle_tax_save_edit_form( $tag ) {

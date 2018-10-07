@@ -910,7 +910,6 @@ function elevateInitialize() {
 	var wizard = jQuery( "#elevate-wizard" );
 	if ( wizard ) {
 		// enumerate the sections
-
 		var count = 0;
 		jQuery( '#elevate-wizard section' ).each( function() {
 			jQuery( this ).attr( 'data-pos', count );
@@ -1152,121 +1151,212 @@ function elevateInitialize() {
 
 	var dashboard = jQuery( '.elevate #dashboard' );
 	if ( dashboard.length ) {		
-		jQuery( '.item-2 img, .item-3 img' ).fadeIn();
-		elevateAdminAjax( 'get_dashboard_data', {}, function( response ) {
+		if ( ElevateData.has_google_tokens == 0 ) {
+		} else {
+			jQuery( '.item-2 img, .item-3 img' ).fadeIn();
+			elevateAdminAjax( 'get_dashboard_data', {}, function( response ) {
 
-			jQuery( '.item-2 img, .item-3 img' ).fadeOut();
-			var decode = jQuery.parseJSON( response );
+				jQuery( '.item-2 img, .item-3 img' ).fadeOut();
+				var decode = jQuery.parseJSON( response );
 
-			var clicks = decode.body.search_analytics.clicks;
-			if ( !clicks ) {
-				clicks = 0;
-			}			
-
-			if ( ElevateData.has_google_tokens == 1 ) {
-				jQuery( '.crawl-errors' ).html( decode.body.crawl_errors.count );	
-				jQuery( '.clicks' ).html( clicks );
-			}
-
-			jQuery( '.impressions' ).html( decode.body.search_analytics.impressions );
-
-			jQuery( '.not-found' ).html( decode.body.crawl_errors.not_found );
-			jQuery( '.not-auth' ).html( decode.body.crawl_errors.permissions );
-			jQuery( '.server-error' ).html( decode.body.crawl_errors.server_error );
-			jQuery( '.total-errors' ).html( decode.body.crawl_errors.not_found + decode.body.crawl_errors.permissions + decode.body.crawl_errors.server_error );
-
-			jQuery( '.click-rate' ).html( decode.body.search_analytics.ctr );
-			jQuery( '.position' ).html( decode.body.search_analytics.position );
-
-			if ( decode.body.has_analytics_installed ) {
-				jQuery( '.analytics-installed' ).html( jQuery( '.analytics-installed' ).attr( 'data-tracking' ) );
-			} else {
-				jQuery( '.analytics-installed' ).html( jQuery( '.analytics-installed' ).attr( 'data-not-tracking' ) );
-			}
-
-			if ( decode.body.is_site_verified == 1 ) {
-				jQuery( '.site-verify' ).html( jQuery( '.site-verify' ).attr( 'data-verified' ) );
-			} else {
-				jQuery( '.site-verify' ).html( jQuery( '.site-verify' ).attr( 'data-not-verified' ) );
-			}			
-
-			if ( decode.body.sitemap_info.has_sitemap ) {
-				if ( decode.body.sitemap_info.is_generating ) {
-					jQuery( '.sitemap-generated' ).html( jQuery( '.sitemap-generated' ).attr( 'data-generating' ) );
-					jQuery( '.last-modified' ).html( jQuery( '.sitemap-generated' ).attr( 'data-pending' ) );
-					jQuery( '.sitemap-entries' ).html( jQuery( '.sitemap-generated' ).attr( 'data-pending' ) );	
+				if ( ElevateData.has_google_tokens == 1 ) {
+					jQuery( '.crawl-errors' ).html( decode.body.crawl_errors.count );	
+					jQuery( '.clicks' ).html( decode.body.search_analytics.clicks );
 				} else {
-					jQuery( '.sitemap-generated' ).html( jQuery( '.sitemap-generated' ).attr( 'data-generated' ) );
-					jQuery( '.last-modified' ).html( decode.body.sitemap_info.modified_time );
-					jQuery( '.sitemap-entries' ).html( decode.body.sitemap_info.entries );	
-				}	
-			} else {
-				jQuery( '.sitemap-generated' ).html( jQuery( '.sitemap-generated' ).attr( 'data-not-generated' ) );
-				jQuery( '.last-modified' ).html( jQuery( '.last-modified' ).attr( 'data-none' ) );
-				jQuery( '.sitemap-entries' ).html( jQuery( '.last-modified' ).attr( 'data-none' ) );
-			}
-		});
+					jQuery( '.crawl-errors' ).html( '0' );	
+					jQuery( '.clicks' ).html( '0' );
+				}
 
-		jQuery( '.item-1 img' ).fadeIn();
-		elevateAdminAjax( 'get_dashboard_data_speed', {}, function( response ) {
-			jQuery( '.item-1 img' ).fadeOut();
-			var decode = jQuery.parseJSON( response );
+				jQuery( '.impressions' ).html( decode.body.search_analytics.impressions );
 
-			if ( decode.body.desktop.response_bytes == null && decode.body.mobile.response_bytes == null ) {
-				// Likely offline
-				jQuery( '.desktop-speed' ).html( 0 );
-				jQuery( '.mobile-speed' ).html( 0 );
-			} else {
-				jQuery( '.desktop-speed' ).html( decode.body.desktop.speed );
-				jQuery( '.mobile-speed' ).html( decode.body.mobile.speed );
+				jQuery( '.not-found' ).html( decode.body.crawl_errors.not_found );
+				jQuery( '.not-auth' ).html( decode.body.crawl_errors.permissions );
+				jQuery( '.server-error' ).html( decode.body.crawl_errors.server_error );
+				jQuery( '.total-errors' ).html( decode.body.crawl_errors.not_found + decode.body.crawl_errors.permissions + decode.body.crawl_errors.server_error );
 
-				jQuery( '.css-files' ).html( decode.body.desktop.css_resources );
-				jQuery( '.css-size' ).html( decode.body.desktop.css_bytes );
+				jQuery( '.click-rate' ).html( decode.body.search_analytics.ctr );
+				jQuery( '.position' ).html( decode.body.search_analytics.position );
 
-				jQuery( '.js-files' ).html( decode.body.desktop.js_resources );
-				jQuery( '.js-size' ).html( decode.body.desktop.js_bytes );
+				if ( decode.body.has_analytics_installed ) {
+					jQuery( '.analytics-installed' ).html( jQuery( '.analytics-installed' ).attr( 'data-tracking' ) );
+				} else {
+					jQuery( '.analytics-installed' ).html( jQuery( '.analytics-installed' ).attr( 'data-not-tracking' ) );
+				}
 
-				jQuery( '.resource-files' ).html( decode.body.desktop.response_resources );
-				jQuery( '.resource-size' ).html( decode.body.desktop.response_bytes );
+				if ( decode.body.is_site_verified == 1 ) {
+					jQuery( '.site-verify' ).html( jQuery( '.site-verify' ).attr( 'data-verified' ) );
+				} else {
+					jQuery( '.site-verify' ).html( jQuery( '.site-verify' ).attr( 'data-not-verified' ) );
+				}			
 
-			}
-		});	
+				if ( decode.body.sitemap_info.has_sitemap ) {
+					if ( decode.body.sitemap_info.is_generating ) {
+						jQuery( '.sitemap-generated' ).html( jQuery( '.sitemap-generated' ).attr( 'data-generating' ) );
+						jQuery( '.last-modified' ).html( jQuery( '.sitemap-generated' ).attr( 'data-pending' ) );
+						jQuery( '.sitemap-entries' ).html( jQuery( '.sitemap-generated' ).attr( 'data-pending' ) );	
+					} else {
+						jQuery( '.sitemap-generated' ).html( jQuery( '.sitemap-generated' ).attr( 'data-generated' ) );
+						jQuery( '.last-modified' ).html( decode.body.sitemap_info.modified_time );
+						jQuery( '.sitemap-entries' ).html( decode.body.sitemap_info.entries );	
+					}	
+				} else {
+					jQuery( '.sitemap-generated' ).html( jQuery( '.sitemap-generated' ).attr( 'data-not-generated' ) );
+					jQuery( '.last-modified' ).html( jQuery( '.last-modified' ).attr( 'data-none' ) );
+					jQuery( '.sitemap-entries' ).html( jQuery( '.last-modified' ).attr( 'data-none' ) );
+				}
+			});
 
-		elevateAdminAjax( 'get_dashboard_data_analytics', {}, function( response ) {
-			var decode = jQuery.parseJSON( response );
+			elevateAdminAjax( 'get_dashboard_data_analytics', {}, function( response ) {
+				var decode = jQuery.parseJSON( response );
 
-			if ( typeof( decode.body ) !== undefined && typeof ( decode.body.totals ) !== undefined && typeof ( decode.body.visitors ) !== undefined ) {
-				jQuery( '.analytics-visits' ).html( decode.body.totals.visitors );
-				jQuery( '.analytics-views' ).html( decode.body.totals.views );	
+				if ( typeof( decode.body ) !== undefined && typeof ( decode.body.totals ) !== undefined && typeof ( decode.body.visitors ) !== undefined ) {
+					jQuery( '.analytics-visits' ).html( decode.body.totals.visitors );
+					jQuery( '.analytics-views' ).html( decode.body.totals.views );	
 
-				var ctx4 = document.getElementById( "visits-chart" ).getContext( '2d' );
-				jQuery( '#visits-chart' ).parent().find( '.waiting' ).hide();
-				var myChart = new Chart(ctx4, {
-				    type: 'bar',
+					var ctx4 = document.getElementById( "visits-chart" ).getContext( '2d' );
+					jQuery( '#visits-chart' ).parent().find( '.waiting' ).hide();
+					var myChart = new Chart(ctx4, {
+					    type: 'bar',
+					    data: {
+					        labels: decode.body.prepped_data.labels,
+					        datasets: [
+						        {
+						            label: ElevateData.text_page_views,
+						            data: decode.body.prepped_data.views,
+						            borderWidth: 1,
+						            backgroundColor: '#faa',
+						            showLine: true
+						        },
+						       	{
+						            label: ElevateData.text_visitors,
+						            data: decode.body.prepped_data.visitors,
+						            borderWidth: 1,
+						            backgroundColor: '#aaf',
+						            showLine: true
+						        }
+					        ]
+					    },
+					    options: {
+					    	maintainAspectRatio: false,
+			    			responsive: true,	
+					    	legend: {
+					    		labels: {
+					    			fontColor: 'white'
+					    		},
+					    		position: 'bottom'
+					    	},
+					        scales: {
+					            yAxes: [{
+					                ticks: {
+					                    beginAtZero: true
+					                },
+					                 gridLines: {
+				   						color: 'rgba( 255, 255, 255, 0.1 )' // makes grid lines from y axis red
+				  					}
+					            }]
+					        }
+					    }
+					});	
+					jQuery( '#crawl-chart' ).parent().show();					
+				}
+			});
+
+			elevateAdminAjax( 'get_dashboard_search_data', {}, function( response ) {
+				var decode = jQuery.parseJSON( response );
+
+				jQuery( '#search-chart' ).parent().find( '.waiting' ).hide();
+				var ctx2 = document.getElementById( "search-chart" ).getContext('2d');
+				var myChart = new Chart(ctx2, {
+				    type: 'line',
 				    data: {
-				        labels: decode.body.prepped_data.labels,
+				        labels: decode.body.labels,
 				        datasets: [
 					        {
-					            label: ElevateData.text_page_views,
-					            data: decode.body.prepped_data.views,
-					            borderWidth: 1,
-					            backgroundColor: '#faa',
+					            label: ElevateData.text_impressions,
+					            data: decode.body.impressions,
+					            borderWidth: 3,
+					            backgroundColor: 'transparent',
+					            borderColor: '#faa',
+					            yAxisID: 'A',
 					            showLine: true
 					        },
 					       	{
-					            label: ElevateData.text_visitors,
-					            data: decode.body.prepped_data.visitors,
-					            borderWidth: 1,
-					            backgroundColor: '#aaf',
+					            label: ElevateData.text_clicks,
+					            data: decode.body.clicks,
+					            borderWidth: 3,
+					            yAxisID: 'B',
+					            backgroundColor: 'transparent',
+					            borderColor: '#aaf',
 					            showLine: true
 					        }
 				        ]
 				    },
 				    options: {
+				    	maintainAspectRatio: false,
+			    		responsive: true,	
 				    	legend: {
 				    		labels: {
 				    			fontColor: 'white'
-				    		}
+				    		},
+					    	position: 'bottom'
+				    	},
+				        scales: {
+				            yAxes: [
+				            {
+				            	id: 'A',
+				            	position: 'left',
+				                ticks: {
+				                    beginAtZero: true
+				                },
+				                 gridLines: {
+			   						color: 'rgba( 255, 255, 255, 0.1 )' // makes grid lines from y axis red
+			  					}
+				            },
+				            {
+				            	id: 'B',
+				            	position: 'right',
+				                ticks: {
+				                    beginAtZero: true
+				                },
+				                 gridLines: {
+			   						color: 'rgba( 255, 255, 255, 0.1 )' // makes grid lines from y axis red
+			  					}
+				            }			            
+				            ]
+				        }
+				    }
+				});	
+				jQuery( '#search-chart' ).parent().show();
+			});
+
+			elevateAdminAjax( 'get_dashboard_404_data', {}, function( response ) {
+				var decode = jQuery.parseJSON( response );
+
+				jQuery( '#crawl-chart' ).parent().find( '.waiting' ).hide();
+				var ctx3 = document.getElementById( "crawl-chart" ).getContext('2d');
+				var myChart = new Chart(ctx3, {
+				    type: 'line',
+				    data: {
+				        labels: decode.body.labels,
+				        datasets: [
+					        {
+					            label: ElevateData.text_fof,
+					            data: decode.body.errors_not_found,
+					            borderWidth: 1,
+					            backgroundColor: 'transparent',
+					            borderColor: '#faa',
+					            showLine: true
+					        }
+				        ]
+				    },
+				    options: {
+			    		maintainAspectRatio: false,
+			    		responsive: true,					    	
+				    	legend: {
+				    		labels: {
+				    			fontColor: 'white'
+				    		},
+					    	position: 'bottom'
 				    	},
 				        scales: {
 				            yAxes: [{
@@ -1280,13 +1370,10 @@ function elevateInitialize() {
 				        }
 				    }
 				});	
-				jQuery( '#crawl-chart' ).parent().show();					
-			}
-		});
-	}
+				jQuery( '#crawl-chart' ).parent().show();		
+			});		
+		}
 
-
-	if ( dashboard.length ) {
 		elevateAdminAjax( 'get_dashboard_pagespeed_data', {}, function( response ) {
 			var decode = jQuery.parseJSON( response );
 
@@ -1314,10 +1401,13 @@ function elevateInitialize() {
 			        ]
 			    },
 			    options: {
+			    	maintainAspectRatio: false,
+			    	responsive: true,			    	
 			    	legend: {
 			    		labels: {
 			    			fontColor: 'white'
-			    		}
+			    		},
+			    		position: 'bottom'
 			    	},
 			        scales: {
 			            yAxes: [{
@@ -1331,114 +1421,32 @@ function elevateInitialize() {
 			        }
 			    }
 			});	
-			jQuery( '#speed-chart' ).parent().show();
 		});
 
-		elevateAdminAjax( 'get_dashboard_search_data', {}, function( response ) {
+		jQuery( '.item-1 img' ).fadeIn();
+		elevateAdminAjax( 'get_dashboard_data_speed', {}, function( response ) {
+			jQuery( '.item-1 img' ).fadeOut();
 			var decode = jQuery.parseJSON( response );
 
-			jQuery( '#search-chart' ).parent().find( '.waiting' ).hide();
-			var ctx2 = document.getElementById( "search-chart" ).getContext('2d');
-			var myChart = new Chart(ctx2, {
-			    type: 'line',
-			    data: {
-			        labels: decode.body.labels,
-			        datasets: [
-				        {
-				            label: ElevateData.text_impressions,
-				            data: decode.body.impressions,
-				            borderWidth: 3,
-				            backgroundColor: 'transparent',
-				            borderColor: '#faa',
-				            yAxisID: 'A',
-				            showLine: true
-				        },
-				       	{
-				            label: ElevateData.text_clicks,
-				            data: decode.body.clicks,
-				            borderWidth: 3,
-				            yAxisID: 'B',
-				            backgroundColor: 'transparent',
-				            borderColor: '#aaf',
-				            showLine: true
-				        }
-			        ]
-			    },
-			    options: {
-			    	legend: {
-			    		labels: {
-			    			fontColor: 'white'
-			    		}
-			    	},
-			        scales: {
-			            yAxes: [
-			            {
-			            	id: 'A',
-			            	position: 'left',
-			                ticks: {
-			                    beginAtZero: true
-			                },
-			                 gridLines: {
-		   						color: 'rgba( 255, 255, 255, 0.1 )' // makes grid lines from y axis red
-		  					}
-			            },
-			            {
-			            	id: 'B',
-			            	position: 'right',
-			                ticks: {
-			                    beginAtZero: true
-			                },
-			                 gridLines: {
-		   						color: 'rgba( 255, 255, 255, 0.1 )' // makes grid lines from y axis red
-		  					}
-			            }			            
-			            ]
-			        }
-			    }
-			});	
-			jQuery( '#search-chart' ).parent().show();
-		});
+			if ( decode.body.desktop.response_bytes == null && decode.body.mobile.response_bytes == null ) {
+				// Likely offline
+				jQuery( '.desktop-speed' ).html( 0 );
+				jQuery( '.mobile-speed' ).html( 0 );
+			} else {
+				jQuery( '.desktop-speed' ).html( decode.body.desktop.speed );
+				jQuery( '.mobile-speed' ).html( decode.body.mobile.speed );
 
-		elevateAdminAjax( 'get_dashboard_404_data', {}, function( response ) {
-			var decode = jQuery.parseJSON( response );
+				jQuery( '.css-files' ).html( decode.body.desktop.css_resources );
+				jQuery( '.css-size' ).html( decode.body.desktop.css_bytes );
 
-			jQuery( '#crawl-chart' ).parent().find( '.waiting' ).hide();
-			var ctx3 = document.getElementById( "crawl-chart" ).getContext('2d');
-			var myChart = new Chart(ctx3, {
-			    type: 'line',
-			    data: {
-			        labels: decode.body.labels,
-			        datasets: [
-				        {
-				            label: ElevateData.text_fof,
-				            data: decode.body.errors_not_found,
-				            borderWidth: 1,
-				            backgroundColor: 'transparent',
-				            borderColor: '#faa',
-				            showLine: true
-				        }
-			        ]
-			    },
-			    options: {
-			    	legend: {
-			    		labels: {
-			    			fontColor: 'white'
-			    		}
-			    	},
-			        scales: {
-			            yAxes: [{
-			                ticks: {
-			                    beginAtZero: true
-			                },
-			                 gridLines: {
-		   						color: 'rgba( 255, 255, 255, 0.1 )' // makes grid lines from y axis red
-		  					}
-			            }]
-			        }
-			    }
-			});	
-			jQuery( '#crawl-chart' ).parent().show();		
-		});		
+				jQuery( '.js-files' ).html( decode.body.desktop.js_resources );
+				jQuery( '.js-size' ).html( decode.body.desktop.js_bytes );
+
+				jQuery( '.resource-files' ).html( decode.body.desktop.response_resources );
+				jQuery( '.resource-size' ).html( decode.body.desktop.response_bytes );
+
+			}
+		});			
 	}
 }
 

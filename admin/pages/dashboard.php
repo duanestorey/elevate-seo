@@ -79,28 +79,32 @@
 						</div>							
 					</div>
 					<div class="item visits">
+						<h2><?php _e( 'Visitors &amp Page Views', 'elevate-seo' ); ?></h2>
 						<section class="graph">
 							<p class="waiting"><?php _e( 'Loading data...', 'elevate-seo' ); ?></p>
-							<canvas id="visits-chart" width="600" height="400"></canvas>
+							<canvas id="visits-chart"></canvas>
 						</section>														
 					</div>	
 					<div class="item search-stats">
+						<h2><?php _e( 'Organic Traffic', 'elevate-seo' ); ?></h2>
 						<section class="graph">
 							<p class="waiting"><?php _e( 'Loading data...', 'elevate-seo' ); ?></p>
-							<canvas id="search-chart" width="600" height="400"></canvas>
+							<canvas id="search-chart"></canvas>
 						</section>															
 					</div>										
 					<div class="item speed">
+						<h2><?php _e( 'PageSpeed', 'elevate-seo' ); ?></h2>
 						<section class="graph">
 							<p class="waiting"><?php _e( 'Loading data...', 'elevate-seo' ); ?></p>
-							<canvas id="speed-chart" width="600" height="400"></canvas>
+							<canvas id="speed-chart"></canvas>
 						</section>													
 					</div>
 
 					<div class="item crawl">
+						<h2><?php _e( 'Site Errors', 'elevate-seo' ); ?></h2>
 						<section class="graph">
 							<p class="waiting"><?php _e( 'Loading data...', 'elevate-seo' ); ?></p>
-							<canvas id="crawl-chart" width="600" height="400"></canvas>
+							<canvas id="crawl-chart"></canvas>
 						</section>														
 					</div>	
 					<div class="info google-info grow">

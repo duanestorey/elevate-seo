@@ -220,8 +220,8 @@ $color_back_opacity: 0.8;
 						padding: 0px;
 						font-family: sans-serif;
 						font-weight: 600;
-						color: lighten( $scheme_color_1, 25% );
-						font-size: 14px;
+						color: lighten( $scheme_color_1, 15% );
+						font-size: 12.5px;
 						text-transform: uppercase;
 						letter-spacing: -0.5px;
 					}
@@ -236,12 +236,11 @@ $color_back_opacity: 0.8;
 				}	
 
 				.graph {
-					height: 450px;
 					overflow: hidden;
-
 					position: relative;
 
 					p.waiting {
+						display: none;
 						font-family: sans-serif;
 						text-transform: uppercase;
 						color: #eee;
@@ -251,6 +250,9 @@ $color_back_opacity: 0.8;
 					    left: 50%;
 					    transform: translateX(-50%) translateY(-100%);
 					}
+
+					height: 300px!important;
+					padding-bottom: 30px;
 				}			
 			}
 
@@ -625,6 +627,24 @@ $color_back_opacity: 0.8;
 			font-weight: bold;
 			opacity: 0.7;
 		}
+	}
+}
+
+.elevate_no_tokens .elevate #dashboard .big-data .top-grid {
+	.item.visits {
+		display: none;
+	}
+
+	.item.search-stats {
+		display: none;
+	}
+
+	.item.speed {
+		grid-column: 1 / 11;
+	}
+
+	.item.crawl {
+		display: none;
 	}
 }
 
