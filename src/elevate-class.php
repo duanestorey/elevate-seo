@@ -846,12 +846,12 @@ class ElevatePlugin {
 										$page_data->prepped_data->views_dir = $this->elevate_db->_sign( $last_row->views - $first_row->views );
 										$page_data->prepped_data->visitors_dir = $this->elevate_db->_sign( $last_row->visitors - $first_row->visitors );
 
-										$analytics_cache->add_to_cache( $page_data );
-
 										// Clean up data
 
 										$page_data->totals->views = $this->_fix_big_number( $page_data->totals->views );
 										$page_data->totals->visitors = $this->_fix_big_number( $page_data->totals->visitors );
+
+										$analytics_cache->add_to_cache( $page_data );
 									
 										return $page_data;
 									}
