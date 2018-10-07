@@ -12,7 +12,7 @@
 				<div class="top-grid">	
 					<div class="item item-1">
 						<img class="spin" src="<?php echo ELEVATE_PLUGIN_URL; ?>/dist/images/dash-spinner.svg" alt="" style="display: none;" />
-						<h2><?php _e( 'Speed', 'elevate-seo' ); ?> <a href="https://developers.google.com/speed/pagespeed/insights/?url=<?php echo urlencode( home_url() ); ?>"><i class="fa fa-external-link-square"> </i></a></h2>
+						<h2><?php _e( 'Speed', 'elevate-seo' ); ?> <a href="https://developers.google.com/speed/pagespeed/insights/?url=<?php echo urlencode( home_url() ); ?>" target="_blank"><i class="fa fa-external-link-square"> </i></a></h2>
 
 						<div class="col-1">
 							<span class="mobile-speed">-</span>
@@ -64,7 +64,7 @@
 					</div>
 					<div class="item item-3">
 						<img class="spin" src="<?php echo ELEVATE_PLUGIN_URL; ?>/dist/images/dash-spinner.svg" alt="" style="display: none;" />
-						<h2><?php _e( 'Crawl', 'elevate-seo' ); ?> <a href="https://search.google.com/search-console/index?resource_id=<?php echo urlencode( home_url() ); ?>"><i class="fa fa-external-link-square"> </i></a></h2>
+						<h2><?php _e( 'Crawl', 'elevate-seo' ); ?> <a href="https://search.google.com/search-console/index?resource_id=<?php echo urlencode( home_url() ); ?>" target="_blank"><i class="fa fa-external-link-square"> </i></a></h2>
 
 						<div class="col-1">
 							<span class="total-errors">-</span>
