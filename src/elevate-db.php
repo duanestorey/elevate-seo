@@ -66,6 +66,10 @@ class ElevateDB {
 		}
 	}
 
+	private function _sign( $num ) {
+		return ( $num > 0 ) - ( $num < 0 ); 
+	}
+
 	public function get_pagespeed_data( $offset, $days ) {
 		global $wpdb;
 
@@ -89,6 +93,11 @@ class ElevateDB {
 				$prepped_results->desktop_data[] = $result->desktop_speed;
 			}
 		}
+
+		$entries = count( $prepped_results->mobile_data ) - 1;
+
+		$prepped_results->mobile_dir = $this->_sign( $prepped_results->mobile_data[ $entries ] - $prepped_results->mobile_data[ 0 ] );
+		$prepped_results->desktop_dir = $this->_sign( $prepped_results->desktop_data[ $entries ] - $prepped_results->desktop_data[ 0 ] );
 
 		return $prepped_results;
 	}

@@ -905,6 +905,18 @@ function elevateInitialize() {
 			        }
 			    }
 			});	
+
+			if ( decode.body.desktop_dir > 0 ) {
+				jQuery( '.desktop-speed' ).parent().find( '.fa-chevron-up' ).show();
+			} else if ( decode.body.desktop_dir < 0 ) {
+				jQuery( '.desktop-speed' ).parent().find( '.fa-chevron-down' ).show();
+			}		
+
+			if ( decode.body.mobile_dir > 0 ) {
+				jQuery( '.mobile-speed' ).parent().find( '.fa-chevron-up' ).show();
+			} else if ( decode.body.mobile_dir < 0 ) {
+				jQuery( '.mobile-speed' ).parent().find( '.fa-chevron-down' ).show();
+			}					
 		});
 
 		jQuery( '.item-1 img' ).fadeIn();
@@ -928,7 +940,6 @@ function elevateInitialize() {
 
 				jQuery( '.resource-files' ).html( decode.body.desktop.response_resources );
 				jQuery( '.resource-size' ).html( decode.body.desktop.response_bytes );
-
 			}
 		});			
 	}

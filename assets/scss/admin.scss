@@ -293,11 +293,26 @@ $color_back_opacity: 0.8;
 
 				div {
 					text-align: center;
+					vertical-align: top;
+					display: block;
+
+					span {
+						vertical-align: top;
+					}
 
 					i {
-						padding-bottom: 10px;
 						opacity: 0.3;
-						margin-top: -10px;
+						margin-top: 0px;
+						display: inline-block;
+						position: relative;
+						top: -5px;
+						font-size: 16px;
+						line-height: 16px;
+						margin-bottom: 10px;
+						vertical-align: top;
+					}
+
+					i.fa {
 						display: none;
 					}
 

@@ -16,13 +16,13 @@
 
 						<div class="col-1">
 							<span class="mobile-speed">-</span>
-							<i class="fa fa-chevron-up"> </i>
+							<i class="fa fa-chevron-up"> </i><i class="fa fa-chevron-down"> </i>
 							<h4><?php _e( 'Mobile', 'elevate-seo' ); ?></h4>
 						</div>
 
 						<div class="col-2">	
 							<span class="desktop-speed">-</span>
-							<i class="fa fa-chevron-down"> </i>
+							<i class="fa fa-chevron-up"> </i><i class="fa fa-chevron-down"> </i>
 							<h4><?php _e( 'Desktop', 'elevate-seo' ); ?></h4>
 						</div>						
 					</div>
