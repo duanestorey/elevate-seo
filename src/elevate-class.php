@@ -812,6 +812,11 @@ class ElevatePlugin {
 										$page_data->prepped_data = $prepped_data;
 
 										$analytics_cache->add_to_cache( $page_data );
+
+										// Clean up data
+
+										$page_data->totals->views = $this->_fix_big_number( $page_data->totals->views );
+										$page_data->totals->visitors = $this->_fix_big_number( $page_data->totals->visitors );
 									
 										return $page_data;
 									}
@@ -1436,9 +1441,9 @@ class ElevatePlugin {
 
 	private function _fix_big_number( $number ) {
 		if ( $number > 1000000 ) {
-			return sprintf( __( '%0.1fM', 'elevate-seo' ), $number/1000000.0 );
+			return sprintf( __( '%0.2fM', 'elevate-seo' ), $number/1000000.0 );
 		} else if ( $number > 1000 ) {
-			return sprintf( __( '%0.1fk', 'elevate-seo' ), $number/1000.0 );
+			return sprintf( __( '%0.2fk', 'elevate-seo' ), $number/1000.0 );
 		} else return $number;
 	}
 
