@@ -777,7 +777,6 @@ class ElevatePlugin {
 											foreach( $report->data->rows as $key => $row_data ) {
 												$one_entry = new stdClass;
 
-
 												$one_entry->raw_date = $row_data->dimensions[0];
 												$one_entry->unix_date = gmmktime( 0, 0, 0, substr( $one_entry->raw_date, 4, 2 ), substr( $one_entry->raw_date, 6, 2 ), substr( $one_entry->raw_date, 0, 4 ) );
 												$one_entry->views = $row_data->metrics[0]->values[0];
@@ -796,6 +795,19 @@ class ElevatePlugin {
 										}
 
 										ksort( $page_data->data );
+
+										$prepped_data = new stdClass;
+										$prepped_data->labels = array();
+										$prepped_data->views = array();
+										$prepped_data->visitors = array();
+
+										foreach( $page_data->data as $datetime => $this_data ) {
+											$prepped_data->labels[] = date( 'M d', $datetime );
+											$prepped_data->views[] = $one_entry->views;
+											$prepped_data->visitors[] = $one_entry->visitors;
+										}
+
+										$page_data->prepped_data = $prepped_data;
 
 										$analytics_cache->add_to_cache( $page_data );
 									

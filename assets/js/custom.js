@@ -729,9 +729,53 @@ function elevateInitialize() {
 		elevateAdminAjax( 'get_dashboard_data_analytics', {}, function( response ) {
 			var decode = jQuery.parseJSON( response );
 
+			alert( response );
+
 			if ( typeof( decode.body ) !== undefined && typeof ( decode.body.totals ) !== undefined && typeof ( decode.body.visitors ) !== undefined ) {
 				jQuery( '.analytics-visits' ).html( decode.body.totals.visitors );
 				jQuery( '.analytics-views' ).html( decode.body.totals.views );	
+
+				var ctx4 = document.getElementById( "visits-chart" ).getContext( '2d' );
+				var myChart = new Chart(ctx4, {
+				    type: 'bar',
+				    data: {
+				        labels: decode.body.prepped_data.labels,
+				        datasets: [
+					        {
+					            label: 'Page Views',
+					            data: decode.body.prepped_data.views,
+					            borderWidth: 1,
+					            backgroundColor: '#faa',
+					            showLine: true
+					        },
+					       	{
+					            label: 'Visitors',
+					            data: decode.body.prepped_data.visitors,
+					            borderWidth: 1,
+					            backgroundColor: '#aaf',
+					            showLine: true
+					        }
+				        ]
+				    },
+				    options: {
+				    	legend: {
+				    		labels: {
+				    			fontColor: 'white'
+				    		}
+				    	},
+				        scales: {
+				            yAxes: [{
+				                ticks: {
+				                    beginAtZero: true
+				                },
+				                 gridLines: {
+			   						color: 'rgba( 255, 255, 255, 0.1 )' // makes grid lines from y axis red
+			  					}
+				            }]
+				        }
+				    }
+				});	
+				jQuery( '#crawl-chart' ).parent().show();					
 			}
 		});
 	}
@@ -869,49 +913,7 @@ function elevateInitialize() {
 			    }
 			});	
 			jQuery( '#crawl-chart' ).parent().show();		
-		});
-
-		var ctx4 = document.getElementById( "visits-chart" ).getContext( '2d' );
-		var myChart = new Chart(ctx4, {
-		    type: 'bar',
-		    data: {
-		        labels: [ "Red", "Blue", "Yellow", "Green", "Purple", "Orange", "1", "2", "3", "4" ],
-		        datasets: [
-			        {
-			            label: 'Page Views',
-			            data: [ 12, 19, 3, 5, 2, 3, 5, 10, 4, 4 ],
-			            borderWidth: 1,
-			            backgroundColor: '#faa',
-			            showLine: true
-			        },
-			       	{
-			            label: '404 Not Found',
-			            data: [ 15, 19, 5, 5, 2, 3, 8, 2, 5, 4 ],
-			            borderWidth: 1,
-			            backgroundColor: '#aaf',
-			            showLine: true
-			        }
-		        ]
-		    },
-		    options: {
-		    	legend: {
-		    		labels: {
-		    			fontColor: 'white'
-		    		}
-		    	},
-		        scales: {
-		            yAxes: [{
-		                ticks: {
-		                    beginAtZero: true
-		                },
-		                 gridLines: {
-	   						color: 'rgba( 255, 255, 255, 0.1 )' // makes grid lines from y axis red
-	  					}
-		            }]
-		        }
-		    }
-		});	
-		jQuery( '#crawl-chart' ).parent().show();			
+		});		
 	}
 }
 

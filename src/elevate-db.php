@@ -83,7 +83,7 @@ class ElevateDB {
 
 			foreach( $results as $result ) {
 				$label = date( 'M d', strtotime( $result->test_time ) );
-				$prepped_results->	labels[] = $label;
+				$prepped_results->labels[] = $label;
 				$prepped_results->mobile_data[] = $result->mobile_speed;
 				$prepped_results->desktop_data[] = $result->desktop_speed;
 			}
@@ -112,7 +112,7 @@ class ElevateDB {
 
 			foreach( $results as $result ) {
 				$label = date( 'M d', strtotime( $result->test_time ) );
-				$prepped_results->	labels[] = $label;
+				$prepped_results->labels[] = $label;
 				$prepped_results->impressions[] = round( $result->impressions );
 				$prepped_results->clicks[] = round( ( $result->impressions * $result->ctr ) / 100.0 );
 			}
