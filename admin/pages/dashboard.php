@@ -33,32 +33,32 @@
 
 						<div class="col-1">
 							<span class="analytics-views">-</span>
-							<i class="fa fa-chevron-up"> </i>
+							<i class="fa fa-chevron-up"> </i><i class="fa fa-chevron-down"> </i>
 							<h4><?php _e( 'Views', 'elevate-seo' ); ?></h4>
 						</div>	
 
 						<div class="col-2">
 							<span class="analytics-visits">-</span>
-							<i class="fa fa-chevron-up"> </i>
+							<i class="fa fa-chevron-up"> </i><i class="fa fa-chevron-down"> </i>
 							<h4><?php _e( 'Visitors', 'elevate-seo' ); ?></h4>
 						</div>							
 
 						<div class="col-3">
 							<span class="impressions">-</span>
-							<i class="fa fa-chevron-up"> </i>
+							<i class="fa fa-chevron-up"> </i><i class="fa fa-chevron-down"> </i>
 							<h4><?php _e( 'Impressions', 'elevate-seo' ); ?></h4>
 						</div>
 
 						<div class="col-4">
 							
 							<span class="clicks">-</span>
-							<i class="fa fa-chevron-down"> </i>
+							<i class="fa fa-chevron-up"> </i><i class="fa fa-chevron-down"> </i>
 							<h4><?php _e( 'Clicks', 'elevate-seo' ); ?></h4>
 						</div>							
 	
 						<div class="col-5">
 							<span class="click-rate">-</span>
-							<i class="fa fa-chevron-down"> </i>
+							<i class="fa fa-chevron-up"> </i><i class="fa fa-chevron-down"> </i>
 							<h4><?php _e( 'CTR', 'elevate-seo' ); ?></h4>
 						</div>						
 					</div>

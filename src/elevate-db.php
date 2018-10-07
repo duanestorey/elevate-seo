@@ -92,12 +92,12 @@ class ElevateDB {
 				$prepped_results->mobile_data[] = $result->mobile_speed;
 				$prepped_results->desktop_data[] = $result->desktop_speed;
 			}
+
+			$entries = count( $prepped_results->mobile_data ) - 1;
+
+			$prepped_results->mobile_dir = $this->_sign( $prepped_results->mobile_data[ $entries ] - $prepped_results->mobile_data[ 0 ] );
+			$prepped_results->desktop_dir = $this->_sign( $prepped_results->desktop_data[ $entries ] - $prepped_results->desktop_data[ 0 ] );
 		}
-
-		$entries = count( $prepped_results->mobile_data ) - 1;
-
-		$prepped_results->mobile_dir = $this->_sign( $prepped_results->mobile_data[ $entries ] - $prepped_results->mobile_data[ 0 ] );
-		$prepped_results->desktop_dir = $this->_sign( $prepped_results->desktop_data[ $entries ] - $prepped_results->desktop_data[ 0 ] );
 
 		return $prepped_results;
 	}
@@ -118,6 +118,7 @@ class ElevateDB {
 
 			$prepped_results->labels = array();
 			$prepped_results->clicks = array();
+			$prepped_results->ctr = array();
 			$prepped_results->impressions = array();
 
 			foreach( $results as $result ) {
@@ -125,7 +126,14 @@ class ElevateDB {
 				$prepped_results->labels[] = $label;
 				$prepped_results->impressions[] = round( $result->impressions );
 				$prepped_results->clicks[] = round( ( $result->impressions * $result->ctr ) / 100.0 );
+				$prepped_results->ctr[] = $result->ctr;
 			}
+
+			$entries = count( $prepped_results->labels ) - 1;
+
+			$prepped_results->impressions_dir = $this->_sign( $prepped_results->impressions[ $entries ] - $prepped_results->impressions[ 0 ] );
+			$prepped_results->clicks_dir = $this->_sign( $prepped_results->clicks[ $entries ] - $prepped_results->clicks[ 0 ] );	
+			$prepped_results->ctr_dir = $this->_sign( $prepped_results->ctr[ $entries ] - $prepped_results->ctr[ 0 ] );		
 		}
 
 		return $prepped_results;

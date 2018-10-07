@@ -810,7 +810,24 @@ function elevateInitialize() {
 				        }
 				    }
 				});	
-				jQuery( '#search-chart' ).parent().show();
+				
+				if ( decode.body.impressions_dir > 0 ) {
+					jQuery( '.impressions' ).parent().find( '.fa-chevron-up' ).show();
+				} else if ( decode.body.impressions_dir < 0 ) {
+					jQuery( '.impressions' ).parent().find( '.fa-chevron-down' ).show();
+				}		
+
+				if ( decode.body.clicks_dir > 0 ) {
+					jQuery( '.clicks' ).parent().find( '.fa-chevron-up' ).show();
+				} else if ( decode.body.clicks_dir < 0 ) {
+					jQuery( '.clicks' ).parent().find( '.fa-chevron-down' ).show();
+				}	
+
+				if ( decode.body.ctr_dir > 0 ) {
+					jQuery( '.click-rate' ).parent().find( '.fa-chevron-up' ).show();
+				} else if ( decode.body.ctr_dir < 0 ) {
+					jQuery( '.click-rate' ).parent().find( '.fa-chevron-down' ).show();
+				}					
 			});
 
 			elevateAdminAjax( 'get_dashboard_404_data', {}, function( response ) {
@@ -858,67 +875,6 @@ function elevateInitialize() {
 			});		
 		}
 
-		elevateAdminAjax( 'get_dashboard_pagespeed_data', {}, function( response ) {
-			var decode = jQuery.parseJSON( response );
-
-			jQuery( '#speed-chart' ).parent().find( '.waiting' ).hide();
-			var ctx = document.getElementById( "speed-chart" ).getContext('2d');
-			var myChart = new Chart(ctx, {
-			    type: 'bar',
-			    data: {
-			        labels: decode.body.labels,
-			        datasets: [
-				        {
-				            label: ElevateData.text_mobile_speed,
-				            data: decode.body.mobile_data,
-				            borderWidth: 2,
-				            backgroundColor: '#faa',
-				            showLine: true
-				        },
-				       	{
-				            label: ElevateData.text_desktop_speed,
-				            data: decode.body.desktop_data,
-				            borderWidth: 2,
-				            backgroundColor: '#aaf',
-				            showLine: true
-				        }
-			        ]
-			    },
-			    options: {
-			    	maintainAspectRatio: false,
-			    	responsive: true,			    	
-			    	legend: {
-			    		labels: {
-			    			fontColor: 'white'
-			    		},
-			    		position: 'bottom'
-			    	},
-			        scales: {
-			            yAxes: [{
-			                ticks: {
-			                    beginAtZero: true
-			                },
-			                 gridLines: {
-		   						color: 'rgba( 255, 255, 255, 0.1 )' // makes grid lines from y axis red
-		  					}
-			            }]
-			        }
-			    }
-			});	
-
-			if ( decode.body.desktop_dir > 0 ) {
-				jQuery( '.desktop-speed' ).parent().find( '.fa-chevron-up' ).show();
-			} else if ( decode.body.desktop_dir < 0 ) {
-				jQuery( '.desktop-speed' ).parent().find( '.fa-chevron-down' ).show();
-			}		
-
-			if ( decode.body.mobile_dir > 0 ) {
-				jQuery( '.mobile-speed' ).parent().find( '.fa-chevron-up' ).show();
-			} else if ( decode.body.mobile_dir < 0 ) {
-				jQuery( '.mobile-speed' ).parent().find( '.fa-chevron-down' ).show();
-			}					
-		});
-
 		jQuery( '.item-1 img' ).fadeIn();
 		elevateAdminAjax( 'get_dashboard_data_speed', {}, function( response ) {
 			jQuery( '.item-1 img' ).fadeOut();
@@ -941,6 +897,67 @@ function elevateInitialize() {
 				jQuery( '.resource-files' ).html( decode.body.desktop.response_resources );
 				jQuery( '.resource-size' ).html( decode.body.desktop.response_bytes );
 			}
+
+			elevateAdminAjax( 'get_dashboard_pagespeed_data', {}, function( response ) {
+				var decode = jQuery.parseJSON( response );
+
+				jQuery( '#speed-chart' ).parent().find( '.waiting' ).hide();
+				var ctx = document.getElementById( "speed-chart" ).getContext('2d');
+				var myChart = new Chart(ctx, {
+				    type: 'bar',
+				    data: {
+				        labels: decode.body.labels,
+				        datasets: [
+					        {
+					            label: ElevateData.text_mobile_speed,
+					            data: decode.body.mobile_data,
+					            borderWidth: 2,
+					            backgroundColor: '#faa',
+					            showLine: true
+					        },
+					       	{
+					            label: ElevateData.text_desktop_speed,
+					            data: decode.body.desktop_data,
+					            borderWidth: 2,
+					            backgroundColor: '#aaf',
+					            showLine: true
+					        }
+				        ]
+				    },
+				    options: {
+				    	maintainAspectRatio: false,
+				    	responsive: true,			    	
+				    	legend: {
+				    		labels: {
+				    			fontColor: 'white'
+				    		},
+				    		position: 'bottom'
+				    	},
+				        scales: {
+				            yAxes: [{
+				                ticks: {
+				                    beginAtZero: true
+				                },
+				                 gridLines: {
+			   						color: 'rgba( 255, 255, 255, 0.1 )' // makes grid lines from y axis red
+			  					}
+				            }]
+				        }
+				    }
+				});	
+
+				if ( decode.body.desktop_dir > 0 ) {
+					jQuery( '.desktop-speed' ).parent().find( '.fa-chevron-up' ).show();
+				} else if ( decode.body.desktop_dir < 0 ) {
+					jQuery( '.desktop-speed' ).parent().find( '.fa-chevron-down' ).show();
+				}		
+
+				if ( decode.body.mobile_dir > 0 ) {
+					jQuery( '.mobile-speed' ).parent().find( '.fa-chevron-up' ).show();
+				} else if ( decode.body.mobile_dir < 0 ) {
+					jQuery( '.mobile-speed' ).parent().find( '.fa-chevron-down' ).show();
+				}					
+			});			
 		});			
 	}
 }
