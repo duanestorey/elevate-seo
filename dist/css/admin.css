@@ -181,7 +181,8 @@ section.elevate {
         .elevate #dashboard .big-data .top-grid .item-3 div i {
           padding-bottom: 10px;
           opacity: 0.3;
-          margin-top: -10px; }
+          margin-top: -10px;
+          display: none; }
         .elevate #dashboard .big-data .top-grid .item-1 div i.fa-chevron-down,
         .elevate #dashboard .big-data .top-grid .item-2 div i.fa-chevron-down,
         .elevate #dashboard .big-data .top-grid .item-3 div i.fa-chevron-down {
