@@ -805,6 +805,8 @@ class ElevatePlugin {
 											$prepped_data->labels[] = date( 'M d', $datetime );
 											$prepped_data->views[] = $this_data->views;
 											$prepped_data->visitors[] = $this_data->visitors;
+
+											$this->elevate_db->add_or_update_visits( $datetime, $this_data->visitors, $this_data->views );
 										}
 
 										$page_data->prepped_data = $prepped_data;

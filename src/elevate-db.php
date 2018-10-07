@@ -12,7 +12,7 @@
 global $wp_prefix;
 
 define( 'ELEVATE_DB_OPTION', 'elevate_db_version' );
-define( 'ELEVATE_DB_VERSION', '1.0.9' );
+define( 'ELEVATE_DB_VERSION', '1.1.2' );
 
 class ElevateDB {
 	var $db_version;
@@ -171,4 +171,13 @@ class ElevateDB {
 
 		$wpdb->query( $wpdb->prepare( 'INSERT INTO ' . $wpdb->prefix . 'elevate_search ( impressions,clicks,ctr,avg_pos,errors_not_found,errors_not_auth,errors_server ) VALUES( %d, %d, %f, %f, %d, %d, %d)', $impressions, $clicks, $ctr, $avg_pos, $error_not_found, $error_not_auth, $error_server ) );
 	}	
+
+	public function add_or_update_visits( $date_time, $visitors, $views ) {
+		global $wpdb;
+
+		$this->check();
+
+		$sql = $wpdb->prepare( 'INSERT INTO ' . $wpdb->prefix . 'elevate_visits (date_time,visitors,views) VALUES (%s,%d,%d) ON DUPLICATE KEY UPDATE visitors=%d, views=%d', date( 'Y-m-d', $date_time ), $visitors, $views, $visitors, $views );
+		$wpdb->query( $sql );		
+	}
 }
