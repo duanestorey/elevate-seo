@@ -1245,8 +1245,6 @@ function elevateInitialize() {
 		elevateAdminAjax( 'get_dashboard_data_analytics', {}, function( response ) {
 			var decode = jQuery.parseJSON( response );
 
-			alert( response );
-
 			if ( typeof( decode.body ) !== undefined && typeof ( decode.body.totals ) !== undefined && typeof ( decode.body.visitors ) !== undefined ) {
 				jQuery( '.analytics-visits' ).html( decode.body.totals.visitors );
 				jQuery( '.analytics-views' ).html( decode.body.totals.views );	
@@ -1359,12 +1357,14 @@ function elevateInitialize() {
 				            borderWidth: 3,
 				            backgroundColor: 'transparent',
 				            borderColor: '#faa',
+				            yAxisID: 'A',
 				            showLine: true
 				        },
 				       	{
 				            label: 'Clicks',
 				            data: decode.body.clicks,
 				            borderWidth: 3,
+				            yAxisID: 'B',
 				            backgroundColor: 'transparent',
 				            borderColor: '#aaf',
 				            showLine: true
@@ -1378,14 +1378,28 @@ function elevateInitialize() {
 			    		}
 			    	},
 			        scales: {
-			            yAxes: [{
+			            yAxes: [
+			            {
+			            	id: 'A',
+			            	position: 'left',
 			                ticks: {
 			                    beginAtZero: true
 			                },
 			                 gridLines: {
 		   						color: 'rgba( 255, 255, 255, 0.1 )' // makes grid lines from y axis red
 		  					}
-			            }]
+			            },
+			            {
+			            	id: 'B',
+			            	position: 'right',
+			                ticks: {
+			                    beginAtZero: true
+			                },
+			                 gridLines: {
+		   						color: 'rgba( 255, 255, 255, 0.1 )' // makes grid lines from y axis red
+		  					}
+			            }			            
+			            ]
 			        }
 			    }
 			});	
