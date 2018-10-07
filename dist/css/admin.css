@@ -162,9 +162,9 @@ section.elevate {
     .elevate #dashboard .big-data .top-grid .item.search-stats {
       grid-column: 6 / 11; }
     .elevate #dashboard .big-data .top-grid .item.crawl {
-      grid-column: 1 / 6; }
-    .elevate #dashboard .big-data .top-grid .item.visits {
       grid-column: 6 / 11; }
+    .elevate #dashboard .big-data .top-grid .item.visits {
+      grid-column: 1 / 6; }
     .elevate #dashboard .big-data .top-grid .item-1,
     .elevate #dashboard .big-data .top-grid .item-2,
     .elevate #dashboard .big-data .top-grid .item-3 {

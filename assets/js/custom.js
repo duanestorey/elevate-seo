@@ -784,7 +784,7 @@ function elevateInitialize() {
 			var decode = jQuery.parseJSON( response );
 			var ctx = document.getElementById("speed-chart").getContext('2d');
 			var myChart = new Chart(ctx, {
-			    type: 'line',
+			    type: 'bar',
 			    data: {
 			        labels: decode.body.labels,
 			        datasets: [
@@ -792,16 +792,14 @@ function elevateInitialize() {
 				            label: 'Mobile Speed',
 				            data: decode.body.mobile_data,
 				            borderWidth: 2,
-				            backgroundColor: 'transparent',
-				            borderColor: '#faa',
+				            backgroundColor: '#faa',
 				            showLine: true
 				        },
 				       	{
 				            label: 'Desktop Speed',
 				            data: decode.body.desktop_data,
 				            borderWidth: 2,
-				            backgroundColor: 'transparent',
-				            borderColor: '#aaf',
+				            backgroundColor: '#aaf',
 				            showLine: true
 				        }
 			        ]
@@ -877,7 +875,8 @@ function elevateInitialize() {
 			            	id: 'B',
 			            	position: 'right',
 			                ticks: {
-			                    beginAtZero: true
+			                    beginAtZero: true,
+			                    stepSize: 10
 			                },
 			                 gridLines: {
 		   						color: 'rgba( 255, 255, 255, 0.1 )' // makes grid lines from y axis red

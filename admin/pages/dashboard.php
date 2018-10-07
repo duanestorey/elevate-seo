@@ -78,28 +78,27 @@
 							<h4><?php _e( 'Not Found', 'elevate-seo' ); ?></h4>
 						</div>							
 					</div>
-					<div class="item speed">
-						<section class="graph">
-							<canvas id="speed-chart" width="600" height="400"></canvas>
-						</section>													
-					</div>
-					<?php if ( $has_tokens ) { ?>
-					<div class="item search-stats">
-						<section class="graph">
-							<canvas id="search-chart" width="600" height="400"></canvas>
-						</section>															
-					</div>
-					<div class="item crawl">
-						<section class="graph">
-							<canvas id="crawl-chart" width="600" height="400"></canvas>
-						</section>														
-					</div>	
 					<div class="item visits">
 						<section class="graph">
 							<canvas id="visits-chart" width="600" height="400"></canvas>
 						</section>														
 					</div>	
-					<?php } ?>	
+					<div class="item search-stats">
+						<section class="graph">
+							<canvas id="search-chart" width="600" height="400"></canvas>
+						</section>															
+					</div>										
+					<div class="item speed">
+						<section class="graph">
+							<canvas id="speed-chart" width="600" height="400"></canvas>
+						</section>													
+					</div>
+
+					<div class="item crawl">
+						<section class="graph">
+							<canvas id="crawl-chart" width="600" height="400"></canvas>
+						</section>														
+					</div>	
 					<div class="info google-info grow">
 						<div class="wrap"><i class="fa fa-google"> </i></div>
 						<h4><?php _e( 'Google Status', 'elevate-seo' ); ?></h4>
