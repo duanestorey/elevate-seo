@@ -772,7 +772,56 @@ function elevateInitialize() {
 					} else if ( decode.body.ctr_dir < 0 ) {
 						jQuery( '.click-rate' ).parent().find( '.fa-chevron-down' ).show();
 					}					
-				});				
+				});	
+
+				elevateAdminAjax( 'get_dashboard_404_data', {}, function( response ) {
+					var decode = jQuery.parseJSON( response );
+
+					jQuery( '#crawl-chart' ).parent().find( '.waiting' ).hide();
+					var ctx3 = document.getElementById( "crawl-chart" ).getContext('2d');
+					var myChart = new Chart(ctx3, {
+					    type: 'line',
+					    data: {
+					        labels: decode.body.labels,
+					        datasets: [
+						        {
+						            label: ElevateData.text_fof,
+						            data: decode.body.errors_not_found,
+						            borderWidth: 1,
+						            backgroundColor: 'transparent',
+						            borderColor: '#faa',
+						            showLine: true
+						        }
+					        ]
+					    },
+					    options: {
+				    		maintainAspectRatio: false,
+				    		responsive: true,					    	
+					    	legend: {
+					    		labels: {
+					    			fontColor: 'white'
+					    		},
+						    	position: 'bottom'
+					    	},
+					        scales: {
+					            yAxes: [{
+					                ticks: {
+					                    beginAtZero: true
+					                },
+					                 gridLines: {
+				   						color: 'rgba( 255, 255, 255, 0.1 )' // makes grid lines from y axis red
+				  					}
+					            }]
+					        }
+					    }
+					});	
+					
+					if ( decode.body.errors_not_found_dir > 0 ) {
+						jQuery( '.not-found' ).parent().find( '.fa-chevron-up' ).show();
+					} else if ( decode.body.errors_not_found_dir < 0 ) {
+						jQuery( '.not-found' ).parent().find( '.fa-chevron-down' ).show();
+					}				
+				});								
 			});
 
 			elevateAdminAjax( 'get_dashboard_data_analytics', {}, function( response ) {
@@ -839,56 +888,7 @@ function elevateInitialize() {
 						jQuery( '.analytics-views' ).parent().find( '.fa-chevron-down' ).show();
 					}									
 				}
-			});
-
-			elevateAdminAjax( 'get_dashboard_404_data', {}, function( response ) {
-				var decode = jQuery.parseJSON( response );
-
-				jQuery( '#crawl-chart' ).parent().find( '.waiting' ).hide();
-				var ctx3 = document.getElementById( "crawl-chart" ).getContext('2d');
-				var myChart = new Chart(ctx3, {
-				    type: 'line',
-				    data: {
-				        labels: decode.body.labels,
-				        datasets: [
-					        {
-					            label: ElevateData.text_fof,
-					            data: decode.body.errors_not_found,
-					            borderWidth: 1,
-					            backgroundColor: 'transparent',
-					            borderColor: '#faa',
-					            showLine: true
-					        }
-				        ]
-				    },
-				    options: {
-			    		maintainAspectRatio: false,
-			    		responsive: true,					    	
-				    	legend: {
-				    		labels: {
-				    			fontColor: 'white'
-				    		},
-					    	position: 'bottom'
-				    	},
-				        scales: {
-				            yAxes: [{
-				                ticks: {
-				                    beginAtZero: true
-				                },
-				                 gridLines: {
-			   						color: 'rgba( 255, 255, 255, 0.1 )' // makes grid lines from y axis red
-			  					}
-				            }]
-				        }
-				    }
-				});	
-				
-				if ( decode.body.errors_not_found_dir > 0 ) {
-					jQuery( '.not-found' ).parent().find( '.fa-chevron-up' ).show();
-				} else if ( decode.body.errors_not_found_dir < 0 ) {
-					jQuery( '.not-found' ).parent().find( '.fa-chevron-down' ).show();
-				}				
-			});		
+			});	
 		}
 
 		jQuery( '.item-1 img' ).fadeIn();
