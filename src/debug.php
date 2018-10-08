@@ -26,12 +26,6 @@ class ElevateDebug {
         $this->enabled = false;
         $this->file_desc = false;
         $this->level = ELEVATE_DEBUG_INFO;
-
-        if ( !file_exists( ELEVATE_PLUGIN_DIR . '/debug' ) ) {
-            mkdir( ELEVATE_PLUGIN_DIR . '/debug' );
-        }
-
-        $this->file_desc = fopen( ELEVATE_PLUGIN_DIR . '/debug/debug.txt', 'a+t' );
     }     
 
     public function set_level( $level ) {
@@ -49,6 +43,19 @@ class ElevateDebug {
 
     public function enable( $enable = true ) {
         $this->enabled = $enable;
+
+        if ( $enable ) {
+            if ( !file_exists( ELEVATE_PLUGIN_DIR . '/debug' ) ) {
+                mkdir( ELEVATE_PLUGIN_DIR . '/debug' );
+            }
+
+            $this->file_desc = fopen( ELEVATE_PLUGIN_DIR . '/debug/debug.txt', 'a+t' ); 
+        } else {
+            if ( $this->file_desc ) {
+                fclose( $this->file_desc );
+                $this->file_desc = false;
+            }
+        }   
     }
 
     public function set_debug_level( $level ) {
