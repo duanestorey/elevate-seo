@@ -132,6 +132,9 @@ function allWatch() {
 
 	// Images
 	gulp.watch( './assets/images/*', gulp.series( 'image', 'cache' ) );
+
+	// Images
+	gulp.watch( './assets/fonts/*', gulp.series( 'fonts' ) );	
 }
 
 gulp.task( 'default', gulp.series( gulp.parallel( 'sass', 'image', 'js', 'fonts', 'test' ), 'cache' ) );
