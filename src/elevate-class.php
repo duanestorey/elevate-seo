@@ -1730,7 +1730,7 @@ class ElevatePlugin {
 			'wizard_fix' => __( 'Fix Issues', 'elevate-seo' ),
 			'wizard_try_fix' => __( 'Attemping to Fix', 'elevate-seo' ),
 			'text_mobile_speed' => __( 'Mobile Speed', 'elevate-seo' ),
-			'text_desktop_speed' => __( 'Mobile Speed', 'elevate-seo' ),
+			'text_desktop_speed' => __( 'Desktop Speed', 'elevate-seo' ),
 			'text_impressions' => __( 'Impressions', 'elevate-seo' ),
 			'text_clicks' => __( 'Clicks', 'elevate-seo' ),
 			'text_fof' => __( '404 Errors', 'elevate-seo' ),
