@@ -1384,6 +1384,8 @@ class ElevatePlugin {
 					$this->settings->wizard_complete = 1;
 					$this->actual_save_settings();
 
+					$this->_clear_dashboard_transients();
+
 					$this->_ajax_success();
 					break;	
 				case 'show_wizard':
