@@ -1739,7 +1739,8 @@ class ElevatePlugin {
 			'text_clicks' => __( 'Clicks', 'elevate-seo' ),
 			'text_fof' => __( '404 Errors', 'elevate-seo' ),
 			'text_page_views' => __( 'Page Views', 'elevate-seo' ),
-			'text_visitors' => __( 'Visitors' , 'elevate-seo' )
+			'text_visitors' => __( 'Visitors' , 'elevate-seo' ),
+			'text_today' => date( 'M d' )
 		);
 
 		if ( isset( $_GET[ 'elevate_continue_wizard' ] ) && $this->has_google_tokens( false ) ) {

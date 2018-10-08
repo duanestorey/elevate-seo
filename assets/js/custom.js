@@ -827,54 +827,13 @@ function elevateInitialize() {
 			elevateAdminAjax( 'get_dashboard_data_analytics', {}, function( response ) {
 				var decode = jQuery.parseJSON( response );
 
-				if ( typeof( decode.body ) !== undefined && typeof ( decode.body.totals ) !== undefined && typeof ( decode.body.visitors ) !== undefined ) {
+				var data_a;
+				var data_b;
+				var labels;
+
+				if ( typeof( decode.body ) !== undefined && decode.body && typeof ( decode.body.totals ) !== undefined && typeof ( decode.body.visitors ) !== undefined ) {
 					jQuery( '.analytics-visits' ).html( decode.body.totals.visitors );
 					jQuery( '.analytics-views' ).html( decode.body.totals.views );	
-
-					var ctx4 = document.getElementById( "visits-chart" ).getContext( '2d' );
-					jQuery( '#visits-chart' ).parent().find( '.waiting' ).hide();
-					var myChart = new Chart(ctx4, {
-					    type: 'bar',
-					    data: {
-					        labels: decode.body.prepped_data.labels,
-					        datasets: [
-						        {
-						            label: ElevateData.text_page_views,
-						            data: decode.body.prepped_data.views,
-						            borderWidth: 1,
-						            backgroundColor: '#faa',
-						            showLine: true
-						        },
-						       	{
-						            label: ElevateData.text_visitors,
-						            data: decode.body.prepped_data.visitors,
-						            borderWidth: 1,
-						            backgroundColor: '#aaf',
-						            showLine: true
-						        }
-					        ]
-					    },
-					    options: {
-					    	maintainAspectRatio: false,
-			    			responsive: true,	
-					    	legend: {
-					    		labels: {
-					    			fontColor: 'white'
-					    		},
-					    		position: 'bottom'
-					    	},
-					        scales: {
-					            yAxes: [{
-					                ticks: {
-					                    beginAtZero: true
-					                },
-					                 gridLines: {
-				   						color: 'rgba( 255, 255, 255, 0.1 )' // makes grid lines from y axis red
-				  					}
-					            }]
-					        }
-					    }
-					});	
 
 					if ( decode.body.prepped_data.visitors_dir > 0 ) {
 						jQuery( '.analytics-visits' ).parent().find( '.fa-chevron-up' ).show();
@@ -887,7 +846,64 @@ function elevateInitialize() {
 					} else if ( decode.body.prepped_data.views_dir < 0 ) {
 						jQuery( '.analytics-views' ).parent().find( '.fa-chevron-down' ).show();
 					}									
+
+					data_a = decode.body.prepped_data.views;
+					data_b = decode.body.prepped_data.visitors;
+					labels = decode.body.prepped_data.labels;
+				} else {
+					jQuery( '.analytics-visits' ).html( '0' );
+					jQuery( '.analytics-views' ).html( '0' );	
+
+					data_a = [0];
+					data_b = [0];
+					labels = [ ElevateData.text_today ];
 				}
+
+
+				var ctx4 = document.getElementById( "visits-chart" ).getContext( '2d' );
+				jQuery( '#visits-chart' ).parent().find( '.waiting' ).hide();
+				var myChart = new Chart(ctx4, {
+				    type: 'bar',
+				    data: {
+				        labels: labels,
+				        datasets: [
+					        {
+					            label: ElevateData.text_page_views,
+					            data: data_a,
+					            borderWidth: 1,
+					            backgroundColor: '#faa',
+					            showLine: true
+					        },
+					       	{
+					            label: ElevateData.text_visitors,
+					            data: data_b,
+					            borderWidth: 1,
+					            backgroundColor: '#aaf',
+					            showLine: true
+					        }
+				        ]
+				    },
+				    options: {
+				    	maintainAspectRatio: false,
+		    			responsive: true,	
+				    	legend: {
+				    		labels: {
+				    			fontColor: 'white'
+				    		},
+				    		position: 'bottom'
+				    	},
+				        scales: {
+				            yAxes: [{
+				                ticks: {
+				                    beginAtZero: true
+				                },
+				                 gridLines: {
+			   						color: 'rgba( 255, 255, 255, 0.1 )' // makes grid lines from y axis red
+			  					}
+				            }]
+				        }
+				    }
+				});					
 			});	
 		}
 
