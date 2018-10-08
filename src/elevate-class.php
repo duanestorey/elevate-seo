@@ -621,6 +621,8 @@ class ElevatePlugin {
 
 				update_option( ELEVATE_GOOGLE_TOKENS_KEY, $google_tokens, false );
 
+				$this->_clear_dashboard_transients();
+
 				return true;
 			}
 		} 
