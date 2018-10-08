@@ -1,9 +1,9 @@
 var jsLibFiles = [ 
-	'./lib/opentip/lib/opentip.js',	// force loading first	
-	'./lib/opentip/lib/adapter-jquery.js',
-	'./lib/chartjs/Chart.bundle.js',	// force loading first
-	'./lib/chartjs/Chart.js',	// force loading first
-	'./lib/**/*.js' 
+	'./assets/lib/opentip/lib/opentip.js',	// force loading first	
+	'./assets/lib/opentip/lib/adapter-jquery.js',
+	'./assets/lib/chartjs/Chart.bundle.js',	// force loading first
+	'./assets/lib/chartjs/Chart.js',	// force loading first
+	'./assets/lib/**/*.js' 
 ];
 
 var jsAssetFiles = [ 
@@ -114,6 +114,12 @@ gulp.task( 'js:watch', function() {
 	gulp.series( 'js:assetwatch', 'js:libwatch' );
 });
 
+gulp.task( 'fonts', function() {
+  return gulp.src( './assets/fonts/*' )
+	.pipe( sourcemaps.write( './' ) )
+	.pipe( gulp.dest( './dist/fonts' ) );	
+})
+
 function allWatch() {
 	// SCSS
 	gulp.watch( './assets/scss/*.scss', gulp.series( 'sass', 'cache' ) );
@@ -128,5 +134,5 @@ function allWatch() {
 	gulp.watch( './assets/images/*', gulp.series( 'image', 'cache' ) );
 }
 
-gulp.task( 'default', gulp.series( gulp.parallel( 'sass', 'image', 'js', 'test' ), 'cache' ) );
+gulp.task( 'default', gulp.series( gulp.parallel( 'sass', 'image', 'js', 'fonts', 'test' ), 'cache' ) );
 gulp.task( 'watch', gulp.series( allWatch ) );
