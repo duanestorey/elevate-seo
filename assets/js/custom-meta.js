@@ -398,7 +398,9 @@ function elevateDoGutenberg() {
 }
 
 function doElevateMetaReady() {
+	// Reinit Opentip
 	Opentip.defaultStyle = "dark";
+	Opentip.findElements();
 
 	var currentImage = 0;
 	if ( elevateIsGutenberg() ) {
