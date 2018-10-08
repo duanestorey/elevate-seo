@@ -191,6 +191,15 @@ $color_back_opacity: 0.8;
 						position: relative;
 						top: -2px;
 					}
+
+					i.fa-warning {
+						color: #777;
+					}
+
+					i.fa-warning:hover {
+						color: #ccc;
+						cursor: pointer;
+					}
 				}
 
 				canvas {

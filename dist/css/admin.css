@@ -116,6 +116,11 @@ section.elevate {
         vertical-align: middle;
         position: relative;
         top: -2px; }
+      .elevate #dashboard .big-data .top-grid .item h2 i.fa-warning {
+        color: #777; }
+      .elevate #dashboard .big-data .top-grid .item h2 i.fa-warning:hover {
+        color: #ccc;
+        cursor: pointer; }
       .elevate #dashboard .big-data .top-grid .item canvas {
         margin-top: 20px;
         width: 1200px;

@@ -29,7 +29,7 @@
 					
 					<div class="item item-2">
 						<img class="spin" src="<?php echo ELEVATE_PLUGIN_URL; ?>/dist/images/dash-spinner.svg" alt="" style="display: none;" />
-						<h2><?php _e( 'Search', 'elevate-seo' ); ?> <a href="https://search.google.com/search-console/performance/search-analytics?resource_id=<?php echo urlencode( home_url() ); ?>" target="_blank"><i class="fa fa-external-link-square"> </i></a></h2>
+						<h2><?php _e( 'Search', 'elevate-seo' ); ?> <?php if ( $has_tokens ) { ?><a href="https://search.google.com/search-console/performance/search-analytics?resource_id=<?php echo urlencode( home_url() ); ?>" target="_blank"><i class="fa fa-external-link-square"> </i></a><?php } else { ?><i title="<?php _e( 'Requires Authentication', 'elevate-seo' ); ?>" class="fa fa-warning"> </i><?php } ?></h2>
 
 						<div class="col-1">
 							<span class="analytics-views">-</span>
@@ -64,7 +64,7 @@
 					</div>
 					<div class="item item-3">
 						<img class="spin" src="<?php echo ELEVATE_PLUGIN_URL; ?>/dist/images/dash-spinner.svg" alt="" style="display: none;" />
-						<h2><?php _e( 'Crawl', 'elevate-seo' ); ?> <a href="https://search.google.com/search-console/index?resource_id=<?php echo urlencode( home_url() ); ?>" target="_blank"><i class="fa fa-external-link-square"> </i></a></h2>
+						<h2><?php _e( 'Crawl', 'elevate-seo' ); ?> <?php if ( $has_tokens ) { ?><a href="https://search.google.com/search-console/index?resource_id=<?php echo urlencode( home_url() ); ?>" target="_blank"><i class="fa fa-external-link-square"> </i></a><?php } else { ?><i title="<?php _e( 'Requires Authentication', 'elevate-seo' ); ?>" class="fa fa-warning"> </i><?php } ?></h2>
 
 						<div class="col-1 reverse">
 							<span class="total-errors">-</span>
