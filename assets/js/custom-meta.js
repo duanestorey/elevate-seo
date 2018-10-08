@@ -48,12 +48,17 @@ function elevateUpdateGooglePreview() {
 	}
 
 	if ( ElevateData.first_post_image && thumbnailBehaviour == 'include_content' && !socialImage ) {
-		socialImage = jQuery.parseJSON( ElevateData.first_post_image );
+		tempImage = jQuery.parseJSON( ElevateData.first_post_image );
+		if ( tempImage != 0 ) {
+			socialImage = tempImage;
+
+		}	
 	}
 
 	// Set the image to the default image to start
-	if ( ElevateData.default_image_url && ( !socialImage || thumbnailBehaviour == 'force_global' ) ) {
+	if ( ( ElevateData.default_image_url && !socialImage ) || thumbnailBehaviour == 'force_global' ) {
 		socialImage = jQuery.parseJSON( ElevateData.default_image_url );
+
 	}
 
 	// update

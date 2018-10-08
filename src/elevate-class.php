@@ -1714,14 +1714,14 @@ class ElevatePlugin {
 			'msg_setup_cant_add_sitemap' => __( 'We were unable to automatically add a sitemap on Google Search Console; you will likely have to complete this step manually.', 'elevate-seo' ),
 			'settings_general_page' => admin_url( 'admin.php?page=elevate_dashboard' ),
 			'settings_wizard_page' => admin_url( 'admin.php?page=elevate_plugin' ),
-			'gutenberg_installed' => $this->_is_gutenberg_installed() ? 1 : 0,
-			'has_google_tokens' => $this->has_google_tokens() ? 1 : 0,
+			'gutenberg_installed' => $this->_is_gutenberg_installed() ? '1' : '0',
+			'has_google_tokens' => $this->has_google_tokens() ? '1' : '0',
 			'oauth_auth_url' => ElevateAPI::get_oauth_auth_url( false, admin_url( 'admin.php?page=elevate_search' ) ),
 			'default_image_url' => json_encode( trailingslashit( home_url() ) . $this->settings->facebook_default_image ),
 			'default_image' => json_encode( $this->settings->facebook_default_image ),
 			'thumbnail_behaviour' => json_encode( $this->settings->thumbnail_behaviour ),
-			'first_post_image' => 0,
-			'is_new_page' => 1,
+			'first_post_image' => '0',
+			'is_new_page' => '1',
 			'is_editing_term' => $this->is_editing_taxonomy() ? '1' : '0',
 			'intelligent_desc' => $this->settings->fill_empty_description ? '1' : '0',
 			'wp_locale' => get_locale(),
@@ -1754,7 +1754,12 @@ class ElevatePlugin {
 		$post_id = get_the_ID();
 		if ( $post_id ) {
 			$elevate_data[ 'post_id' ] = $post_id;
-			$elevate_data[ 'first_post_image' ] = json_encode( $this->get_first_image_in_post( $post_id ) );
+
+			$image = $this->get_first_image_in_post( $post_id );
+
+			if ( $image ) {
+				$elevate_data[ 'first_post_image' ] = json_encode( $image );	
+			}
 		}
 
 		return $elevate_data;
@@ -2376,6 +2381,8 @@ class ElevatePlugin {
 				}
 			}
 		}
+
+		return false;
 	}
 
 	private function _get_post_image( $post_id = false ) {

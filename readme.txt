@@ -52,6 +52,13 @@ To install the plugin, simply add the plugin from the WordPress admin panel in t
  
 == Changelog ==
 
+= Version 1.1.0 (Oct 8, 2018) =
+
+* Changed: Massively enhanced dashboard with SEO and performance data
+* Changed: Reduced package size by reorganizing content
+* Fixed: Issue with SEO information on WooCommerce store page
+* Fixed: Issue with web preview and long titles
+
 = Version 1.0.8 (Sep 29, 2018) =
 
 * Fixed: Possible issues with Google refresh token

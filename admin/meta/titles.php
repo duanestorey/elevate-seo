@@ -82,7 +82,7 @@
 			<p><?php echo sprintf( __( 'This is how your content will look on %s.', 'elevate-seo' ), 'Twitter' ); ?></p>
 			<div class="wrapper">
 				
-				<img src="" />
+				<img src="" style="display: none" />
 
 				<div class="twitter-wrap">
 					<div class="title twitter-title search-title" id="twitter-title"><?php echo $post_title; ?></div>
@@ -101,7 +101,7 @@
 			<p><?php echo sprintf( __( 'This is how your content will look on %s.', 'elevate-seo' ), 'Facebook' ); ?></p>
 			<div class="wrapper">
 				
-				<img src="" />
+				<img src="" style="display: none" />
 
 				<?php 
 					$url = parse_url( ElevatePlugin::get()->get_draft_permalink( $post_info ) );
@@ -118,7 +118,8 @@
 			<div class="wrapper">
 			
 				<div class="inner">
-					<img src="" />
+					<img src="" style="display: none" />
+					
 					<div class="box">
 						<div class="title linkedin-title search-title" id="facebook-title"><?php echo $post_title; ?></div>
 					
