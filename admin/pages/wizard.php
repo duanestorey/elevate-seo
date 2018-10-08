@@ -290,7 +290,7 @@
 		    	<h3><?php _e( 'Setup Complete', 'elevate-seo' ); ?></h3>
 		    	<h4><?php _e( 'Elevate SEO has been configured for use on your website.', 'elevate-seo' ); ?></h4>
 		    	<i class="fa fa-child"> </i>
-		        <p><?php _e( 'Your website is ready to go.<br />Please visit the individual settings pages to further configure Elevate SEO.', 'elevate-seo' ); ?></p>
+		        <p><?php echo sprintf( __( 'Your website is properly configured. Please visit the individual settings pages to further configure Elevate SEO. For more information on using Elevate, please %svisit our knowledgebase%s.', 'elevate-seo' ), '<a href="https://elevatewp.io/knowledge-base/?utm_campaign=elevate-kb&utm_source=elevate&utm_medium=web" target="_blank">', '</a>' ); ?></p>
 		    </section>	 	       
 		</div>
 	</div>

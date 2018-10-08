@@ -4,7 +4,7 @@ Tags: seo, pagespeed, google, sitemap, woocommerce
 Requires at least: 4.8
 Tested up to: 4.9.8
 Requires PHP: 5.6
-Stable tag: 1.0.8
+Stable tag: 1.1.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
  
@@ -14,11 +14,11 @@ The cutting edge search engine optimization (SEO) and performance monitoring and
 
 Elevate helps with the management of your WordPress website from a search engine optimization (SEO) perspective. You will be able to manage your search titles, descriptions, and social media appearance while editing your content within WordPress. During the initial setup, Elevate can automatically configure your site on Google Search Console and Analytics for you via the installation wizard, or automatically find and use your previously configured Google information. Elevate will also correct major issues your site may have with PageSpeed, typically increasing your Google PageSpeed ranking with just a few clicks.
 
-All of the necessary social media and search console tasks are handled automatically for you, including the generation and submission of an XML sitemap, and the verification of your site on Google Search Console. These steps are often ignored by end-users because they are unsure how to configure them. 
+All of the necessary social media and search console tasks are handled automatically for you, including the generation and submission of an XML sitemap, and the verification of your site on Google Search Console. These steps are often ignored by end-users likely resulting in diminished search rankings. 
 
 Elevate will also insert the appropriate information for Facebook, Twitter and Linked to showcase your site or featured images when your content is shared, as well as your custom title and meta information, which you can adjust on a per-post basis to help improve your Google and Bing search rankings.
 
-Using Elevate's comprehensive SEO and performance dashboard, you will be able to instantly see key metrics for your website, including page views, visitors, crawl errors, website speed, search impressions, and click through rate (CTR).  You'll also be able to see which direction those numbers are trending - is your website getting better, or worse?  This feedback is invaluable for website owners, and will let them continue to improve and track changes to their websites.
+Using Elevate's comprehensive SEO and performance dashboard, you will be able to instantly see key metrics for your website, including page views, visitors, crawl errors, website speed, organic search impressions, and click through rate (CTR).  You'll also be able to see which direction those numbers are trending - is your website getting better, or worse?  This feedback is invaluable for website owners, and will let them continue to improve and track changes to their websites.
 
 For more information, please visit the official [Elevate for WordPress](https://elevatewp.io/?utm_campaign=wporg&utm_medium=web&utm_source=wporg "Elevate for WordPress"). home page.
 
@@ -45,15 +45,16 @@ Elevate is completely free!  Enjoy!
 
 = What other plugins have you made? =
 
-I have helped co-create several other extremely popular plugins, include WPtouch and WordTwit.  WPtouch was previously voted the #1 plugin for all of WordPress, and currently has over 11 million downloads.
- 
-= Does Elevate talk to remote servers =  
+I helped co-create several other extremely popular plugins, include WPtouch and WordTwit.  WPtouch was previously voted the #1 plugin for all of WordPress, and currently has over 11 million downloads.
 
-Yes, in order to make authentication of Google OAuth more user-friendly, Elevate proxies the requests through elevatewp.io and relays the information back to the WordPress plugin. Without this, users are forced to authenticate using a more difficult method. All information, including the OAuth tokens, are deleted from our servers after a successful token authorization or renewal. Users can revoke this authorization at any time via the plugin administration panel, or on Google as well. For more information please read the privacy policy at https://elevatewp.io/privacy.html. 
 
 = Sounds great - what other features can I expect in the short term? =
 
 We're doing heavier integration with Google in the next few releases, and will help bring some of that data back into the dashboard for you. In addition, Elevate will automatically fix many of the site issues that are routinely encountered.
+ 
+= Does Elevate talk to remote servers =  
+
+Yes, in order to make authentication of Google OAuth more user-friendly, Elevate proxies the requests through elevatewp.io and relays the information back to the WordPress plugin. Without this, users are forced to authenticate using a more difficult method. All information, including the OAuth tokens, are deleted from our servers after a successful token authorization or renewal. Users can revoke this authorization at any time via the plugin administration panel, or on Google as well. For more information please read the privacy policy at https://elevatewp.io/privacy.html. 
 
 == Installation ==
 
