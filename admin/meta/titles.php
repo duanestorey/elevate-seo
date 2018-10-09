@@ -6,12 +6,14 @@
 		<p><?php echo sprintf( __( 'You can configure the title and description for this page via the %sElevate SEO settings page%s.', 'elevate-seo' ), '<a href="' . admin_url( 'admin.php?page=elevate_general' ) . '">', '</a>' ); ?></p>
 	<?php } else { ?>
 		<label for="elevate_post_title"><?php _e( 'Search Title', 'elevate-seo' ); ?></label>
+		<a href="#" class='reset' id="elevate_post_title_reset">Reset</a>
 
 		<?php $meta_box_info = get_elevate_plugin()->get_saved_meta_box_info( $post_info->ID, isset( $post_info->is_term ) ? '1' : '0' ); ?>
 		<?php $post_title = get_elevate_plugin()->get_placeholder_title( $post_info->post_title, $post_info->post_type != 'page' ); ?>
 		<input type="text" name="elevate_post_title" id="elevate_post_title" value="<?php echo $meta_box_info->title; ?>" placeholder="<?php echo esc_attr( $post_title ); ?>" />
 
 		<label for="elevate_post_description"><?php _e( 'Search Description', 'elevate-seo' ); ?></label>
+		<a href="#" class='reset' id="elevate_post_description_reset">Reset</a>
 		<?php
 			$placeholder = __( 'Enter a one or two sentence summary of this content for search engines.', 'elevate-seo' );
 

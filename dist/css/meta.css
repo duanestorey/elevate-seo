@@ -39,6 +39,12 @@
   margin-top: 8px;
   vertical-align: middle; }
 
+.elevate-title-meta .reset {
+  float: right;
+  vertical-align: bottom;
+  position: relative;
+  top: 10px; }
+
 #learn_more {
   display: none; }
   #learn_more i {

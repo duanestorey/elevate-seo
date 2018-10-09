@@ -491,6 +491,44 @@ function doElevateMetaReady() {
 		jQuery( 'div.google-preview, div.twitter-preview, div.facebook-preview, div.linkedin-preview' ).hide();
 		jQuery( 'div.' + targetTab ).show();
 	});
+
+	jQuery( '#elevate_post_title' ).on( 'focus', function( e ) {
+		var val = jQuery( this ).val();
+		if ( !val.length ) {
+			jQuery( this ).attr( 'value', jQuery( this ).attr( 'placeholder' ) );
+		}
+	});
+
+	jQuery( '#elevate_post_title' ).on( 'blur', function( e ) {
+		var val = jQuery( this ).val();
+		if ( val == jQuery( this ).attr( 'placeholder' ) ) {
+			jQuery( this ).attr( 'value', '' );
+		}
+	});	
+
+	jQuery( '#elevate_post_title_reset' ).on( 'click', function( e ) {
+		jQuery( '#elevate_post_title' ).attr( 'value', '' );
+		e.preventDefault();
+	});		
+
+	jQuery( '#elevate_post_description' ).on( 'focus', function( e ) {
+		var val = jQuery( this ).val();
+		if ( !val.length ) {
+			jQuery( this ).attr( 'value', jQuery( this ).attr( 'placeholder' ) );
+		}
+	});	
+
+	jQuery( '#elevate_post_description' ).on( 'blur', function( e ) {
+		var val = jQuery( this ).val();
+		if ( val == jQuery( this ).attr( 'placeholder' ) ) {
+			jQuery( this ).attr( 'value', '' );
+		}
+	});	
+
+	jQuery( '#elevate_post_description_reset' ).on( 'click', function( e ) {
+		jQuery( '#elevate_post_description' ).attr( 'value', '' );
+		e.preventDefault();
+	});			
 }
 
 jQuery( document ).ready( function() { 

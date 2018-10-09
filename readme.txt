@@ -62,6 +62,11 @@ To install the plugin, simply add the plugin from the WordPress admin panel in t
  
 == Changelog ==
 
+= Version 1.1.1 () =
+
+* Changed: Now clicking in an SEO box will automatically use the defaults
+* Added: Ability to reset
+
 = Version 1.1.0 (Oct 8, 2018) =
 
 * Changed: Massively enhanced dashboard with SEO and performance data
