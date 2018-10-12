@@ -18,5 +18,7 @@ define( 'ELEVATE_AJAX_NONCE_NAME', 'elevate_ajax_nonce' );
 define( 'ELEVATE_AJAX_SUCCESS', 0 );
 define( 'ELEVATE_AJAX_FAILURE', 1 );
 
+define( 'ELEVATE_USE_MINIFIED_SCRIPTS', 1 );
+
 // Transient Time
 define( 'ELEVATE_TRANSIENT_SITE_INFO', 24*HOUR_IN_SECONDS );

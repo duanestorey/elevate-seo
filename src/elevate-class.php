@@ -1035,7 +1035,11 @@ class ElevatePlugin {
 						chmod( $actual_file, 0644 );
 
 						$result = new stdClass;
-						$result->file_name = ltrim( str_replace( $_SERVER[ 'DOCUMENT_ROOT' ], '/', $actual_file ), '/\\' );
+						$realpath = realpath( $_SERVER[ 'DOCUMENT_ROOT' ] );
+						if ( !$realpath ) {
+							$realpath = $_SERVER[ 'DOCUMENT_ROOT' ];	
+						}
+						$result->file_name = ltrim( str_replace( $realpath, '/', $actual_file ), '/\\' );
 						$result->full_file_url = esc_url( trailingslashit( home_url() ) . $result->file_name );
 						$result->file_type = 'type';
 
@@ -1717,7 +1721,6 @@ class ElevatePlugin {
 			'gutenberg_installed' => $this->_is_gutenberg_installed() ? '1' : '0',
 			'has_google_tokens' => $this->has_google_tokens() ? '1' : '0',
 			'oauth_auth_url' => ElevateAPI::get_oauth_auth_url( false, admin_url( 'admin.php?page=elevate_search' ) ),
-			'default_image_url' => json_encode( trailingslashit( home_url() ) . $this->settings->facebook_default_image ),
 			'default_image' => json_encode( $this->settings->facebook_default_image ),
 			'thumbnail_behaviour' => json_encode( $this->settings->thumbnail_behaviour ),
 			'first_post_image' => '0',
@@ -1742,6 +1745,13 @@ class ElevatePlugin {
 			'text_visitors' => __( 'Visitors' , 'elevate-seo' ),
 			'text_today' => date( 'M d' )
 		);
+
+		if ( $this->settings->facebook_default_image ) {
+			$elevate_data[ 'default_image_url' ] = json_encode( trailingslashit( home_url() ) . $this->settings->facebook_default_image );
+		} else {
+			$elevate_data[ 'default_image_url' ] = '';
+		}
+		
 
 		if ( isset( $_GET[ 'elevate_continue_wizard' ] ) && $this->has_google_tokens( false ) ) {
 			$elevate_data[ 'post_oauth_skip' ] = 1;
@@ -1802,7 +1812,13 @@ class ElevatePlugin {
 		if ( $this->is_elevate_page() ) {
 			// Styles
 			wp_enqueue_style( 'elevate-admin-css', ELEVATE_PLUGIN_URL . '/dist/css/admin.css', array(), ELEVATE_CACHE_VERSION );
-			wp_enqueue_script( 'elevate-custom', ELEVATE_PLUGIN_URL . '/dist/js/bundle.min.js', array( 'jquery' ), ELEVATE_CACHE_VERSION, true );	
+
+			if ( ELEVATE_USE_MINIFIED_SCRIPTS ) {
+				wp_enqueue_script( 'elevate-custom', ELEVATE_PLUGIN_URL . '/dist/js/bundle.min.js', array( 'jquery' ), ELEVATE_CACHE_VERSION, true );		
+			} else {
+				wp_enqueue_script( 'elevate-custom', ELEVATE_PLUGIN_URL . '/dist/js/bundle.js', array( 'jquery' ), ELEVATE_CACHE_VERSION, true );	
+			}
+			
 
 			$language_params = $this->_get_elevate_data();
 
@@ -1828,7 +1844,13 @@ class ElevatePlugin {
 			}
 
 			wp_enqueue_style( 'elevate-meta-css', ELEVATE_PLUGIN_URL . '/dist/css/meta.css', false, ELEVATE_CACHE_VERSION );
-			wp_enqueue_script( 'elevate-custom', ELEVATE_PLUGIN_URL . '/dist/js/bundle.min.js', $depends, ELEVATE_CACHE_VERSION, true );
+
+			if ( ELEVATE_USE_MINIFIED_SCRIPTS ) {
+				wp_enqueue_script( 'elevate-custom', ELEVATE_PLUGIN_URL . '/dist/js/bundle.min.js', $depends, ELEVATE_CACHE_VERSION, true );
+			} else {
+				wp_enqueue_script( 'elevate-custom', ELEVATE_PLUGIN_URL . '/dist/js/bundle.js', $depends, ELEVATE_CACHE_VERSION, true );
+			}
+			
 
 			wp_localize_script( 'elevate-custom', 'ElevateData', $this->_get_elevate_data() );
 		}	

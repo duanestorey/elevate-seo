@@ -11,6 +11,8 @@
 		    	<h3><?php _e( 'Welcome to Elevate SEO', 'elevate-seo' ); ?></h3>
 		    	<h4><?php _e( 'We just need a little bit of information to get you up and running' , 'elevate-seo' ); ?></h4>
 
+		    	<i class="fa fa-chevron-up"> </i>
+
 		        <p><?php _e( 'This wizard will guide you through the basic configuration steps needed to enhance your site and starting using the full features of the Elevate  plugin for WordPress.', 'elevate-seo' ); ?></p>
 		    </section>			    		    	    
 		    <h3><?php _e( 'Basics', 'elevate-seo' ); ?></h3>

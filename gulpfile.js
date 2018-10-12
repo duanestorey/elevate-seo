@@ -15,6 +15,11 @@ var jsFiles = [
 	'./build/js/asset.min.js' 
 ];
 
+var jsFilesNoMin = [
+	'./build/js/lib.js',
+	'./build/js/asset.js' 
+];
+
 var sassFiles = [ 
 	'./assets/scss/*.scss'
 ];
@@ -85,6 +90,12 @@ gulp.task( 'jsconcat', function() {
 		.pipe( gulp.dest( './dist/js' ) )
 });
 
+gulp.task( 'jsconcatnonmin', function() {
+	return gulp.src( jsFilesNoMin )
+		.pipe( debug() )
+		.pipe( concat( 'bundle.js' ) )
+		.pipe( gulp.dest( './dist/js' ) )
+});
 
 gulp.task( 'js', gulp.series( 'jsasset', 'jslib', 'jsconcat'  ) );
 
@@ -125,10 +136,10 @@ function allWatch() {
 	gulp.watch( './assets/scss/*.scss', gulp.series( 'sass', 'cache' ) );
 
 	// JS Libraries
-	gulp.watch( jsLibFiles, gulp.series( 'jslib', 'jsconcat', 'cache' ) );
+	gulp.watch( jsLibFiles, gulp.series( 'jslib', 'jsconcat', 'jsconcatnonmin', 'cache' ) );
 
 	// Our JS
-	gulp.watch( jsAssetFiles, gulp.series( 'jsasset', 'jsconcat', 'cache' ) );
+	gulp.watch( jsAssetFiles, gulp.series( 'jsasset', 'jsconcat', 'jsconcatnonmin', 'cache' ) );
 
 	// Images
 	gulp.watch( './assets/images/*', gulp.series( 'image', 'cache' ) );

@@ -70,6 +70,14 @@ $wizard_input_font_size: 12pt;
 #wpbody #elevate-wizard {
 	width: 100%;
 	box-sizing: border-box;
+
+	.intro {
+		i.fa-chevron-up {
+			font-size: 80pt;
+			color: #145390;
+
+		}
+	}
 }
 
 #wpbody #elevate-wizard {
@@ -189,12 +197,11 @@ $wizard_input_font_size: 12pt;
 			input[type="text"] {
 				display: block;
 				margin: auto;
-				min-size: 300px;
 				text-align: center;
 				font-size: $wizard_input_font_size;
 				color: #555;
 				padding: 5px;
-				min-width: 300px;
+				min-width: 400px;
 				padding: 5px;
 			}
 
@@ -677,7 +684,7 @@ $wizard_input_font_size: 12pt;
 			background: #fdfdfd;
 			margin-bottom: 10px;
 			clear: both;
-			border: 1px solid #ccc;
+			border: 2px solid #ccc;
 			background: rgba( 255, 255, 255, 0.85 );
 			display: inline-block;
 			vertical-align: top;
@@ -686,24 +693,24 @@ $wizard_input_font_size: 12pt;
 		}
 
 		div.checked  {
-			border: 1px solid rgba( $scheme_color_green, 0.8 );
+			border: 2px solid rgba( $scheme_color_green, 0.8 );
 			opacity: 1;
 		}
 
 		div:hover {
 			cursor: pointer;
-			border: 1px solid #888;
+			border: 2px solid #888;
 			opacity: 1;
 		}
 
 		div.disabled {
 			opacity: 0.6;
-			border: 1px solid #ddd;
+			border: 2px solid #ddd;
 		}
 
 		div.disabled:hover {
 			opacity: 0.6;
-			border: 1px solid #ddd;
+			border: 2px solid #ddd;
 			cursor: default;
 		}
 
@@ -738,8 +745,9 @@ $wizard_input_font_size: 12pt;
 		}		
 
 		h2 {
-			font-weight: 500;
+			font-weight: 600;
 			font-size: 13pt;
+			font-weight: bold;
 			margin-left: auto!important;
 			margin-right: auto!important;
 			text-align: center;
