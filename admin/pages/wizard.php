@@ -66,7 +66,8 @@
 		    	<h4><?php _e( "Choose how others see your website", "elevate-seo" ); ?></h4>
 		    	<p><?php echo sprintf( __( 'Select the default image that appears when a person shares your content on social media. If you do not have one, take a look at %sUnsplash.com%s for images you can use for free.', 'elevate-seo' ), '<a href="http://unsplash.com" target="_blank">', '</a>' ); ?></p>
 		    	<div id="wpwrap"></div>
-
+		    	<img class="spin" src="<?php echo ELEVATE_PLUGIN_URL; ?>/dist/images/spinner.gif" style="display: none;" />
+		    	
 		    	<button class="upload" data-name="facebook_default_image"><?php _e( "Upload Image", "elevate-seo" ); ?></button>
 		    	<div class="upload_facebook_default_image">
 		    		<input name="elevate_facebook_default_image" type="text" id="elevate_facebook_default_image" value="" />

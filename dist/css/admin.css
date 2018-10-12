@@ -1369,6 +1369,11 @@ i.fa-google {
   font-size: setting_body_font_size;
   font-family: "sans serif"; }
 
+.elevate-setting.upload .spin {
+  vertical-align: top;
+  position: relative;
+  top: -5px; }
+
 .elevate-setting.upload a {
   font-size: setting_body_font_size;
   display: inline-block;

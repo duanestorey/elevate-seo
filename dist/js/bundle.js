@@ -40797,13 +40797,16 @@ function elevateHandleUploads() {
 			'</form></div>'
 		);	
 
-		jQuery( 'form#' + settingName + '_form' ).submit( function( formEvent ) {
+		jQuery( 'form#' + settingName + '_form' ).on( 'submit', function( formEvent ) {
 			var formElement = jQuery( 'form#' + settingName + '_form' ).get( 0 );
 			var formData = new FormData( formElement );
 			formData.append( 'action', 'elevate_ajax' );
 			formData.append( 'elevate_action', 'file_upload' );
 			formData.append( 'elevate_nonce', ElevateData.elevate_nonce );
 			formData.append( 'acceptable_types', 'image/png,image/jpeg,image/jpeg' );
+
+			jQuery( 'img.spin' ).show();
+			button.hide();
 
 			jQuery.ajax({
 				url: ElevateData.admin_ajax,
@@ -40813,17 +40816,18 @@ function elevateHandleUploads() {
 				cache: false,
 				processData: false,
 				success: function( data ) {
+					jQuery( 'img.spin' ).hide();
+
 					var result = jQuery.parseJSON( data );
 
 					if ( result.code == 0 ) {
 						// success
 						jQuery( 'input[name=elevate_' + settingName + ']' ).val( result.body.file_name );
 						jQuery( 'a[data-name=' + settingName + ']' ).attr( 'href', result.body.full_file_url );
-						button.hide();
+						//button.hide();
 
 						jQuery( '.upload_' + settingName + ' .image-wrapper' ).html( '<img src="' + result.body.full_file_url + '" />' );
 						jQuery( '#' + settingName + '_reset').show();
-
 					} else {
 						if ( result.error == 'invalid_mime_type' ) {
 							alert( ElevateData.msg_invalid_mime );
@@ -40858,7 +40862,7 @@ function elevateHandleUploads() {
 		});
 	});
 
-	jQuery( 'button.upload' ).click( function( e ) { 
+	jQuery( 'button.upload' ).on( 'click', function( e ) { 
 		e.preventDefault();
 		
 		var settingName = jQuery( this ).attr( 'data-name' );
