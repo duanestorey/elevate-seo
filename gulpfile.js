@@ -102,6 +102,7 @@ gulp.task( 'js', gulp.series( 'jsasset', 'jslib', 'jsconcat'  ) );
 gulp.task( 'cache', function() {
 	return gulp.src( './assets/php/*.php' )
 		.pipe( replace( '{cache_version}', hash( { length: 12, content: timestamp.now() } ) ) )
+		.pipe( replace( '{build_version}', hash( { length: 5, content: timestamp.now() } ) ) )
 		.pipe( gulp.dest( './dist/php' ) )
 });
 
