@@ -2473,7 +2473,7 @@ class ElevatePlugin {
 			}
 		}
 
-		return $description;
+		return trim( $description );
 	}
 
 	public function get_intelligent_meta_desc( $id = false, $max_length = 300 ) {
