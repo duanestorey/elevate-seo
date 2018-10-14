@@ -47,8 +47,7 @@ Elevate is completely free!  Enjoy!
 
 I helped co-create several other extremely popular plugins, include WPtouch and WordTwit.  WPtouch was previously voted the #1 plugin for all of WordPress, and currently has over 11 million downloads.
 
-
-= Sounds great - what other features can I expect in the short term? =
+= Awesome! - what other features can I expect in the short term? =
 
 We're doing heavier integration with Google in the next few releases, and will help bring some of that data back into the dashboard for you. In addition, Elevate will automatically fix many of the site issues that are routinely encountered.
  
@@ -62,12 +61,13 @@ To install the plugin, simply add the plugin from the WordPress admin panel in t
  
 == Changelog ==
 
-= Version 1.1.1 () =
+= Version 1.1.1 (Oct 14, 2018) =
 
-* Changed: Now clicking in an SEO box will automatically use the defaults
+* Added: Ability to reset
 * Fixed: File upload broken image on some server configurations (MediaTemple for example)
 * Fixed: Issue with default images in web preview
-* Added: Ability to reset
+* Fixed: Issue with incorrect RSS feed title
+* Changed: Now clicking in an SEO box will automatically use the defaults
 
 = Version 1.1.0 (Oct 8, 2018) =
 

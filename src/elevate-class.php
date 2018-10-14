@@ -281,8 +281,6 @@ class ElevatePlugin {
 
 		add_action( 'init', array( &$this, 'handle_init' ) );
 		add_action( 'wp', array( &$this, 'handle_wp' ) );
-		add_filter( 'wp_title', array( &$this, 'handle_title' ), -1 );
-		add_filter( 'pre_get_document_title', array( &$this, 'handle_title' ), -1 );
 		add_action( 'wp_head', array( &$this, 'handle_wp_head' ) );
 		add_action( 'wp_footer', array( &$this, 'handle_footer' ) );
 	
@@ -294,8 +292,10 @@ class ElevatePlugin {
 		add_action( 'elevate_sitemap_update', array( &$this, 'elevate_sitemap_update' ), 10, 2 );
 		add_action( 'after_setup_theme', array( &$this, 'setup_languages' ) );
 		add_filter( 'locale', array( &$this, 'handle_locale' ) );
-
 		add_filter( 'admin_body_class', array( &$this, 'handle_admin_body_class' ) );
+
+		add_filter( 'wp_title', array( &$this, 'handle_title' ), -1 );
+		add_filter( 'pre_get_document_title', array( &$this, 'handle_title' ), -1 );		
 
 		elevate_check_cron_job();
 
@@ -1928,7 +1928,7 @@ class ElevatePlugin {
 	}
 
 	public function handle_title( $title ) {
-		if ( is_admin() ) {
+		if ( is_admin() || is_feed() ) {
 			return $title;
 		} else {
 			return $this->_get_internal_title();	
