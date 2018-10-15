@@ -93,7 +93,9 @@ class ElevatePageCache {
 
 			if ( $decoded_cache_info ) {
 				foreach( $decoded_cache_info->headers as $header ) {
-					header( $header );
+					if ( strpos( 'Cache-Control', $header ) !== false ) {
+						header( $header );	
+					}
 				}
 
 				header( 'X-Elevate-Cache: ' . ELEVATE_PAGE_CACHE_VERSION . '/Hit' );
