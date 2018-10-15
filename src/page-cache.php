@@ -17,6 +17,8 @@ class ElevatePageCache {
 	public function __construct() {
 		$this->cache_version = 0;
 		$this->cache_key = 0;
+		$this->cache_dir = '';
+		$this->cache_rel_path = '';
 
 		$dir_info = wp_upload_dir();
 		if ( isset( $dir_info[ 'basedir' ] ) ) {
@@ -30,6 +32,13 @@ class ElevatePageCache {
 					fwrite( $htaccess_file, "Options All –Indexes\n" );
 					fclose( $htaccess_file );
 				}
+			}
+		}
+
+		if ( isset( $dir_info[ 'baseurl' ] ) ) {
+			$url_info = parse_url( $dir_info[ 'baseurl' ] );
+			if ( $url_info ) {
+				$this->cache_rel_path = trailingslashit( $url_info[ 'path' ] ) . 'elevate-cache/';
 			}
 		}
 	}
@@ -103,6 +112,10 @@ class ElevatePageCache {
 		return $content;
 	}
 
+	public function cache_robots_path() {
+		return $this->cache_rel_path;
+	}
+
 	private function _can_cache_page() {
 		if ( is_admin() || is_feed() ) {
 			return false;
@@ -112,7 +125,7 @@ class ElevatePageCache {
 			return false;
 		}
 
-		$rejected_paths = array( 'wp-login.php' );
+		$rejected_paths = array( 'wp-login.php', 'robots.txt' );
 		foreach( $rejected_paths as $path ) {
 			if ( strpos( $_SERVER[ 'REQUEST_URI' ], $path ) !== false ) {
 				return false;

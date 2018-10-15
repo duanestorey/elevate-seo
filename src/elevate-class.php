@@ -186,18 +186,23 @@ class ElevatePlugin {
 		if ( $robots_source ) {
 			$upload_dir_info = wp_upload_dir();
 
+			require_once( dirname( __FILE__ ) . '/page-cache.php' );
+			$page_cache = new ElevatePageCache;
+
 			$robots_source = str_replace( 
 				array(
 					'[admin_url]',
 					'[plugin_url]',
 					'[upload_url]',
-					'[sitemap_url]'
+					'[sitemap_url]',
+					'[page_cache_directory]'
 				),
 				array(
 					$this->_strip_home_url( admin_url() ),
 					$this->_strip_home_url( plugins_url() ),
 					$this->_strip_home_url( $upload_dir_info[ 'baseurl' ] ),
-					$this->get_sitemap_url()
+					$this->get_sitemap_url(),
+					$page_cache->cache_robots_path()
 				),
 				$robots_source
 			);
