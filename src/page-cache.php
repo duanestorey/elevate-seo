@@ -120,11 +120,12 @@ class ElevatePageCache {
 		$cache_data->body = $content;
 
 		if ( function_exists( 'headers_list' ) ) {
-			header( 'ETag: ' . $this->_get_cache_key() );
-
 			$cache_data->headers = headers_list();
 
 			header( 'X-Elevate-Cache: ' . ELEVATE_PLUGIN_VERSION . '/Miss' );
+			header_remove( 'Cache-Control' );
+			header( 'Cache-Control: private, must-revalidate, no-cache, max-age=0' );
+			header( 'ETag: ' . $this->_get_cache_key() );
 		}
 
 		$cache_file = fopen( $this->_get_cache_file_path(), 'w+t' );
