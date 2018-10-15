@@ -93,7 +93,7 @@ class ElevatePageCache {
 
 			if ( $decoded_cache_info ) {
 				foreach( $decoded_cache_info->headers as $header ) {
-					if ( strpos( 'Cache-Control', $header ) !== false ) {
+					if ( strpos( $header, 'Cache-Control' ) !== false ) {
 						header( $header );	
 					}
 				}
