@@ -101,8 +101,8 @@ class ElevatePageCache {
 				header( 'X-Elevate-Cache: ' . ELEVATE_PAGE_CACHE_VERSION . '/Hit' );
 
 				header_remove( 'Cache-Control' );
-				header( 'Cache-Control: must-revalidate, max-age=3600' );
-				header( 'ETag: "' . $this->_get_cache_key() . '"' );
+				header( 'Cache-Control: no-cache, must-revalidate, max-age=3600' );
+				header( 'ETag: ' . $this->_get_cache_key() );
 
 				$last_modified = filemtime( $this->_get_cache_file_path() );
 				//header( 'Last-Modified: ' . gmdate( 'D, d M Y H:i:s T', $last_modified ) );
