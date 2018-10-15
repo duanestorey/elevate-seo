@@ -94,11 +94,13 @@ class ElevatePageCache {
 			if ( $decoded_cache_info ) {
 				foreach( $decoded_cache_info->headers as $header ) {
 					if ( strpos( strtolower( $header ), strtolower( 'Cache-Control' ) ) !== false ) {
-						//header( $header );	
+						header( $header );	
 					}
 				}
 
 				header( 'X-Elevate-Cache: ' . ELEVATE_PAGE_CACHE_VERSION . '/Hit' );
+
+				header_remove( 'Cache-Control' );
 				header( 'Cache-Control: private, must-revalidate' );
 
 				http_response_code( 200 ); 
