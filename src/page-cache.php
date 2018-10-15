@@ -102,6 +102,7 @@ class ElevatePageCache {
 
 				header_remove( 'Cache-Control' );
 				header( 'Cache-Control: private, must-revalidate' );
+				header( 'ETag: ' . $this->_get_cache_key() );
 
 				http_response_code( 200 ); 
 
