@@ -270,15 +270,82 @@ class ElevatePlugin {
 		ELEVATE_DEBUG( ELEVATE_DEBUG_INFO, 'CRON END' );
 	}
 
-	public function _check_page_cache() {
+	private function _fix_line_endings( $content ) {
+		return str_replace( "\n", "\r\n", str_replace( "\r", '', $content ) );
+	}
+
+	private function _modify_wp_cache_entry( $wp_config_file, $enable ) {
+		$write_file = false;
+
+		$wp_content = file_get_contents( $wp_config_file );
+
+		if ( preg_match_all( "|define\( 'WP_CACHE', (.*)\);|i", $wp_content, $matches ) ) {
+			if ( $enable ) {
+				$wp_content = str_replace( $matches[0][0], "define( 'WP_CACHE', 1 );", $wp_content );	
+			} else {
+				$wp_content = str_replace( $matches[0][0], "define( 'WP_CACHE', 0 );", $wp_content );
+			}
+
+			$write_file = true;
+		}	
+
+		if ( !$write_file && preg_match_all( "|/\* That\'s all, stop editing\! Happy blogging. \*/|i", $wp_content, $matches ) ) {
+			if ( $enable ) {
+				$wp_content = str_replace( $matches[0][0], "// Added by Elevate SEO" . PHP_EOL . PHP_EOL . "define( 'WP_CACHE', 1 );" . PHP_EOL . PHP_EOL . $matches[0][0], $wp_content );	
+			} else {
+				$wp_content = str_replace( $matches[0][0], "// Added by Elevate SEO" . PHP_EOL . PHP_EOL . "define( 'WP_CACHE', 0 );" . PHP_EOL . PHP_EOL . $matches[0][0], $wp_content );
+			}		
+
+			$write_file = true;
+		}	
+
+		if ( $write_file ) {
+			file_put_contents( $wp_config_file, $this->_fix_line_endings( $wp_content ) );
+		}		
+	}
+
+	public function _check_page_cache( $force_disable = false ) {
 		require_once( dirname( __FILE__ ) . '/page-cache.php' );
 
-		if ( $this->settings->enable_page_cache ) {
-			$page_cache = new ElevatePageCache;
-			if ( ( $cache_id = $page_cache->has_cached_page() ) !== false ) {
-				$page_cache->serve_cached_page();
-			} else {
-				$page_cache->cache_and_serve_page();
+		$wp_config_file = trailingslashit( $_SERVER[ 'DOCUMENT_ROOT' ] ) . 'wp-config.php';
+
+		if ( file_exists( $wp_config_file ) && is_writable( $wp_config_file ) ) {
+			if ( $force_disable || !$this->settings->enable_page_cache ) {	
+				$this->_modify_wp_cache_entry( $wp_config_file, false, true );
+
+				// We just disabled the cache, destroy advanced-cache.php
+				@unlink( WP_CONTENT_DIR . '/advanced-cache.php' );
+			} else if ( $this->settings->enable_page_cache || $force_enable ) {
+				// We just enabled the cache, set up advanced-cache.php
+				$advanced_cache = file_get_contents( ELEVATE_PLUGIN_DIR . '/admin/templates/advanced-cache.txt' );
+				if ( $advanced_cache ) {
+					$php_data = "<?php\n\n" . $advanced_cache;
+					$page_cache = new ElevatePageCache;
+
+					$to_find = array( 
+						'{elevate_cache_directory}', 
+						'{elevate_plugin_directory}', 
+						'{elevate_cache_version}',
+						'{elevate_cache_base_dir}',
+						'{elevate_cache_rel_url}',
+						'{elevate_cache_plugin_version}'
+					);
+
+					$dir_info = wp_upload_dir();
+
+					$to_replace = array(
+						$page_cache->_get_cache_directory(),
+						ELEVATE_PLUGIN_DIR,
+						0,
+						$dir_info[ 'basedir' ],
+						$dir_info[ 'baseurl' ],
+						ELEVATE_PLUGIN_VERSION
+					);
+
+					file_put_contents( WP_CONTENT_DIR . '/advanced-cache.php', str_replace( $to_find, $to_replace, $php_data ) );
+
+					$this->_modify_wp_cache_entry( $wp_config_file, 1 );
+				}			
 			}			
 		}
 	}
@@ -2196,6 +2263,7 @@ class ElevatePlugin {
 
 		// Called when the user clicks the Save Settings button
 		$was_modified = false;
+		$update_page_cache = false;
 
 		$default_settings = new stdClass;
 		$this->init_default_settings( $default_settings );
@@ -2211,6 +2279,11 @@ class ElevatePlugin {
 				if ( $new_value == '%is_check%' ) {
 					$this->settings->{$key} = ( isset( $this->request_vars[ $modified_key . '_cb' ] ) && $this->request_vars[ $modified_key . '_cb' ] == 'on' );
 				} else {
+					if ( $key == 'enable_page_cache' ) {
+						// we are changing the internal page cache setting, so we need to do some extra work
+						$update_page_cache = true;
+					}
+
 					$this->settings->{$key} = $new_value;	
 				}
 				
@@ -2218,6 +2291,10 @@ class ElevatePlugin {
 				if ( !$was_modified ) {
 					$was_modified = true;
 				};
+
+				if ( !$update_page_cache ) {
+					$this->_check_page_cache();
+				}
 			}
 		}
 
@@ -2283,8 +2360,6 @@ class ElevatePlugin {
 		if ( !is_admin() ) {
 			$this->_check_for_redirects();
 		}		
-
-		$this->_check_page_cache();
 	}
 
 	private function _setup_taxonomies() {

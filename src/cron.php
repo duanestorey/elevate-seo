@@ -67,6 +67,10 @@ function elevate_deactivate() {
 	wp_clear_scheduled_hook( 'elevate_cron_job' );
 	delete_option( 'elevate_cron_set_by' );
 
+	// Disable the page cache if it's active
+	$elevate_plugin = new ElevatePlugin;
+	$elevate_plugin->_check_page_cache( true );
+
 	ELEVATE_DEBUG( ELEVATE_DEBUG_INFO, 'DONE Deactivation hook' );	
 }
 

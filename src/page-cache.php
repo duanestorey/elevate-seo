@@ -9,6 +9,8 @@
  *  @license GPL-3.0+ <http://spdx.org/licenses/GPL-3.0+>
  */
 
+define( 'ELEVATE_PAGE_CACHE_VERSION', '1.0' );
+
 class ElevatePageCache {
 	var $cache_dir;
 	var $cache_version;
@@ -20,9 +22,9 @@ class ElevatePageCache {
 		$this->cache_dir = '';
 		$this->cache_rel_path = '';
 
-		$dir_info = wp_upload_dir();
+		$dir_info = $this->_wp_upload_dir();
 		if ( isset( $dir_info[ 'basedir' ] ) ) {
-			$this->cache_dir = trailingslashit( $dir_info[ 'basedir' ] ) . 'elevate-cache/';
+			$this->cache_dir = $this->_trailingslashit( $dir_info[ 'basedir' ] ) . 'elevate-cache/';
 			if ( !file_exists( $this->cache_dir ) ) {
 				mkdir( $this->cache_dir, 0755 );
 
@@ -38,8 +40,20 @@ class ElevatePageCache {
 		if ( isset( $dir_info[ 'baseurl' ] ) ) {
 			$url_info = parse_url( $dir_info[ 'baseurl' ] );
 			if ( $url_info ) {
-				$this->cache_rel_path = trailingslashit( $url_info[ 'path' ] ) . 'elevate-cache/';
+				$this->cache_rel_path = $this->_trailingslashit( $url_info[ 'path' ] ) . 'elevate-cache/';
 			}
+		}
+	}
+
+	private function _wp_upload_dir() {
+		if ( function_exists( 'wp_upload_dir' ) ) {
+			return wp_upload_dir();
+		} else {
+			$dir_info = array();
+			$dir_info[ 'basedir' ] = ELEVATE_CACHE_WP_BASE_DIR;
+			$dir_info[ 'baseurl' ] = ELEVATE_CACHE_WP_REL_URL;
+
+			return $dir_info;
 		}
 	}
 
@@ -48,6 +62,10 @@ class ElevatePageCache {
 	}
 
 	public function has_cached_page() {
+		if ( !$this->_can_cache_page() ) {
+			return false;
+		}
+		
 		if ( file_exists( $this->_get_cache_file_path() ) ) {
 			$last_modified = filemtime( $this->_get_cache_file_path() );
 
@@ -78,7 +96,7 @@ class ElevatePageCache {
 					header( $header );
 				}
 
-				header( 'X-Elevate-Cache: ' . ELEVATE_PLUGIN_VERSION . '/Hit' );
+				header( 'X-Elevate-Cache: ' . ELEVATE_PAGE_CACHE_VERSION . '/Hit' );
 
 				http_response_code( 200 ); 
 
@@ -116,18 +134,18 @@ class ElevatePageCache {
 		return $this->cache_rel_path;
 	}
 
+	private function _trailingslashit( $path ) {
+		return rtrim( $path, '/\\' ) . '/';
+	}
+
 	private function _can_cache_page() {
-		if ( is_admin() || is_feed() ) {
+		if ( $this->_is_user_logged_in() ) {
 			return false;
 		}
 
-		if ( is_user_logged_in() ) {
-			return false;
-		}
-
-		$rejected_paths = array( 'wp-login.php', 'robots.txt' );
+		$rejected_paths = array( 'wp-login.php', 'robots.txt', '/feed/', '/wp-admin/' );
 		foreach( $rejected_paths as $path ) {
-			if ( strpos( $_SERVER[ 'REQUEST_URI' ], $path ) !== false ) {
+			if ( strpos( strtolower( $_SERVER[ 'REQUEST_URI' ] ), $path ) !== false ) {
 				return false;
 			}
 		}
@@ -170,12 +188,22 @@ class ElevatePageCache {
 		return HOUR_IN_SECONDS*24;
 	}
 
-	private function _get_cache_directory() {
+	public function _get_cache_directory() {
 		return $this->cache_dir;
 	}
 
 	private function _get_cache_file_path() {
 		return $this->_get_cache_directory() . $this->_get_cache_key() . '.json';
+	}
+
+	private function _is_user_logged_in() {
+		foreach( $_COOKIE as $key => $value ) {
+			if ( preg_match( '|^wordpress_logged_in_(.*)|i', $key ) ) {
+				return $_COOKIE[ $key ];
+			}
+		}		
+
+		return false;
 	}
 
 	private function _get_cache_key() {
@@ -195,8 +223,9 @@ class ElevatePageCache {
 			}
 		}
 
-		if ( is_user_logged_in() ) {
-			$cache_key .= 'user_' . get_current_user_id();
+		$logged_in_cookie = $this->_is_user_logged_in();
+		if ( $logged_in_cookie ) {
+			$cache_key .= 'user_' . $logged_in_cookie;
 		} else {
 			$cache_key .= 'not_logged_in';
 		}
