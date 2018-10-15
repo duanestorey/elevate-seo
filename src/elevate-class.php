@@ -219,7 +219,7 @@ class ElevatePlugin {
 		foreach( $page_types as $page_type ) {
 		  	add_meta_box( 
 		        'elevate_seo',
-		         __( 'Elevate SEO / Search Titles &amp; Descriptions', 'elevate_seo' ),
+		         __( 'Elevate - Search Titles &amp; Descriptions', 'elevate_seo' ),
 		        array( &$this, 'post_meta_content' ),
 		        $page_type,
 		        'normal',
@@ -228,7 +228,7 @@ class ElevatePlugin {
 
 		  	add_meta_box( 
 		        'elevate_seo_side',
-		        'Elevate SEO',
+		        'Elevate',
 		        array( &$this, 'post_meta_side_content' ),
 		        $page_type,
 		        'side',
@@ -266,6 +266,8 @@ class ElevatePlugin {
 	}
 
 	public function initialize() {
+		do_action( 'elevate_pre_init' );
+
 		add_theme_support( 'post-thumbnails' ); 
 
 		add_action( 'admin_menu', array( &$this, 'create_admin_menu' ) );
@@ -308,7 +310,11 @@ class ElevatePlugin {
 			$this->_load_saved_settings();	
 		}	
 
+		do_action( 'elevate_settings_loaded', $this->settings );
+
 		$this->debug_log->enable( $this->settings->enable_debug_log );
+
+		do_action( 'elevate_debug_log_ready', $this->debug_log );
 
 		// Load the sitemap generator
 		// TODO: Defer this to later
@@ -318,8 +324,9 @@ class ElevatePlugin {
 		// Load our class for manipulating the DB tables
 		require_once( dirname( __FILE__ ) . '/elevate-db.php' );
 		$this->elevate_db = new ElevateDB;
-
 		$this->check_for_version_update();
+
+		do_action( 'elevate_post_init' );
 	}
 
 	public function check_for_version_update() {
@@ -488,10 +495,10 @@ class ElevatePlugin {
 		$toolbar_nonce = wp_create_nonce( 'elevate_toolbar' );
 
 		if ( $this->settings->wizard_complete ) {
-			$admin_bar->add_node( $this->_create_toolbar_args( 'elevate_top', 'Elevate SEO', admin_url( 'admin.php?page=elevate_dashboard' ), false ) );
+			$admin_bar->add_node( $this->_create_toolbar_args( 'elevate_top', 'Elevate', admin_url( 'admin.php?page=elevate_dashboard' ), false ) );
 	    	$admin_bar->add_node( $this->_create_toolbar_args( 'elevate_dashboard', __( 'Dashboard', 'elevate-seo' ), admin_url( 'admin.php?page=elevate_dashboard' ), 'elevate_top' ) );
 		} else {
-			$admin_bar->add_node( $this->_create_toolbar_args( 'elevate_top', 'Elevate SEO', admin_url( 'admin.php?page=elevate_plugin' ), false ) );
+			$admin_bar->add_node( $this->_create_toolbar_args( 'elevate_top', 'Elevate', admin_url( 'admin.php?page=elevate_plugin' ), false ) );
 	   	 	$admin_bar->add_node( $this->_create_toolbar_args( 'elevate_dashboard', __( 'Get Started', 'elevate-seo' ), admin_url( 'admin.php?page=elevate_plugin' ), 'elevate_top' ) );
 		}
 
@@ -2060,6 +2067,8 @@ class ElevatePlugin {
 		// Breadcrumbs 
 		$settings->enable_breadcrumbs = 1;
 		$settings->breadcrumb_home = __( 'Home', 'elevate-seo' );
+
+		$settings = apply_filters( 'elevate_settings_defaults', $settings );
 	}
 
 	private function _create_directory_if_needed( $dir ) {
@@ -2196,6 +2205,8 @@ class ElevatePlugin {
 		// Update the database if something changed
 		if ( $was_modified ) {
 			$this->actual_save_settings();
+
+			do_action( 'elevate_settings_modified' );
 		}
 
 		//$this->_generate_sitemap( false );
@@ -2838,35 +2849,39 @@ class ElevatePlugin {
 	function create_admin_menu() {
 		$settings = $this->get_settings();
 
+		do_action( 'elevate_pre_create_admin_menu' );
+
 		$top_level = false;
 
 		if ( $settings->wizard_complete ) {
 			$top_level = 'elevate_dashboard';
 
-			add_menu_page( 'Elevate', __( 'Elevate SEO', 'elevate' ), 'manage_options', $top_level, '', 'dashicons-search', 20  );
-			add_submenu_page( $top_level, __( 'Dashboard', 'elevate' ), __( 'Dashboard', 'elevate' ), 'manage_options', $top_level, array( &$this, 'show_plugin_dashboard' ) );;
+			add_menu_page( 'Elevate', __( 'Elevate', 'elevate-seo' ), 'manage_options', $top_level, '', 'dashicons-search', 20  );
+			add_submenu_page( $top_level, __( 'Dashboard', 'elevate-seo' ), __( 'Dashboard', 'elevate-seo' ), 'manage_options', $top_level, array( &$this, 'show_plugin_dashboard' ) );;
 		} else {
 			$top_level = 'elevate_plugin';
 
-			add_menu_page( 'Elevate', __( 'Elevate SEO', 'elevate' ), 'manage_options', $top_level, '', 'dashicons-search', 20  );
-			add_submenu_page( $top_level, __( 'Get Started', 'elevate' ), __( 'Get Started', 'elevate' ), 'manage_options', $top_level, array( &$this, 'show_plugin_wizard' ) );
+			add_menu_page( 'Elevate', __( 'Elevate', 'elevate-seo' ), 'manage_options', $top_level, '', 'dashicons-search', 20  );
+			add_submenu_page( $top_level, __( 'Get Started', 'elevate-seo' ), __( 'Get Started', 'elevate-seo' ), 'manage_options', $top_level, array( &$this, 'show_plugin_wizard' ) );
 		}
 
-		add_submenu_page( $top_level, __( 'General', 'elevate' ), __( 'General', 'elevate' ), 'manage_options', 'elevate_general', array( &$this, 'show_general_options' ) );		
+		add_submenu_page( $top_level, __( 'General', 'elevate-seo' ), __( 'General', 'elevate-seo' ), 'manage_options', 'elevate_general', array( &$this, 'show_general_options' ) );		
 
 		add_submenu_page( $top_level, __( 'Search', 'elevate-seo' ), __( 'Search', 'elevate-seo' ), 'manage_options', 'elevate_search', array( &$this, 'show_search_options' ) );	
 
-		add_submenu_page( $top_level, __( 'Sitemap', 'elevate' ), __( 'Sitemap', 'elevate' ), 'manage_options', 'elevate_sitemap', array( &$this, 'show_sitemap_options' ) );
+		add_submenu_page( $top_level, __( 'Sitemap', 'elevate-seo' ), __( 'Sitemap', 'elevate-seo' ), 'manage_options', 'elevate_sitemap', array( &$this, 'show_sitemap_options' ) );
 
 
-		add_submenu_page( $top_level, __( 'Redirects', 'elevate' ), __( 'Redirects', 'elevate' ), 'manage_options', 'elevate_redirects', array( &$this, 'show_redirects' ) );	
-		add_submenu_page( $top_level, __( 'Performance', 'elevate' ), __( 'Performance', 'elevate' ), 'manage_options', 'elevate_performance', array( &$this, 'show_performance' ) );
+		add_submenu_page( $top_level, __( 'Redirects', 'elevate-seo' ), __( 'Redirects', 'elevate-seo' ), 'manage_options', 'elevate_redirects', array( &$this, 'show_redirects' ) );	
+		add_submenu_page( $top_level, __( 'Performance', 'elevate-seo' ), __( 'Performance', 'elevate-seo' ), 'manage_options', 'elevate_performance', array( &$this, 'show_performance' ) );
 
-		add_submenu_page( $top_level, __( 'Social Media', 'elevate' ), __( 'Social Media', 'elevate' ), 'manage_options', 'elevate_social', array( &$this, 'show_social_media_options' ) );
+		add_submenu_page( $top_level, __( 'Social Media', 'elevate-seo' ), __( 'Social Media', 'elevate-seo' ), 'manage_options', 'elevate_social', array( &$this, 'show_social_media_options' ) );
 
 		if ( ElevatePlugin::get_one_setting( 'enable_advanced_settings') ) {
 			add_submenu_page( $top_level, __( 'Advanced', 'elevate-seo' ), __( 'Advanced', 'elevate-seo' ), 'manage_options', 'elevate_advanced', array( &$this, 'show_advanced_settings' ) );	
 		}
+
+		do_action( 'elevate_post_create_admin_menu', $top_level );
 	}
 
 	function show_advanced_settings() {

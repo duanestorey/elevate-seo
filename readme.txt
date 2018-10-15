@@ -61,6 +61,8 @@ To install the plugin, simply add the plugin from the WordPress admin panel in t
  
 == Changelog ==
 
+= Version 1.1.2 (?) =
+
 = Version 1.1.1 (Oct 14, 2018) =
 
 * Added: Ability to reset

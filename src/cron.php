@@ -45,7 +45,7 @@ function elevate_check_cron_job() {
 		ELEVATE_DEBUG( ELEVATE_DEBUG_INFO, 'Setting up CRON job' );
 
 		wp_clear_scheduled_hook( 'elevate_cron_job' );
-		wp_schedule_event( time() + 3, 'daily', 'elevate_cron_job' );
+		wp_schedule_event( time() + 1, 'twicedaily', 'elevate_cron_job' );
 
 		update_option( 'elevate_cron_set_by', ELEVATE_PLUGIN_VERSION );
 	}

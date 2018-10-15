@@ -13,7 +13,7 @@ $section->add_setting( new ElevateSettingText( 'social_googleplus_name', 'Google
 $page->add_section( $section );
 */
 
-$section = new ElevateSettingsSection( __( 'Social Media Services', 'elevate' ), __( 'Configure which services generate additional page information', 'elevate-seo' ) );
+$section = new ElevateSettingsSection( __( 'Social Media Services', 'elevate-seo' ), __( 'Configure which services generate additional page information', 'elevate-seo' ) );
 $section->add_setting( new ElevateSettingCheckbox( 'enable_facebook_og', __( 'Enable Facebook OpenGraph', 'elevate-seo' ), '' ) );
 $section->add_setting( new ElevateSettingText( 'facebook_app_id', 'Facebook App ID', __( 'If you create an application, you can use Facebook Insights to track analytics to and from Facebook', 'elevate-seo' ), __( 'Optional', 'elevate-seo' )  ) );
 $section->add_setting( new ElevateSettingSpacer() );
