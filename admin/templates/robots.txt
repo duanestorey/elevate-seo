@@ -1,11 +1,12 @@
 # elevate robots begin
 # robots.txt, added by the Elevate plugin for WordPress, by Duane Storey
-# file version: 1
+# file version: 2
 
 User-agent: *
 Disallow: [admin_url]/
 Disallow: /readme.html
 Disallow: /trackback/
+Disallow: [page_cache_directory]
 Allow: [admin_url]/admin-ajax.php
 Allow: [upload_url]
 Sitemap: [sitemap_url]

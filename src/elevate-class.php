@@ -219,7 +219,7 @@ class ElevatePlugin {
 		foreach( $page_types as $page_type ) {
 		  	add_meta_box( 
 		        'elevate_seo',
-		         __( 'Elevate - Search Titles &amp; Descriptions', 'elevate_seo' ),
+		         __( 'Elevate SEO - Search Titles &amp; Descriptions', 'elevate_seo' ),
 		        array( &$this, 'post_meta_content' ),
 		        $page_type,
 		        'normal',
@@ -228,7 +228,7 @@ class ElevatePlugin {
 
 		  	add_meta_box( 
 		        'elevate_seo_side',
-		        'Elevate',
+		        'Elevate SEO',
 		        array( &$this, 'post_meta_side_content' ),
 		        $page_type,
 		        'side',
@@ -263,6 +263,19 @@ class ElevatePlugin {
 		$this->_get_analytics_page_data();
 
 		ELEVATE_DEBUG( ELEVATE_DEBUG_INFO, 'CRON END' );
+	}
+
+	public function _check_page_cache() {
+		require_once( dirname( __FILE__ ) . '/page-cache.php' );
+
+		if ( $this->settings->enable_page_cache ) {
+			$page_cache = new ElevatePageCache;
+			if ( ( $cache_id = $page_cache->has_cached_page() ) !== false ) {
+				$page_cache->serve_cached_page();
+			} else {
+				$page_cache->cache_and_serve_page();
+			}			
+		}
 	}
 
 	public function initialize() {
@@ -495,10 +508,10 @@ class ElevatePlugin {
 		$toolbar_nonce = wp_create_nonce( 'elevate_toolbar' );
 
 		if ( $this->settings->wizard_complete ) {
-			$admin_bar->add_node( $this->_create_toolbar_args( 'elevate_top', 'Elevate', admin_url( 'admin.php?page=elevate_dashboard' ), false ) );
+			$admin_bar->add_node( $this->_create_toolbar_args( 'elevate_top', 'Elevate SEO', admin_url( 'admin.php?page=elevate_dashboard' ), false ) );
 	    	$admin_bar->add_node( $this->_create_toolbar_args( 'elevate_dashboard', __( 'Dashboard', 'elevate-seo' ), admin_url( 'admin.php?page=elevate_dashboard' ), 'elevate_top' ) );
 		} else {
-			$admin_bar->add_node( $this->_create_toolbar_args( 'elevate_top', 'Elevate', admin_url( 'admin.php?page=elevate_plugin' ), false ) );
+			$admin_bar->add_node( $this->_create_toolbar_args( 'elevate_top', 'Elevate SEO', admin_url( 'admin.php?page=elevate_plugin' ), false ) );
 	   	 	$admin_bar->add_node( $this->_create_toolbar_args( 'elevate_dashboard', __( 'Get Started', 'elevate-seo' ), admin_url( 'admin.php?page=elevate_plugin' ), 'elevate_top' ) );
 		}
 
@@ -2049,6 +2062,7 @@ class ElevatePlugin {
 		// Performance
 		$settings->use_cdn = 0;
 		$settings->cdn_url = '';
+		$settings->enable_page_cache = 0;
 
 		// Meta information
 		$settings->insert_canonical = 1;
@@ -2264,6 +2278,8 @@ class ElevatePlugin {
 		if ( !is_admin() ) {
 			$this->_check_for_redirects();
 		}		
+
+		$this->_check_page_cache();
 	}
 
 	private function _setup_taxonomies() {
@@ -2856,12 +2872,12 @@ class ElevatePlugin {
 		if ( $settings->wizard_complete ) {
 			$top_level = 'elevate_dashboard';
 
-			add_menu_page( 'Elevate', __( 'Elevate', 'elevate-seo' ), 'manage_options', $top_level, '', 'dashicons-search', 20  );
+			add_menu_page( 'Elevate SEO', __( 'Elevate SEO', 'elevate-seo' ), 'manage_options', $top_level, '', 'dashicons-search', 20  );
 			add_submenu_page( $top_level, __( 'Dashboard', 'elevate-seo' ), __( 'Dashboard', 'elevate-seo' ), 'manage_options', $top_level, array( &$this, 'show_plugin_dashboard' ) );;
 		} else {
 			$top_level = 'elevate_plugin';
 
-			add_menu_page( 'Elevate', __( 'Elevate', 'elevate-seo' ), 'manage_options', $top_level, '', 'dashicons-search', 20  );
+			add_menu_page( 'Elevate SEO', __( 'Elevate SEO', 'elevate-seo' ), 'manage_options', $top_level, '', 'dashicons-search', 20  );
 			add_submenu_page( $top_level, __( 'Get Started', 'elevate-seo' ), __( 'Get Started', 'elevate-seo' ), 'manage_options', $top_level, array( &$this, 'show_plugin_wizard' ) );
 		}
 
@@ -2884,49 +2900,71 @@ class ElevatePlugin {
 		do_action( 'elevate_post_create_admin_menu', $top_level );
 	}
 
+	public function _load_settings_scripts() {
+		require_once( ELEVATE_PLUGIN_DIR . '/src/settings-section.php' );
+		require_once( ELEVATE_PLUGIN_DIR . '/src/settings-page.php' );
+		require_once( ELEVATE_PLUGIN_DIR . '/src/setting.php' );
+	}
+
 	function show_advanced_settings() {
+		$this->_load_settings_scripts();
+
 		include( ELEVATE_PLUGIN_DIR . '/admin/pages/advanced.php' );
 	}
 
 	function show_plugin_wizard() {
+		$this->_load_settings_scripts();
+
 		require_once( dirname( __FILE__ ) . '/apache.php' );
 
 		include( ELEVATE_PLUGIN_DIR . '/admin/pages/wizard.php' );
 	}
 
 	function show_general_options() {
+		$this->_load_settings_scripts();
+
 		include( ELEVATE_PLUGIN_DIR . '/admin/pages/general.php' );
 	}
 
 	function show_sitemap_options() {
+		$this->_load_settings_scripts();
+
 		include( ELEVATE_PLUGIN_DIR . '/admin/pages/sitemap.php' );
 	}
 
-	function show_titles() {
-		include( ELEVATE_PLUGIN_DIR . '/admin/pages/titles.php' );
-	}
-
 	function show_search_options() {
+		$this->_load_settings_scripts();
+
 		include( ELEVATE_PLUGIN_DIR . '/admin/pages/google.php' );
 	}
 
 	function show_redirects() {
+		$this->_load_settings_scripts();
+
 		include( ELEVATE_PLUGIN_DIR . '/admin/pages/redirects.php' );
 	}	
 
 	function show_performance() {
+		$this->_load_settings_scripts();
+
 		include( ELEVATE_PLUGIN_DIR . '/admin/pages/performance.php' );
 	}
 
 	function show_indexing() {
+		$this->_load_settings_scripts();
+
 		include( ELEVATE_PLUGIN_DIR . '/admin/pages/indexing.php' );
 	}
 
 	function show_social_media_options() {
+		$this->_load_settings_scripts();
+
 		include( ELEVATE_PLUGIN_DIR . '/admin/pages/social.php' );
 	}
 
 	function show_plugin_dashboard() {
+		$this->_load_settings_scripts();
+
 		include( ELEVATE_PLUGIN_DIR . '/admin/pages/dashboard.php' );
 	}
 }

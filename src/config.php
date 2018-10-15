@@ -9,7 +9,6 @@
  *  @license GPL-3.0+ <http://spdx.org/licenses/GPL-3.0+>
  */
 
-
 define( 'ELEVATE_SETTINGS_ICON', ELEVATE_PLUGIN_URL . '/images/search.png' );
 define( 'ELEVATE_SETTINGS_KEY', 'elevate_seo_settings' );
 define( 'ELEVATE_GOOGLE_TOKENS_KEY', 'elevate_google_settings' );
