@@ -105,7 +105,7 @@ class ElevatePageCache {
 				header( 'ETag: ' . $this->_get_cache_key() );
 
 				$last_modified = filemtime( $this->_get_cache_file_path() );
-				//header( 'Last-Modified: ' . gmdate( 'D, d M Y H:i:s T', $last_modified ) );
+				header( 'Last-Modified: ' . gmdate( 'D, d M Y H:i:s T', $last_modified ) );
 
 				http_response_code( 200 ); 
 
