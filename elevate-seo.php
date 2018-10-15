@@ -13,7 +13,7 @@ Text Domain: elevate-seo
 define( 'ELEVATE_PLUGIN_VERSION', '1.1.2' );
 define( 'ELEVATE_PLUGIN_URL', plugins_url( '', __FILE__  ) );
 define( 'ELEVATE_PLUGIN_DIR', dirname( __FILE__ ) );
-define( 'ELEVATE_PLUGIN_SRC_DIR', dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR );
+define( 'ELEVATE_PLUGIN_SRC_DIR', dirname( __FILE__ ) . '/src/' );
 
 require_once( ELEVATE_PLUGIN_DIR . '/src/config.php' );
 require_once( ELEVATE_PLUGIN_DIR . '/src/elevate-class.php' );
