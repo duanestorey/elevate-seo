@@ -124,7 +124,7 @@ class ElevatePageCache {
 
 			header( 'X-Elevate-Cache: ' . ELEVATE_PLUGIN_VERSION . '/Miss' );
 			header_remove( 'Cache-Control' );
-			header( 'Cache-Control: private, must-revalidate, no-cache, max-age=0' );
+			header( 'Cache-Control: must-revalidate, max-age=0' );
 			header( 'ETag: ' . $this->_get_cache_key() );
 		}
 
