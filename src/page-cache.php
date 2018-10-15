@@ -65,7 +65,7 @@ class ElevatePageCache {
 		if ( !$this->_can_cache_page() ) {
 			return false;
 		}
-		
+
 		if ( file_exists( $this->_get_cache_file_path() ) ) {
 			$last_modified = filemtime( $this->_get_cache_file_path() );
 
@@ -97,6 +97,7 @@ class ElevatePageCache {
 				}
 
 				header( 'X-Elevate-Cache: ' . ELEVATE_PAGE_CACHE_VERSION . '/Hit' );
+				header( 'Cache-Control: private, must-revalidate' );
 
 				http_response_code( 200 ); 
 
