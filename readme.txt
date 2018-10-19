@@ -61,7 +61,11 @@ To install the plugin, simply add the plugin from the WordPress admin panel in t
  
 == Changelog ==
 
-= Version 1.1.2 (?) =
+= Version 1.2.0 (?) =
+
+* Added: Ability to cache pages
+* Added: Ability to import from WP Meta SEO
+* Added: Ability to augment default robots.txt information
 
 = Version 1.1.1 (Oct 14, 2018) =
 

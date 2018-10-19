@@ -17,11 +17,18 @@ if ( ElevatePlugin::get()->has_google_tokens() ) {
 $page->add_section( $section );
 
 $section = new ElevateSettingsSection( __( 'Crawling', 'elevate-seo' ), __( 'Options for controlling granular search', 'elevate-seo' ) );
-$section->add_setting( new ElevateSettingList( 'robots_txt', __( 'Robots.txt Generation', 'elevate-seo' ), '', array(
-		'default' => __( 'Default WordPress', 'elevate-seo' ),
-		'enhanced' => __( 'Enhanced', 'elevate-seo' )
-	)
-) );
+$section->add_setting( 
+	new ElevateSettingList( 
+		'robots_txt', 
+		__( 'Robots.txt Generation', 'elevate-seo' ), '', 
+		array(
+			'default' => __( 'Default WordPress', 'elevate-seo' ),
+			'enhanced' => __( 'Enhanced', 'elevate-seo' ) 
+		)
+	) 
+);
+$section->add_setting( new ElevateSettingTextArea( 'robots_extra', __( 'Other information to append to robots.txt', 'elevate-seo' ), __( 'Only applies to Enhanced robots.txt generation', 'elevate-seo' ) ) );
+
 $page->add_section( $section );
 
 $section = new ElevateSettingsSection( __( 'Search Information', 'elevate-seo' ), __( 'Configure meta fields', 'elevate-seo' ) );
@@ -34,7 +41,8 @@ $section->add_setting( new ElevateSettingCheckbox( 'fill_empty_description', __(
 if ( ElevatePlugin::get_one_setting( 'enable_advanced_settings') ) {
 	$section->add_setting( new ElevateSettingList( 'import_behaviour', __( 'Default search title and description', 'elevate-seo' ), __( 'If you have used other SEO plugins previously, you can dynamically import their data here.', 'elevate-seo' ), array(
 			'none' => __( 'Do not import data', 'elevate-seo' ),
-			'yoast' => __( 'Import from Yoast', 'elevate-seo' )
+			'yoast' => __( 'Import from Yoast', 'elevate-seo' ),
+			'wp_meta_seo' => __( 'Import from WP Meta SEO', 'elevate-seo' )
 		) 
 	) );
 }

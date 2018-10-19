@@ -164,6 +164,21 @@ class ElevatePlugin {
 					$post_data->desc = $yoast_desc;
 				}
 			}
+		} else if ( $this->settings->import_behaviour == 'wp_meta_seo' ) {
+			if ( !$post_data->title ) {
+				$new_title = get_post_meta( $post_id, '_metaseo_metatitle', true );
+
+				if ( $new_title ) {
+					$post_data->title = $new_title;
+				}
+			}
+
+			if ( !$post_data->desc ) {
+				$new_desc = get_post_meta( $post_id, '_metaseo_metadesc', true );
+				if ( $new_desc ) {
+					$post_data->desc = $new_desc;
+				}
+			}			
 		}
 
 		return $post_data;
@@ -208,7 +223,11 @@ class ElevatePlugin {
 			);
 		}
 
-		return $robots_source;
+		if ( $this->settings->robots_extra ) {
+			$robots_source = $robots_source . $this->settings->robots_extra;
+		}
+
+		return apply_filters( 'elevate_robots_content', $robots_source );
 	}
 
 	public function setup_post_meta_box() {
@@ -2054,6 +2073,8 @@ class ElevatePlugin {
 		$settings->sitemap_is_generating = 0;
 		$settings->show_google_preview = 1;
 		$settings->robots_txt = 'enhanced';
+		$settings->robots_extra = '';
+
 		$settings->cache_version = time();
 
 		// Sitemap, what to include
