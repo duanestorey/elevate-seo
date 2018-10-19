@@ -240,6 +240,16 @@ class ElevatePageCache {
 			$cache_key .= 'not_logged_in';
 		}
 
+		// split SSL vs non-SSL requests
+		if ( isset( $_SERVER[ 'HTTPS' ] ) ) {
+			$cache_key .= 'ssl';
+		}
+
+		// Make sure we add the host in case two hosts resolve to the same WP install
+		if ( isset( $_SERVER[ 'HTTP_HOST'] ) ) {
+			$cache_key .= $_SERVER[ 'HTTP_HOST' ];
+		}
+
 		$cache_key = $cache_key . $this->cache_version;
 
 		$this->cache_key = md5( $cache_key );
