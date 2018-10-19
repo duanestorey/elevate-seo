@@ -5,14 +5,16 @@ define( 'ELEVATE_CACHE_WP_REL_URL', '{elevate_cache_rel_url}' );
 define( 'ELEVATE_CACHE_PLUGIN_DIR', '{elevate_plugin_directory}' );
 define( 'ELEVATE_CACHE_PAGE_VERSION', '{elevate_cache_version}' );
 
+if ( file_exists( ELEVATE_CACHE_PLUGIN_DIR . '/src/page-cache.php' ) ) { 
 require_once( ELEVATE_CACHE_PLUGIN_DIR . '/src/page-cache.php' );
-$elevate_page_cache = new ElevatePageCache;
+	$elevate_page_cache = new ElevatePageCache;
 
-$elevate_cache_id = $elevate_page_cache->has_cached_page();
+	$elevate_cache_id = $elevate_page_cache->has_cached_page();
 
-if ( $elevate_cache_id !== false ) {
-	$elevate_page_cache->serve_cached_page();
-} else {
-	$elevate_page_cache->cache_and_serve_page();
-}	
+	if ( $elevate_cache_id !== false ) {
+		$elevate_page_cache->serve_cached_page();
+	} else {
+		$elevate_page_cache->cache_and_serve_page();
+	}	
+}
 
