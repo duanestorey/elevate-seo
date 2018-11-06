@@ -22,6 +22,28 @@ Using Elevate's comprehensive SEO and performance dashboard, you will be able to
 
 For more information, please visit the official [Elevate for WordPress](https://elevatewp.io/?utm_campaign=wporg&utm_medium=web&utm_source=wporg "Elevate for WordPress"). home page.
 
+Elevate SEO contains these great features:
+ 
+* Per-post and per-page adjustments for search titles, descriptions, content language, canonical URLs, and index status
+* Intelligent configuration wizard that intelligently sets up your website around the Internet
+* Automatic generation and submission of a site-wide XML Sitemap
+* Integration with popular search engines such as Google and Bing
+* Ability to set a site-wide image to represent your website on social media - this can be adjusted dynamically based on an administrative web policy or per-post settings
+* Automatic insertion of Open Graph and other social tags to improve the look of your website around the web
+* Real-time preview of content and how it will look on popular social media sites such as Facebook, Twitter and LinkedIn
+* Integration with Google Page Speed
+* Automatic structured content, including Breadcrumbs, Article, etc.
+* Automatic site verification on Google Search Console
+* Automatic creation and configuration of a Google Analytics profile for each website
+* Ongoing display of weekly search results in the administration panel
+* Display of site-wide Google errors that need fixing
+* Automatic integration of Google Analytics tracking code - no more messing with cutting and pasting
+* Can dynamically import data from other search engine plugins for WordPress
+* Easy authentication with Google via OAuth2
+* Ability to integrate with custom Facebook applications
+* Granular adjustments of options for display on networks such as Twitter
+
+
 == Screenshots ==
  
 1. Elevate SEO and Performance Dashboard
