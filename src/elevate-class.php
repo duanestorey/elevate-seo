@@ -593,6 +593,10 @@ class ElevatePlugin {
 		if ( $this->settings->insert_analytics ) {
 			echo $this->settings->analytics_code;
 		}
+
+		if ( $this->settings->include_powered_by ) {
+			echo '<p style="text-align: center;">' . sprintf( __( 'Powered by the %sElevate SEO plugin for WordPress%s', 'elevate-seo' ), '<a href="https://elevatewp.io/">', '</a>' ) . '</p>';
+		}
 	}
 
 	private function _create_toolbar_args( $id, $title, $link, $parent ) {
@@ -2083,6 +2087,7 @@ class ElevatePlugin {
 		$settings->show_google_preview = 1;
 		$settings->robots_txt = 'enhanced';
 		$settings->robots_extra = '';
+		$settings->include_powered_by = 0;
 
 		$settings->cache_version = time();
 

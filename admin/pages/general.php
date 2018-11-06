@@ -7,6 +7,7 @@ $section->add_setting( new ElevateSettingList( 'selected_locale', __( 'Language'
 	ElevatePlugin::get_supported_languages()
 ) );
 $section->add_setting( new ElevateSettingCheckbox( 'enable_advanced_settings', __( 'Enabled advanced settings', 'elevate-seo' ), __( 'Enabling this option will show all the advanced settings.', 'elevate-seo' ) ) );
+$section->add_setting( new ElevateSettingCheckbox( 'include_powered_by', __( 'Promote Elevate SEO in footer', 'elevate-seo' ), __( 'Add \'Powered by Elevate SEO\' to your theme\'s footer', 'elevate-seo' ), false ) );
 $page->add_section( $section );
 
 
