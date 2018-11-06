@@ -12,3 +12,5 @@ You can read more about Elevate, and also find detailed usage and installation i
 ## WordPress repository
 Elevate SEO is also hosted in the official WordPress.org repository at https://wordpress.org/plugins/elevate-seo/. 
 
+Elevate SEO is a product created by https://lindellmedia.com.
+
