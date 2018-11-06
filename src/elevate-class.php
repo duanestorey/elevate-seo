@@ -595,7 +595,7 @@ class ElevatePlugin {
 		}
 
 		if ( $this->settings->include_powered_by ) {
-			echo '<p style="text-align: center;">' . sprintf( __( 'Powered by the %sElevate SEO plugin for WordPress%s', 'elevate-seo' ), '<a href="https://elevatewp.io/">', '</a>' ) . '</p>';
+			echo '<p style="text-align: center; color: white; font-size: 14px">' . sprintf( __( 'Powered by the %sElevate SEO plugin for WordPress%s', 'elevate-seo' ), '<a href="https://elevatewp.io/">', '</a>' ) . '</p>';
 		}
 	}
 
