@@ -273,6 +273,15 @@ class ElevatePlugin {
 		include( ELEVATE_PLUGIN_DIR . '/admin/meta/side.php' );		
 	}
 
+	public function _clear_cache_directory() {
+		if ( $this->settings->enable_page_cache ) {
+			require_once( dirname( __FILE__ ) . '/page-cache.php' );
+
+			$page_cache = new ElevatePageCache;
+			$page_cache->cleanup_cache_dir();
+		}
+	}
+
 	public function handle_cron() {
 		ELEVATE_DEBUG( ELEVATE_DEBUG_INFO, 'CRON BEGIN' );
 

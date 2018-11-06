@@ -86,6 +86,25 @@ class ElevatePageCache {
 		}
 	}
 
+	public function cleanup_cache_dir() {
+		$cache_dir = $this->_get_cache_directory();
+		$cache_files = scandir( $cache_dir );
+		if ( $cache_files ) {
+			foreach( $cache_files as $cache_file ) {
+				if ( $cache_file == '.' || $cache_file == '..' || $cache_file == '.htaccess' ) {
+					continue;
+				}
+
+				$full_file = _trailingslashit( $cache_dir ) . $cache_file;
+
+				$time_since = time() - filemtime( $full_file );
+				if ( $time_since > $this->_get_cache_duration() ) {
+					unlink( $full_file );
+				}
+			}
+		}
+	}
+
 	public function serve_cached_page() {
 		$cache_file = file_get_contents( $this->_get_cache_file_path() );
 		if ( $cache_file ) {
