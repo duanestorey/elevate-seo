@@ -134,7 +134,7 @@
 
 						<ul>
 							<li><em><?php _e( 'Version:', 'elevate-seo' ); ?></em><span><?php echo ELEVATE_PLUGIN_VERSION; ?></span></li>
-							<li><em><?php _e( 'Last Modified:', 'elevate-seo' ); ?></em><span><?php echo date( 'F jS, Y', filemtime( ELEVATE_PLUGIN_DIR . '/elevate-seo.php' ) ); ?></span></li>
+							<li><em><?php _e( 'Last Modified:', 'elevate-seo' ); ?></em><span><?php echo date( 'F jS, Y', filemtime( ELEVATE_PLUGIN_DIR . '/dist/cache-bust.php' ) ); ?></span></li>
 							<li><em><?php _e( 'Release Notes:', 'elevate-seo' ); ?></em><span><a target="_blank" href="<?php echo ELEVATE_PLUGIN_URL; ?>/readme.txt"><?php _e( 'View', 'elevate-seo' ); ?></a></span></li>
 						</ul>
 					</div>
