@@ -43,7 +43,6 @@ Elevate SEO contains these great features:
 * Ability to integrate with custom Facebook applications
 * Granular adjustments of options for display on networks such as Twitter
 
-
 == Screenshots ==
  
 1. Elevate SEO and Performance Dashboard
@@ -83,11 +82,12 @@ To install the plugin, simply add the plugin from the WordPress admin panel in t
  
 == Changelog ==
 
-= Version 1.1.2 (Nov 27, 2018) =
+= Version 1.1.2 (Nov 28, 2018) =
 
+* Changed: Prep work for Page Speed v5
+* Updated: Support for WordPress 5.0
 * Added: Ability to import from WP Meta SEO
 * Added: Ability to augment default robots.txt information
-* Updated: Support for WordPress 5.0
 
 = Version 1.1.1 (Oct 14, 2018) =
 
