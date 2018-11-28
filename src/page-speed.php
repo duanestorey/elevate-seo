@@ -11,8 +11,8 @@
 
 require_once( 'http-request.php' );
 
-define( 'ELEVATE_GOOGLE_PS_URL', 'https://www.googleapis.com/pagespeedonline/v4/runPagespeed' );
-define( 'ELEVATE_PS_CACHE_VERSION', '1.0.0' );
+define( 'ELEVATE_GOOGLE_PS_URL', 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed' );
+define( 'ELEVATE_PS_CACHE_VERSION', '1.0.1' );
 
 class ElevatePageSpeed {
 	function __construct() {}
