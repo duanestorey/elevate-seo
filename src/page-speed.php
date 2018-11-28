@@ -11,8 +11,11 @@
 
 require_once( 'http-request.php' );
 
-define( 'ELEVATE_GOOGLE_PS_URL', 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed' );
+define( 'ELEVATE_PS_VERSION', 4 );
+define( 'ELEVATE_GOOGLE_PS_URL', 'https://www.googleapis.com/pagespeedonline/v' . ELEVATE_PS_VERSION . '/runPagespeed' );
 define( 'ELEVATE_PS_CACHE_VERSION', '1.0.1' );
+define( 'ELEVATE_PS_DEBUG', 1 );
+
 
 class ElevatePageSpeed {
 	function __construct() {}
@@ -25,15 +28,11 @@ class ElevatePageSpeed {
 		ELEVATE_DEBUG( ELEVATE_DEBUG_INFO, 'Parsing page speed data ' . print_r( $decoded_data, true ) );
 
 		$internal_data->speed = $decoded_data->ruleGroups->SPEED->score;
-
 		$internal_data->resources = $decoded_data->pageStats->numberResources;
-
 		$internal_data->js_resources = $decoded_data->pageStats->numberJsResources;
 		$internal_data->js_bytes = $decoded_data->pageStats->javascriptResponseBytes;
-
 		$internal_data->css_resources = $decoded_data->pageStats->numberCssResources;
 		$internal_data->css_bytes = $decoded_data->pageStats->cssResponseBytes;
-
 		$internal_data->response_bytes = $decoded_data->pageStats->overTheWireResponseBytes;
 		$internal_data->response_resources = $decoded_data->pageStats->numberStaticResources;
 
@@ -49,8 +48,17 @@ class ElevatePageSpeed {
 	public function check_page( $url ) {
 		require_once( 'http-request.php' );
 
+		if ( defined( 'ELEVATE_PS_DEBUG' ) && ELEVATE_PS_DEBUG ) {
+			$url = 'https://www.lindellmedia.com/';
+		}
+
 		$desktop_request_url = ELEVATE_GOOGLE_PS_URL . '?url=' . urlencode( $url );
 		$mobile_request_url = ELEVATE_GOOGLE_PS_URL . '?url=' . urlencode( $url ) . '&strategy=mobile';
+
+		if ( ELEVATE_PS_VERSION == 5 ) {
+			$desktop_request_url = $desktop_request_url . '&category=performance';
+			$mobile_request_url = $mobile_request_url . '&category=performance';
+		}
 
 		$desktop_result = ElevateHTTP::make_request( $desktop_request_url );
 		$mobile_result = ElevateHTTP::make_request( $mobile_request_url );
