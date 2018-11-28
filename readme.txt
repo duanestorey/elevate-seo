@@ -4,7 +4,7 @@ Tags: seo, pagespeed, google, sitemap, woocommerce
 Requires at least: 4.8
 Tested up to: 5.0
 Requires PHP: 5.6
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
  
@@ -83,11 +83,11 @@ To install the plugin, simply add the plugin from the WordPress admin panel in t
  
 == Changelog ==
 
-= Version 1.2.0 (?) =
+= Version 1.1.2 (Nov 27, 2018) =
 
-* Added: Ability to cache pages
 * Added: Ability to import from WP Meta SEO
 * Added: Ability to augment default robots.txt information
+* Updated: Support for WordPress 5.0
 
 = Version 1.1.1 (Oct 14, 2018) =
 
