@@ -2,7 +2,7 @@
 <section class="elevate">
 	<div class="header">
 		<h2><?php _e( 'Elevate SEO - Dashboard', 'elevate-seo' ); ?></h2>
-		<div class="about"><?php echo sprintf( __( 'lovingly maintained by %sDuane Storey%s &amp; %sElevateWP.io%s', 'elevate-seo' ), '<a href="https://twitter.com/duanestorey">', '</a>', '<a href="https://elevatewp.io">', '</a>' ); ?></div>
+		<div class="about"><?php echo sprintf( __( 'lovingly maintained by %sDuane Storey%s &amp; %sElevateWP.io%s', 'elevate-seo' ), '<a href="https://twitter.com/duanestorey" target="_blank">', '</a>', '<a href="https://elevatewp.io" target="_blank">', '</a>' ); ?></div>
 		<div class="clear"></div>
 	</div>
 
