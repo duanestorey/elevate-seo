@@ -4,7 +4,7 @@ Tags: seo, pagespeed, google, sitemap, woocommerce
 Requires at least: 4.8
 Tested up to: 5.0
 Requires PHP: 5.6
-Stable tag: 1.1.3
+Stable tag: 1.1.5
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
  
@@ -81,6 +81,10 @@ Yes, in order to make authentication of Google OAuth more user-friendly, Elevate
 To install the plugin, simply add the plugin from the WordPress admin panel in the plugins section. Upon installing, you can configure the plugin using the Getting Started wizard, or configure the settings manually for the plugin.
  
 == Changelog ==
+
+= Version 1.1.5 (Dec 6, 2018) =
+
+* Fixed: Compatibility with Gutenberg in WordPress 5.0
 
 = Version 1.1.4 (Nov 30, 2018) =
 

@@ -1810,7 +1810,11 @@ class ElevatePlugin {
 	}
 
 	private function _is_gutenberg_installed() {
-		return function_exists( 'the_gutenberg_project' );
+		if ( version_compare( get_bloginfo( 'version' ), '5.0' ) >= 0 ) {
+			return true;
+		} else {
+			return function_exists( 'the_gutenberg_project' );
+		}	
 	}
 
 	public function get_admin_color( $index ) {

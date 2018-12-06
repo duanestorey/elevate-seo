@@ -1,5 +1,5 @@
 function elevateIsGutenberg() {
-	var guten = jQuery( '.gutenberg__editor' );
+	var guten = jQuery( '.block-editor__container' );
 	return ( guten.length );
 }
 
@@ -531,7 +531,9 @@ function doElevateMetaReady() {
 
 jQuery( document ).ready( function() { 
 	var items = jQuery( '#post-title-0, #title' );
-	if ( items.length || jQuery( 'body' ).hasClass( 'gutenberg-editor-page' ) || ElevateData.is_editing_term != '0' ) {
+
+	var guten = jQuery( '.block-editor__container' );
+	if ( items.length || guten.length || ElevateData.is_editing_term != '0' ) {
 		doElevateMetaReady(); 	
 	}
 } );
