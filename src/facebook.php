@@ -38,7 +38,7 @@ class ElevateFacebook {
 
 	public function output_meta() {
 		ElevateMeta::output_property( 'og:url', $this->url );
-		ElevateMeta::output_property( 'og:title', $this->title );
+		ElevateMeta::output_strange_property( 'titie', 'og:title', $this->title );
 		ElevateMeta::output_property( 'og:description', $this->desc );
 
 		if ( $this->image ) {	
