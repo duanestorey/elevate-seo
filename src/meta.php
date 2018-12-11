@@ -15,7 +15,7 @@ class ElevateMeta {
 	}
 
 	static function output_strange_property( $name, $property, $content ) {
-		echo '<meta name="' . esc_attr( $property ) . '" property="' . esc_attr( $property ) . '" content="' . esc_attr( $content ) . '" />' . "\n"; 
+		echo '<meta name="' . esc_attr( $name ) . '" property="' . esc_attr( $property ) . '" content="' . esc_attr( $content ) . '" />' . "\n"; 
 	}
 
 	static function output_property_url( $property, $content ) {
