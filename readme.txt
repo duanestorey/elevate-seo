@@ -20,7 +20,7 @@ Elevate will also insert the appropriate information for Facebook, Twitter and L
 
 Using Elevate's comprehensive SEO and performance dashboard, you will be able to instantly see key metrics for your website, including page views, visitors, crawl errors, website speed, organic search impressions, and click through rate (CTR).  You'll also be able to see which direction those numbers are trending - is your website getting better, or worse?  This feedback is invaluable for website owners, and will let them continue to improve and track changes to their websites.
 
-For more information, please visit the official [Elevate for WordPress](https://elevatewp.io/?utm_campaign=wporg&utm_medium=web&utm_source=wporg "Elevate for WordPress"). home page.
+For more information, please visit the official [Elevate for WordPress](https://elevatewp.io/?utm_campaign=wporg&utm_medium=web&utm_source=wporg "Elevate for WordPress"). home page. Plugin developed by Duane Storey and [Lindell Media](https://lindellmedia.com/?utm_campaign=wporg&utm_medium=web&utm_source=wporg "Lindell Media").
 
 Elevate SEO contains these great features:
  
