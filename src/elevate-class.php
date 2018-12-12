@@ -459,14 +459,8 @@ class ElevatePlugin {
 			print_r( $response );
 
 			print_r( $this_post );
-			die;
-			query_posts( 'p=' . $this_post->ID );
 
-			if ( have_posts() ) {
-				the_post();
-			}
-
-			$response[ 'title' ] = $this->_get_internal_title();	
+			$response[ 'title' ] = $this->_get_internal_title( $this_post->ID );	
 		}
 		
 		return $response;
@@ -2018,7 +2012,14 @@ class ElevatePlugin {
 		return function_exists( 'is_shop' ) && is_shop();
 	}
 
-	private function _get_internal_title() {
+	private function _get_internal_title( $id = false ) {
+		if ( $id ) {
+			global $post;	
+			$post_object = get_post( $id ;)
+			$post = $post_object;
+			setup_postdata( $post );
+		}
+
 		require_once( 'title-modifier.php' );
 
 		if ( $this->_is_woo_commerce_shop_page() ) {
