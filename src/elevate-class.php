@@ -410,7 +410,7 @@ class ElevatePlugin {
 		add_filter( 'admin_body_class', array( &$this, 'handle_admin_body_class' ) );
 
 		add_filter( 'wp_title', array( &$this, 'handle_title' ), -1 );
-		add_filter( 'pre_get_document_title', array( &$this, 'handle_title' ), -1 );		
+		add_filter( 'pre_get_document_title', array( &$this, 'handle_title' ), -1 );	 	
 
 		elevate_check_cron_job();
 
