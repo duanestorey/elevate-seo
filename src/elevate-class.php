@@ -412,7 +412,7 @@ class ElevatePlugin {
 
 		add_filter( 'wp_title', array( &$this, 'handle_title' ), -1 );
 		add_filter( 'pre_get_document_title', array( &$this, 'handle_title' ), -1 );	
-		add_filter( 'the_title', array( $this, 'handle_the_title' ) );
+	//	add_filter( 'the_title', array( $this, 'handle_the_title' ) );
 
 		add_filter( 'oembed_response_data', array( $this, 'handle_oembed' ), 10, 4 );	
 
