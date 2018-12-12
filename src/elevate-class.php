@@ -456,6 +456,10 @@ class ElevatePlugin {
 
 	public function handle_oembed( $response, $this_post, $width, $height ) {
 		if ( isset( $response[ 'title' ] ) ) {
+			print_r( $response );
+
+			print_r( $this_post );
+			die;
 			query_posts( 'p=' . $this_post->ID );
 
 			if ( have_posts() ) {
