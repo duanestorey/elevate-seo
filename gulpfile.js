@@ -44,7 +44,7 @@ gulp.task( 'image', function() {
 	var result =  
 		gulp.src( ['./assets/images/*.jpg', './assets/images/*.png'] )
         .pipe( resize( {
-                width: 1600,
+                width: 1200,
                 filter: 'Catrom'
          }))
    		.pipe( image() )
