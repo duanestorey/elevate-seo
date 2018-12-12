@@ -18,6 +18,7 @@ class ElevatePlugin {
 	var $elevate_db;
 	var $debug_log;
 	var $override_locale;
+	var $page_title;
 
 	function __construct() {
 		$this->settings = false;
@@ -410,7 +411,10 @@ class ElevatePlugin {
 		add_filter( 'admin_body_class', array( &$this, 'handle_admin_body_class' ) );
 
 		add_filter( 'wp_title', array( &$this, 'handle_title' ), -1 );
-		add_filter( 'pre_get_document_title', array( &$this, 'handle_title' ), -1 );		
+		add_filter( 'pre_get_document_title', array( &$this, 'handle_title' ), -1 );	
+		add_filter( 'the_title', array( $this, 'handle_the_title' ) );
+
+		add_filter( 'oembed_response_data', array( $this, 'handle_oembed' ), 10, 4 );	
 
 		elevate_check_cron_job();
 
@@ -440,6 +444,28 @@ class ElevatePlugin {
 		$this->check_for_version_update();
 
 		do_action( 'elevate_post_init' );
+	}
+
+	public function handle_the_title( $title ) {
+		if ( !$this->page_title ) {
+			$this->page_title = $this->_get_internal_title();
+		} 
+		
+		return $this->page_title;
+	}
+
+	public function handle_oembed( $response, $this_post, $width, $height ) {
+		if ( isset( $response[ 'title' ] ) ) {
+			query_posts( 'p=' . $this_post->ID );
+
+			if ( have_posts() ) {
+				the_post();
+			}
+
+			$response[ 'title' ] = $this->_get_internal_title();	
+		}
+		
+		return $response;
 	}
 
 	public function check_for_version_update() {
@@ -2010,21 +2036,14 @@ class ElevatePlugin {
 				return $this->settings->home_title;
 			}
 		} else if ( is_singular() ) {	
-			if ( have_posts() ) {
-				the_post();
+			global $post;
 
-				if ( is_singular() ) {
-					$title = get_the_title();
+			$title = $post->post_title;
 
-					$meta_info = $this->get_saved_meta_box_info( get_the_ID() );
+			$meta_info = $this->get_saved_meta_box_info( get_the_ID() );
 
-					if ( $meta_info->title ) {
-						rewind_posts();
-						return $meta_info->title;
-					}
-				}
-
-				rewind_posts();
+			if ( $meta_info->title ) {
+				return $meta_info->title;
 			}
 
 			if ( is_single() ) {
@@ -2056,10 +2075,13 @@ class ElevatePlugin {
 	}
 
 	public function handle_title( $title ) {
-		if ( is_admin() || is_feed() ) {
+		if ( is_admin() ) {
 			return $title;
 		} else {
-			return $this->_get_internal_title();	
+			if ( !$this->page_title ) {
+				$this->page_title = $this->_get_internal_title();	
+			}
+			return $this->page_title;	
 		}	
 	}
 
