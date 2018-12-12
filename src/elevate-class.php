@@ -2015,7 +2015,7 @@ class ElevatePlugin {
 	private function _get_internal_title( $id = false ) {
 		if ( $id ) {
 			global $post;	
-			$post_object = get_post( $id ;)
+			$post_object = get_post( $id );
 			$post = $post_object;
 			setup_postdata( $post );
 		}
