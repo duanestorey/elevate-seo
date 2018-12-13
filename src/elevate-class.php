@@ -2058,6 +2058,13 @@ class ElevatePlugin {
 			return ElevateTitleModifier::apply_title_template( false, $this->settings->search_template );
 		} else if ( defined( 'REST_REQUEST' ) ) {
 			// assume this is an oembed request
+			$front_page = get_option( 'page_on_front', false );
+			if ( is_numeric( $front_page ) ) {
+				if ( get_the_ID() == $front_page ) {
+					return $this->settings->home_title;
+				}
+			}
+
 			$title = get_the_title();
 
 			$meta_info = $this->get_saved_meta_box_info( get_the_ID() );
