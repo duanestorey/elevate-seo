@@ -1982,9 +1982,9 @@ class ElevatePlugin {
 			wp_enqueue_style( 'elevate-meta-css', ELEVATE_PLUGIN_URL . '/dist/css/meta.css', false, ELEVATE_CACHE_VERSION );
 
 			if ( ELEVATE_USE_MINIFIED_SCRIPTS ) {
-				wp_enqueue_script( 'elevate-custom', ELEVATE_PLUGIN_URL . '/dist/js/bundle.min.js', $depends, ELEVATE_CACHE_VERSION, true );
+				wp_enqueue_script( 'elevate-custom', ELEVATE_PLUGIN_URL . '/dist/js/bundle.min.js', $depends, ELEVATE_CACHE_VERSION, false );
 			} else {
-				wp_enqueue_script( 'elevate-custom', ELEVATE_PLUGIN_URL . '/dist/js/bundle.js', $depends, ELEVATE_CACHE_VERSION, true );
+				wp_enqueue_script( 'elevate-custom', ELEVATE_PLUGIN_URL . '/dist/js/bundle.js', $depends, ELEVATE_CACHE_VERSION, false );
 			}
 			
 
