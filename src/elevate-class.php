@@ -25,6 +25,78 @@ class ElevatePlugin {
 		$this->override_locale = false;
 	}
 
+	public function initialize() {
+		do_action( 'elevate_pre_init' );
+
+		add_theme_support( 'post-thumbnails' ); 
+
+		add_action( 'admin_menu', array( &$this, 'create_admin_menu' ) );
+		add_action( 'admin_init', array( &$this, 'admin_init' ) );
+		add_action( 'admin_bar_menu', array( &$this, 'admin_tool_bar' ), 100 );
+		add_action( 'admin_enqueue_scripts', array( &$this, 'handle_admin_enqueue_scripts' ) );
+		add_action( 'admin_head', array( &$this, 'handle_admin_head' ) );
+
+		add_action( 'wp_ajax_elevate_ajax', array( &$this, 'handle_admin_ajax' ) );
+
+		add_action( 'add_meta_boxes', array( &$this, 'setup_post_meta_box' ) );
+		add_action( 'save_post', array( $this, 'save_meta_box_info' ), 10, 3 );	
+
+		add_action( 'init', array( &$this, 'handle_init' ) );
+		add_action( 'wp', array( &$this, 'handle_wp' ) );
+		add_action( 'wp_head', array( &$this, 'handle_wp_head' ) );
+		add_action( 'wp_footer', array( &$this, 'handle_footer' ) );
+	
+		add_action( 'publish_post', array( &$this, 'refresh_sitemap' ) );
+		add_action( 'publish_page', array( &$this, 'refresh_sitemap' ) );
+
+		add_filter( 'get_canonical_url', array( &$this, 'filter_wp_canonical' ), 10, 2 ); 
+		add_filter( 'robots_txt', array( &$this, 'handle_robots' ), 10, 2 );
+		add_action( 'elevate_sitemap_update', array( &$this, 'elevate_sitemap_update' ), 10, 2 );
+		add_action( 'after_setup_theme', array( &$this, 'setup_languages' ) );
+		add_filter( 'locale', array( &$this, 'handle_locale' ) );
+		add_filter( 'admin_body_class', array( &$this, 'handle_admin_body_class' ) );
+
+		add_filter( 'wp_title', array( &$this, 'handle_title' ), -1 );
+		add_filter( 'pre_get_document_title', array( &$this, 'handle_title' ), -1 );	 
+		add_filter( 'oembed_response_data', array( $this, 'handle_oembed' ), 10, 4 );	
+
+		elevate_check_cron_job();
+
+		$this->debug_log = ElevateDebug::instance();
+
+		$this->_cleanup_get_and_post();
+
+		if ( !$this->settings ) {
+			$this->settings = new stdClass;
+			$this->_load_saved_settings();	
+		}	
+
+		do_action( 'elevate_settings_loaded', $this->settings );
+
+		$this->debug_log->enable( $this->settings->enable_debug_log );
+
+		do_action( 'elevate_debug_log_ready', $this->debug_log );
+
+		// Load the sitemap generator
+		// TODO: Defer this to later
+		require_once( dirname( __FILE__ ) . '/sitemap.php' );
+		$this->sitemap_generator = new ElevateSitemap( $this, $this->_check_sitemap_status(), $this->_get_sitemap_dir(), $this->_get_sitemap_params() );
+
+		// Load our class for manipulating the DB tables
+		require_once( dirname( __FILE__ ) . '/elevate-db.php' );
+		$this->elevate_db = new ElevateDB;
+		$this->check_for_version_update();
+
+		do_action( 'elevate_post_init' );
+	}
+
+	public function handle_oembed( $response, $post, $width, $height ) {
+		if ( isset( $response[ 'title' ] ) ) {
+			$response[ 'title' ] = $this->_get_internal_title( $post->ID );
+		}
+		return $response;
+	}
+
 	static function get_supported_languages() {
 		return array( 
 			'auto' => __( 'Automatic', 'elevate-seo' ),
@@ -376,70 +448,6 @@ class ElevatePlugin {
 				}			
 			}			
 		}
-	}
-
-	public function initialize() {
-		do_action( 'elevate_pre_init' );
-
-		add_theme_support( 'post-thumbnails' ); 
-
-		add_action( 'admin_menu', array( &$this, 'create_admin_menu' ) );
-		add_action( 'admin_init', array( &$this, 'admin_init' ) );
-		add_action( 'admin_bar_menu', array( &$this, 'admin_tool_bar' ), 100 );
-		add_action( 'admin_enqueue_scripts', array( &$this, 'handle_admin_enqueue_scripts' ) );
-		add_action( 'admin_head', array( &$this, 'handle_admin_head' ) );
-
-		add_action( 'wp_ajax_elevate_ajax', array( &$this, 'handle_admin_ajax' ) );
-
-		add_action( 'add_meta_boxes', array( &$this, 'setup_post_meta_box' ) );
-		add_action( 'save_post', array( $this, 'save_meta_box_info' ), 10, 3 );	
-
-		add_action( 'init', array( &$this, 'handle_init' ) );
-		add_action( 'wp', array( &$this, 'handle_wp' ) );
-		add_action( 'wp_head', array( &$this, 'handle_wp_head' ) );
-		add_action( 'wp_footer', array( &$this, 'handle_footer' ) );
-	
-		add_action( 'publish_post', array( &$this, 'refresh_sitemap' ) );
-		add_action( 'publish_page', array( &$this, 'refresh_sitemap' ) );
-
-		add_filter( 'get_canonical_url', array( &$this, 'filter_wp_canonical' ), 10, 2 ); 
-		add_filter( 'robots_txt', array( &$this, 'handle_robots' ), 10, 2 );
-		add_action( 'elevate_sitemap_update', array( &$this, 'elevate_sitemap_update' ), 10, 2 );
-		add_action( 'after_setup_theme', array( &$this, 'setup_languages' ) );
-		add_filter( 'locale', array( &$this, 'handle_locale' ) );
-		add_filter( 'admin_body_class', array( &$this, 'handle_admin_body_class' ) );
-
-		add_filter( 'wp_title', array( &$this, 'handle_title' ), -1 );
-		add_filter( 'pre_get_document_title', array( &$this, 'handle_title' ), -1 );	 	
-
-		elevate_check_cron_job();
-
-		$this->debug_log = ElevateDebug::instance();
-
-		$this->_cleanup_get_and_post();
-
-		if ( !$this->settings ) {
-			$this->settings = new stdClass;
-			$this->_load_saved_settings();	
-		}	
-
-		do_action( 'elevate_settings_loaded', $this->settings );
-
-		$this->debug_log->enable( $this->settings->enable_debug_log );
-
-		do_action( 'elevate_debug_log_ready', $this->debug_log );
-
-		// Load the sitemap generator
-		// TODO: Defer this to later
-		require_once( dirname( __FILE__ ) . '/sitemap.php' );
-		$this->sitemap_generator = new ElevateSitemap( $this, $this->_check_sitemap_status(), $this->_get_sitemap_dir(), $this->_get_sitemap_params() );
-
-		// Load our class for manipulating the DB tables
-		require_once( dirname( __FILE__ ) . '/elevate-db.php' );
-		$this->elevate_db = new ElevateDB;
-		$this->check_for_version_update();
-
-		do_action( 'elevate_post_init' );
 	}
 
 	public function check_for_version_update() {
@@ -1990,7 +1998,7 @@ class ElevatePlugin {
 
 	private function _get_internal_title( $id = false ) {
 		if ( $id ) {
-			global $post;	
+			global $post;
 			$post_object = get_post( $id );
 			$post = $post_object;
 			setup_postdata( $post );
@@ -2017,21 +2025,12 @@ class ElevatePlugin {
 				return $this->settings->home_title;
 			}
 		} else if ( is_singular() ) {	
-			if ( have_posts() ) {
-				the_post();
+			$title = get_the_title();
 
-				if ( is_singular() ) {
-					$title = get_the_title();
+			$meta_info = $this->get_saved_meta_box_info( get_the_ID() );
 
-					$meta_info = $this->get_saved_meta_box_info( get_the_ID() );
-
-					if ( $meta_info->title ) {
-						rewind_posts();
-						return $meta_info->title;
-					}
-				}
-
-				rewind_posts();
+			if ( $meta_info->title ) {
+				return $meta_info->title;
 			}
 
 			if ( is_single() ) {
@@ -2057,6 +2056,16 @@ class ElevatePlugin {
 			return ElevateTitleModifier::apply_title_template( false, $this->settings->fof_template );
 		} else if ( is_search() ) {
 			return ElevateTitleModifier::apply_title_template( false, $this->settings->search_template );
+		} else if ( defined( 'REST_REQUEST' ) ) {
+			// assume this is an oembed request
+			$title = get_the_title();
+
+			$meta_info = $this->get_saved_meta_box_info( get_the_ID() );
+
+			if ( $meta_info->title ) {
+				$title = $meta_info->title;
+			}
+			return ElevateTitleModifier::apply_title_template( $title, $this->settings->post_template );
 		} else {
 			return ElevateTitleModifier::apply_title_template( $title, $this->settings->post_template );
 		}		
