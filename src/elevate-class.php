@@ -56,8 +56,8 @@ class ElevatePlugin {
 		add_filter( 'locale', array( &$this, 'handle_locale' ) );
 		add_filter( 'admin_body_class', array( &$this, 'handle_admin_body_class' ) );
 
-		add_filter( 'wp_title', array( &$this, 'handle_title' ), -1 );
-		add_filter( 'pre_get_document_title', array( &$this, 'handle_title' ), -1 );	 
+		add_filter( 'wp_title', array( &$this, 'handle_title' ), 20 );
+		add_filter( 'pre_get_document_title', array( &$this, 'handle_title' ), 20 );	 
 		add_filter( 'oembed_response_data', array( $this, 'handle_oembed' ), 10, 4 );	
 
 		elevate_check_cron_job();
@@ -2034,10 +2034,12 @@ class ElevatePlugin {
 			}
 
 			if ( is_single() ) {
-				return ElevateTitleModifier::apply_title_template( $title, $this->settings->post_template );
+				$title = ElevateTitleModifier::apply_title_template( $title, $this->settings->post_template );
 			} else if ( is_page() ) {
-				return ElevateTitleModifier::apply_title_template( $title, $this->settings->page_template );
+				$title = ElevateTitleModifier::apply_title_template( $title, $this->settings->page_template );
 			}
+
+			return $title;
 		} else if ( is_category() || is_tag() || is_tax() ) {
 			$category = get_queried_object();
 
@@ -2079,11 +2081,15 @@ class ElevatePlugin {
 	}
 
 	public function handle_title( $title ) {
-		if ( is_admin() || is_feed() ) {
-			return $title;
+		if ( $this->settings->insert_meta ) {
+			if ( is_admin() || is_feed() ) {
+				return $title;
+			} else {
+				return $this->_get_internal_title();	
+			}		 
 		} else {
-			return $this->_get_internal_title();	
-		}	
+			return $title;
+		}
 	}
 
 	function init_default_settings( &$settings ) {
@@ -2186,6 +2192,7 @@ class ElevatePlugin {
 		$settings->redirect_media = 1;
 
 		// Google
+		$settings->insert_meta = 1;
 		$settings->insert_analytics = 0;
 		$settings->analytics_code = '';
 		$settings->fill_empty_description = 1;
@@ -2646,6 +2653,8 @@ class ElevatePlugin {
 	}
 
 	public function get_intelligent_meta_desc( $id = false, $max_length = 300 ) {
+		global $post;
+
 		$description = false;
 
 		if ( $id ) {
@@ -2653,7 +2662,7 @@ class ElevatePlugin {
 
 			$content = strip_tags( strip_shortcodes( $post->post_content ) );
 		} else {
-			$content = strip_shortcodes( strip_shortcodes( strip_tags( get_the_content() ) ) );	
+			$content = strip_shortcodes( strip_tags( apply_filters( 'the_content', $post->post_content ) ) );	
 		}
 
 		if ( strlen( $content ) < $max_length ) {
@@ -2975,7 +2984,9 @@ class ElevatePlugin {
 
 	function handle_wp_head() {
 		// Where we output meta fields
-		$this->_output_meta_fields();
+		if ( $this->settings->insert_meta ) {
+			$this->_output_meta_fields();
+		}
 	}
 
 	function handle_admin_head() {

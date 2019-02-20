@@ -32,6 +32,8 @@ $section->add_setting( new ElevateSettingTextArea( 'robots_extra', __( 'Other in
 $page->add_section( $section );
 
 $section = new ElevateSettingsSection( __( 'Search Information', 'elevate-seo' ), __( 'Configure meta fields', 'elevate-seo' ) );
+$section->add_setting( new ElevateSettingCheckbox( 'insert_meta', __( 'Insert title and meta tags', 'elevate-seo' ), __( 'If you are using another SEO plugin, you may want to disable inserting meta tags from Elevate.', 'elevate-seo' ) ) );
+$section->add_setting( new ElevateSettingSpacer() );
 $section->add_setting( new ElevateSettingCheckbox( 'insert_canonical', __( 'Allow editing the canonical field', 'elevate-seo' ), __( 'This option will insert canonical meta information on each post or page for you to edit.', 'elevate-seo' ) ) );
 $section->add_setting( new ElevateSettingCheckbox( 'insert_language', __( 'Allow editing the language field', 'elevate-seo' ), __( 'This option will insert the language field for each post or page to select.', 'elevate-seo' ) ) );
 $section->add_setting( new ElevateSettingCheckbox( 'insert_robots', __( 'Allow editing the index status', 'elevate-seo' ), __( 'This option will allow you to edit the robots information for each post or page.', 'elevate-seo' ) ) );
