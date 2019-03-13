@@ -4,7 +4,7 @@ Tags: seo, pagespeed, google, sitemap, woocommerce
 Requires at least: 4.8
 Tested up to: 5.1
 Requires PHP: 5.6
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
  
@@ -66,7 +66,7 @@ Elevate is completely free!  Enjoy!
 
 = What other plugins have you made? =
 
-I helped co-create several other extremely popular plugins, include WPtouch and WordTwit.  WPtouch was previously voted the #1 plugin for all of WordPress, and currently has over 11 million downloads.
+I helped co-create several other extremely popular plugins, include WPtouch and WordTwit. WPtouch was previously voted the #1 plugin for all of WordPress, and currently has over 11 million downloads.
 
 = Awesome! - what other features can I expect in the short term? =
 
@@ -81,6 +81,10 @@ Yes, in order to make authentication of Google OAuth more user-friendly, Elevate
 To install the plugin, simply add the plugin from the WordPress admin panel in the plugins section. Upon installing, you can configure the plugin using the Getting Started wizard, or configure the settings manually for the plugin.
  
 == Changelog ==
+
+= Version 1.2.1 (Mar 13, 2018) =
+
+* Updated: Fixed issue with errand sitemap entries related to trashed and private posts
 
 = Version 1.2.0 (Feb 20, 2018) =
 

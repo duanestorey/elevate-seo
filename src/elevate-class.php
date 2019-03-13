@@ -46,8 +46,12 @@ class ElevatePlugin {
 		add_action( 'wp_head', array( &$this, 'handle_wp_head' ) );
 		add_action( 'wp_footer', array( &$this, 'handle_footer' ) );
 	
+		/*
 		add_action( 'publish_post', array( &$this, 'refresh_sitemap' ) );
 		add_action( 'publish_page', array( &$this, 'refresh_sitemap' ) );
+		*/
+		add_action( 'transition_post_status', array( $this, 'handle_transition_content' ), 10, 3 );
+		//add_action( 'transition_page_status', array( &$this, 'handle_transition_content', 10, 3 ) );
 
 		add_filter( 'get_canonical_url', array( &$this, 'filter_wp_canonical' ), 10, 2 ); 
 		add_filter( 'robots_txt', array( &$this, 'handle_robots' ), 10, 2 );
@@ -88,6 +92,10 @@ class ElevatePlugin {
 		$this->check_for_version_update();
 
 		do_action( 'elevate_post_init' );
+	}
+
+	public function handle_transition_content( $new, $old, $post ) {
+		$this->refresh_sitemap();
 	}
 
 	public function handle_oembed( $response, $post, $width, $height ) {
@@ -366,6 +374,8 @@ class ElevatePlugin {
 		$this->_update_search_and_analytics_data( $url_to_inspect );
 		$this->get_page_speed( $url_to_inspect );
 		$this->_get_analytics_page_data();
+
+		$this->refresh_sitemap();
 
 		ELEVATE_DEBUG( ELEVATE_DEBUG_INFO, 'CRON END' );
 	}
