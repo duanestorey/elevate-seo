@@ -146,8 +146,8 @@ class ElevateSitemap extends WP_Async_Task {
 			$this->_write_sitemap_header( $sitemap_part );
 
 			$query_params[ 'posts_per_page' ] = ELEVATE_SITEMAP_PER_PAGE;
-			$query_params[ 'post_status' ] = 'publish';
-			
+			$query_params[ 'post_status' ] = array( 'publish' );
+
 			$query = new WP_Query( $query_params );
 
 			$total_entries = $query->found_posts;
