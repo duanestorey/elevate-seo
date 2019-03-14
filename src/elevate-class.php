@@ -1631,7 +1631,7 @@ class ElevatePlugin {
 					$this->_ajax_success( $result );
 					break;
 				case 'get_dashboard_search_data':
-					$result = $this->elevate_db->get_search_data( 0, 8 );
+					$result = $this->elevate_db->get_search_data( 0, 14 );
 
 					$this->_ajax_success( $result );
 					break;
