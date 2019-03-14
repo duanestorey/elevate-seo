@@ -17,6 +17,8 @@ if ( ElevatePlugin::get()->has_google_tokens() ) {
 			ElevatePlugin::get()->get_analytics_list_for_setting()
 		)
 	);
+	$section->add_setting( new ElevateSettingSpacer() );
+	
 	$section->add_setting( new ElevateSettingButton( 'search_console_deactivate', __( 'Google OAuth Authentication', 'elevate-seo' ), '', __( 'Remove Authentication', 'elevate-seo' ) ) );	
 } else {
 	$section->add_setting( new ElevateSettingButton( 'search_console_activate', __( 'Google OAuth Authentication', 'elevate-seo' ), '', __( 'Authenticate', 'elevate-seo' ) ) );	
