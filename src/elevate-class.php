@@ -776,7 +776,7 @@ class ElevatePlugin {
 		if ( defined( 'ELEVATE_NO_CACHE' ) || false === ( $search = get_transient( 'elevate_site_search_' . md5( $url ) ) ) ) {	
 			$search = new stdClass;
 
-		//	$search->crawl_errors = $this->get_crawl_errors( $url );
+			$search->crawl_errors = $this->get_crawl_errors( $url );
 			$search->analytics = $this->get_search_analytics( $url );
 
 			$this->elevate_db->add_search( 
@@ -784,9 +784,9 @@ class ElevatePlugin {
 				$search->analytics->clicks,
 				$search->analytics->ctr, 
 				$search->analytics->position,
-				0,
-				0,
-				0
+				$search->crawl_errors->not_found,
+				$search->crawl_errors->permissions,
+				$search->crawl_errors->server_error 
 			);	
 
 			ELEVATE_DEBUG( ELEVATE_DEBUG_VERBOSE, 'Looking at analytics data ' . print_r( $search, true ) );

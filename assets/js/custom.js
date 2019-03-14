@@ -648,19 +648,19 @@ function elevateInitialize() {
 				var decode = jQuery.parseJSON( response );
 
 				if ( ElevateData.has_google_tokens == 1 ) {
-					jQuery( '.crawl-errors' ).html( decode.body.crawl_errors.count );	
+					//jQuery( '.crawl-errors' ).html( decode.body.crawl_errors.count );	
 					jQuery( '.clicks' ).html( decode.body.search_analytics.clicks );
 				} else {
-					jQuery( '.crawl-errors' ).html( '0' );	
+					//jQuery( '.crawl-errors' ).html( '0' );	
 					jQuery( '.clicks' ).html( '0' );
 				}
 
 				jQuery( '.impressions' ).html( decode.body.search_analytics.impressions );
 
-				jQuery( '.not-found' ).html( decode.body.crawl_errors.not_found );
-				jQuery( '.not-auth' ).html( decode.body.crawl_errors.permissions );
-				jQuery( '.server-error' ).html( decode.body.crawl_errors.server_error );
-				jQuery( '.total-errors' ).html( decode.body.crawl_errors.not_found + decode.body.crawl_errors.permissions + decode.body.crawl_errors.server_error );
+				//jQuery( '.not-found' ).html( decode.body.crawl_errors.not_found );
+				//jQuery( '.not-auth' ).html( decode.body.crawl_errors.permissions );
+				//jQuery( '.server-error' ).html( decode.body.crawl_errors.server_error );
+			//	jQuery( '.total-errors' ).html( decode.body.crawl_errors.not_found + decode.body.crawl_errors.permissions + decode.body.crawl_errors.server_error );
 
 				jQuery( '.click-rate' ).html( decode.body.search_analytics.ctr );
 				jQuery( '.position' ).html( decode.body.search_analytics.position );
@@ -778,6 +778,7 @@ function elevateInitialize() {
 					}					
 				});	
 
+				/*
 				elevateAdminAjax( 'get_dashboard_404_data', {}, function( response ) {
 					var decode = jQuery.parseJSON( response );
 
@@ -827,6 +828,7 @@ function elevateInitialize() {
 					}				
 				});								
 			});
+			*/
 
 			elevateAdminAjax( 'get_dashboard_data_analytics', {}, function( response ) {
 				var decode = jQuery.parseJSON( response );
