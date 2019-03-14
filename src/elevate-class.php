@@ -917,11 +917,9 @@ class ElevatePlugin {
 
 			$this_site = trailingslashit( home_url() );
 			foreach( $accounts as $account ) {
-				//print_r( $account );
 				if ( count( $account ) ) {
 					foreach( $account as $account_num => $profile ) {
 						$url = trailingslashit( $profile->url );
-					//	echo $url . ' ' . $this_site . ' ' . strlen( $url ) . ' ' . strlen( $this_site ) . '<br />'; 
 						if ( $url == $this_site ) {
 							$list_params[ $profile->id ] = $profile->url . ' (' . $profile->id . ')';
 						}
