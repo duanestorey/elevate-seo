@@ -927,6 +927,8 @@ class ElevatePlugin {
 				}
 			}
 
+			$analytics_cache->add_to_cache( $list_params );
+
 			return $list_params;
 		} else {
 			return $analytics_cache->get_data();
@@ -952,8 +954,15 @@ class ElevatePlugin {
 
 						if ( $decoded_views ) {
 							foreach( $decoded_views->items as $key => $view ) {
-								if ( $this->_get_clean_url( $view->websiteUrl ) == $this->_get_clean_site_url() ) {
+								$matches = false;
 
+								if ( $this->settings->analytics_account_to_use == 'auto' ) {
+									$matches = ( $this->_get_clean_url( $view->websiteUrl ) == $this->_get_clean_site_url() );		
+								} else {
+									$matches = ( $view->webPropertyId == $this->settings->analytics_account_to_use );
+								}
+
+								if ( $matches ) {
 									$data = $search_console->get_analytics_report( $google_tokens->access_token, $view->id );
 									if ( $data ) {
 										$decoded_data = json_decode( $data );
@@ -3155,6 +3164,9 @@ class ElevatePlugin {
 
 	function show_plugin_dashboard() {
 		$this->_load_settings_scripts();
+
+		$this->_get_analytics_page_data();
+
 
 		include( ELEVATE_PLUGIN_DIR . '/admin/pages/dashboard.php' );
 	}
