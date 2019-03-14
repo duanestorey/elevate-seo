@@ -50,7 +50,6 @@
 						</div>
 
 						<div class="col-4">
-							
 							<span class="clicks">-</span>
 							<i class="fa fa-chevron-up"> </i><i class="fa fa-chevron-down"> </i>
 							<h4><?php _e( 'Clicks', 'elevate-seo' ); ?></h4>
@@ -62,24 +61,9 @@
 							<h4><?php _e( 'CTR', 'elevate-seo' ); ?></h4>
 						</div>						
 					</div>
-					<div class="item item-3">
-						<img class="spin" src="<?php echo ELEVATE_PLUGIN_URL; ?>/dist/images/dash-spinner.svg" alt="" style="display: none;" />
-						<h2><?php _e( 'Crawl', 'elevate-seo' ); ?> <?php if ( $has_tokens ) { ?><a href="https://search.google.com/search-console/index?resource_id=<?php echo urlencode( home_url() ); ?>" target="_blank"><i class="fa fa-external-link-square"> </i></a><?php } else { ?><i title="<?php _e( 'Requires Authentication', 'elevate-seo' ); ?>" class="fa fa-warning"> </i><?php } ?></h2>
-
-						<div class="col-1 reverse">
-							<span class="total-errors">-</span>
-							<i class="fa fa-chevron-up"> </i><i class="fa fa-chevron-down"> </i>
-							<h4><?php _e( 'Errors', 'elevate-seo' ); ?></h4>
-						</div>
-
-						<div class="col-2 reverse">
-							<span class="not-found">-</span>
-							<i class="fa fa-chevron-up"> </i><i class="fa fa-chevron-down"> </i>
-							<h4><?php _e( 'Not Found', 'elevate-seo' ); ?></h4>
-						</div>							
-					</div>
 					<div class="item visits">
 						<h2><?php _e( 'Visitors &amp Page Views', 'elevate-seo' ); ?></h2>
+						<h4><?php _e( 'From Google Analytics', 'elevate-seo' ); ?></h4>
 						<section class="graph">
 							<p class="waiting"><?php _e( 'Loading data...', 'elevate-seo' ); ?></p>
 							<canvas id="visits-chart"></canvas>
@@ -87,6 +71,7 @@
 					</div>	
 					<div class="item search-stats">
 						<h2><?php _e( 'Organic Traffic', 'elevate-seo' ); ?></h2>
+						<h4><?php _e( '7-Day Moving Average', 'elevate-seo' ); ?></h4>
 						<section class="graph">
 							<p class="waiting"><?php _e( 'Loading data...', 'elevate-seo' ); ?></p>
 							<canvas id="search-chart"></canvas>
@@ -94,18 +79,11 @@
 					</div>										
 					<div class="item speed">
 						<h2><?php _e( 'Speed Results', 'elevate-seo' ); ?></h2>
+						<h4><?php _e( 'From Page Speed Insights', 'elevate-seo' ); ?></h4>
 						<section class="graph">
 							<p class="waiting"><?php _e( 'Loading data...', 'elevate-seo' ); ?></p>
 							<canvas id="speed-chart"></canvas>
 						</section>													
-					</div>
-
-					<div class="item crawl">
-						<h2><?php _e( 'Site Errors', 'elevate-seo' ); ?></h2>
-						<section class="graph">
-							<p class="waiting"><?php _e( 'Loading data...', 'elevate-seo' ); ?></p>
-							<canvas id="crawl-chart"></canvas>
-						</section>														
 					</div>	
 					<div class="info google-info grow">
 						<div class="wrap"><i class="fa fa-google"> </i></div>
