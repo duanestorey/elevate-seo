@@ -217,7 +217,7 @@ class ElevateSearchConsole {
 		$url = 'https://www.googleapis.com/webmasters/v3/sites/' . urlencode( $site_url ) . '/searchAnalytics/query';
 
 		$end_date = time();
-		$start_date = ( $end_date + 24*HOUR_IN_SECONDS) - 14*HOUR_IN_SECONDS*24;
+		$start_date = ( $end_date + 24*HOUR_IN_SECONDS) - 7*HOUR_IN_SECONDS*24;
 
 		$search_params = '{ "startDate": "' . date( "Y-m-d", $start_date ) . '", "endDate": "' . date( "Y-m-d", $end_date ) . '"}';
 
