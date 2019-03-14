@@ -9,6 +9,14 @@ $section->add_setting( new ElevateSettingText( 'bing_auth_code', __( 'Bing site 
 
 $section->add_setting( new ElevateSettingSpacer() );
 if ( ElevatePlugin::get()->has_google_tokens() ) {
+	$section->add_setting( 
+		new ElevateSettingList( 
+			'analytics_account_to_use', 
+			__( 'Analytics account', 'elevate-seo' ), 
+			__( 'You can choose which analytics account to display information for on the dashboard.', 'elevate-seo' ), 
+			ElevatePlugin::get()->get_analytics_list_for_setting()
+		)
+	);
 	$section->add_setting( new ElevateSettingButton( 'search_console_deactivate', __( 'Google OAuth Authentication', 'elevate-seo' ), '', __( 'Remove Authentication', 'elevate-seo' ) ) );	
 } else {
 	$section->add_setting( new ElevateSettingButton( 'search_console_activate', __( 'Google OAuth Authentication', 'elevate-seo' ), '', __( 'Authenticate', 'elevate-seo' ) ) );	

@@ -2,7 +2,7 @@
 Contributors: lindellmedia, duanestorey
 Tags: seo, pagespeed, google, sitemap, woocommerce
 Requires at least: 4.8
-Tested up to: 5.1
+Tested up to: 5.1.1
 Requires PHP: 5.6
 Stable tag: 1.2.1
 License: GPLv3 or later

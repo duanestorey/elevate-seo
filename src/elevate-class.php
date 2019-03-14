@@ -906,6 +906,33 @@ class ElevatePlugin {
 		return false;
 	}
 
+	public function get_analytics_list_for_setting() {
+		$list_params = array(
+			'auto' => __( 'Detect automatically', 'elevate-seo' )
+		);
+		
+		$analytics_cache = ElevateLocalCache::create( 'analytics_account_cache' );
+		if ( !$analytics_cache->is_cached() ) {
+			$accounts = $this->_get_analytics_accounts();
+
+			$this_site = trailingslashit( home_url() );
+			foreach( $accounts as $account ) {
+				if ( count( $account ) ) {
+					foreach( $account as $account_num => $profile ) {
+
+						if ( trailingslashit( $profile->url ) == $this_site ) {
+							$list_params[ $profile->id ] = $profile->url . ' (' . $profile->id . ')';
+						}
+					}
+				}
+			}
+
+			return $list_params;
+		} else {
+			return $analytics_cache->get_data();
+		}
+	}
+
 	private function _get_analytics_page_data() {
 		$analytics_cache = ElevateLocalCache::create( 'analytics_cache' );
 		if ( !$analytics_cache->is_cached() ) {
@@ -2209,6 +2236,7 @@ class ElevatePlugin {
 		
 		$settings->thumbnail_behaviour = 'include_content';
 		$settings->bing_auth_code = '';
+		$settings->analytics_account_to_use = false;
 
 		// Performance
 		$settings->use_cdn = 0;
