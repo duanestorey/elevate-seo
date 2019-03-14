@@ -910,7 +910,7 @@ class ElevatePlugin {
 		$list_params = array(
 			'auto' => __( 'Detect automatically', 'elevate-seo' )
 		);
-		
+
 		$analytics_cache = ElevateLocalCache::create( 'analytics_account_cache' );
 		if ( !$analytics_cache->is_cached() ) {
 			$accounts = $this->_get_analytics_accounts();
@@ -919,8 +919,9 @@ class ElevatePlugin {
 			foreach( $accounts as $account ) {
 				if ( count( $account ) ) {
 					foreach( $account as $account_num => $profile ) {
-
-						if ( trailingslashit( $profile->url ) == $this_site ) {
+						$url = trailingslashit( $profile->url );
+						echo $url . ' ' . $this_site . ' ' . strlen( $url ) . ' ' . strlen( $this_site ) . '<br />';
+						if ( $url == $this_site ) {
 							$list_params[ $profile->id ] = $profile->url . ' (' . $profile->id . ')';
 						}
 					}
