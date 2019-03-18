@@ -1387,9 +1387,8 @@ function elevateInitialize() {
 					} else if ( decode.body.errors_not_found_dir < 0 ) {
 						jQuery( '.not-found' ).parent().find( '.fa-chevron-down' ).show();
 					}				
-				});								
+				});		 */						
 			});
-			*/
 
 			elevateAdminAjax( 'get_dashboard_data_analytics', {}, function( response ) {
 				var decode = jQuery.parseJSON( response );
