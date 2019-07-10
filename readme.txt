@@ -2,9 +2,9 @@
 Contributors: lindellmedia, duanestorey
 Tags: seo, pagespeed, google, sitemap, woocommerce
 Requires at least: 4.8
-Tested up to: 5.1.1
+Tested up to: 5.2
 Requires PHP: 5.6
-Stable tag: 1.2.2
+Stable tag: 1.3.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
  
@@ -82,17 +82,25 @@ To install the plugin, simply add the plugin from the WordPress admin panel in t
  
 == Changelog ==
 
-= Version 1.2.2 (Mar 18, 2018) =
+= Version 1.3.0 (July 10, 2019) =
+
+* Modified styling in the admin
+
+= Version 1.2.3 (May 7, 2019) =
+
+* Added: Support for WordPress 5.2
+
+= Version 1.2.2 (Mar 18, 2019) =
 
 * Added: Ability to select specific Google analytics account
 * Changed: Removed Google Search Console crawl errors as this API is being deprecated by Google
 * Fixed: Removed private posts from sitemap
 
-= Version 1.2.1 (Mar 13, 2018) =
+= Version 1.2.1 (Mar 13, 2019) =
 
 * Updated: Fixed issue with errand sitemap entries related to trashed and private posts
 
-= Version 1.2.0 (Feb 20, 2018) =
+= Version 1.2.0 (Feb 20, 2019) =
 
 * Fixed: Issue with duplicate site title in output with some themes
 * Added: Ability to disable meta tag insertion (useful on sites that run with another SEO plugin)
