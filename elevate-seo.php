@@ -5,12 +5,12 @@ Plugin URI: http://elevatewp.io
 Description: Search Engine Optimization and Performance Monitoring Suite
 Author: Duane Storey
 Tags: SEO, Sitemap, Google, Page Speed
-Version: 1.3.0
+Version: 1.3.1
 Author URI: https://elevatewp.io/
 Text Domain: elevate-seo
 */
 
-define( 'ELEVATE_PLUGIN_VERSION', '1.3.0' );
+define( 'ELEVATE_PLUGIN_VERSION', '1.3.1' );
 define( 'ELEVATE_PLUGIN_URL', plugins_url( '', __FILE__  ) );
 define( 'ELEVATE_PLUGIN_DIR', dirname( __FILE__ ) );
 define( 'ELEVATE_PLUGIN_SRC_DIR', dirname( __FILE__ ) . '/src/' );
