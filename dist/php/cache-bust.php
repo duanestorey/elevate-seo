@@ -1,4 +1,4 @@
 <?php
 
-define( 'ELEVATE_CACHE_VERSION', 'a4a57d9bd125' );
-define( 'ELEVATE_BUILD_VERSION', 'a4a57' );
+define( 'ELEVATE_CACHE_VERSION', '720e5c05807b' );
+define( 'ELEVATE_BUILD_VERSION', '720e5' );

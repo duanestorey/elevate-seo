@@ -527,38 +527,38 @@ section.elevate {
 .grow:hover {
   transform: scale(1.03); }
 
-.toplevel_page_elevate_dashboard #wpcontent,
-.toplevel_page_elevate_plugin #wpcontent {
+.toplevel_page_elevate_dashboard #wpbody,
+.toplevel_page_elevate_plugin #wpbody {
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url(../images/sunrise2.jpg);
   background-size: cover;
   background-attachment: fixed;
   background-position: top left; }
-  .toplevel_page_elevate_dashboard #wpcontent .header,
-  .toplevel_page_elevate_plugin #wpcontent .header {
+  .toplevel_page_elevate_dashboard #wpbody .header,
+  .toplevel_page_elevate_plugin #wpbody .header {
     border-bottom: none;
     padding-right: 10px;
     padding-left: 10px;
     padding-bottom: 10px;
     font-weight: bold; }
-    .toplevel_page_elevate_dashboard #wpcontent .header h2,
-    .toplevel_page_elevate_plugin #wpcontent .header h2 {
+    .toplevel_page_elevate_dashboard #wpbody .header h2,
+    .toplevel_page_elevate_plugin #wpbody .header h2 {
       margin-top: 10px;
       font-size: 23px;
       padding: 10px; }
-    .toplevel_page_elevate_dashboard #wpcontent .header h2,
-    .toplevel_page_elevate_dashboard #wpcontent .header .about,
-    .toplevel_page_elevate_plugin #wpcontent .header h2,
-    .toplevel_page_elevate_plugin #wpcontent .header .about {
+    .toplevel_page_elevate_dashboard #wpbody .header h2,
+    .toplevel_page_elevate_dashboard #wpbody .header .about,
+    .toplevel_page_elevate_plugin #wpbody .header h2,
+    .toplevel_page_elevate_plugin #wpbody .header .about {
       color: #fff; }
-    .toplevel_page_elevate_dashboard #wpcontent .header .about,
-    .toplevel_page_elevate_plugin #wpcontent .header .about {
+    .toplevel_page_elevate_dashboard #wpbody .header .about,
+    .toplevel_page_elevate_plugin #wpbody .header .about {
       margin-top: 15px; }
-    .toplevel_page_elevate_dashboard #wpcontent .header .about a,
-    .toplevel_page_elevate_plugin #wpcontent .header .about a {
+    .toplevel_page_elevate_dashboard #wpbody .header .about a,
+    .toplevel_page_elevate_plugin #wpbody .header .about a {
       text-decoration: underline; }
     @media (max-width: 768px) {
-      .toplevel_page_elevate_dashboard #wpcontent .header .about,
-      .toplevel_page_elevate_plugin #wpcontent .header .about {
+      .toplevel_page_elevate_dashboard #wpbody .header .about,
+      .toplevel_page_elevate_plugin #wpbody .header .about {
         display: none; } }
 
 .toplevel_page_elevate_dashboard #wpfooter,
