@@ -4,7 +4,7 @@ Tags: seo, pagespeed, google, sitemap, woocommerce
 Requires at least: 4.8
 Tested up to: 5.3
 Requires PHP: 5.6
-Stable tag: 1.3.1
+Stable tag: 1.4.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
  
@@ -82,9 +82,10 @@ To install the plugin, simply add the plugin from the WordPress admin panel in t
  
 == Changelog ==
 
-= Version 1.3.1 (November 12, 2019) =
+= Version 1.4. (November 12, 2019) =
 
 * Updated Compatibility with WordPress 5.3
+* Fixed: Styling issues with dashboard
 
 = Version 1.3.0 (July 10, 2019) =
 

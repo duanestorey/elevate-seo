@@ -335,20 +335,24 @@ $color_back_opacity: 0.8;
 			.item.visits {
 				grid-column: 1 / 11;
 				grid-row: 2;
+				display: grid;
 			}		
 
 			.item.speed {
 				grid-column: 1 / 6;
 				grid-row: 3;
+				display: grid;
 			}
 
 			.item.search-stats {
 				grid-column: 6 / 11;
 				grid-row: 3;
+				display: grid;
 			}
 
 			.item.crawl {
 				grid-column: 6 / 11;
+				display: grid;
 			}	
 			
 			@include breakpoint( md ) {

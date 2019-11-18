@@ -205,15 +205,19 @@ section.elevate {
       grid-column: 9 / 11; }
     .elevate #dashboard .big-data .top-grid .item.visits {
       grid-column: 1 / 11;
-      grid-row: 2; }
+      grid-row: 2;
+      display: grid; }
     .elevate #dashboard .big-data .top-grid .item.speed {
       grid-column: 1 / 6;
-      grid-row: 3; }
+      grid-row: 3;
+      display: grid; }
     .elevate #dashboard .big-data .top-grid .item.search-stats {
       grid-column: 6 / 11;
-      grid-row: 3; }
+      grid-row: 3;
+      display: grid; }
     .elevate #dashboard .big-data .top-grid .item.crawl {
-      grid-column: 6 / 11; }
+      grid-column: 6 / 11;
+      display: grid; }
     @media (max-width: 992px) {
       .elevate #dashboard .big-data .top-grid .item.visits {
         grid-column: 1 / 11;
